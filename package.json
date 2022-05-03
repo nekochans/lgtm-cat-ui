@@ -21,6 +21,9 @@
     "type": "git",
     "url": "git+https://github.com/nekochans/lgtm-cat-ui.git"
   },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/nekochans"
+  },
   "author": "nekochans",
   "license": "MIT",
   "bugs": {
