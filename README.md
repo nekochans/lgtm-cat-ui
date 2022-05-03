@@ -1,2 +1,3 @@
 # lgtm-cat-ui
-https://lgtmeow.com のUIComponentを管理する為のpackage
+
+https://lgtmeow.com の UIComponent を管理する為の package

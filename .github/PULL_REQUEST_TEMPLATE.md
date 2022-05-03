@@ -6,7 +6,7 @@
 
 [required]
 
-# スクリーンショット or StorybookのURL
+# スクリーンショット or Storybook の URL
 
 [optional] ただし UI 変更の時は [required]
 

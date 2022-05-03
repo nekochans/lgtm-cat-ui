@@ -32,10 +32,7 @@ export default [
       commonjs(),
       typescript({ tsconfig: './tsconfig.json' }),
       postcss({
-        plugins: [
-          tailwindcss('./tailwind.config.js'),
-          require('autoprefixer'),
-        ],
+        plugins: [tailwindcss('./tailwind.config.js'), require('autoprefixer')],
       }),
       image(),
     ],

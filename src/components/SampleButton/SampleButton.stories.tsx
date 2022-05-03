@@ -1,4 +1,5 @@
 import { SampleButton } from './SampleButton';
+
 import type { ComponentStoryObj, Meta } from '@storybook/react';
 
 export default {
