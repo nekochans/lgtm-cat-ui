@@ -1,7 +1,34 @@
-import React, { FC } from 'react';
+import React from 'react';
+import styled from 'styled-components';
 
-export const SampleButton: FC = () => (
-  <button type="button" className="text-4xl bg-blue-500 rounded">
-    SampleButton
-  </button>
-);
+export type Props = {
+  primary: boolean;
+  text: string;
+};
+
+const PrimaryButton = styled.button`
+  background-color: palevioletred;
+  color: white;
+  font-size: 1em;
+  margin: 1em;
+  padding: 0.25em 1em;
+  border: 2px solid palevioletred;
+  border-radius: 3px;
+`;
+
+const NormalButton = styled.button`
+  background-color: white;
+  font-size: 1em;
+  margin: 1em;
+  padding: 0.25em 1em;
+  border: 2px solid palevioletred;
+  border-radius: 3px;
+`;
+
+export const SampleButton: React.FC<Props> = ({ primary, text }) => {
+  if (primary) {
+    return <PrimaryButton>{text}</PrimaryButton>;
+  }
+
+  return <NormalButton>{text}</NormalButton>;
+};

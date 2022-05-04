@@ -9,4 +9,16 @@ export default {
 
 type Story = ComponentStoryObj<typeof SampleButton>;
 
-export const Default: Story = {};
+export const NormalButton: Story = {
+  args: {
+    text: 'NormalButton',
+    primary: false,
+  },
+};
+
+export const PrimaryButton: Story = {
+  args: {
+    text: 'PrimaryButton',
+    primary: true,
+  },
+};
