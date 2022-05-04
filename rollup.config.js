@@ -8,8 +8,6 @@ import dts from 'rollup-plugin-dts';
 
 const packageJson = require('./package.json');
 
-const tailwindcss = require('tailwindcss');
-
 export default [
   {
     input: 'src/index.ts',
@@ -31,9 +29,7 @@ export default [
       resolve(),
       commonjs(),
       typescript({ tsconfig: './tsconfig.json' }),
-      postcss({
-        plugins: [tailwindcss('./tailwind.config.js'), require('autoprefixer')],
-      }),
+      postcss(),
       image(),
     ],
     onwarn: (warning, defaultHandler) => {
