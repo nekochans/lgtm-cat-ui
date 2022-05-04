@@ -17,7 +17,8 @@
     "lint": "run-s lint:*",
     "format": "run-s fix:*",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "chromatic": "chromatic --project-token=$CHROMATIC_PROJECT_TOKEN"
   },
   "repository": {
     "type": "git",
@@ -55,6 +56,7 @@
     "@typescript-eslint/eslint-plugin": "^5.22.0",
     "@typescript-eslint/parser": "^5.22.0",
     "babel-loader": "^8.2.5",
+    "chromatic": "^6.5.4",
     "eslint": "^8.14.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-config-standard": "^17.0.0",
