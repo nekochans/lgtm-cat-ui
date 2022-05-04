@@ -7,20 +7,20 @@ export type Props = {
 };
 
 const PrimaryButton = styled.button`
-  background-color: palevioletred;
-  color: white;
-  font-size: 1em;
-  margin: 1em;
   padding: 0.25em 1em;
+  margin: 1em;
+  font-size: 1em;
+  color: white;
+  background-color: palevioletred;
   border: 2px solid palevioletred;
   border-radius: 3px;
 `;
 
 const NormalButton = styled.button`
-  background-color: white;
-  font-size: 1em;
-  margin: 1em;
   padding: 0.25em 1em;
+  margin: 1em;
+  font-size: 1em;
+  background-color: white;
   border: 2px solid palevioletred;
   border-radius: 3px;
 `;
