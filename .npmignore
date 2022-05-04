@@ -149,12 +149,6 @@ jest.config.js
 # Jest Mock
 __mocks__/
 
-# Tailwind CSS
-tailwind.config.js
-
-# PostCSS
-postcss.config.js
-
 # ESLint
 .eslintrc.js
 .eslintignore
