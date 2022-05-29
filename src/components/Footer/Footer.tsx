@@ -52,11 +52,22 @@ const LowerSectionText = styled.div`
   color: #43281e;
 `;
 
-export const Footer: React.FC = () => (
+type Props = {
+  terms: {
+    linkText: React.ReactNode;
+  };
+  privacy: {
+    linkText: React.ReactNode;
+  };
+};
+
+export const Footer: React.FC<Props> = ({ terms, privacy }) => (
   <StyledFooter>
     <UpperSection>
       {/* eslint-disable no-irregular-whitespace */}
-      <UpperSectionText>利用規約　/　プライバシーポリシー</UpperSectionText>
+      <UpperSectionText>
+        {terms.linkText}　/　{privacy.linkText}
+      </UpperSectionText>
     </UpperSection>
     <LowerSection>
       <LowerSectionText>Copyright (c) nekochans</LowerSectionText>
