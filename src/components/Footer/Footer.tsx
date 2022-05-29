@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import '@fontsource/roboto/index.css';
+
+import { Container } from '../Container';
 
 const StyledFooter = styled.div`
   position: relative;
@@ -63,15 +64,17 @@ type Props = {
 };
 
 export const Footer: React.FC<Props> = ({ terms, privacy }) => (
-  <StyledFooter>
-    <UpperSection>
-      {/* eslint-disable no-irregular-whitespace */}
-      <UpperSectionText>
-        {terms.linkText}　/　{privacy.linkText}
-      </UpperSectionText>
-    </UpperSection>
-    <LowerSection>
-      <LowerSectionText>Copyright (c) nekochans</LowerSectionText>
-    </LowerSection>
-  </StyledFooter>
+  <Container>
+    <StyledFooter>
+      <UpperSection>
+        {/* eslint-disable no-irregular-whitespace */}
+        <UpperSectionText>
+          {terms.linkText}　/　{privacy.linkText}
+        </UpperSectionText>
+      </UpperSection>
+      <LowerSection>
+        <LowerSectionText>Copyright (c) nekochans</LowerSectionText>
+      </LowerSection>
+    </StyledFooter>
+  </Container>
 );
