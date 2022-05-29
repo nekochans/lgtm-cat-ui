@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import '@fontsource/roboto';
 
 const StyledFooter = styled.div`
   position: relative;
