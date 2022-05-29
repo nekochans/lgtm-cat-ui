@@ -35,6 +35,7 @@
   "homepage": "https://github.com/nekochans/lgtm-cat-ui#readme",
   "devDependencies": {
     "@babel/core": "^7.17.10",
+    "@fontsource/roboto": "^4.5.7",
     "@rollup/plugin-commonjs": "^22.0.0",
     "@rollup/plugin-image": "^2.1.1",
     "@rollup/plugin-node-resolve": "^13.2.1",
