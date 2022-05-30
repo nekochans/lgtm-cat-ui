@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Container } from '../Container';
-
 const StyledFooter = styled.div`
   position: relative;
   display: flex;
@@ -23,7 +21,7 @@ const UpperSection = styled.div`
 const UpperSectionText = styled.div`
   width: 230px;
   height: 28px;
-  font-family: Roboto;
+  font-family: Roboto, sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -46,7 +44,7 @@ const LowerSection = styled.div`
 const LowerSectionText = styled.div`
   width: 152px;
   height: 28px;
-  font-family: Roboto;
+  font-family: Roboto, sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -64,17 +62,15 @@ type Props = {
 };
 
 export const Footer: React.FC<Props> = ({ terms, privacy }) => (
-  <Container>
-    <StyledFooter>
-      <UpperSection>
-        {/* eslint-disable no-irregular-whitespace */}
-        <UpperSectionText>
-          {terms.linkText}　/　{privacy.linkText}
-        </UpperSectionText>
-      </UpperSection>
-      <LowerSection>
-        <LowerSectionText>Copyright (c) nekochans</LowerSectionText>
-      </LowerSection>
-    </StyledFooter>
-  </Container>
+  <StyledFooter>
+    <UpperSection>
+      {/* eslint-disable no-irregular-whitespace */}
+      <UpperSectionText>
+        {terms.linkText}　/　{privacy.linkText}
+      </UpperSectionText>
+    </UpperSection>
+    <LowerSection>
+      <LowerSectionText>Copyright (c) nekochans</LowerSectionText>
+    </LowerSection>
+  </StyledFooter>
 );
