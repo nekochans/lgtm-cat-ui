@@ -26,7 +26,6 @@ const TermsLinkText = styled.a`
   flex: none;
   flex-grow: 0;
   order: 0;
-  width: 56px;
   height: 28px;
   font-family: Roboto, sans-serif;
   font-size: 14px;
@@ -42,7 +41,6 @@ const PrivacyLinkText = styled.a`
   flex: none;
   flex-grow: 0;
   order: 2;
-  width: 140px;
   height: 28px;
   font-family: Roboto, sans-serif;
   font-size: 14px;
