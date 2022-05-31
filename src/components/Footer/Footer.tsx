@@ -12,15 +12,16 @@ const StyledFooter = styled.div`
 const UpperSection = styled.div`
   display: flex;
   flex-direction: row;
-  gap: 10px;
-  align-items: flex-start;
-  padding: 10px 605px 20px;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 365px 20px;
   background: #fffcf6;
 `;
 
-const UpperSectionText = styled.div`
-  width: 230px;
-  height: 28px;
+const TermsLinkText = styled.a`
+  flex: none;
+  flex-grow: 0;
+  order: 0;
   font-family: Roboto, sans-serif;
   font-size: 14px;
   font-style: normal;
@@ -29,6 +30,27 @@ const UpperSectionText = styled.div`
   color: #43281e;
   text-align: center;
   text-decoration-line: underline;
+`;
+
+const PrivacyLinkText = styled.a`
+  font-family: Roboto, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px;
+  color: #43281e;
+  text-align: center;
+  text-decoration-line: underline;
+`;
+
+const SeparatorText = styled.div`
+  font-family: Roboto, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px;
+  color: #43281e;
+  text-align: center;
 `;
 
 const LowerSection = styled.div`
@@ -54,20 +76,22 @@ const LowerSectionText = styled.div`
 
 type Props = {
   terms: {
-    linkText: React.ReactNode;
+    text: string;
+    link: `https://${string}` | `/${string}`;
   };
   privacy: {
-    linkText: React.ReactNode;
+    text: string;
+    link: `https://${string}` | `/${string}`;
   };
 };
 
 export const Footer: React.FC<Props> = ({ terms, privacy }) => (
   <StyledFooter>
     <UpperSection>
+      <TermsLinkText href={terms.link}>{terms.text}</TermsLinkText>
       {/* eslint-disable no-irregular-whitespace */}
-      <UpperSectionText>
-        {terms.linkText}　/　{privacy.linkText}
-      </UpperSectionText>
+      <SeparatorText>　/　</SeparatorText>
+      <PrivacyLinkText href={privacy.link}>{privacy.text}</PrivacyLinkText>
     </UpperSection>
     <LowerSection>
       <LowerSectionText>Copyright (c) nekochans</LowerSectionText>

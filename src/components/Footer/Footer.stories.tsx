@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Footer } from './';
 
 import type { ComponentStoryObj, Meta } from '@storybook/react';
@@ -18,10 +16,12 @@ const privacyUrl = 'https://lgtmeow.com/privacy';
 export const ViewInJapanese: Story = {
   args: {
     terms: {
-      linkText: <a href={termsUrl}>利用規約</a>,
+      text: '利用規約',
+      link: termsUrl,
     },
     privacy: {
-      linkText: <a href={privacyUrl}>プライバシーポリシー</a>,
+      text: 'プライバシーポリシー',
+      link: privacyUrl,
     },
   },
 };
@@ -29,10 +29,12 @@ export const ViewInJapanese: Story = {
 export const ViewInEnglish: Story = {
   args: {
     terms: {
-      linkText: <a href={termsUrl}>Terms of Use</a>,
+      text: 'Terms of Use',
+      link: termsUrl,
     },
     privacy: {
-      linkText: <a href={privacyUrl}>Privacy Policy</a>,
+      text: 'Privacy Policy',
+      link: privacyUrl,
     },
   },
 };
