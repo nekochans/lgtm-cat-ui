@@ -9,18 +9,32 @@ export default {
 
 type Story = ComponentStoryObj<typeof Footer>;
 
-const termsUrl = 'https://lgtmeow.com/terms';
+const termsPath = '/terms';
 
-const privacyUrl = 'https://lgtmeow.com/privacy';
+const privacyPath = '/privacy';
+
+const jpTermsText = '利用規約';
+
+const jpPrivacyText = 'プライバシーポリシー';
+
+const enTermsText = 'Terms of Use';
+
+const enPrivacyText = 'Privacy Policy';
+
+const baseUrl = 'https://lgtmeow.com';
+
+const termsUrl = `${baseUrl}${termsPath}` as const;
+
+const privacyUrl = `${baseUrl}${privacyPath}` as const;
 
 export const ViewInJapanese: Story = {
   args: {
     terms: {
-      text: '利用規約',
+      text: jpTermsText,
       link: termsUrl,
     },
     privacy: {
-      text: 'プライバシーポリシー',
+      text: jpPrivacyText,
       link: privacyUrl,
     },
   },
@@ -29,12 +43,40 @@ export const ViewInJapanese: Story = {
 export const ViewInEnglish: Story = {
   args: {
     terms: {
-      text: 'Terms of Use',
+      text: enTermsText,
       link: termsUrl,
     },
     privacy: {
-      text: 'Privacy Policy',
+      text: enPrivacyText,
       link: privacyUrl,
     },
+  },
+};
+
+export const ViewInJapaneseWithNextLink: Story = {
+  args: {
+    terms: {
+      text: jpTermsText,
+      link: termsPath,
+    },
+    privacy: {
+      text: jpPrivacyText,
+      link: privacyPath,
+    },
+    useNextLink: true,
+  },
+};
+
+export const ViewInEnglishWithNextLink: Story = {
+  args: {
+    terms: {
+      text: enTermsText,
+      link: termsPath,
+    },
+    privacy: {
+      text: enPrivacyText,
+      link: privacyPath,
+    },
+    useNextLink: true,
   },
 };
