@@ -21,7 +21,7 @@ const UpperSection = styled.div`
 const UpperSectionText = styled.div`
   width: 230px;
   height: 28px;
-  font-family: Roboto;
+  font-family: Roboto, sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -44,7 +44,7 @@ const LowerSection = styled.div`
 const LowerSectionText = styled.div`
   width: 152px;
   height: 28px;
-  font-family: Roboto;
+  font-family: Roboto, sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
