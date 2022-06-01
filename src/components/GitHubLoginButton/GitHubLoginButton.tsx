@@ -33,7 +33,7 @@ const Text = styled.div`
 
 export const GitHubLoginButton: React.FC = () => (
   <StyledGitHubLoginButton>
-    <FaGithub style={{ width: '27px', height: '26.33px' }} />
+    <FaGithub style={{ width: '27px', height: '26.33px', color: '#fff' }} />
     <Text>Login</Text>
   </StyledGitHubLoginButton>
 );
