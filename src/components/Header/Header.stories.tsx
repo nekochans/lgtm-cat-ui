@@ -10,9 +10,3 @@ export default {
 type Story = ComponentStoryObj<typeof Header>;
 
 export const Default: Story = {};
-
-export const IncludeLoginButton: Story = {
-  args: {
-    includeLoginButton: true,
-  },
-};
