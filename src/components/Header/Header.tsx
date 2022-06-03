@@ -3,6 +3,7 @@ import { FaBars } from 'react-icons/fa';
 import styled from 'styled-components';
 
 import { LanguageButton } from './LanguageButton';
+import { LanguageMenu } from './LanguageMenu';
 
 const Wrapper = styled.div`
   background: #e9e2d7;
@@ -48,11 +49,14 @@ const faBarsStyle = {
 };
 
 export const Header: React.FC = () => (
-  <Wrapper>
-    <StyledHeader>
-      <FaBars style={faBarsStyle} />
-      <Title>LGTMeow</Title>
-      <LanguageButton />
-    </StyledHeader>
-  </Wrapper>
+  <>
+    <Wrapper>
+      <StyledHeader>
+        <FaBars style={faBarsStyle} />
+        <Title>LGTMeow</Title>
+        <LanguageButton />
+      </StyledHeader>
+    </Wrapper>
+    <LanguageMenu />
+  </>
 );
