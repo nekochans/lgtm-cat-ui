@@ -48,15 +48,23 @@ const faBarsStyle = {
   flexGrow: 0,
 };
 
-export const Header: React.FC = () => (
-  <>
-    <Wrapper>
-      <StyledHeader>
-        <FaBars style={faBarsStyle} />
-        <Title>LGTMeow</Title>
-        <LanguageButton />
-        <LanguageMenu />
-      </StyledHeader>
-    </Wrapper>
-  </>
-);
+export const Header: React.FC = () => {
+  const [isMenuDisplayed, setIsMenuDisplayed] = React.useState<boolean>(false);
+
+  const handleOnClickLanguageButton = () => {
+    setIsMenuDisplayed(!isMenuDisplayed);
+  };
+
+  return (
+    <>
+      <Wrapper>
+        <StyledHeader>
+          <FaBars style={faBarsStyle} />
+          <Title>LGTMeow</Title>
+          <LanguageButton onClick={handleOnClickLanguageButton} />
+          {isMenuDisplayed ? <LanguageMenu /> : ''}
+        </StyledHeader>
+      </Wrapper>
+    </>
+  );
+};

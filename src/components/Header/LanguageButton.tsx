@@ -31,8 +31,12 @@ const Text = styled.p`
   color: #eb7c06;
 `;
 
-export const LanguageButton: React.FC = () => (
-  <Wrapper>
+type Props = {
+  onClick: () => void;
+};
+
+export const LanguageButton: React.FC<Props> = ({ onClick }) => (
+  <Wrapper onClick={onClick}>
     <Text>
       Language <FaCaretDown />
     </Text>
