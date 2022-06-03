@@ -62,7 +62,7 @@ const JaText = styled.div`
   color: #faf9f7;
 `;
 
-export const LanguageMenu: React.VFC = () => (
+export const LanguageMenu: React.FC = () => (
   <StyledLanguageMenu>
     <Wrapper>
       <EnText>
