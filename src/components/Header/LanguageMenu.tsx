@@ -3,8 +3,12 @@ import { FaAngleRight } from 'react-icons/fa';
 import styled from 'styled-components';
 
 const StyledLanguageMenu = styled.div`
+  @media (max-width: 767px) {
+    right: 0;
+  }
   position: absolute;
-  right: 13%;
+  right: 20px;
+  bottom: -70px;
   display: flex;
   flex-direction: column;
   gap: 10px;

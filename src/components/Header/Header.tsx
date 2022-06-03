@@ -55,8 +55,8 @@ export const Header: React.FC = () => (
         <FaBars style={faBarsStyle} />
         <Title>LGTMeow</Title>
         <LanguageButton />
+        <LanguageMenu />
       </StyledHeader>
     </Wrapper>
-    <LanguageMenu />
   </>
 );
