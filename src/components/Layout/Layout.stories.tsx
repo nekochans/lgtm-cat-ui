@@ -37,6 +37,14 @@ const JpContents: React.FC = () => (
   </>
 );
 
+const EnContents: React.FC = () => (
+  <>
+    <h1>Title</h1>
+    <h2>SubTitle</h2>
+    <p>Contents</p>
+  </>
+);
+
 export const ViewInJapanese: Story = {
   args: {
     terms: {
@@ -61,6 +69,7 @@ export const ViewInEnglish: Story = {
       text: enPrivacyText,
       link: privacyUrl,
     },
+    children: <EnContents />,
   },
 };
 
@@ -75,6 +84,7 @@ export const ViewInJapaneseWithNextLink: Story = {
       link: privacyPath,
     },
     useNextLink: true,
+    children: <JpContents />,
   },
 };
 
@@ -89,5 +99,6 @@ export const ViewInEnglishWithNextLink: Story = {
       link: privacyPath,
     },
     useNextLink: true,
+    children: <EnContents />,
   },
 };
