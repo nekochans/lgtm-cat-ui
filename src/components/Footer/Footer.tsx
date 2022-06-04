@@ -99,7 +99,7 @@ type LinkAttribute = {
   link: `https://${string}` | `/${string}`;
 };
 
-type Props = {
+export type Props = {
   terms: LinkAttribute;
   privacy: LinkAttribute;
   useNextLink: true | false;
