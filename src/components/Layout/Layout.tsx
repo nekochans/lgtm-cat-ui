@@ -8,7 +8,7 @@ const Wrapper = styled.div`
   position: relative;
 `;
 
-type Props = FooterProps &
+export type Props = FooterProps &
   HeaderProps & {
     children: React.ReactNode;
   };
