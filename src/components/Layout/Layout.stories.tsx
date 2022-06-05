@@ -55,6 +55,7 @@ export const ViewInJapanese: Story = {
       text: jpPrivacyText,
       link: privacyUrl,
     },
+    language: 'ja',
     children: <JpContents />,
   },
 };
@@ -69,6 +70,7 @@ export const ViewInEnglish: Story = {
       text: enPrivacyText,
       link: privacyUrl,
     },
+    language: 'en',
     children: <EnContents />,
   },
 };
@@ -84,6 +86,7 @@ export const ViewInJapaneseWithNextLink: Story = {
       link: privacyPath,
     },
     useNextLink: true,
+    language: 'ja',
     children: <JpContents />,
   },
 };
@@ -99,6 +102,7 @@ export const ViewInEnglishWithNextLink: Story = {
       link: privacyPath,
     },
     useNextLink: true,
+    language: 'en',
     children: <EnContents />,
   },
 };

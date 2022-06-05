@@ -3,7 +3,7 @@ import { FaBars } from 'react-icons/fa';
 import styled from 'styled-components';
 
 import { LanguageButton } from './LanguageButton';
-import { LanguageMenu } from './LanguageMenu';
+import { LanguageMenu, Props as LanguageMenuProps } from './LanguageMenu';
 
 const Wrapper = styled.div`
   background: #e9e2d7;
@@ -48,7 +48,9 @@ const faBarsStyle = {
   flexGrow: 0,
 };
 
-export const Header: React.FC = () => {
+export type Props = LanguageMenuProps;
+
+export const Header: React.FC<Props> = ({ language }) => {
   const [isMenuDisplayed, setIsMenuDisplayed] = React.useState<boolean>(false);
 
   const handleOnClickLanguageButton = () => {
@@ -62,7 +64,7 @@ export const Header: React.FC = () => {
           <FaBars style={faBarsStyle} />
           <Title>LGTMeow</Title>
           <LanguageButton onClick={handleOnClickLanguageButton} />
-          {isMenuDisplayed ? <LanguageMenu /> : ''}
+          {isMenuDisplayed ? <LanguageMenu language={language} /> : ''}
         </StyledHeader>
       </Wrapper>
     </>

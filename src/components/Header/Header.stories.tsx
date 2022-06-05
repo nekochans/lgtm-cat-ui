@@ -9,4 +9,14 @@ export default {
 
 type Story = ComponentStoryObj<typeof Header>;
 
-export const Default: Story = {};
+export const LanguageJa: Story = {
+  args: {
+    language: 'ja',
+  },
+};
+
+export const LanguageEn: Story = {
+  args: {
+    language: 'en',
+  },
+};

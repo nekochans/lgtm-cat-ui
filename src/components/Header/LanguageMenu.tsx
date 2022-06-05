@@ -34,9 +34,11 @@ const EnText = styled.div`
   flex: none;
   flex-grow: 0;
   order: 0;
+  height: 19px;
+  font-family: Roboto, sans-serif;
   font-size: 16px;
   font-style: normal;
-  font-weight: 900;
+  font-weight: 400;
   line-height: 19px;
   color: #faf9f7;
 `;
@@ -54,26 +56,46 @@ const JaText = styled.div`
   flex: none;
   flex-grow: 0;
   order: 2;
+  height: 19px;
   font-family: Roboto, sans-serif;
   font-size: 16px;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 900;
   line-height: 19px;
   color: #faf9f7;
 `;
 
-export const LanguageMenu: React.FC = () => (
-  <StyledLanguageMenu>
-    <Wrapper>
-      <EnText>
-        <FaAngleRight />
-        English
-      </EnText>
-      <Separator />
-      <JaText>
-        <FaAngleRight />
-        日本語
-      </JaText>
-    </Wrapper>
-  </StyledLanguageMenu>
-);
+type Language = 'ja' | 'en';
+
+export type Props = {
+  language: Language;
+};
+
+export const LanguageMenu: React.FC<Props> = ({ language }) => {
+  const [selectedLanguage, setSelectedLanguage] =
+    React.useState<Language>(language);
+
+  const onClickEn = () => {
+    setSelectedLanguage('en');
+  };
+
+  const onClickJa = () => {
+    setSelectedLanguage('ja');
+  };
+
+  return (
+    <StyledLanguageMenu>
+      <Wrapper>
+        <EnText onClick={onClickEn}>
+          {selectedLanguage === 'en' ? <FaAngleRight /> : ''}
+          English
+        </EnText>
+        <Separator />
+        <JaText onClick={onClickJa}>
+          {selectedLanguage === 'ja' ? <FaAngleRight /> : ''}
+          日本語
+        </JaText>
+      </Wrapper>
+    </StyledLanguageMenu>
+  );
+};
