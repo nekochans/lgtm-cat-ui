@@ -18,7 +18,8 @@ const UpperSection = styled.div`
   align-items: center;
   justify-content: center;
   order: 0;
-  padding: 10px 365px 20px;
+  width: 100%;
+  padding: 10px 0 20px;
   background: #fffcf6;
 `;
 
@@ -76,7 +77,8 @@ const LowerSection = styled.div`
   align-items: center;
   justify-content: center;
   order: 1;
-  padding: 20px 644px;
+  width: 100%;
+  padding: 20px 0;
   background: #f2ebdf;
 `;
 
