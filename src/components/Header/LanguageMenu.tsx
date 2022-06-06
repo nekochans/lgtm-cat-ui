@@ -2,6 +2,8 @@ import React from 'react';
 import { FaAngleRight } from 'react-icons/fa';
 import styled from 'styled-components';
 
+import { Language } from '../../types/language';
+
 const StyledLanguageMenu = styled.div`
   @media (max-width: 767px) {
     right: 0;
@@ -64,8 +66,6 @@ const JaText = styled.div`
   line-height: 19px;
   color: #faf9f7;
 `;
-
-type Language = 'ja' | 'en';
 
 export type Props = {
   language: Language;
