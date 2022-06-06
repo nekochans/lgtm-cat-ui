@@ -7,6 +7,8 @@ import {
   updateIsLanguageMenuDisplayed,
   updateLanguage,
 } from '../../stores/valtio/header';
+import { Language } from '../../types/language';
+import assertNever from '../../utils/assertNever';
 
 type Props = {
   useNextLink: boolean;
@@ -41,6 +43,40 @@ const onClickJa = (event: React.MouseEvent<HTMLDivElement>) => {
   updateLanguage('ja');
 };
 
+const createTerms = (language: Language, useNextLink: boolean) => {
+  switch (language) {
+    case 'ja':
+      return {
+        text: jpTermsText,
+        link: useNextLink ? termsPath : termsUrl,
+      } as const;
+    case 'en':
+      return {
+        text: enTermsText,
+        link: useNextLink ? termsPath : termsUrl,
+      } as const;
+    default:
+      return assertNever(language);
+  }
+};
+
+const createPrivacy = (language: Language, useNextLink: boolean) => {
+  switch (language) {
+    case 'ja':
+      return {
+        text: jpPrivacyText,
+        link: useNextLink ? privacyPath : privacyUrl,
+      } as const;
+    case 'en':
+      return {
+        text: enPrivacyText,
+        link: useNextLink ? privacyPath : privacyUrl,
+      } as const;
+    default:
+      return assertNever(language);
+  }
+};
+
 export const LayoutContainer: React.FC<Props> = ({ useNextLink, children }) => {
   const snap = useSnapshot(headerStateSelector());
 
@@ -49,42 +85,32 @@ export const LayoutContainer: React.FC<Props> = ({ useNextLink, children }) => {
     updateIsLanguageMenuDisplayed(!snap.isLanguageMenuDisplayed);
   };
 
-  const jaTerms = {
-    text: jpTermsText,
-    link: useNextLink ? termsPath : termsUrl,
-  } as const;
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const onClickOutSideMenu = (event: React.MouseEvent<HTMLDivElement>) => {
+    // メニューの外側をクリックしたときだけメニューを閉じる
+    if (snap.isLanguageMenuDisplayed) {
+      updateIsLanguageMenuDisplayed(false);
+    }
+  };
 
-  const jaPrivacy = {
-    text: jpPrivacyText,
-    link: useNextLink ? privacyPath : privacyUrl,
-  } as const;
+  const terms = createTerms(snap.language, useNextLink);
 
-  const enTerms = {
-    text: enTermsText,
-    link: useNextLink ? termsPath : termsUrl,
-  } as const;
-
-  const enPrivacy = {
-    text: enPrivacyText,
-    link: useNextLink ? privacyPath : privacyUrl,
-  } as const;
-
-  const terms = snap.language === 'ja' ? jaTerms : enTerms;
-
-  const privacy = snap.language === 'ja' ? jaPrivacy : enPrivacy;
+  const privacy = createPrivacy(snap.language, useNextLink);
 
   return (
-    <Layout
-      terms={terms}
-      privacy={privacy}
-      useNextLink={useNextLink}
-      isLanguageMenuDisplayed={snap.isLanguageMenuDisplayed}
-      language={snap.language}
-      onClickLanguageButton={onClickLanguageButton}
-      onClickEn={onClickEn}
-      onClickJa={onClickJa}
-    >
-      {children}
-    </Layout>
+    <div onClick={onClickOutSideMenu} aria-hidden="true">
+      <Layout
+        terms={terms}
+        privacy={privacy}
+        useNextLink={useNextLink}
+        isLanguageMenuDisplayed={snap.isLanguageMenuDisplayed}
+        language={snap.language}
+        onClickLanguageButton={onClickLanguageButton}
+        onClickEn={onClickEn}
+        onClickJa={onClickJa}
+      >
+        {children}
+      </Layout>
+    </div>
   );
 };
