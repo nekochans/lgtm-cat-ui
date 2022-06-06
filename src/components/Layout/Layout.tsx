@@ -8,14 +8,7 @@ const Wrapper = styled.div`
   position: relative;
 `;
 
-export type Props = FooterProps &
-  HeaderProps & {
-    isLanguageMenuDisplayed: boolean;
-    onClickLanguageButton: (event: React.MouseEvent<HTMLDivElement>) => void;
-    onClickEn: (event: React.MouseEvent<HTMLDivElement>) => void;
-    onClickJa: (event: React.MouseEvent<HTMLDivElement>) => void;
-    children: React.ReactNode;
-  };
+export type Props = FooterProps & HeaderProps & { children: React.ReactNode };
 
 export const Layout: React.FC<Props> = ({
   terms,
