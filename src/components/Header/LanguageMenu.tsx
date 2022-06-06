@@ -69,33 +69,26 @@ type Language = 'ja' | 'en';
 
 export type Props = {
   language: Language;
+  onClickEn: (event: React.MouseEvent<HTMLDivElement>) => void;
+  onClickJa: (event: React.MouseEvent<HTMLDivElement>) => void;
 };
 
-export const LanguageMenu: React.FC<Props> = ({ language }) => {
-  const [selectedLanguage, setSelectedLanguage] =
-    React.useState<Language>(language);
-
-  const onClickEn = () => {
-    setSelectedLanguage('en');
-  };
-
-  const onClickJa = () => {
-    setSelectedLanguage('ja');
-  };
-
-  return (
-    <StyledLanguageMenu>
-      <Wrapper>
-        <EnText onClick={onClickEn}>
-          {selectedLanguage === 'en' ? <FaAngleRight /> : ''}
-          English
-        </EnText>
-        <Separator />
-        <JaText onClick={onClickJa}>
-          {selectedLanguage === 'ja' ? <FaAngleRight /> : ''}
-          日本語
-        </JaText>
-      </Wrapper>
-    </StyledLanguageMenu>
-  );
-};
+export const LanguageMenu: React.FC<Props> = ({
+  language,
+  onClickEn,
+  onClickJa,
+}) => (
+  <StyledLanguageMenu>
+    <Wrapper>
+      <EnText onClick={onClickEn}>
+        {language === 'en' ? <FaAngleRight /> : ''}
+        English
+      </EnText>
+      <Separator />
+      <JaText onClick={onClickJa}>
+        {language === 'ja' ? <FaAngleRight /> : ''}
+        日本語
+      </JaText>
+    </Wrapper>
+  </StyledLanguageMenu>
+);

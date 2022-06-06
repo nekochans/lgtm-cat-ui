@@ -10,6 +10,10 @@ const Wrapper = styled.div`
 
 export type Props = FooterProps &
   HeaderProps & {
+    isLanguageMenuDisplayed: boolean;
+    onClickLanguageButton: (event: React.MouseEvent<HTMLDivElement>) => void;
+    onClickEn: (event: React.MouseEvent<HTMLDivElement>) => void;
+    onClickJa: (event: React.MouseEvent<HTMLDivElement>) => void;
     children: React.ReactNode;
   };
 
@@ -18,10 +22,20 @@ export const Layout: React.FC<Props> = ({
   privacy,
   useNextLink,
   language,
+  isLanguageMenuDisplayed,
+  onClickLanguageButton,
+  onClickEn,
+  onClickJa,
   children,
 }) => (
   <Wrapper>
-    <Header language={language} />
+    <Header
+      language={language}
+      isLanguageMenuDisplayed={isLanguageMenuDisplayed}
+      onClickLanguageButton={onClickLanguageButton}
+      onClickEn={onClickEn}
+      onClickJa={onClickJa}
+    />
     {children}
     <Footer terms={terms} privacy={privacy} useNextLink={useNextLink} />
   </Wrapper>

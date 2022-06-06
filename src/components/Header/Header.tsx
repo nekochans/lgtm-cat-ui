@@ -48,25 +48,36 @@ const faBarsStyle = {
   flexGrow: 0,
 };
 
-export type Props = LanguageMenuProps;
-
-export const Header: React.FC<Props> = ({ language }) => {
-  const [isMenuDisplayed, setIsMenuDisplayed] = React.useState<boolean>(false);
-
-  const handleOnClickLanguageButton = () => {
-    setIsMenuDisplayed(!isMenuDisplayed);
-  };
-
-  return (
-    <>
-      <Wrapper>
-        <StyledHeader>
-          <FaBars style={faBarsStyle} />
-          <Title>LGTMeow</Title>
-          <LanguageButton onClick={handleOnClickLanguageButton} />
-          {isMenuDisplayed ? <LanguageMenu language={language} /> : ''}
-        </StyledHeader>
-      </Wrapper>
-    </>
-  );
+export type Props = LanguageMenuProps & {
+  isLanguageMenuDisplayed: boolean;
+  onClickLanguageButton: (event: React.MouseEvent<HTMLDivElement>) => void;
+  onClickEn: (event: React.MouseEvent<HTMLDivElement>) => void;
+  onClickJa: (event: React.MouseEvent<HTMLDivElement>) => void;
 };
+
+export const Header: React.FC<Props> = ({
+  language,
+  isLanguageMenuDisplayed,
+  onClickLanguageButton,
+  onClickEn,
+  onClickJa,
+}) => (
+  <>
+    <Wrapper>
+      <StyledHeader>
+        <FaBars style={faBarsStyle} />
+        <Title>LGTMeow</Title>
+        <LanguageButton onClick={onClickLanguageButton} />
+        {isLanguageMenuDisplayed ? (
+          <LanguageMenu
+            language={language}
+            onClickEn={onClickEn}
+            onClickJa={onClickJa}
+          />
+        ) : (
+          ''
+        )}
+      </StyledHeader>
+    </Wrapper>
+  </>
+);
