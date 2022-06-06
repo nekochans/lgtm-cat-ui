@@ -51,8 +51,6 @@ const faBarsStyle = {
 export type Props = LanguageMenuProps & {
   isLanguageMenuDisplayed: boolean;
   onClickLanguageButton: (event: React.MouseEvent<HTMLDivElement>) => void;
-  onClickEn: (event: React.MouseEvent<HTMLDivElement>) => void;
-  onClickJa: (event: React.MouseEvent<HTMLDivElement>) => void;
 };
 
 export const Header: React.FC<Props> = ({
