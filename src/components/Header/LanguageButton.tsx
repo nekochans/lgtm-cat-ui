@@ -32,7 +32,7 @@ const Text = styled.p`
 `;
 
 type Props = {
-  onClick: () => void;
+  onClick: (event: React.MouseEvent<HTMLDivElement>) => void;
 };
 
 export const LanguageButton: React.FC<Props> = ({ onClick }) => (

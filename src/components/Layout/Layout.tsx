@@ -8,20 +8,27 @@ const Wrapper = styled.div`
   position: relative;
 `;
 
-type Props = FooterProps &
-  HeaderProps & {
-    children: React.ReactNode;
-  };
+export type Props = FooterProps & HeaderProps & { children: React.ReactNode };
 
 export const Layout: React.FC<Props> = ({
   terms,
   privacy,
   useNextLink,
   language,
+  isLanguageMenuDisplayed,
+  onClickLanguageButton,
+  onClickEn,
+  onClickJa,
   children,
 }) => (
   <Wrapper>
-    <Header language={language} />
+    <Header
+      language={language}
+      isLanguageMenuDisplayed={isLanguageMenuDisplayed}
+      onClickLanguageButton={onClickLanguageButton}
+      onClickEn={onClickEn}
+      onClickJa={onClickJa}
+    />
     {children}
     <Footer terms={terms} privacy={privacy} useNextLink={useNextLink} />
   </Wrapper>

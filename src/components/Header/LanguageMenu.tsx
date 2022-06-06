@@ -2,6 +2,8 @@ import React from 'react';
 import { FaAngleRight } from 'react-icons/fa';
 import styled from 'styled-components';
 
+import { Language } from '../../types/language';
+
 const StyledLanguageMenu = styled.div`
   @media (max-width: 767px) {
     right: 0;
@@ -65,37 +67,28 @@ const JaText = styled.div`
   color: #faf9f7;
 `;
 
-type Language = 'ja' | 'en';
-
 export type Props = {
   language: Language;
+  onClickEn: (event: React.MouseEvent<HTMLDivElement>) => void;
+  onClickJa: (event: React.MouseEvent<HTMLDivElement>) => void;
 };
 
-export const LanguageMenu: React.FC<Props> = ({ language }) => {
-  const [selectedLanguage, setSelectedLanguage] =
-    React.useState<Language>(language);
-
-  const onClickEn = () => {
-    setSelectedLanguage('en');
-  };
-
-  const onClickJa = () => {
-    setSelectedLanguage('ja');
-  };
-
-  return (
-    <StyledLanguageMenu>
-      <Wrapper>
-        <EnText onClick={onClickEn}>
-          {selectedLanguage === 'en' ? <FaAngleRight /> : ''}
-          English
-        </EnText>
-        <Separator />
-        <JaText onClick={onClickJa}>
-          {selectedLanguage === 'ja' ? <FaAngleRight /> : ''}
-          日本語
-        </JaText>
-      </Wrapper>
-    </StyledLanguageMenu>
-  );
-};
+export const LanguageMenu: React.FC<Props> = ({
+  language,
+  onClickEn,
+  onClickJa,
+}) => (
+  <StyledLanguageMenu>
+    <Wrapper>
+      <EnText onClick={onClickEn}>
+        {language === 'en' ? <FaAngleRight /> : ''}
+        English
+      </EnText>
+      <Separator />
+      <JaText onClick={onClickJa}>
+        {language === 'ja' ? <FaAngleRight /> : ''}
+        日本語
+      </JaText>
+    </Wrapper>
+  </StyledLanguageMenu>
+);
