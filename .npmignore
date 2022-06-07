@@ -143,8 +143,12 @@ build-storybook.log
 # storybook setting files
 .storybook/
 
+# storybook types
+*.stories.d.ts
+
 # Jest
 jest.config.js
+*.spec.d.ts
 
 # Jest Mock
 __mocks__/
