@@ -1,8 +1,10 @@
 import React from 'react';
-import { FaSyncAlt } from 'react-icons/fa';
+import { FaSyncAlt, FaCloudUploadAlt } from 'react-icons/fa';
 import styled from 'styled-components';
 
-const StyledButton = styled.div`
+import assertNever from '../../utils/assertNever';
+
+const StyledButton = styled.button`
   display: flex;
   flex: none;
   flex-direction: row;
@@ -10,7 +12,7 @@ const StyledButton = styled.div`
   gap: 10px;
   align-items: center;
   order: 1;
-  width: 168px;
+  width: fit-content;
   padding: 7px 20px;
   background: #eb7c06;
   border-radius: 4px;
@@ -40,9 +42,51 @@ const faSyncAltStyle = {
   flexGrow: 0,
 };
 
-export const Button: React.FC = () => (
+const faCloudUploadAltStyle = {
+  fontStyle: 'normal',
+  fontWeight: 900,
+  fontSize: '26px',
+  lineHeight: '26px',
+  color: '#f2ebdf',
+  flex: 'none',
+  order: 0,
+  flexGrow: 0,
+};
+
+const buttonIcon = (type: ButtonType) => {
+  switch (type) {
+    case 'upload':
+      return <FaCloudUploadAlt style={faCloudUploadAltStyle} />;
+    case 'refresh':
+    case 'new':
+      return <FaSyncAlt style={faSyncAltStyle} />;
+    default:
+      return assertNever(type);
+  }
+};
+
+const buttonText = (type: ButtonType) => {
+  switch (type) {
+    case 'upload':
+      return 'Upload new Cats';
+    case 'refresh':
+      return 'Cats Refresh';
+    case 'new':
+      return 'New arrival Cats';
+    default:
+      return assertNever(type);
+  }
+};
+
+type ButtonType = 'upload' | 'refresh' | 'new';
+
+type Props = {
+  type: ButtonType;
+};
+
+export const Button: React.FC<Props> = ({ type }) => (
   <StyledButton>
-    <FaSyncAlt style={faSyncAltStyle} />
-    <Text>Cats Refresh</Text>
+    {buttonIcon(type)}
+    <Text>{buttonText(type)}</Text>
   </StyledButton>
 );

@@ -9,4 +9,20 @@ export default {
 
 type Story = ComponentStoryObj<typeof Button>;
 
-export const Default: Story = {};
+export const UploadNewCatsButton: Story = {
+  args: {
+    type: 'upload',
+  },
+};
+
+export const CatsRefreshButton: Story = {
+  args: {
+    type: 'refresh',
+  },
+};
+
+export const NewArrivalCatsButton: Story = {
+  args: {
+    type: 'new',
+  },
+};
