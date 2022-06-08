@@ -2,21 +2,12 @@ import React from 'react';
 import { FaSyncAlt, FaCloudUploadAlt } from 'react-icons/fa';
 import styled from 'styled-components';
 
+import { mixins } from '../../styles/mixins';
 import assertNever from '../../utils/assertNever';
 
 const StyledButton = styled.button`
-  display: flex;
-  flex: none;
-  flex-direction: row;
-  flex-grow: 0;
-  gap: 10px;
-  align-items: center;
-  order: 1;
-  width: fit-content;
-  padding: 7px 20px;
   background: #eb7c06;
-  border-radius: 4px;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  ${mixins.buttonBase};
 `;
 
 const Text = styled.div`
