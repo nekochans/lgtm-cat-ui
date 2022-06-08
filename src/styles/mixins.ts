@@ -13,7 +13,7 @@ const buttonBase = css`
   border-radius: 4px;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   &:hover {
-    opacity: 0.3;
+    opacity: 0.8;
   }
 `;
 
@@ -28,7 +28,7 @@ const buttonText = css`
   line-height: 16px;
   color: #f2ebdf;
   &:hover {
-    opacity: 0.3;
+    opacity: 0.8;
   }
 `;
 
