@@ -12,15 +12,7 @@ const StyledButton = styled.span`
 `;
 
 const Text = styled.div`
-  flex: none;
-  flex-grow: 0;
-  order: 1;
-  font-family: Roboto, sans-serif;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 16px;
-  color: #f2ebdf;
+  ${mixins.buttonText};
 `;
 
 const faCloudUploadAltStyle = {
