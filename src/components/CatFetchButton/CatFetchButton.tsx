@@ -75,7 +75,7 @@ type Props = {
   type: ButtonType;
 };
 
-export const Button: React.FC<Props> = ({ type }) => (
+export const CatFetchButton: React.FC<Props> = ({ type }) => (
   <StyledButton>
     {buttonIcon(type)}
     <Text>{buttonText(type)}</Text>
