@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaSyncAlt, FaCloudUploadAlt } from 'react-icons/fa';
+import { FaSyncAlt } from 'react-icons/fa';
 import styled from 'styled-components';
 
 import { mixins } from '../../styles/mixins';
@@ -33,33 +33,8 @@ const faSyncAltStyle = {
   flexGrow: 0,
 };
 
-const faCloudUploadAltStyle = {
-  fontStyle: 'normal',
-  fontWeight: 900,
-  fontSize: '26px',
-  lineHeight: '26px',
-  color: '#f2ebdf',
-  flex: 'none',
-  order: 0,
-  flexGrow: 0,
-};
-
-const buttonIcon = (type: ButtonType) => {
-  switch (type) {
-    case 'upload':
-      return <FaCloudUploadAlt style={faCloudUploadAltStyle} />;
-    case 'refresh':
-    case 'new':
-      return <FaSyncAlt style={faSyncAltStyle} />;
-    default:
-      return assertNever(type);
-  }
-};
-
 const buttonText = (type: ButtonType) => {
   switch (type) {
-    case 'upload':
-      return 'Upload new Cats';
     case 'refresh':
       return 'Cats Refresh';
     case 'new':
@@ -69,7 +44,7 @@ const buttonText = (type: ButtonType) => {
   }
 };
 
-type ButtonType = 'upload' | 'refresh' | 'new';
+type ButtonType = 'refresh' | 'new';
 
 type Props = {
   type: ButtonType;
@@ -77,7 +52,7 @@ type Props = {
 
 export const CatFetchButton: React.FC<Props> = ({ type }) => (
   <StyledButton>
-    {buttonIcon(type)}
+    <FaSyncAlt style={faSyncAltStyle} />
     <Text>{buttonText(type)}</Text>
   </StyledButton>
 );
