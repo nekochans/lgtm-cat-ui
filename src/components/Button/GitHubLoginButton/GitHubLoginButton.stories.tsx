@@ -3,7 +3,7 @@ import { GitHubLoginButton } from './GitHubLoginButton';
 import type { ComponentStoryObj, Meta } from '@storybook/react';
 
 export default {
-  title: 'src/components/GitHubLoginButton/GitHubLoginButton.tsx',
+  title: 'src/components/Button/GitHubLoginButton/GitHubLoginButton.tsx',
   component: GitHubLoginButton,
 } as Meta<typeof GitHubLoginButton>;
 
