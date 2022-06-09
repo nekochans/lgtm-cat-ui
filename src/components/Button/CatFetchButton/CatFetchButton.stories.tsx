@@ -1,9 +1,9 @@
-import { CatFetchButton } from './';
+import { CatFetchButton } from './index';
 
 import type { ComponentStoryObj, Meta } from '@storybook/react';
 
 export default {
-  title: 'src/components/CatFetchButton/CatFetchButton.tsx',
+  title: 'src/components/Button/CatFetchButton/CatFetchButton.tsx',
   component: CatFetchButton,
 } as Meta<typeof CatFetchButton>;
 
