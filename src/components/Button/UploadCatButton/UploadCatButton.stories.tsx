@@ -9,4 +9,8 @@ export default {
 
 type Story = ComponentStoryObj<typeof UploadCatButton>;
 
-export const Default: Story = {};
+export const Default: Story = {
+  args: {
+    link: '/upload',
+  },
+};
