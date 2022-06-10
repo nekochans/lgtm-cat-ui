@@ -8,7 +8,7 @@ import { mixins } from '../../../styles/mixins';
 import slash from './slash.png';
 
 const StyledSpan = styled.span`
-  background: #eb7c06 url(${slash.src});
+  background: #eb7c06 url(${slash.src}) repeat 0 0/16px auto;
   ${mixins.buttonBase};
 `;
 
