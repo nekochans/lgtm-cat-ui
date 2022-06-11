@@ -2,6 +2,8 @@ import Link from 'next/link';
 import React from 'react';
 import styled from 'styled-components';
 
+const textColor = '#43281e';
+
 const StyledFooter = styled.div`
   position: relative;
   display: flex;
@@ -33,7 +35,7 @@ const TermsLinkText = styled.a`
   font-style: normal;
   font-weight: 400;
   line-height: 28px;
-  color: #43281e;
+  color: ${textColor};
   text-align: center;
   text-decoration-line: underline;
 `;
@@ -48,7 +50,7 @@ const PrivacyLinkText = styled.a`
   font-style: normal;
   font-weight: 400;
   line-height: 28px;
-  color: #43281e;
+  color: ${textColor};
   text-align: center;
   text-decoration-line: underline;
 `;
@@ -64,7 +66,7 @@ const SeparatorText = styled.div`
   font-style: normal;
   font-weight: 400;
   line-height: 28px;
-  color: #43281e;
+  color: ${textColor};
   text-align: center;
 `;
 
@@ -93,7 +95,7 @@ const LowerSectionText = styled.div`
   font-style: normal;
   font-weight: 400;
   line-height: 28px;
-  color: #43281e;
+  color: ${textColor};
 `;
 
 type LinkAttribute = {

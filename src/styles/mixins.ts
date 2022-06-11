@@ -1,5 +1,9 @@
 import { css } from 'styled-components';
 
+const colors = {
+  primary: '#eb7c06',
+};
+
 const buttonBase = css`
   display: flex;
   flex: none;
@@ -33,6 +37,7 @@ const buttonText = css`
 `;
 
 export const mixins = {
+  colors,
   buttonBase,
   buttonText,
 };

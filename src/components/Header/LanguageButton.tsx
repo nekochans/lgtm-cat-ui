@@ -2,6 +2,8 @@ import React from 'react';
 import { FaCaretDown } from 'react-icons/fa';
 import styled from 'styled-components';
 
+import { mixins } from '../../styles/mixins';
+
 const Wrapper = styled.div`
   @media (max-width: 767px) {
     padding: 12px 0;
@@ -28,7 +30,7 @@ const Text = styled.p`
   font-style: normal;
   font-weight: 700;
   line-height: 19px;
-  color: #eb7c06;
+  color: ${mixins.colors.primary};
 `;
 
 type Props = {
