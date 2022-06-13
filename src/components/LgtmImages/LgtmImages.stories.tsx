@@ -12,7 +12,7 @@ type Story = ComponentStoryObj<typeof LgtmImages>;
 const props = [
   {
     id: 1,
-    url: 'https://lgtm-images.lgtmeow.com/2021/11/16/22/74046d97-439f-4e11-ad18-a756bcea6131.webp',
+    url: 'https://lgtm-images.lgtmeow.com/2022/03/18/23/3086a0f3-52fc-46fa-af82-e9b7d307b155.webp',
   },
   {
     id: 2,
