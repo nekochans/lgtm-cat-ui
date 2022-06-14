@@ -23,7 +23,11 @@ type Props = {
 export const LgtmImages: React.FC<Props> = ({ images }) => (
   <Wrapper>
     {images.map((image) => (
-      <LgtmImageContent id={image.id} url={image.url} key={image.id} />
+      <LgtmImageContent
+        id={image.id}
+        imageUrl={image.imageUrl}
+        key={image.id}
+      />
     ))}
   </Wrapper>
 );

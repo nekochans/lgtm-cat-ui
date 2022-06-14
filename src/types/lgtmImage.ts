@@ -1,1 +1,1 @@
-export type LgtmImage = { id: number; url: `https://${string}` };
+export type LgtmImage = { id: number; imageUrl: `https://${string}` };

@@ -2,6 +2,7 @@ import Image from 'next/image';
 import React from 'react';
 import styled from 'styled-components';
 
+import { defaultAppUrl } from '../../constants/url';
 import useClipboardMarkdown from '../../hooks/useClipboardMarkdown';
 import { LgtmImage } from '../../types/lgtmImage';
 
@@ -16,9 +17,11 @@ const ImageWrapper = styled.div`
   }
 `;
 
-type Props = LgtmImage;
+type Props = LgtmImage & {
+  appUrl?: `http://${string}` | `https://${string}`;
+};
 
-export const LgtmImageContent: React.FC<Props> = ({ id, url }) => {
+export const LgtmImageContent: React.FC<Props> = ({ id, imageUrl, appUrl }) => {
   const [copied, setCopied] = React.useState(false);
 
   const onCopySuccess = React.useCallback(() => {
@@ -32,14 +35,14 @@ export const LgtmImageContent: React.FC<Props> = ({ id, url }) => {
 
   const { imageContextRef } = useClipboardMarkdown({
     onCopySuccess,
-    imageUrl: url,
-    appUrl: 'https://lgtmeow.com',
+    imageUrl,
+    appUrl: appUrl || defaultAppUrl,
   });
 
   return (
     <ImageWrapper key={id} ref={imageContextRef}>
       <Image
-        src={url}
+        src={imageUrl}
         layout="fill"
         objectFit="contain"
         alt="lgtm-cat-image"
