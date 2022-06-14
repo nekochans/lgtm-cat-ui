@@ -8,6 +8,12 @@ const Wrapper = styled.div`
   position: relative;
 `;
 
+const ContentsWrapper = styled.div`
+  display: block;
+  margin: 16px auto;
+  text-align: center;
+`;
+
 export type Props = FooterProps & HeaderProps & { children: React.ReactNode };
 
 export const Layout: React.FC<Props> = ({
@@ -29,7 +35,7 @@ export const Layout: React.FC<Props> = ({
       onClickEn={onClickEn}
       onClickJa={onClickJa}
     />
-    {children}
+    <ContentsWrapper>{children}</ContentsWrapper>
     <Footer terms={terms} privacy={privacy} useNextLink={useNextLink} />
   </Wrapper>
 );
