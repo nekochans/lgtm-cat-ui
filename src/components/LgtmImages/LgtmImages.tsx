@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { AppUrl } from '../../constants/url';
 import { LgtmImage } from '../../types/lgtmImage';
 
 import { LgtmImageContent } from './LgtmImageContent';
@@ -18,15 +19,17 @@ const Wrapper = styled.div`
 
 type Props = {
   images: LgtmImage[];
+  appUrl?: AppUrl;
 };
 
-export const LgtmImages: React.FC<Props> = ({ images }) => (
+export const LgtmImages: React.FC<Props> = ({ images, appUrl }) => (
   <Wrapper>
     {images.map((image) => (
       <LgtmImageContent
         id={image.id}
         imageUrl={image.imageUrl}
         key={image.id}
+        appUrl={appUrl}
       />
     ))}
   </Wrapper>

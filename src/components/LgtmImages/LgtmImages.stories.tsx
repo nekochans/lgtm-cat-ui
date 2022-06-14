@@ -64,3 +64,10 @@ export const Default: Story = {
     images,
   },
 };
+
+export const WithAppUrl: Story = {
+  args: {
+    images,
+    appUrl: 'http://localhost:2222',
+  },
+};
