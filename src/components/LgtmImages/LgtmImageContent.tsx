@@ -2,7 +2,7 @@ import Image from 'next/image';
 import React from 'react';
 import styled from 'styled-components';
 
-import { defaultAppUrl } from '../../constants/url';
+import { AppUrl, defaultAppUrl } from '../../constants/url';
 import useClipboardMarkdown from '../../hooks/useClipboardMarkdown';
 import { LgtmImage } from '../../types/lgtmImage';
 
@@ -18,7 +18,7 @@ const ImageWrapper = styled.div`
 `;
 
 type Props = LgtmImage & {
-  appUrl?: `http://${string}` | `https://${string}`;
+  appUrl?: AppUrl;
 };
 
 export const LgtmImageContent: React.FC<Props> = ({ id, imageUrl, appUrl }) => {
