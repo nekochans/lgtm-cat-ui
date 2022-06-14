@@ -1,6 +1,10 @@
-import Image from 'next/image';
 import React from 'react';
 import styled from 'styled-components';
+
+import { AppUrl } from '../../constants/url';
+import { LgtmImage } from '../../types/lgtmImage';
+
+import { LgtmImageContent } from './LgtmImageContent';
 
 const Wrapper = styled.div`
   @media (max-width: 767px) {
@@ -13,30 +17,20 @@ const Wrapper = styled.div`
   max-width: 900px;
 `;
 
-const ImageWrapper = styled.div`
-  position: relative;
-  height: 300px;
-  cursor: pointer;
-`;
-
-type LgtmImage = { id: number; url: string };
-
 type Props = {
   images: LgtmImage[];
+  appUrl?: AppUrl;
 };
 
-export const LgtmImages: React.FC<Props> = ({ images }) => (
+export const LgtmImages: React.FC<Props> = ({ images, appUrl }) => (
   <Wrapper>
     {images.map((image) => (
-      <ImageWrapper key={image.id}>
-        <Image
-          src={image.url}
-          layout="fill"
-          objectFit="contain"
-          alt="lgtm-cat-image"
-          priority={true}
-        />
-      </ImageWrapper>
+      <LgtmImageContent
+        id={image.id}
+        imageUrl={image.imageUrl}
+        key={image.id}
+        appUrl={appUrl}
+      />
     ))}
   </Wrapper>
 );
