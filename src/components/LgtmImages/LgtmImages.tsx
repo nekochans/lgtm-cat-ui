@@ -1,6 +1,9 @@
-import Image from 'next/image';
 import React from 'react';
 import styled from 'styled-components';
+
+import { LgtmImage } from '../../types/lgtmImage';
+
+import { LgtmImageContent } from './LgtmImageContent';
 
 const Wrapper = styled.div`
   @media (max-width: 767px) {
@@ -13,14 +16,6 @@ const Wrapper = styled.div`
   max-width: 900px;
 `;
 
-const ImageWrapper = styled.div`
-  position: relative;
-  height: 300px;
-  cursor: pointer;
-`;
-
-type LgtmImage = { id: number; url: string };
-
 type Props = {
   images: LgtmImage[];
 };
@@ -28,15 +23,7 @@ type Props = {
 export const LgtmImages: React.FC<Props> = ({ images }) => (
   <Wrapper>
     {images.map((image) => (
-      <ImageWrapper key={image.id}>
-        <Image
-          src={image.url}
-          layout="fill"
-          objectFit="contain"
-          alt="lgtm-cat-image"
-          priority={true}
-        />
-      </ImageWrapper>
+      <LgtmImageContent id={image.id} url={image.url} key={image.id} />
     ))}
   </Wrapper>
 );
