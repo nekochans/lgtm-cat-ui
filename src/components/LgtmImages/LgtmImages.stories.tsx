@@ -71,3 +71,11 @@ export const WithAppUrl: Story = {
     appUrl: 'http://localhost:2222',
   },
 };
+
+export const WithCallbackFunc: Story = {
+  args: {
+    images,
+    // eslint-disable-next-line no-alert
+    callback: () => alert('run callback func!'),
+  },
+};
