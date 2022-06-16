@@ -73,14 +73,6 @@ const images: LgtmImage[] = [
 
 export const Default: Story = {
   args: {
-    useNextLink: false,
-    children: <JpContents />,
-  },
-};
-
-export const WithNextLink: Story = {
-  args: {
-    useNextLink: true,
     children: <JpContents />,
   },
 };
@@ -97,7 +89,6 @@ const LgtmImagesWithText = () => (
 
 export const WithLgtmImages: Story = {
   args: {
-    useNextLink: true,
     children: <LgtmImagesWithText />,
   },
 };
