@@ -19,7 +19,6 @@ export type Props = FooterProps & HeaderProps & { children: React.ReactNode };
 export const Layout: React.FC<Props> = ({
   terms,
   privacy,
-  useNextLink,
   language,
   isLanguageMenuDisplayed,
   onClickLanguageButton,
@@ -36,6 +35,6 @@ export const Layout: React.FC<Props> = ({
       onClickJa={onClickJa}
     />
     <ContentsWrapper>{children}</ContentsWrapper>
-    <Footer terms={terms} privacy={privacy} useNextLink={useNextLink} />
+    <Footer terms={terms} privacy={privacy} />
   </Wrapper>
 );

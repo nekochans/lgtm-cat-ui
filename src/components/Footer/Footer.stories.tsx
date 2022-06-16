@@ -21,21 +21,15 @@ const enTermsText = 'Terms of Use';
 
 const enPrivacyText = 'Privacy Policy';
 
-const baseUrl = 'https://lgtmeow.com';
-
-const termsUrl = `${baseUrl}${termsPath}` as const;
-
-const privacyUrl = `${baseUrl}${privacyPath}` as const;
-
 export const ViewInJapanese: Story = {
   args: {
     terms: {
       text: jpTermsText,
-      link: termsUrl,
+      link: termsPath,
     },
     privacy: {
       text: jpPrivacyText,
-      link: privacyUrl,
+      link: privacyPath,
     },
   },
 };
@@ -44,39 +38,11 @@ export const ViewInEnglish: Story = {
   args: {
     terms: {
       text: enTermsText,
-      link: termsUrl,
-    },
-    privacy: {
-      text: enPrivacyText,
-      link: privacyUrl,
-    },
-  },
-};
-
-export const ViewInJapaneseWithNextLink: Story = {
-  args: {
-    terms: {
-      text: jpTermsText,
-      link: termsPath,
-    },
-    privacy: {
-      text: jpPrivacyText,
-      link: privacyPath,
-    },
-    useNextLink: true,
-  },
-};
-
-export const ViewInEnglishWithNextLink: Story = {
-  args: {
-    terms: {
-      text: enTermsText,
       link: termsPath,
     },
     privacy: {
       text: enPrivacyText,
       link: privacyPath,
     },
-    useNextLink: true,
   },
 };

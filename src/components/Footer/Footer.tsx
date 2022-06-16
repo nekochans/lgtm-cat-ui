@@ -104,48 +104,19 @@ type LinkAttribute = {
 export type Props = {
   terms: LinkAttribute;
   privacy: LinkAttribute;
-  useNextLink: true | false;
 };
 
-type TermsLinkTextWithNextLinkProps = {
-  terms: LinkAttribute;
-};
-
-const TermsLinkTextWithNextLink: React.FC<TermsLinkTextWithNextLinkProps> = ({
-  terms,
-}) => (
-  <Link href={terms.link} prefetch={false}>
-    <TermsLinkText>{terms.text}</TermsLinkText>
-  </Link>
-);
-
-type PrivacyLinkTextWithNextLinkProps = {
-  privacy: LinkAttribute;
-};
-
-const PrivacyLinkTextWithNextLink: React.FC<
-  PrivacyLinkTextWithNextLinkProps
-> = ({ privacy }) => (
-  <Link href={privacy.link} prefetch={false}>
-    <PrivacyLinkText>{privacy.text}</PrivacyLinkText>
-  </Link>
-);
-
-export const Footer: React.FC<Props> = ({ terms, privacy, useNextLink }) => (
+export const Footer: React.FC<Props> = ({ terms, privacy }) => (
   <StyledFooter>
     <UpperSection>
-      {useNextLink ? (
-        <TermsLinkTextWithNextLink terms={terms} />
-      ) : (
-        <TermsLinkText href={terms.link}>{terms.text}</TermsLinkText>
-      )}
+      <Link href={terms.link} prefetch={false}>
+        <TermsLinkText>{terms.text}</TermsLinkText>
+      </Link>
       {/* eslint-disable no-irregular-whitespace */}
       <SeparatorText> / </SeparatorText>
-      {useNextLink ? (
-        <PrivacyLinkTextWithNextLink privacy={privacy} />
-      ) : (
-        <PrivacyLinkText href={privacy.link}>{privacy.text}</PrivacyLinkText>
-      )}
+      <Link href={privacy.link} prefetch={false}>
+        <PrivacyLinkText>{privacy.text}</PrivacyLinkText>
+      </Link>
     </UpperSection>
     <LowerSection>
       <LowerSectionText>Copyright (c) nekochans</LowerSectionText>
