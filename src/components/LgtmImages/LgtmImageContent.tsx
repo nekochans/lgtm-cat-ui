@@ -19,19 +19,29 @@ const ImageWrapper = styled.div`
 
 type Props = LgtmImage & {
   appUrl?: AppUrl;
+  callback?: () => void;
 };
 
-export const LgtmImageContent: React.FC<Props> = ({ id, imageUrl, appUrl }) => {
+export const LgtmImageContent: React.FC<Props> = ({
+  id,
+  imageUrl,
+  appUrl,
+  callback,
+}) => {
   const [copied, setCopied] = React.useState(false);
 
   const onCopySuccess = React.useCallback(() => {
+    if (callback) {
+      callback();
+    }
+
     const messageDisplayTime = 1000;
 
     setCopied(true);
     setTimeout(() => {
       setCopied(false);
     }, messageDisplayTime);
-  }, []);
+  }, [callback]);
 
   const { imageContextRef } = useClipboardMarkdown({
     onCopySuccess,

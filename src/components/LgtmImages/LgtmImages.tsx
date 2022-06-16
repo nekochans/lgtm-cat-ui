@@ -19,9 +19,10 @@ const Wrapper = styled.div`
 type Props = {
   images: LgtmImage[];
   appUrl?: AppUrl;
+  callback?: () => void;
 };
 
-export const LgtmImages: React.FC<Props> = ({ images, appUrl }) => (
+export const LgtmImages: React.FC<Props> = ({ images, appUrl, callback }) => (
   <Wrapper>
     {images.map((image) => (
       <LgtmImageContent
@@ -29,6 +30,7 @@ export const LgtmImages: React.FC<Props> = ({ images, appUrl }) => (
         imageUrl={image.imageUrl}
         key={image.id}
         appUrl={appUrl}
+        callback={callback}
       />
     ))}
   </Wrapper>
