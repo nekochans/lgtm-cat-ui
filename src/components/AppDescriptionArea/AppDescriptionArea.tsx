@@ -1,13 +1,12 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { Language } from '../../types/language';
 import assertNever from '../../utils/assertNever';
 
 const Wrapper = styled.div``;
 
-const JaText = styled.div`
-  font-family: Zen Kaku Gothic New, sans-serif;
+const textStyle = css`
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -16,14 +15,14 @@ const JaText = styled.div`
   text-align: center;
 `;
 
+const JaText = styled.div`
+  font-family: Zen Kaku Gothic New, sans-serif;
+  ${textStyle};
+`;
+
 const EnText = styled.div`
   font-family: Roboto, sans-serif;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 28px;
-  color: #43281e;
-  text-align: center;
+  ${textStyle};
 `;
 
 const jaUpperSectionText = '猫のLGTM画像を共有出来るサービスです。';
