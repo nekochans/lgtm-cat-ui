@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { LgtmImages } from '../../components';
+import { AppDescriptionArea } from '../../components/AppDescriptionArea';
 import { CatButtonGroup } from '../../components/Button/CatButtonGroup';
 import { LgtmImage } from '../../types/lgtmImage';
 
@@ -79,9 +80,7 @@ export const Default: Story = {
 
 const LgtmImagesWithText = () => (
   <>
-    <h1>タイトル</h1>
-    <h2>サブタイトル</h2>
-    <p>コンテンツ</p>
+    <AppDescriptionArea language="ja" />
     <CatButtonGroup />
     <LgtmImages images={images} />
   </>
