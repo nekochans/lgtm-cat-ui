@@ -31,14 +31,17 @@ const Text = styled.p`
   color: #eb7c06;
 `;
 
+const faCaretDownStyle = {
+  color: '#eb7c06',
+};
+
 type Props = {
   onClick: (event: React.MouseEvent<HTMLDivElement>) => void;
 };
 
 export const LanguageButton: React.FC<Props> = ({ onClick }) => (
   <Wrapper onClick={onClick}>
-    <Text>
-      Language <FaCaretDown />
-    </Text>
+    <Text>Language</Text>
+    <FaCaretDown style={faCaretDownStyle} />
   </Wrapper>
 );
