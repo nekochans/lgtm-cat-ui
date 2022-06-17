@@ -80,7 +80,7 @@ export const Default: Story = {
 
 const LgtmImagesWithText = () => (
   <>
-    <AppDescriptionArea />
+    <AppDescriptionArea language="ja" />
     <CatButtonGroup />
     <LgtmImages images={images} />
   </>
