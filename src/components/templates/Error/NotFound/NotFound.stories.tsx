@@ -14,3 +14,9 @@ export const ViewInJapanese: Story = {
     language: 'ja',
   },
 };
+
+export const ViewInEnglish: Story = {
+  args: {
+    language: 'en',
+  },
+};

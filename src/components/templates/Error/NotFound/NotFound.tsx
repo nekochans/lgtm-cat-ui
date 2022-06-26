@@ -51,6 +51,11 @@ export const NotFound: React.FC<Props> = ({ language }) => {
   const backToTopPageText =
     language === 'ja' ? 'トップページに戻る' : 'Back to Top Page';
 
+  const messageText =
+    language === 'ja'
+      ? 'お探しのページは見つかりません。一時的にアクセス出来ない状態か、移動もしくは削除されてしまった可能性があります。'
+      : 'The page you are looking for cannot be found. It may have been temporarily inaccessible, moved or deleted.';
+
   return (
     <Wrapper>
       <Title>404 Not Found</Title>
@@ -63,10 +68,7 @@ export const NotFound: React.FC<Props> = ({ language }) => {
           priority={true}
         />
       </ImageWrapper>
-      <Message>
-        お探しのページは見つかりません。一時的にアクセス出来ない状態か、
-        移動もしくは削除されてしまった可能性があります。
-      </Message>
+      <Message>{messageText}</Message>
       <BackToTopButton text={backToTopPageText} />
     </Wrapper>
   );
