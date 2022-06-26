@@ -51,7 +51,7 @@ export const ServiceUnavailable: React.FC<Props> = ({ language }) => {
   const messageText =
     language === 'ja'
       ? 'メンテナンス中です。申し訳ありませんがしばらく時間がたってからお試しください。'
-      : 'The system is under maintenance. We apologize for the inconvenience, but please try again in a few minutes.';
+      : 'The system is under maintenance. Sorry, please try again after some time has passed.';
 
   return (
     <Wrapper>

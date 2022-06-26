@@ -51,7 +51,7 @@ export const NotFound: React.FC<Props> = ({ language }) => {
   const messageText =
     language === 'ja'
       ? 'お探しのページは見つかりません。一時的にアクセス出来ない状態か、移動もしくは削除されてしまった可能性があります。'
-      : 'The page you are looking for cannot be found. It may have been temporarily inaccessible, moved or deleted.';
+      : 'The page you are looking for cannot be found. It is temporarily inaccessible or has been removed.';
 
   return (
     <Wrapper>

@@ -51,7 +51,7 @@ export const InternalServerError: React.FC<Props> = ({ language }) => {
   const messageText =
     language === 'ja'
       ? 'システムエラーが発生しました。申し訳ありませんがしばらく時間がたってからお試しください。'
-      : 'A system error has occurred. We are sorry. Please try again in a few minutes.';
+      : 'A system error has occurred. Sorry, please try again after some time has passed.';
 
   return (
     <Wrapper>
