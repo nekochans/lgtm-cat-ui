@@ -15,9 +15,6 @@ const Wrapper = styled.div`
 `;
 
 const Title = styled.div`
-  @media (max-width: 767px) {
-    font-size: 50px;
-  }
   font-family: Roboto, sans-serif;
   font-size: 70px;
   font-style: normal;
