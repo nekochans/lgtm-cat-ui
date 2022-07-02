@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { Layout } from './';
+import { Layout } from './index';
 
 import type { ComponentStoryObj, Meta } from '@storybook/react';
 
 export default {
-  title: 'src/components/Layout/Layout.tsx',
+  title: 'src/layouts/Layout/Layout.tsx',
   component: Layout,
 } as Meta<typeof Layout>;
 

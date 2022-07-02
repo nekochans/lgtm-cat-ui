@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSnapshot } from 'valtio';
 
-import { Layout } from '../../components';
+import { Layout } from '../../layouts';
 import {
   headerStateSelector,
   updateIsLanguageMenuDisplayed,
