@@ -9,6 +9,7 @@ const StyledSpan = styled.span`
   align-items: center;
   justify-content: center;
   padding: 8px 20px;
+  cursor: pointer;
   background: #eb7c06;
   border-radius: 4px;
   &:hover {

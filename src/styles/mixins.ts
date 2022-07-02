@@ -10,6 +10,7 @@ const buttonBase = css`
   order: 1;
   width: fit-content;
   padding: 7px 20px;
+  cursor: pointer;
   border-radius: 4px;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   &:hover {

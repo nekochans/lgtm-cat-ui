@@ -36,6 +36,7 @@ const TermsLinkText = styled.a`
   color: #43281e;
   text-align: center;
   text-decoration-line: underline;
+  cursor: pointer;
 `;
 
 const PrivacyLinkText = styled.a`
@@ -51,6 +52,7 @@ const PrivacyLinkText = styled.a`
   color: #43281e;
   text-align: center;
   text-decoration-line: underline;
+  cursor: pointer;
 `;
 
 const SeparatorText = styled.div`

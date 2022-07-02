@@ -29,10 +29,12 @@ const Text = styled.p`
   font-weight: 700;
   line-height: 19px;
   color: #eb7c06;
+  cursor: pointer;
 `;
 
 const faCaretDownStyle = {
   color: '#eb7c06',
+  cursor: 'pointer',
 };
 
 type Props = {
