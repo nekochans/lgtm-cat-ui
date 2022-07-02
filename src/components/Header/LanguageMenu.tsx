@@ -43,6 +43,7 @@ const EnText = styled.div`
   font-weight: 400;
   line-height: 19px;
   color: #faf9f7;
+  cursor: pointer;
 `;
 
 const Separator = styled.div`
@@ -65,6 +66,7 @@ const JaText = styled.div`
   font-weight: 900;
   line-height: 19px;
   color: #faf9f7;
+  cursor: pointer;
 `;
 
 export type Props = {

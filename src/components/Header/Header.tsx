@@ -46,6 +46,7 @@ const faBarsStyle = {
   flex: 'none',
   order: 0,
   flexGrow: 0,
+  cursor: 'pointer',
 };
 
 export type Props = LanguageMenuProps & {
