@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSnapshot } from 'valtio';
 
-import { Layout } from '../../layouts';
+import { ResponsiveLayout } from '../../layouts';
 import {
   headerStateSelector,
   updateIsLanguageMenuDisplayed,
@@ -70,7 +70,7 @@ const createPrivacy = (language: Language) => {
   }
 };
 
-export const LayoutContainer: React.FC<Props> = ({ children }) => {
+export const ResponsiveLayoutContainer: React.FC<Props> = ({ children }) => {
   const snap = useSnapshot(headerStateSelector());
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -92,7 +92,7 @@ export const LayoutContainer: React.FC<Props> = ({ children }) => {
 
   return (
     <div onClick={onClickOutSideMenu} aria-hidden="true">
-      <Layout
+      <ResponsiveLayout
         terms={terms}
         privacy={privacy}
         isLanguageMenuDisplayed={snap.isLanguageMenuDisplayed}
@@ -102,7 +102,7 @@ export const LayoutContainer: React.FC<Props> = ({ children }) => {
         onClickJa={onClickJa}
       >
         {children}
-      </Layout>
+      </ResponsiveLayout>
     </div>
   );
 };

@@ -16,7 +16,7 @@ const ContentsWrapper = styled.div`
 
 export type Props = FooterProps & HeaderProps & { children: React.ReactNode };
 
-export const Layout: React.FC<Props> = ({
+export const ResponsiveLayout: React.FC<Props> = ({
   terms,
   privacy,
   language,

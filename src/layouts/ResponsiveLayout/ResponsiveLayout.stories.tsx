@@ -1,15 +1,15 @@
 import React from 'react';
 
-import { Layout } from './index';
+import { ResponsiveLayout } from './';
 
 import type { ComponentStoryObj, Meta } from '@storybook/react';
 
 export default {
-  title: 'src/layouts/Layout/Layout.tsx',
-  component: Layout,
-} as Meta<typeof Layout>;
+  title: 'src/layouts/ResponsiveLayout/ResponsiveLayout.tsx',
+  component: ResponsiveLayout,
+} as Meta<typeof ResponsiveLayout>;
 
-type Story = ComponentStoryObj<typeof Layout>;
+type Story = ComponentStoryObj<typeof ResponsiveLayout>;
 
 const termsPath = '/terms';
 

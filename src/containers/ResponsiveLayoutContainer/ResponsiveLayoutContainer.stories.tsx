@@ -5,16 +5,17 @@ import { AppDescriptionArea } from '../../components/AppDescriptionArea';
 import { CatButtonGroup } from '../../components/Button/CatButtonGroup';
 import { LgtmImage } from '../../types/lgtmImage';
 
-import { LayoutContainer } from './.';
+import { ResponsiveLayoutContainer } from './.';
 
 import type { ComponentStoryObj, Meta } from '@storybook/react';
 
 export default {
-  title: 'src/containers/LayoutContainer/LayoutContainer.tsx',
-  component: LayoutContainer,
-} as Meta<typeof LayoutContainer>;
+  title:
+    'src/containers/ResponsiveLayoutContainer/ResponsiveLayoutContainer.tsx',
+  component: ResponsiveLayoutContainer,
+} as Meta<typeof ResponsiveLayoutContainer>;
 
-type Story = ComponentStoryObj<typeof LayoutContainer>;
+type Story = ComponentStoryObj<typeof ResponsiveLayoutContainer>;
 
 const JpContents: React.FC = () => (
   <>
