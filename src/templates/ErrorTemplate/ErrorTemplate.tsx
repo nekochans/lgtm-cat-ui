@@ -2,9 +2,9 @@ import Image from 'next/image';
 import React from 'react';
 import styled from 'styled-components';
 
-import { Language } from '../../../types/language';
-import assertNever from '../../../utils/assertNever';
-import { BackToTopButton } from '../../Button/BackToTopButton';
+import { BackToTopButton } from '../../components/Button/BackToTopButton';
+import { Language } from '../../types/language';
+import assertNever from '../../utils/assertNever';
 
 import internalServerError from './images/internal_server_error.webp';
 import notFound from './images/not_found.webp';

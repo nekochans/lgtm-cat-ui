@@ -1,9 +1,9 @@
-import { ErrorTemplate } from './.';
+import { ErrorTemplate } from './index';
 
 import type { ComponentStoryObj, Meta } from '@storybook/react';
 
 export default {
-  title: 'src/components/templates/ErrorTemplate/ErrorTemplate.tsx',
+  title: 'src/templates/ErrorTemplate/ErrorTemplate.tsx',
   component: ErrorTemplate,
 } as Meta<typeof ErrorTemplate>;
 
