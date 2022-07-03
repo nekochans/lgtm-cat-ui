@@ -7,10 +7,10 @@ import { UploadTemplate } from '.';
 import type { ComponentStoryObj, Meta } from '@storybook/react';
 
 const UploadTemplateWithResponsiveLayout: React.FC = () => (
-    <ResponsiveLayoutContainer>
-      <UploadTemplate />
-    </ResponsiveLayoutContainer>
-  );
+  <ResponsiveLayoutContainer>
+    <UploadTemplate />
+  </ResponsiveLayoutContainer>
+);
 
 export default {
   title: 'src/templates/UploadTemplate/UploadTemplate.tsx',
