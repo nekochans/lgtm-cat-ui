@@ -2,14 +2,8 @@ import React, { FC } from 'react';
 import { FaCloudUploadAlt } from 'react-icons/fa';
 import styled from 'styled-components';
 
-const UploadTitleArea = styled.div`
-  font-family: Roboto, sans-serif;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 28px;
-  color: #362e2b;
-`;
+import { UploadTitleArea } from '../../components/UploadTitleArea';
+import { Language } from '../../types/language';
 
 const UploadFormWrapper = styled.form``;
 
@@ -31,11 +25,13 @@ const faCloudUploadAltStyle = {
   color: '#f0a14e',
 };
 
-export const UploadTemplate: FC = () => (
+export type Props = {
+  language: Language;
+};
+
+export const UploadTemplate: FC<Props> = ({ language }) => (
   <>
-    <UploadTitleArea>
-      猫ちゃん画像をアップロードしてLGTM画像を作れます🐱
-    </UploadTitleArea>
+    <UploadTitleArea language={language} />
     <UploadFormWrapper>
       <InputFileAreaWrapper>
         <FaCloudUploadAlt style={faCloudUploadAltStyle} />

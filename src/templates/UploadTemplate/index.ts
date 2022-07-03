@@ -1,1 +1,1 @@
-export { UploadTemplate } from './UploadTemplate';
+export { UploadTemplate, Props } from './UploadTemplate';

@@ -2,13 +2,13 @@ import React from 'react';
 
 import { ResponsiveLayoutContainer } from '../../containers';
 
-import { UploadTemplate } from '.';
+import { UploadTemplate, Props } from '.';
 
 import type { ComponentStoryObj, Meta } from '@storybook/react';
 
-const UploadTemplateWithResponsiveLayout: React.FC = () => (
+const UploadTemplateWithResponsiveLayout: React.FC<Props> = ({ language }) => (
   <ResponsiveLayoutContainer>
-    <UploadTemplate />
+    <UploadTemplate language={language} />
   </ResponsiveLayoutContainer>
 );
 
@@ -19,4 +19,10 @@ export default {
 
 type Story = ComponentStoryObj<typeof UploadTemplateWithResponsiveLayout>;
 
-export const Default: Story = {};
+export const ViewInJapanese: Story = {
+  args: { language: 'ja' },
+};
+
+export const ViewInEnglish: Story = {
+  args: { language: 'en' },
+};
