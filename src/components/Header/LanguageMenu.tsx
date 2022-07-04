@@ -57,7 +57,7 @@ const Separator = styled.div`
   order: 1;
   width: 125px;
   height: 0;
-  border: 1px solid rgba(54, 46, 43, 0.4);
+  border: 1px solid rgba(54, 46, 43, 0.5);
 `;
 
 const JaTextWrapper = styled.button`
