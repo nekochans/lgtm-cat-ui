@@ -30,7 +30,7 @@ const StyledLanguageMenu = styled.div`
   padding: 0;
 `;
 
-const EnTextWrapper = styled.div`
+const EnTextWrapper = styled.button`
   ${textWrapperStyle};
   order: 0;
 `;
@@ -60,7 +60,7 @@ const Separator = styled.div`
   border: 1px solid rgba(54, 46, 43, 0.4);
 `;
 
-const JaTextWrapper = styled.div`
+const JaTextWrapper = styled.button`
   ${textWrapperStyle};
   order: 2;
 `;
