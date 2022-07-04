@@ -1,8 +1,21 @@
 import React from 'react';
 import { FaAngleRight } from 'react-icons/fa';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { Language } from '../../types/language';
+
+const textWrapperStyle = css`
+  display: flex;
+  flex: none;
+  flex-direction: row;
+  flex-grow: 0;
+  gap: 10px;
+  align-items: flex-start;
+  width: 125px;
+  height: 39px;
+  padding: 10px 0;
+  background: rgba(54, 46, 43, 0.4);
+`;
 
 const StyledLanguageMenu = styled.div`
   @media (max-width: 767px) {
@@ -18,17 +31,8 @@ const StyledLanguageMenu = styled.div`
 `;
 
 const EnTextWrapper = styled.div`
-  display: flex;
-  flex: none;
-  flex-direction: row;
-  flex-grow: 0;
-  gap: 10px;
-  align-items: flex-start;
+  ${textWrapperStyle};
   order: 0;
-  width: 125px;
-  height: 39px;
-  padding: 10px 0;
-  background: rgba(54, 46, 43, 0.4);
 `;
 
 const EnText = styled.div`
@@ -57,17 +61,8 @@ const Separator = styled.div`
 `;
 
 const JaTextWrapper = styled.div`
-  display: flex;
-  flex: none;
-  flex-direction: row;
-  flex-grow: 0;
-  gap: 10px;
-  align-items: flex-start;
+  ${textWrapperStyle};
   order: 2;
-  width: 125px;
-  height: 39px;
-  padding: 10px 0;
-  background: rgba(54, 46, 43, 0.4);
 `;
 
 const JaText = styled.div`
