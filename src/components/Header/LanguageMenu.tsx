@@ -17,7 +17,7 @@ const StyledLanguageMenu = styled.div`
   padding: 0;
 `;
 
-const Wrapper = styled.div`
+const EnTextWrapper = styled.div`
   display: flex;
   flex: none;
   flex-direction: row;
@@ -56,6 +56,20 @@ const Separator = styled.div`
   border: 1px solid rgba(54, 46, 43, 0.4);
 `;
 
+const JaTextWrapper = styled.div`
+  display: flex;
+  flex: none;
+  flex-direction: row;
+  flex-grow: 0;
+  gap: 10px;
+  align-items: flex-start;
+  order: 2;
+  width: 125px;
+  height: 39px;
+  padding: 10px 0;
+  background: rgba(54, 46, 43, 0.4);
+`;
+
 const JaText = styled.div`
   flex: none;
   flex-grow: 0;
@@ -84,18 +98,18 @@ export const LanguageMenu: React.FC<Props> = ({
   onClickJa,
 }) => (
   <StyledLanguageMenu>
-    <Wrapper>
+    <EnTextWrapper>
       <EnText onClick={onClickEn}>
         {language === 'en' ? <FaAngleRight /> : ''}
         English
       </EnText>
-    </Wrapper>
+    </EnTextWrapper>
     <Separator />
-    <Wrapper>
+    <JaTextWrapper>
       <JaText onClick={onClickJa}>
         {language === 'ja' ? <FaAngleRight /> : ''}
         日本語
       </JaText>
-    </Wrapper>
+    </JaTextWrapper>
   </StyledLanguageMenu>
 );
