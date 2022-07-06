@@ -25,6 +25,15 @@ const faCloudUploadAltStyle = {
   color: '#f0a14e',
 };
 
+const Text = styled.div`
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 28px;
+  color: #8e7e78;
+`;
+
 export type Props = {
   language: Language;
 };
@@ -35,6 +44,7 @@ export const UploadTemplate: FC<Props> = ({ language }) => (
     <UploadFormWrapper>
       <InputFileAreaWrapper>
         <FaCloudUploadAlt style={faCloudUploadAltStyle} />
+        <Text>ここに画像をドロップ</Text>
       </InputFileAreaWrapper>
     </UploadFormWrapper>
   </>
