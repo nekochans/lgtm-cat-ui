@@ -1,13 +1,13 @@
-import { UploadTitleArea } from './';
+import { UploadForm } from '.';
 
 import type { ComponentStoryObj, Meta } from '@storybook/react';
 
 export default {
-  title: 'src/components/UploadTitleArea/UploadTitleArea.tsx',
-  component: UploadTitleArea,
-} as Meta<typeof UploadTitleArea>;
+  title: 'src/components/Upload/UploadForm/UploadForm.tsx',
+  component: UploadForm,
+} as Meta<typeof UploadForm>;
 
-type Story = ComponentStoryObj<typeof UploadTitleArea>;
+type Story = ComponentStoryObj<typeof UploadForm>;
 
 export const ViewInJapanese: Story = {
   args: { language: 'ja' },

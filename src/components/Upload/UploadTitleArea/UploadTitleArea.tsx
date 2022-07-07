@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Language } from '../../types/language';
-import assertNever from '../../utils/assertNever';
+import { Language } from '../../../types/language';
+import assertNever from '../../../utils/assertNever';
 
 const StyledUploadTitleArea = styled.div`
   font-family: Roboto, sans-serif;
