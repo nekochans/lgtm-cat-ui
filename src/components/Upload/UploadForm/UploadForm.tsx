@@ -86,6 +86,28 @@ const ButtonText = styled.div`
   color: #f0a14e;
 `;
 
+const CautionText = styled.div`
+  height: 28px;
+  font-family: Roboto, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px;
+  color: #362e2b;
+  text-align: center;
+`;
+
+const Notes = styled.div`
+  top: 609px;
+  height: 96px;
+  font-family: Roboto, sans-serif;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  color: #362e2b;
+`;
+
 export type Props = {
   language: Language;
 };
@@ -101,6 +123,13 @@ export const UploadForm: FC<Props> = ({ language }) => (
           <ButtonText>またはファイルの選択</ButtonText>
         </Button>
       </InputFileArea>
+      <CautionText>注意事項</CautionText>
+      <Notes>
+        <p>拡張子が png, jpg, jpeg の画像のみアップロード出来ます。</p>
+        <p>猫が写っていない画像はアップロード出来ません。</p>
+        <p>人の顔がはっきり写っている画像はアップロード出来ません。</p>
+        <p>猫のイラスト等は正確に判定出来ない事があります。</p>
+      </Notes>
     </Form>
   </Wrapper>
 );
