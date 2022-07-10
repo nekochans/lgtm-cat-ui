@@ -161,19 +161,15 @@ const UploadButtonWrapper = styled.div`
 
 export type Props = {
   language: Language;
+  errorMessages?: string[];
 };
 
-export const UploadForm: FC<Props> = ({ language }) => {
+export const UploadForm: FC<Props> = ({ language, errorMessages }) => {
   const privacyLinkAttribute = createLinksFromLanguages(language);
 
   return (
     <Wrapper>
-      <UploadErrorMessageArea
-        messages={[
-          'アップロード中に予期せぬエラーが発生しました。',
-          'お手数ですが、しばらく時間が経ってからお試し下さい。',
-        ]}
-      />
+      {errorMessages ? <UploadErrorMessageArea messages={errorMessages} /> : ''}
       <UploadTitleArea language={language} />
       <Form>
         <InputFileArea>
