@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React, { FC } from 'react';
 import { FaCloudUploadAlt } from 'react-icons/fa';
 import styled from 'styled-components';
@@ -108,6 +109,30 @@ const Notes = styled.div`
   color: #362e2b;
 `;
 
+const PrivacyPolicyArea = styled.div`
+  height: 42px;
+  font-family: Roboto, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 21px;
+  color: #362e2b;
+  text-align: center;
+`;
+
+const PrivacyLinkText = styled.a`
+  height: 42px;
+  font-family: Roboto, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 21px;
+  color: #eb7c06;
+  text-align: center;
+  text-decoration-line: underline;
+  cursor: pointer;
+`;
+
 export type Props = {
   language: Language;
 };
@@ -130,6 +155,13 @@ export const UploadForm: FC<Props> = ({ language }) => (
         <p>人の顔がはっきり写っている画像はアップロード出来ません。</p>
         <p>猫のイラスト等は正確に判定出来ない事があります。</p>
       </Notes>
+      <PrivacyPolicyArea>
+        アップロードするボタンを押下することで{' '}
+        <Link href="/privacy" prefetch={false}>
+          <PrivacyLinkText>プライバシーポリシー</PrivacyLinkText>
+        </Link>{' '}
+        に同意したと見なします
+      </PrivacyPolicyArea>
     </Form>
   </Wrapper>
 );
