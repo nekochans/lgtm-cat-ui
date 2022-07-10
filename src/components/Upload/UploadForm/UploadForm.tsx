@@ -4,6 +4,7 @@ import { FaCloudUploadAlt } from 'react-icons/fa';
 import styled from 'styled-components';
 
 import { Language } from '../../../types/language';
+import { UploadButton } from '../UploadButton';
 import { UploadTitleArea } from '../UploadTitleArea';
 
 const Wrapper = styled.div`
@@ -133,6 +134,12 @@ const PrivacyLinkText = styled.a`
   cursor: pointer;
 `;
 
+const UploadButtonWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 export type Props = {
   language: Language;
 };
@@ -162,6 +169,9 @@ export const UploadForm: FC<Props> = ({ language }) => (
         </Link>{' '}
         に同意したと見なします
       </PrivacyPolicyArea>
+      <UploadButtonWrapper>
+        <UploadButton />
+      </UploadButtonWrapper>
     </Form>
   </Wrapper>
 );
