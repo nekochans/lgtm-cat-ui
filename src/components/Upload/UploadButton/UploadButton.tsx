@@ -1,6 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { Language } from '../../../types/language';
+import assertNever from '../../../utils/assertNever';
+
 const Button = styled.button`
   display: flex;
   flex-direction: row;
@@ -26,8 +29,23 @@ const Text = styled.div`
   color: #fff;
 `;
 
-export const UploadButton: React.FC = () => (
+const createText = (language: Language): string => {
+  switch (language) {
+    case 'ja':
+      return 'アップロードする';
+    case 'en':
+      return 'Upload';
+    default:
+      return assertNever(language);
+  }
+};
+
+type Props = {
+  language: Language;
+};
+
+export const UploadButton: React.FC<Props> = ({ language }) => (
   <Button type="submit">
-    <Text>アップロードする</Text>
+    <Text>{createText(language)}</Text>
   </Button>
 );

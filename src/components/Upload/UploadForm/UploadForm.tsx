@@ -271,7 +271,7 @@ export const UploadForm: FC<Props> = ({ language, errorMessages }) => (
         {createPrivacyPolicyArea(language)}
       </DescriptionAreaWrapper>
       <UploadButtonWrapper>
-        <UploadButton />
+        <UploadButton language={language} />
       </UploadButtonWrapper>
     </Form>
   </Wrapper>
