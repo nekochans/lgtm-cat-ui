@@ -88,6 +88,17 @@ const ButtonText = styled.div`
   color: #f0a14e;
 `;
 
+const MaxUploadSizeText = styled.div`
+  height: 28px;
+  font-family: Roboto, sans-serif;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px;
+  color: #8e7e78;
+  text-align: right;
+`;
+
 const CautionText = styled.div`
   height: 28px;
   font-family: Roboto, sans-serif;
@@ -155,6 +166,7 @@ export const UploadForm: FC<Props> = ({ language }) => (
           <ButtonText>またはファイルの選択</ButtonText>
         </Button>
       </InputFileArea>
+      <MaxUploadSizeText>Maximum upload size is 4MB</MaxUploadSizeText>
       <CautionText>注意事項</CautionText>
       <Notes>
         <p>拡張子が png, jpg, jpeg の画像のみアップロード出来ます。</p>
