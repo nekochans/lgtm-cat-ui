@@ -4,6 +4,7 @@ import { FaCloudUploadAlt } from 'react-icons/fa';
 import styled from 'styled-components';
 
 import { createLinksFromLanguages } from '../../../features/privacyPolicy';
+import assertNever from '../../../utils/assertNever';
 import { UploadButton } from '../UploadButton';
 import { UploadErrorMessageArea } from '../UploadErrorMessageArea';
 import { UploadTitleArea } from '../UploadTitleArea';
@@ -102,7 +103,7 @@ const MaxUploadSizeText = styled.div`
   text-align: right;
 `;
 
-const CautionText = styled.div`
+const CautionTextArea = styled.div`
   height: 28px;
   font-family: Roboto, sans-serif;
   font-size: 14px;
@@ -159,6 +160,60 @@ const UploadButtonWrapper = styled.div`
   justify-content: center;
 `;
 
+const imageDropAreaText = (language: Language): string => {
+  switch (language) {
+    case 'ja':
+      return 'ここに画像をドロップ';
+    case 'en':
+      return 'Drop image here';
+    default:
+      return assertNever(language);
+  }
+};
+
+const uploadInputButtonText = (language: Language): string => {
+  switch (language) {
+    case 'ja':
+      return 'またはファイルの選択';
+    case 'en':
+      return 'Select an image file';
+    default:
+      return assertNever(language);
+  }
+};
+
+const cautionText = (language: Language): string => {
+  switch (language) {
+    case 'ja':
+      return '注意事項';
+    case 'en':
+      return 'precautions';
+    default:
+      return assertNever(language);
+  }
+};
+
+const noteList = (language: Language): string[] => {
+  switch (language) {
+    case 'ja':
+      return [
+        '拡張子が png, jpg, jpeg の画像のみアップロード出来ます。',
+        '猫が写っていない画像はアップロード出来ません。',
+        '人の顔がはっきり写っている画像はアップロード出来ません。',
+        '猫のイラスト等は正確に判定出来ない事があります。',
+      ];
+    case 'en':
+      return [
+        'png, jpg, jpeg, images are available.',
+        'Images without cats cannot be uploaded.',
+        "Images that clearly show a person's face cannot be uploaded.",
+        'Illustrations of cats may not be accurately determined.',
+      ];
+    default:
+      return assertNever(language);
+  }
+};
+
 export type Props = {
   language: Language;
   errorMessages?: string[];
@@ -174,19 +229,18 @@ export const UploadForm: FC<Props> = ({ language, errorMessages }) => {
       <Form>
         <InputFileArea>
           <FaCloudUploadAlt style={faCloudUploadAltStyle} />
-          <Text>ここに画像をドロップ</Text>
+          <Text>{imageDropAreaText(language)}</Text>
           <Button>
-            <ButtonText>またはファイルの選択</ButtonText>
+            <ButtonText>{uploadInputButtonText(language)}</ButtonText>
           </Button>
         </InputFileArea>
         <MaxUploadSizeText>Maximum upload size is 4MB</MaxUploadSizeText>
         <DescriptionAreaWrapper>
-          <CautionText>注意事項</CautionText>
+          <CautionTextArea>{cautionText(language)}</CautionTextArea>
           <Notes>
-            <p>拡張子が png, jpg, jpeg の画像のみアップロード出来ます。</p>
-            <p>猫が写っていない画像はアップロード出来ません。</p>
-            <p>人の顔がはっきり写っている画像はアップロード出来ません。</p>
-            <p>猫のイラスト等は正確に判定出来ない事があります。</p>
+            {noteList(language).map((note, index) => (
+              <p key={index}>{note}</p>
+            ))}
           </Notes>
           <PrivacyPolicyArea>
             アップロードするボタンを押下することで{' '}
