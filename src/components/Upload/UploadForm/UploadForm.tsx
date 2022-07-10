@@ -163,14 +163,14 @@ export type Props = {
 
 export const UploadForm: FC<Props> = ({ language }) => (
   <Wrapper>
+    <UploadErrorMessageArea
+      messages={[
+        'アップロード中に予期せぬエラーが発生しました。',
+        'お手数ですが、しばらく時間が経ってからお試し下さい。',
+      ]}
+    />
+    <UploadTitleArea language={language} />
     <Form>
-      <UploadErrorMessageArea
-        messages={[
-          'アップロード中に予期せぬエラーが発生しました。',
-          'お手数ですが、しばらく時間が経ってからお試し下さい。',
-        ]}
-      />
-      <UploadTitleArea language={language} />
       <InputFileArea>
         <FaCloudUploadAlt style={faCloudUploadAltStyle} />
         <Text>ここに画像をドロップ</Text>
