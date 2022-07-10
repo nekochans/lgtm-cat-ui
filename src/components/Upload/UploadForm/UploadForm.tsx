@@ -3,10 +3,12 @@ import React, { FC } from 'react';
 import { FaCloudUploadAlt } from 'react-icons/fa';
 import styled from 'styled-components';
 
-import { Language } from '../../../types/language';
+import { createLinksFromLanguages } from '../../../features/privacyPolicy';
 import { UploadButton } from '../UploadButton';
 import { UploadErrorMessageArea } from '../UploadErrorMessageArea';
 import { UploadTitleArea } from '../UploadTitleArea';
+
+import type { Language } from '../../../types/language';
 
 const Wrapper = styled.div`
   display: flex;
@@ -161,43 +163,47 @@ export type Props = {
   language: Language;
 };
 
-export const UploadForm: FC<Props> = ({ language }) => (
-  <Wrapper>
-    <UploadErrorMessageArea
-      messages={[
-        'アップロード中に予期せぬエラーが発生しました。',
-        'お手数ですが、しばらく時間が経ってからお試し下さい。',
-      ]}
-    />
-    <UploadTitleArea language={language} />
-    <Form>
-      <InputFileArea>
-        <FaCloudUploadAlt style={faCloudUploadAltStyle} />
-        <Text>ここに画像をドロップ</Text>
-        <Button>
-          <ButtonText>またはファイルの選択</ButtonText>
-        </Button>
-      </InputFileArea>
-      <MaxUploadSizeText>Maximum upload size is 4MB</MaxUploadSizeText>
-      <DescriptionAreaWrapper>
-        <CautionText>注意事項</CautionText>
-        <Notes>
-          <p>拡張子が png, jpg, jpeg の画像のみアップロード出来ます。</p>
-          <p>猫が写っていない画像はアップロード出来ません。</p>
-          <p>人の顔がはっきり写っている画像はアップロード出来ません。</p>
-          <p>猫のイラスト等は正確に判定出来ない事があります。</p>
-        </Notes>
-        <PrivacyPolicyArea>
-          アップロードするボタンを押下することで{' '}
-          <Link href="/privacy" prefetch={false}>
-            <PrivacyLinkText>プライバシーポリシー</PrivacyLinkText>
-          </Link>{' '}
-          に同意したと見なします
-        </PrivacyPolicyArea>
-      </DescriptionAreaWrapper>
-      <UploadButtonWrapper>
-        <UploadButton />
-      </UploadButtonWrapper>
-    </Form>
-  </Wrapper>
-);
+export const UploadForm: FC<Props> = ({ language }) => {
+  const privacyLinkAttribute = createLinksFromLanguages(language);
+
+  return (
+    <Wrapper>
+      <UploadErrorMessageArea
+        messages={[
+          'アップロード中に予期せぬエラーが発生しました。',
+          'お手数ですが、しばらく時間が経ってからお試し下さい。',
+        ]}
+      />
+      <UploadTitleArea language={language} />
+      <Form>
+        <InputFileArea>
+          <FaCloudUploadAlt style={faCloudUploadAltStyle} />
+          <Text>ここに画像をドロップ</Text>
+          <Button>
+            <ButtonText>またはファイルの選択</ButtonText>
+          </Button>
+        </InputFileArea>
+        <MaxUploadSizeText>Maximum upload size is 4MB</MaxUploadSizeText>
+        <DescriptionAreaWrapper>
+          <CautionText>注意事項</CautionText>
+          <Notes>
+            <p>拡張子が png, jpg, jpeg の画像のみアップロード出来ます。</p>
+            <p>猫が写っていない画像はアップロード出来ません。</p>
+            <p>人の顔がはっきり写っている画像はアップロード出来ません。</p>
+            <p>猫のイラスト等は正確に判定出来ない事があります。</p>
+          </Notes>
+          <PrivacyPolicyArea>
+            アップロードするボタンを押下することで{' '}
+            <Link href={privacyLinkAttribute.link} prefetch={false}>
+              <PrivacyLinkText>{privacyLinkAttribute.text}</PrivacyLinkText>
+            </Link>{' '}
+            に同意したと見なします
+          </PrivacyPolicyArea>
+        </DescriptionAreaWrapper>
+        <UploadButtonWrapper>
+          <UploadButton />
+        </UploadButtonWrapper>
+      </Form>
+    </Wrapper>
+  );
+};
