@@ -214,46 +214,65 @@ const noteList = (language: Language): string[] => {
   }
 };
 
+const createPrivacyPolicyArea = (language: Language): JSX.Element => {
+  const privacyLinkAttribute = createLinksFromLanguages(language);
+
+  switch (language) {
+    case 'ja':
+      return (
+        <PrivacyPolicyArea>
+          アップロードするボタンを押下することで{' '}
+          <Link href={privacyLinkAttribute.link} prefetch={false}>
+            <PrivacyLinkText>{privacyLinkAttribute.text}</PrivacyLinkText>
+          </Link>{' '}
+          に同意したと見なします
+        </PrivacyPolicyArea>
+      );
+    case 'en':
+      return (
+        <PrivacyPolicyArea>
+          By pressing the upload button, you agree to the{' '}
+          <Link href={privacyLinkAttribute.link} prefetch={false}>
+            <PrivacyLinkText>{privacyLinkAttribute.text}</PrivacyLinkText>
+          </Link>{' '}
+          .
+        </PrivacyPolicyArea>
+      );
+    default:
+      return assertNever(language);
+  }
+};
+
 export type Props = {
   language: Language;
   errorMessages?: string[];
 };
 
-export const UploadForm: FC<Props> = ({ language, errorMessages }) => {
-  const privacyLinkAttribute = createLinksFromLanguages(language);
-
-  return (
-    <Wrapper>
-      {errorMessages ? <UploadErrorMessageArea messages={errorMessages} /> : ''}
-      <UploadTitleArea language={language} />
-      <Form>
-        <InputFileArea>
-          <FaCloudUploadAlt style={faCloudUploadAltStyle} />
-          <Text>{imageDropAreaText(language)}</Text>
-          <Button>
-            <ButtonText>{uploadInputButtonText(language)}</ButtonText>
-          </Button>
-        </InputFileArea>
-        <MaxUploadSizeText>Maximum upload size is 4MB</MaxUploadSizeText>
-        <DescriptionAreaWrapper>
-          <CautionTextArea>{cautionText(language)}</CautionTextArea>
-          <Notes>
-            {noteList(language).map((note, index) => (
-              <p key={index}>{note}</p>
-            ))}
-          </Notes>
-          <PrivacyPolicyArea>
-            アップロードするボタンを押下することで{' '}
-            <Link href={privacyLinkAttribute.link} prefetch={false}>
-              <PrivacyLinkText>{privacyLinkAttribute.text}</PrivacyLinkText>
-            </Link>{' '}
-            に同意したと見なします
-          </PrivacyPolicyArea>
-        </DescriptionAreaWrapper>
-        <UploadButtonWrapper>
-          <UploadButton />
-        </UploadButtonWrapper>
-      </Form>
-    </Wrapper>
-  );
-};
+export const UploadForm: FC<Props> = ({ language, errorMessages }) => (
+  <Wrapper>
+    {errorMessages ? <UploadErrorMessageArea messages={errorMessages} /> : ''}
+    <UploadTitleArea language={language} />
+    <Form>
+      <InputFileArea>
+        <FaCloudUploadAlt style={faCloudUploadAltStyle} />
+        <Text>{imageDropAreaText(language)}</Text>
+        <Button>
+          <ButtonText>{uploadInputButtonText(language)}</ButtonText>
+        </Button>
+      </InputFileArea>
+      <MaxUploadSizeText>Maximum upload size is 4MB</MaxUploadSizeText>
+      <DescriptionAreaWrapper>
+        <CautionTextArea>{cautionText(language)}</CautionTextArea>
+        <Notes>
+          {noteList(language).map((note, index) => (
+            <p key={index}>{note}</p>
+          ))}
+        </Notes>
+        {createPrivacyPolicyArea(language)}
+      </DescriptionAreaWrapper>
+      <UploadButtonWrapper>
+        <UploadButton />
+      </UploadButtonWrapper>
+    </Form>
+  </Wrapper>
+);
