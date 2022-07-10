@@ -5,6 +5,7 @@ import styled from 'styled-components';
 
 import { Language } from '../../../types/language';
 import { UploadButton } from '../UploadButton';
+import { UploadErrorMessageArea } from '../UploadErrorMessageArea';
 import { UploadTitleArea } from '../UploadTitleArea';
 
 const Wrapper = styled.div`
@@ -163,6 +164,12 @@ export type Props = {
 export const UploadForm: FC<Props> = ({ language }) => (
   <Wrapper>
     <Form>
+      <UploadErrorMessageArea
+        messages={[
+          'アップロード中に予期せぬエラーが発生しました。',
+          'お手数ですが、しばらく時間が経ってからお試し下さい。',
+        ]}
+      />
       <UploadTitleArea language={language} />
       <InputFileArea>
         <FaCloudUploadAlt style={faCloudUploadAltStyle} />
