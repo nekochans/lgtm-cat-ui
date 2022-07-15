@@ -60,6 +60,10 @@ const Text = styled.div`
 `;
 
 const InputFile = styled.input`
+  display: none;
+`;
+
+const InputFileLabel = styled.label`
   top: 0;
   right: 0;
   bottom: 0;
@@ -73,12 +77,13 @@ const InputFile = styled.input`
   height: 43px;
   padding: 12px 20px;
   margin: auto;
+  cursor: pointer;
   background: #faf9f7;
   border: 1px solid #8e7e78;
   border-radius: 4px;
 `;
 
-const InputFileLabel = styled.label`
+const InputFileLabelText = styled.div`
   flex: none;
   flex-grow: 0;
   order: 0;
@@ -257,7 +262,9 @@ export const UploadForm: FC<Props> = ({ language, errorMessages }) => (
         <FaCloudUploadAlt style={faCloudUploadAltStyle} />
         <Text>{imageDropAreaText(language)}</Text>
         <InputFileLabel>
-          {uploadInputButtonText(language)}
+          <InputFileLabelText>
+            {uploadInputButtonText(language)}
+          </InputFileLabelText>
           <InputFile type="file" />
         </InputFileLabel>
       </InputFileArea>
