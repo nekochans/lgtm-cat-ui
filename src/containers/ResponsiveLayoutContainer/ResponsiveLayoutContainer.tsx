@@ -25,22 +25,20 @@ const onClickJa = (event: React.MouseEvent<HTMLDivElement>) => {
 export const ResponsiveLayoutContainer: React.FC<Props> = ({ children }) => {
   const snap = useSnapshot(headerStateSelector());
 
+  const { language, isLanguageMenuDisplayed } = snap;
+
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const onClickLanguageButton = (event: React.MouseEvent<HTMLDivElement>) => {
-    updateIsLanguageMenuDisplayed(!snap.isLanguageMenuDisplayed);
+    updateIsLanguageMenuDisplayed(!isLanguageMenuDisplayed);
   };
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const onClickOutSideMenu = (event: React.MouseEvent<HTMLDivElement>) => {
     // メニューの外側をクリックしたときだけメニューを閉じる
-    if (snap.isLanguageMenuDisplayed) {
+    if (isLanguageMenuDisplayed) {
       updateIsLanguageMenuDisplayed(false);
     }
   };
-
-  const { language } = snap;
-
-  const { isLanguageMenuDisplayed } = snap;
 
   return (
     <div onClick={onClickOutSideMenu} aria-hidden="true">
