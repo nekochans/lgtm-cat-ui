@@ -23,9 +23,13 @@ const Wrapper = styled.div`
 `;
 
 const Form = styled.form`
+  @media (max-width: 767px) {
+    width: 380px;
+  }
   flex: none;
   flex-grow: 0;
   order: 1;
+  width: 500px;
 `;
 
 const InputFileArea = styled.div`
@@ -59,7 +63,11 @@ const Text = styled.div`
   text-align: center;
 `;
 
-const Button = styled.button`
+const InputFile = styled.input`
+  display: none;
+`;
+
+const InputFileLabel = styled.label`
   top: 0;
   right: 0;
   bottom: 0;
@@ -73,12 +81,13 @@ const Button = styled.button`
   height: 43px;
   padding: 12px 20px;
   margin: auto;
+  cursor: pointer;
   background: #faf9f7;
   border: 1px solid #8e7e78;
   border-radius: 4px;
 `;
 
-const ButtonText = styled.div`
+const InputFileLabelText = styled.div`
   flex: none;
   flex-grow: 0;
   order: 0;
@@ -256,9 +265,12 @@ export const UploadForm: FC<Props> = ({ language, errorMessages }) => (
       <InputFileArea>
         <FaCloudUploadAlt style={faCloudUploadAltStyle} />
         <Text>{imageDropAreaText(language)}</Text>
-        <Button>
-          <ButtonText>{uploadInputButtonText(language)}</ButtonText>
-        </Button>
+        <InputFileLabel>
+          <InputFileLabelText>
+            {uploadInputButtonText(language)}
+          </InputFileLabelText>
+          <InputFile type="file" />
+        </InputFileLabel>
       </InputFileArea>
       <MaxUploadSizeText>Maximum upload size is 4MB</MaxUploadSizeText>
       <DescriptionAreaWrapper>
