@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import React, { FC } from 'react';
+import React, { useState, type FC, ChangeEvent } from 'react';
 import { FaCloudUploadAlt } from 'react-icons/fa';
 import styled from 'styled-components';
 
@@ -257,34 +257,69 @@ export type Props = {
   errorMessages?: string[];
 };
 
-export const UploadForm: FC<Props> = ({ language, errorMessages }) => (
-  <Wrapper>
-    {errorMessages ? <UploadErrorMessageArea messages={errorMessages} /> : ''}
-    <UploadTitleArea language={language} />
-    <Form>
-      <InputFileArea>
-        <FaCloudUploadAlt style={faCloudUploadAltStyle} />
-        <Text>{imageDropAreaText(language)}</Text>
-        <InputFileLabel>
-          <InputFileLabelText>
-            {uploadInputButtonText(language)}
-          </InputFileLabelText>
-          <InputFile type="file" />
-        </InputFileLabel>
-      </InputFileArea>
-      <MaxUploadSizeText>Maximum upload size is 4MB</MaxUploadSizeText>
-      <DescriptionAreaWrapper>
-        <CautionTextArea>{cautionText(language)}</CautionTextArea>
-        <Notes>
-          {noteList(language).map((note, index) => (
-            <p key={index}>{note}</p>
-          ))}
-        </Notes>
-        {createPrivacyPolicyArea(language)}
-      </DescriptionAreaWrapper>
-      <UploadButtonWrapper>
-        <UploadButton language={language} />
-      </UploadButtonWrapper>
-    </Form>
-  </Wrapper>
-);
+export const UploadForm: FC<Props> = ({ language, errorMessages }) => {
+  const [base64Image, setBase64Image] = useState<string>('');
+  const [imagePreviewUrl, setImagePreviewUrl] = useState<string>();
+
+  const handleReaderLoaded = (event: ProgressEvent<FileReader>) => {
+    if (event.target === null) {
+      return;
+    }
+
+    const binaryString = event.target?.result;
+    if (typeof binaryString !== 'string') {
+      return;
+    }
+
+    setBase64Image(window.btoa(binaryString));
+  };
+
+  const handleFileUpload = (event: ChangeEvent<HTMLInputElement>) => {
+    event.preventDefault();
+    // eslint-disable-next-line no-magic-numbers
+    if (event.target.files && event.target.files.length > 0) {
+      const targetIndex = 0;
+      const file = event.target.files[targetIndex];
+
+      const url = URL.createObjectURL(file);
+
+      setImagePreviewUrl(url);
+
+      const reader = new FileReader();
+      reader.onload = handleReaderLoaded;
+      reader.readAsBinaryString(file);
+    }
+  };
+
+  return (
+    <Wrapper>
+      {errorMessages ? <UploadErrorMessageArea messages={errorMessages} /> : ''}
+      <UploadTitleArea language={language} />
+      <Form>
+        <InputFileArea>
+          <FaCloudUploadAlt style={faCloudUploadAltStyle} />
+          <Text>{imageDropAreaText(language)}</Text>
+          <InputFileLabel>
+            <InputFileLabelText>
+              {uploadInputButtonText(language)}
+            </InputFileLabelText>
+            <InputFile type="file" onChange={handleFileUpload} />
+          </InputFileLabel>
+        </InputFileArea>
+        <MaxUploadSizeText>Maximum upload size is 4MB</MaxUploadSizeText>
+        <DescriptionAreaWrapper>
+          <CautionTextArea>{cautionText(language)}</CautionTextArea>
+          <Notes>
+            {noteList(language).map((note, index) => (
+              <p key={index}>{note}</p>
+            ))}
+          </Notes>
+          {createPrivacyPolicyArea(language)}
+        </DescriptionAreaWrapper>
+        <UploadButtonWrapper>
+          <UploadButton language={language} />
+        </UploadButtonWrapper>
+      </Form>
+    </Wrapper>
+  );
+};
