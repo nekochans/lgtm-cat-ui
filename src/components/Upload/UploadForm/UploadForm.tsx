@@ -23,9 +23,13 @@ const Wrapper = styled.div`
 `;
 
 const Form = styled.form`
+  @media (max-width: 767px) {
+    width: 380px;
+  }
   flex: none;
   flex-grow: 0;
   order: 1;
+  width: 500px;
 `;
 
 const InputFileArea = styled.div`
