@@ -9,40 +9,10 @@ export default {
 
 type Story = ComponentStoryObj<typeof Footer>;
 
-const termsPath = '/terms';
-
-const privacyPath = '/privacy';
-
-const jpTermsText = '利用規約';
-
-const jpPrivacyText = 'プライバシーポリシー';
-
-const enTermsText = 'Terms of Use';
-
-const enPrivacyText = 'Privacy Policy';
-
 export const ViewInJapanese: Story = {
-  args: {
-    terms: {
-      text: jpTermsText,
-      link: termsPath,
-    },
-    privacy: {
-      text: jpPrivacyText,
-      link: privacyPath,
-    },
-  },
+  args: { language: 'ja' },
 };
 
 export const ViewInEnglish: Story = {
-  args: {
-    terms: {
-      text: enTermsText,
-      link: termsPath,
-    },
-    privacy: {
-      text: enPrivacyText,
-      link: privacyPath,
-    },
-  },
+  args: { language: 'en' },
 };

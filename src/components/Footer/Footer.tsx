@@ -2,6 +2,10 @@ import Link from 'next/link';
 import React from 'react';
 import styled from 'styled-components';
 
+import { createLinksFromLanguages as createPrivacyLinksFromLanguages } from '../../features/privacyPolicy';
+import { createLinksFromLanguages as createTermsLinksFromLanguages } from '../../features/termsOfUse';
+import { Language } from '../../types/language';
+
 const StyledFooter = styled.div`
   position: relative;
   display: flex;
@@ -98,30 +102,30 @@ const LowerSectionText = styled.div`
   color: #43281e;
 `;
 
-type LinkAttribute = {
-  text: string;
-  link: `https://${string}` | `/${string}`;
-};
-
 export type Props = {
-  terms: LinkAttribute;
-  privacy: LinkAttribute;
+  language: Language;
 };
 
-export const Footer: React.FC<Props> = ({ terms, privacy }) => (
-  <StyledFooter>
-    <UpperSection>
-      <Link href={terms.link} prefetch={false}>
-        <TermsLinkText>{terms.text}</TermsLinkText>
-      </Link>
-      {/* eslint-disable no-irregular-whitespace */}
-      <SeparatorText> / </SeparatorText>
-      <Link href={privacy.link} prefetch={false}>
-        <PrivacyLinkText>{privacy.text}</PrivacyLinkText>
-      </Link>
-    </UpperSection>
-    <LowerSection>
-      <LowerSectionText>Copyright (c) nekochans</LowerSectionText>
-    </LowerSection>
-  </StyledFooter>
-);
+export const Footer: React.FC<Props> = ({ language }) => {
+  const terms = createTermsLinksFromLanguages(language);
+
+  const privacy = createPrivacyLinksFromLanguages(language);
+
+  return (
+    <StyledFooter>
+      <UpperSection>
+        <Link href={terms.link} prefetch={false}>
+          <TermsLinkText>{terms.text}</TermsLinkText>
+        </Link>
+        {/* eslint-disable no-irregular-whitespace */}
+        <SeparatorText> / </SeparatorText>
+        <Link href={privacy.link} prefetch={false}>
+          <PrivacyLinkText>{privacy.text}</PrivacyLinkText>
+        </Link>
+      </UpperSection>
+      <LowerSection>
+        <LowerSectionText>Copyright (c) nekochans</LowerSectionText>
+      </LowerSection>
+    </StyledFooter>
+  );
+};
