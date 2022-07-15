@@ -7,6 +7,9 @@ type Props = {
 };
 
 const StyledUploadErrorMessageArea = styled.div`
+  @media (max-width: 767px) {
+    width: 389px;
+  }
   box-sizing: border-box;
   display: flex;
   flex: none;
@@ -36,6 +39,9 @@ const faExclamationTriangleStyle = {
 };
 
 const MessageText = styled.p`
+  @media (max-width: 767px) {
+    width: 389px;
+  }
   flex: none;
   flex-grow: 0;
   order: 1;
