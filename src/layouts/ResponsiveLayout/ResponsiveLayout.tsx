@@ -17,8 +17,6 @@ const ContentsWrapper = styled.div`
 export type Props = FooterProps & HeaderProps & { children: React.ReactNode };
 
 export const ResponsiveLayout: React.FC<Props> = ({
-  terms,
-  privacy,
   language,
   isLanguageMenuDisplayed,
   onClickLanguageButton,
@@ -35,6 +33,6 @@ export const ResponsiveLayout: React.FC<Props> = ({
       onClickJa={onClickJa}
     />
     <ContentsWrapper>{children}</ContentsWrapper>
-    <Footer terms={terms} privacy={privacy} />
+    <Footer language={language} />
   </Wrapper>
 );
