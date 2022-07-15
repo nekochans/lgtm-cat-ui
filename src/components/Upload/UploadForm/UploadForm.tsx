@@ -258,7 +258,7 @@ export const UploadForm: FC<Props> = ({ language, errorMessages }) => (
         <Text>{imageDropAreaText(language)}</Text>
         <InputFileLabel>
           {uploadInputButtonText(language)}
-          <InputFile />
+          <InputFile type="file" />
         </InputFileLabel>
       </InputFileArea>
       <MaxUploadSizeText>Maximum upload size is 4MB</MaxUploadSizeText>
