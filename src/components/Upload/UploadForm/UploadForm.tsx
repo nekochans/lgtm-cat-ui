@@ -59,7 +59,7 @@ const Text = styled.div`
   text-align: center;
 `;
 
-const Button = styled.button`
+const InputFile = styled.input`
   top: 0;
   right: 0;
   bottom: 0;
@@ -78,7 +78,7 @@ const Button = styled.button`
   border-radius: 4px;
 `;
 
-const ButtonText = styled.div`
+const InputFileLabel = styled.label`
   flex: none;
   flex-grow: 0;
   order: 0;
@@ -256,9 +256,10 @@ export const UploadForm: FC<Props> = ({ language, errorMessages }) => (
       <InputFileArea>
         <FaCloudUploadAlt style={faCloudUploadAltStyle} />
         <Text>{imageDropAreaText(language)}</Text>
-        <Button>
-          <ButtonText>{uploadInputButtonText(language)}</ButtonText>
-        </Button>
+        <InputFileLabel>
+          {uploadInputButtonText(language)}
+          <InputFile />
+        </InputFileLabel>
       </InputFileArea>
       <MaxUploadSizeText>Maximum upload size is 4MB</MaxUploadSizeText>
       <DescriptionAreaWrapper>
