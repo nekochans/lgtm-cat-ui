@@ -7,6 +7,7 @@ import { createLinksFromLanguages } from '../../../features/privacyPolicy';
 import assertNever from '../../../utils/assertNever';
 import { UploadButton } from '../UploadButton';
 import { UploadErrorMessageArea } from '../UploadErrorMessageArea';
+import { UploadModal } from '../UploadModal';
 import { UploadTitleArea } from '../UploadTitleArea';
 
 import type { Language } from '../../../types/language';
@@ -320,6 +321,11 @@ export const UploadForm: FC<Props> = ({ language, errorMessages }) => {
           <UploadButton language={language} />
         </UploadButtonWrapper>
       </Form>
+      {imagePreviewUrl ? (
+        <UploadModal language={language} imagePreviewUrl={imagePreviewUrl} />
+      ) : (
+        ''
+      )}
     </Wrapper>
   );
 };

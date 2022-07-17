@@ -5,7 +5,7 @@ import { Language } from '../../../types/language';
 
 export type Props = {
   language: Language;
-  previewImage: string;
+  imagePreviewUrl: string;
 };
 
 const Wrapper = styled.div`
@@ -160,13 +160,13 @@ const UploadButtonText = styled.div`
   }
 `;
 
-export const UploadModal: FC<Props> = ({ language, previewImage }) => (
+export const UploadModal: FC<Props> = ({ language, imagePreviewUrl }) => (
   <Wrapper>
     <ContentsWrapper>
       <Title>猫ちゃん画像アップロード確認</Title>
       <FormWrapper>
         <PreviewImageWrapper>
-          <PreviewImage src={previewImage} />
+          <PreviewImage src={imagePreviewUrl} />
         </PreviewImageWrapper>
         <ConfirmMessage>
           この画像をアップロードします。よろしいですか？
