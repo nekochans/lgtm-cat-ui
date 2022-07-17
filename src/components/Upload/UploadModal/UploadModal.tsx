@@ -8,6 +8,7 @@ export type Props = {
   isOpen: boolean;
   language: Language;
   imagePreviewUrl: string;
+  onClickCancel: () => void;
 };
 
 const Wrapper = styled.div`
@@ -187,8 +188,14 @@ export const UploadModal: FC<Props> = ({
   isOpen,
   language,
   imagePreviewUrl,
+  onClickCancel,
 }) => (
-  <Modal isOpen={isOpen} ariaHideApp={false} style={modalStyle}>
+  <Modal
+    isOpen={isOpen}
+    ariaHideApp={false}
+    style={modalStyle}
+    onRequestClose={onClickCancel}
+  >
     <Wrapper>
       <ContentsWrapper>
         <Title>猫ちゃん画像アップロード確認</Title>
@@ -201,7 +208,7 @@ export const UploadModal: FC<Props> = ({
           </ConfirmMessage>
         </FormWrapper>
         <ButtonGroup>
-          <CancelButton>
+          <CancelButton onClick={onClickCancel}>
             <CancelButtonText>キャンセル</CancelButtonText>
           </CancelButton>
           <UploadButton>

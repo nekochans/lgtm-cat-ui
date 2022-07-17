@@ -263,6 +263,14 @@ export const UploadForm: FC<Props> = ({ language, errorMessages }) => {
   const [imagePreviewUrl, setImagePreviewUrl] = useState<string>();
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
+  const openModal = () => {
+    setModalIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
+
   const handleReaderLoaded = (event: ProgressEvent<FileReader>) => {
     if (event.target === null) {
       return;
@@ -291,7 +299,7 @@ export const UploadForm: FC<Props> = ({ language, errorMessages }) => {
       reader.onload = handleReaderLoaded;
       reader.readAsBinaryString(file);
 
-      setModalIsOpen(true);
+      openModal();
     }
   };
 
@@ -329,6 +337,7 @@ export const UploadForm: FC<Props> = ({ language, errorMessages }) => {
           isOpen={modalIsOpen}
           language={language}
           imagePreviewUrl={imagePreviewUrl}
+          onClickCancel={closeModal}
         />
       ) : (
         ''
