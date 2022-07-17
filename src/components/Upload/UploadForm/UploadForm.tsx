@@ -258,10 +258,11 @@ export type Props = {
   errorMessages?: string[];
 };
 
-export const UploadForm: FC<Props> = ({ language, errorMessages }) => {
+export const UploadForm: FC<Props> = ({ language, errorMessages = [] }) => {
   const [base64Image, setBase64Image] = useState<string>('');
-  const [imagePreviewUrl, setImagePreviewUrl] = useState<string>();
+  const [imagePreviewUrl, setImagePreviewUrl] = useState<string>('');
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [uploaded, setUploaded] = useState<boolean>();
 
   const openModal = () => {
     setModalIsOpen(true);
@@ -291,6 +292,8 @@ export const UploadForm: FC<Props> = ({ language, errorMessages }) => {
       const targetIndex = 0;
       const file = event.target.files[targetIndex];
 
+      setUploaded(false);
+
       const url = URL.createObjectURL(file);
 
       setImagePreviewUrl(url);
@@ -303,9 +306,27 @@ export const UploadForm: FC<Props> = ({ language, errorMessages }) => {
     }
   };
 
+  const shouldDisableButton = (): boolean => {
+    if (errorMessages.length !== 0) {
+      return true;
+    }
+
+    return imagePreviewUrl === '';
+  };
+
+  const onClickUploadButton = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    openModal();
+  };
+
   return (
     <Wrapper>
-      {errorMessages ? <UploadErrorMessageArea messages={errorMessages} /> : ''}
+      {errorMessages.length !== 0 ? (
+        <UploadErrorMessageArea messages={errorMessages} />
+      ) : (
+        ''
+      )}
       <UploadTitleArea language={language} />
       <Form>
         <InputFileArea>
@@ -329,7 +350,11 @@ export const UploadForm: FC<Props> = ({ language, errorMessages }) => {
           {createPrivacyPolicyArea(language)}
         </DescriptionAreaWrapper>
         <UploadButtonWrapper>
-          <UploadButton language={language} />
+          <UploadButton
+            language={language}
+            disabled={shouldDisableButton()}
+            onClick={onClickUploadButton}
+          />
         </UploadButtonWrapper>
       </Form>
       {imagePreviewUrl ? (

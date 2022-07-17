@@ -1,10 +1,10 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { Language } from '../../../types/language';
 import assertNever from '../../../utils/assertNever';
 
-const Button = styled.button`
+const buttonCss = css`
   display: flex;
   flex-direction: row;
   gap: 10px;
@@ -15,7 +15,18 @@ const Button = styled.button`
   border-radius: 4px;
 `;
 
-const Text = styled.div`
+const hoverCss = css`
+  &:hover {
+    opacity: 0.8;
+  }
+`;
+
+const Button = styled.button`
+  ${buttonCss};
+  ${hoverCss};
+`;
+
+const buttonTextCss = css`
   flex: none;
   flex-grow: 0;
   order: 0;
@@ -27,6 +38,25 @@ const Text = styled.div`
   font-weight: 700;
   line-height: 18px;
   color: #fff;
+`;
+
+const Text = styled.div`
+  ${buttonTextCss};
+  ${hoverCss};
+`;
+
+const disableCss = css`
+  opacity: 0.5;
+`;
+
+const DisableButton = styled.button`
+  ${buttonCss};
+  ${disableCss};
+`;
+
+const DisableText = styled.div`
+  ${buttonTextCss};
+  ${disableCss};
 `;
 
 const createText = (language: Language): string => {
@@ -42,10 +72,26 @@ const createText = (language: Language): string => {
 
 type Props = {
   language: Language;
+  disabled: boolean;
+  onClick: React.FormEventHandler;
 };
 
-export const UploadButton: React.FC<Props> = ({ language }) => (
-  <Button type="submit">
-    <Text>{createText(language)}</Text>
-  </Button>
-);
+export const UploadButton: React.FC<Props> = ({
+  language,
+  disabled,
+  onClick,
+}) => {
+  if (disabled === false) {
+    return (
+      <Button type="submit" disabled={disabled} onClick={onClick}>
+        <Text>{createText(language)}</Text>
+      </Button>
+    );
+  }
+
+  return (
+    <DisableButton type="submit" disabled={disabled} onClick={onClick}>
+      <DisableText>{createText(language)}</DisableText>
+    </DisableButton>
+  );
+};
