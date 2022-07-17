@@ -5,7 +5,7 @@ import { Language } from '../../../types/language';
 
 export type Props = {
   language: Language;
-  previewImage: `http://${string}` | `https://${string}`;
+  previewImage: string;
 };
 
 const Wrapper = styled.div`
