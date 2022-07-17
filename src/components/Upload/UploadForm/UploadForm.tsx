@@ -261,6 +261,7 @@ export type Props = {
 export const UploadForm: FC<Props> = ({ language, errorMessages }) => {
   const [base64Image, setBase64Image] = useState<string>('');
   const [imagePreviewUrl, setImagePreviewUrl] = useState<string>();
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const handleReaderLoaded = (event: ProgressEvent<FileReader>) => {
     if (event.target === null) {
@@ -289,6 +290,8 @@ export const UploadForm: FC<Props> = ({ language, errorMessages }) => {
       const reader = new FileReader();
       reader.onload = handleReaderLoaded;
       reader.readAsBinaryString(file);
+
+      setModalIsOpen(true);
     }
   };
 
@@ -322,7 +325,11 @@ export const UploadForm: FC<Props> = ({ language, errorMessages }) => {
         </UploadButtonWrapper>
       </Form>
       {imagePreviewUrl ? (
-        <UploadModal language={language} imagePreviewUrl={imagePreviewUrl} />
+        <UploadModal
+          isOpen={modalIsOpen}
+          language={language}
+          imagePreviewUrl={imagePreviewUrl}
+        />
       ) : (
         ''
       )}

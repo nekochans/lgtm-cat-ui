@@ -1,14 +1,19 @@
 import React, { FC } from 'react';
+import Modal from 'react-modal';
 import styled from 'styled-components';
 
 import { Language } from '../../../types/language';
 
 export type Props = {
+  isOpen: boolean;
   language: Language;
   imagePreviewUrl: string;
 };
 
 const Wrapper = styled.div`
+  @media (max-width: 767px) {
+    width: 360px;
+  }
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -63,6 +68,9 @@ const PreviewImageWrapper = styled.div`
 `;
 
 const PreviewImage = styled.img`
+  @media (max-width: 767px) {
+    max-width: 355px;
+  }
   width: auto;
   height: 270px;
   flex: none;
@@ -160,26 +168,47 @@ const UploadButtonText = styled.div`
   }
 `;
 
-export const UploadModal: FC<Props> = ({ language, imagePreviewUrl }) => (
-  <Wrapper>
-    <ContentsWrapper>
-      <Title>猫ちゃん画像アップロード確認</Title>
-      <FormWrapper>
-        <PreviewImageWrapper>
-          <PreviewImage src={imagePreviewUrl} />
-        </PreviewImageWrapper>
-        <ConfirmMessage>
-          この画像をアップロードします。よろしいですか？
-        </ConfirmMessage>
-      </FormWrapper>
-      <ButtonGroup>
-        <CancelButton>
-          <CancelButtonText>キャンセル</CancelButtonText>
-        </CancelButton>
-        <UploadButton>
-          <UploadButtonText>アップロード</UploadButtonText>
-        </UploadButton>
-      </ButtonGroup>
-    </ContentsWrapper>
-  </Wrapper>
+const modalStyle = {
+  overlay: {
+    background: 'rgba(54, 46, 43, 0.7)',
+  },
+  content: {
+    '@media (max-width: 767px)': {
+      width: '370px',
+    },
+    width: '540px',
+    height: '540px',
+    inset: '0',
+    margin: 'auto',
+  },
+};
+
+export const UploadModal: FC<Props> = ({
+  isOpen,
+  language,
+  imagePreviewUrl,
+}) => (
+  <Modal isOpen={isOpen} ariaHideApp={false} style={modalStyle}>
+    <Wrapper>
+      <ContentsWrapper>
+        <Title>猫ちゃん画像アップロード確認</Title>
+        <FormWrapper>
+          <PreviewImageWrapper>
+            <PreviewImage src={imagePreviewUrl} />
+          </PreviewImageWrapper>
+          <ConfirmMessage>
+            この画像をアップロードします。よろしいですか？
+          </ConfirmMessage>
+        </FormWrapper>
+        <ButtonGroup>
+          <CancelButton>
+            <CancelButtonText>キャンセル</CancelButtonText>
+          </CancelButton>
+          <UploadButton>
+            <UploadButtonText>アップロード</UploadButtonText>
+          </UploadButton>
+        </ButtonGroup>
+      </ContentsWrapper>
+    </Wrapper>
+  </Modal>
 );
