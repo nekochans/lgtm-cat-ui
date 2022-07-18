@@ -255,14 +255,14 @@ const createPrivacyPolicyArea = (language: Language): JSX.Element => {
 
 export type Props = {
   language: Language;
-  errorMessages?: string[];
 };
 
-export const UploadForm: FC<Props> = ({ language, errorMessages = [] }) => {
+export const UploadForm: FC<Props> = ({ language  }) => {
   const [base64Image, setBase64Image] = useState<string>('');
   const [imagePreviewUrl, setImagePreviewUrl] = useState<string>('');
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [uploaded, setUploaded] = useState<boolean>();
+  const [displayErrorMessages, setDisplayErrorMessages] = useState<string[]>([]);
 
   const openModal = () => {
     setModalIsOpen(true);
@@ -307,7 +307,7 @@ export const UploadForm: FC<Props> = ({ language, errorMessages = [] }) => {
   };
 
   const shouldDisableButton = (): boolean => {
-    if (errorMessages.length !== 0) {
+    if (displayErrorMessages.length !== 0) {
       return true;
     }
 
@@ -322,8 +322,8 @@ export const UploadForm: FC<Props> = ({ language, errorMessages = [] }) => {
 
   return (
     <Wrapper>
-      {errorMessages.length !== 0 ? (
-        <UploadErrorMessageArea messages={errorMessages} />
+      {displayErrorMessages.length !== 0 ? (
+        <UploadErrorMessageArea messages={displayErrorMessages} />
       ) : (
         ''
       )}
