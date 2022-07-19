@@ -16,10 +16,6 @@ export const ViewInJapanese: Story = {
 export const ViewInJapaneseWithErrorMessages: Story = {
   args: {
     language: 'ja',
-    errorMessages: [
-      'アップロード中に予期せぬエラーが発生しました。',
-      'お手数ですが、しばらく時間が経ってからお試し下さい。',
-    ],
   },
 };
 
@@ -30,9 +26,5 @@ export const ViewInEnglish: Story = {
 export const ViewInEnglishWithErrorMessages: Story = {
   args: {
     language: 'en',
-    errorMessages: [
-      'An unexpected error occurred during upload.',
-      'Sorry, please try again after some time has passed.',
-    ],
   },
 };
