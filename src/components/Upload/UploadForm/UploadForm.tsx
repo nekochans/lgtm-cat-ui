@@ -257,12 +257,14 @@ export type Props = {
   language: Language;
 };
 
-export const UploadForm: FC<Props> = ({ language  }) => {
+export const UploadForm: FC<Props> = ({ language }) => {
   const [base64Image, setBase64Image] = useState<string>('');
   const [imagePreviewUrl, setImagePreviewUrl] = useState<string>('');
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [uploaded, setUploaded] = useState<boolean>();
-  const [displayErrorMessages, setDisplayErrorMessages] = useState<string[]>([]);
+  const [displayErrorMessages, setDisplayErrorMessages] = useState<string[]>(
+    [],
+  );
 
   const openModal = () => {
     setModalIsOpen(true);
