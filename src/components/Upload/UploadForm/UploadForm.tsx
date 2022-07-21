@@ -3,6 +3,10 @@ import React, { useState, type FC, ChangeEvent } from 'react';
 import { FaCloudUploadAlt } from 'react-icons/fa';
 import styled from 'styled-components';
 
+import {
+  AcceptedTypesImageExtension,
+  isValidFileType,
+} from '../../../features/lgtmImage';
 import { createLinksFromLanguages } from '../../../features/privacyPolicy';
 import assertNever from '../../../utils/assertNever';
 import { UploadButton } from '../UploadButton';
@@ -253,6 +257,26 @@ const createPrivacyPolicyArea = (language: Language): JSX.Element => {
   }
 };
 
+const createNotAllowedImageExtensionErrorMessage = (
+  fileType: string,
+  language: Language,
+): string[] => {
+  switch (language) {
+    case 'ja':
+      return [
+        `${fileType} の画像は許可されていません。`,
+        'png, jpg, jpeg の画像のみアップロード出来ます。',
+      ];
+    case 'en':
+      return [
+        `${fileType} is not allowed.`,
+        'Only png, jpg, jpeg images can be uploaded.',
+      ];
+    default:
+      return assertNever(language);
+  }
+};
+
 export type Props = {
   language: Language;
 };
@@ -260,11 +284,20 @@ export type Props = {
 export const UploadForm: FC<Props> = ({ language }) => {
   const [base64Image, setBase64Image] = useState<string>('');
   const [imagePreviewUrl, setImagePreviewUrl] = useState<string>('');
+  const [uploadImageExtension, setUploadImageExtension] = useState<
+    AcceptedTypesImageExtension | string
+  >('');
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [uploaded, setUploaded] = useState<boolean>();
   const [displayErrorMessages, setDisplayErrorMessages] = useState<string[]>(
     [],
   );
+
+  // エラーが起きた時にStateを初期化する為に利用する
+  const stateInitAtError = () => {
+    setImagePreviewUrl('');
+    setUploadImageExtension('');
+  };
 
   const openModal = () => {
     setModalIsOpen(true);
@@ -295,6 +328,15 @@ export const UploadForm: FC<Props> = ({ language }) => {
       const file = event.target.files[targetIndex];
 
       setUploaded(false);
+      const fileType = file.type;
+      if (!isValidFileType(fileType)) {
+        setDisplayErrorMessages(
+          createNotAllowedImageExtensionErrorMessage(fileType, language),
+        );
+        stateInitAtError();
+
+        return;
+      }
 
       const url = URL.createObjectURL(file);
 
