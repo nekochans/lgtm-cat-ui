@@ -39,13 +39,36 @@ const Message = styled.p`
   color: #8e7e78;
 `;
 
-export const UploadProgressBar: React.FC = () => (
-  <Wrapper>
-    <BarWrapper>
-      <Bar>
-        <MainColorBar />
-      </Bar>
-    </BarWrapper>
-    <Message>送信中…</Message>
-  </Wrapper>
-);
+export const UploadProgressBar: React.FC = () => {
+  const minWidth = 1;
+
+  const maxWidth = 279;
+
+  const incrementValue = 10;
+
+  const interval = 200;
+
+  const [progressLength, setProgressLength] = React.useState<number>(minWidth);
+
+  React.useEffect(() => {
+    const id = setInterval(() => {
+      const updated =
+        progressLength <= maxWidth ? progressLength + incrementValue : minWidth;
+
+      setProgressLength(updated);
+    }, interval);
+
+    return () => clearInterval(id);
+  }, [progressLength]);
+
+  return (
+    <Wrapper>
+      <BarWrapper>
+        <Bar>
+          <MainColorBar style={{ width: `${progressLength}px` }} />
+        </Bar>
+      </BarWrapper>
+      <Message>送信中…</Message>
+    </Wrapper>
+  );
+};
