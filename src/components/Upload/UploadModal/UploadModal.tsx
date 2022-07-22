@@ -177,7 +177,7 @@ const modalStyle = {
     background: 'rgba(54, 46, 43, 0.7)',
   },
   content: {
-    '@media (max-width: 767px)': {
+    '@media (maxWidth: 767px)': {
       width: '370px',
     },
     width: '540px',
