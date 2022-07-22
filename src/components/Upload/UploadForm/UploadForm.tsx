@@ -351,6 +351,7 @@ export const UploadForm: FC<Props> = ({ language }) => {
   };
 
   const shouldDisableButton = (): boolean => {
+    // eslint-disable-next-line no-magic-numbers
     if (displayErrorMessages.length !== 0) {
       return true;
     }
@@ -366,10 +367,11 @@ export const UploadForm: FC<Props> = ({ language }) => {
 
   return (
     <Wrapper>
-      {displayErrorMessages.length !== 0 ? (
-        <UploadErrorMessageArea messages={displayErrorMessages} />
-      ) : (
+      {/* eslint-disable no-magic-numbers */}
+      {displayErrorMessages.length === 0 ? (
         ''
+      ) : (
+        <UploadErrorMessageArea messages={displayErrorMessages} />
       )}
       <UploadTitleArea language={language} />
       <Form>
