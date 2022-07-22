@@ -20,7 +20,7 @@ const MainColorBar = styled.div`
   background: #f0a14e;
 `;
 
-const Bar = styled.div`
+const DefaultColorBar = styled.div`
   box-sizing: border-box;
   width: 280px;
   height: 20px;
@@ -64,9 +64,9 @@ export const UploadProgressBar: React.FC = () => {
   return (
     <Wrapper>
       <BarWrapper>
-        <Bar>
+        <DefaultColorBar>
           <MainColorBar style={{ width: `${progressLength}px` }} />
-        </Bar>
+        </DefaultColorBar>
       </BarWrapper>
       <Message>送信中…</Message>
     </Wrapper>
