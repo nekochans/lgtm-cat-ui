@@ -216,7 +216,7 @@ export const UploadModal: FC<Props> = ({
           )}
         </FormWrapper>
         {uploaded ? (
-          <SuccessMessageArea />
+          <SuccessMessageArea imageUrl={imagePreviewUrl} />
         ) : (
           <ButtonGroup>
             <CancelButton onClick={onClickCancel}>

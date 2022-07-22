@@ -1,6 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { AppUrl, defaultAppUrl } from '../../../constants/url';
+import useClipboardMarkdown from '../../../hooks/useClipboardMarkdown';
+import { CopiedGithubMarkdownMessage } from '../../LgtmImages/CopiedGithubMarkdownMessage';
+
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -166,32 +170,66 @@ const MarkdownSourceCopyButtonText = styled.div`
   flex-grow: 0;
 `;
 
-export const SuccessMessageArea: React.FC = () => (
-  <Wrapper>
-    <Title>アップロードに成功しました🐱！</Title>
-    <ContentsWrapper>
-      <MainMessage>
-        LGTM画像を作成しているので少々お待ち下さい。
-        「Markdownソースをコピー」ボタンか上の画像を
-        クリックするとMarkdownソースがコピーされます。
-      </MainMessage>
-      <UnderSectionWrapper>
-        <DescriptionWrapper>
-          <DescriptionText>
-            ※トップページの「新着の猫ちゃんを表示」からもアップロードした画像を確認できます。
-          </DescriptionText>
-        </DescriptionWrapper>
-        <ButtonGroup>
-          <CloseButton>
-            <CloseButtonText>閉じる</CloseButtonText>
-          </CloseButton>
-          <MarkdownSourceCopyButton>
-            <MarkdownSourceCopyButtonText>
-              Markdownソースをコピー
-            </MarkdownSourceCopyButtonText>
-          </MarkdownSourceCopyButton>
-        </ButtonGroup>
-      </UnderSectionWrapper>
-    </ContentsWrapper>
-  </Wrapper>
-);
+type Props = {
+  imageUrl: string;
+  appUrl?: AppUrl;
+  callback?: () => void;
+};
+
+export const SuccessMessageArea: React.FC<Props> = ({
+  imageUrl,
+  appUrl,
+  callback,
+}) => {
+  const [copied, setCopied] = React.useState(false);
+
+  const onCopySuccess = React.useCallback(() => {
+    if (callback) {
+      callback();
+    }
+
+    const messageDisplayTime = 1000;
+
+    setCopied(true);
+    setTimeout(() => {
+      setCopied(false);
+    }, messageDisplayTime);
+  }, [callback]);
+
+  const { imageContextRef } = useClipboardMarkdown({
+    onCopySuccess,
+    imageUrl,
+    appUrl: appUrl || defaultAppUrl,
+  });
+
+  return (
+    <Wrapper>
+      <Title>アップロードに成功しました🐱！</Title>
+      <ContentsWrapper>
+        <MainMessage>
+          LGTM画像を作成しているので少々お待ち下さい。
+          「Markdownソースをコピー」ボタンか上の画像を
+          クリックするとMarkdownソースがコピーされます。
+        </MainMessage>
+        <UnderSectionWrapper>
+          <DescriptionWrapper>
+            <DescriptionText>
+              ※トップページの「新着の猫ちゃんを表示」からもアップロードした画像を確認できます。
+            </DescriptionText>
+          </DescriptionWrapper>
+          <ButtonGroup>
+            <CloseButton>
+              <CloseButtonText>閉じる</CloseButtonText>
+            </CloseButton>
+            <MarkdownSourceCopyButton ref={imageContextRef}>
+              <MarkdownSourceCopyButtonText>
+                Markdownソースをコピー
+              </MarkdownSourceCopyButtonText>
+            </MarkdownSourceCopyButton>
+          </ButtonGroup>
+        </UnderSectionWrapper>
+        {copied ? <CopiedGithubMarkdownMessage /> : ''}
+      </ContentsWrapper>
+    </Wrapper>
+  );
+};

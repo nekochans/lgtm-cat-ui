@@ -3,7 +3,7 @@ import { MutableRefObject, useEffect, useRef } from 'react';
 
 type Request = {
   onCopySuccess: () => void;
-  imageUrl: `https://${string}`;
+  imageUrl: `https://${string}` | string;
   appUrl: `http://${string}` | `https://${string}`;
 };
 
