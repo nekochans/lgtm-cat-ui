@@ -1,4 +1,4 @@
-import {createSuccessResult, isSuccessResult} from '../../result';
+import { createSuccessResult, isSuccessResult } from '../../result';
 
 describe('src/features/result.ts createSuccessResult TestCase', () => {
   type Email = `${string}@${string}`;
