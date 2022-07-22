@@ -4,11 +4,14 @@ import styled from 'styled-components';
 
 import { Language } from '../../../types/language';
 
+import { SuccessMessageArea } from './SuccessMessageArea';
+
 export type Props = {
   isOpen: boolean;
   language: Language;
   imagePreviewUrl: string;
   onClickCancel: () => void;
+  uploaded?: boolean;
 };
 
 const Wrapper = styled.div`
@@ -189,6 +192,7 @@ export const UploadModal: FC<Props> = ({
   language,
   imagePreviewUrl,
   onClickCancel,
+  uploaded = false,
 }) => (
   <Modal
     isOpen={isOpen}
@@ -207,14 +211,18 @@ export const UploadModal: FC<Props> = ({
             この画像をアップロードします。よろしいですか？
           </ConfirmMessage>
         </FormWrapper>
-        <ButtonGroup>
-          <CancelButton onClick={onClickCancel}>
-            <CancelButtonText>キャンセル</CancelButtonText>
-          </CancelButton>
-          <UploadButton>
-            <UploadButtonText>アップロード</UploadButtonText>
-          </UploadButton>
-        </ButtonGroup>
+        {uploaded ? (
+          <SuccessMessageArea />
+        ) : (
+          <ButtonGroup>
+            <CancelButton onClick={onClickCancel}>
+              <CancelButtonText>キャンセル</CancelButtonText>
+            </CancelButton>
+            <UploadButton>
+              <UploadButtonText>アップロード</UploadButtonText>
+            </UploadButton>
+          </ButtonGroup>
+        )}
       </ContentsWrapper>
     </Wrapper>
   </Modal>
