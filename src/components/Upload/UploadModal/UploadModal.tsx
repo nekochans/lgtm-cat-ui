@@ -193,41 +193,49 @@ export const UploadModal: FC<Props> = ({
   imagePreviewUrl,
   onClickCancel,
   uploaded = false,
-}) => (
-  <Modal
-    isOpen={isOpen}
-    ariaHideApp={false}
-    style={modalStyle}
-    onRequestClose={onClickCancel}
-  >
-    <Wrapper>
-      <ContentsWrapper>
-        <Title>猫ちゃん画像アップロード確認</Title>
-        <FormWrapper>
-          <PreviewImageWrapper>
-            <PreviewImage src={imagePreviewUrl} />
-          </PreviewImageWrapper>
+}) => {
+  if (uploaded) {
+    modalStyle.content.height = '705px';
+  } else {
+    modalStyle.content.height = '540px';
+  }
+
+  return (
+    <Modal
+      isOpen={isOpen}
+      ariaHideApp={false}
+      style={modalStyle}
+      onRequestClose={onClickCancel}
+    >
+      <Wrapper>
+        <ContentsWrapper>
+          <Title>猫ちゃん画像アップロード確認</Title>
+          <FormWrapper>
+            <PreviewImageWrapper>
+              <PreviewImage src={imagePreviewUrl} />
+            </PreviewImageWrapper>
+            {uploaded ? (
+              ''
+            ) : (
+              <ConfirmMessage>
+                この画像をアップロードします。よろしいですか？
+              </ConfirmMessage>
+            )}
+          </FormWrapper>
           {uploaded ? (
-            ''
+            <SuccessMessageArea imageUrl={imagePreviewUrl} />
           ) : (
-            <ConfirmMessage>
-              この画像をアップロードします。よろしいですか？
-            </ConfirmMessage>
+            <ButtonGroup>
+              <CancelButton onClick={onClickCancel}>
+                <CancelButtonText>キャンセル</CancelButtonText>
+              </CancelButton>
+              <UploadButton>
+                <UploadButtonText>アップロード</UploadButtonText>
+              </UploadButton>
+            </ButtonGroup>
           )}
-        </FormWrapper>
-        {uploaded ? (
-          <SuccessMessageArea imageUrl={imagePreviewUrl} />
-        ) : (
-          <ButtonGroup>
-            <CancelButton onClick={onClickCancel}>
-              <CancelButtonText>キャンセル</CancelButtonText>
-            </CancelButton>
-            <UploadButton>
-              <UploadButtonText>アップロード</UploadButtonText>
-            </UploadButton>
-          </ButtonGroup>
-        )}
-      </ContentsWrapper>
-    </Wrapper>
-  </Modal>
-);
+        </ContentsWrapper>
+      </Wrapper>
+    </Modal>
+  );
+};
