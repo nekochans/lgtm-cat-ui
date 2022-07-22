@@ -207,9 +207,13 @@ export const UploadModal: FC<Props> = ({
           <PreviewImageWrapper>
             <PreviewImage src={imagePreviewUrl} />
           </PreviewImageWrapper>
-          <ConfirmMessage>
-            この画像をアップロードします。よろしいですか？
-          </ConfirmMessage>
+          {uploaded ? (
+            ''
+          ) : (
+            <ConfirmMessage>
+              この画像をアップロードします。よろしいですか？
+            </ConfirmMessage>
+          )}
         </FormWrapper>
         {uploaded ? (
           <SuccessMessageArea />
