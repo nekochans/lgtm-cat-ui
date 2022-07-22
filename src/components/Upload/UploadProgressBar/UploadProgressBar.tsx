@@ -52,10 +52,10 @@ export const UploadProgressBar: React.FC = () => {
 
   React.useEffect(() => {
     const id = setInterval(() => {
-      const updated =
+      const updatedWidth =
         progressLength <= maxWidth ? progressLength + incrementValue : minWidth;
 
-      setProgressLength(updated);
+      setProgressLength(updatedWidth);
     }, interval);
 
     return () => clearInterval(id);
