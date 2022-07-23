@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import { Language } from '../../../types/language';
 
+import { CreatedLgtmImage } from './CreatedLgtmImage';
 import { SuccessMessageArea } from './SuccessMessageArea';
 
 export type Props = {
@@ -211,15 +212,21 @@ export const UploadModal: FC<Props> = ({
         <ContentsWrapper>
           <Title>猫ちゃん画像アップロード確認</Title>
           <FormWrapper>
-            <PreviewImageWrapper>
-              <PreviewImage src={imagePreviewUrl} />
-            </PreviewImageWrapper>
             {uploaded ? (
-              ''
+              // TODO 後でちゃんとパラメータを渡せるようにする
+              <CreatedLgtmImage
+                imagePreviewUrl={imagePreviewUrl}
+                createdLgtmImageUrl="https://lgtm-images.lgtmeow.com/2022/02/24/22/04ce4f73-63fc-4772-aa00-613bab72e70b.webp"
+              />
             ) : (
-              <ConfirmMessage>
-                この画像をアップロードします。よろしいですか？
-              </ConfirmMessage>
+              <>
+                <PreviewImageWrapper>
+                  <PreviewImage src={imagePreviewUrl} />
+                </PreviewImageWrapper>
+                <ConfirmMessage>
+                  この画像をアップロードします。よろしいですか？
+                </ConfirmMessage>
+              </>
             )}
           </FormWrapper>
           {uploaded ? (
