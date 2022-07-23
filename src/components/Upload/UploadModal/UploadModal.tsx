@@ -3,6 +3,8 @@ import Modal from 'react-modal';
 import styled from 'styled-components';
 
 import { Language } from '../../../types/language';
+import { LgtmImageUrl } from '../../../types/lgtmImage';
+import { UploadProgressBar } from '../UploadProgressBar';
 
 import { CreatedLgtmImage } from './CreatedLgtmImage';
 import { SuccessMessageArea } from './SuccessMessageArea';
@@ -11,8 +13,11 @@ export type Props = {
   isOpen: boolean;
   language: Language;
   imagePreviewUrl: string;
+  onClickUpload: () => Promise<void>;
   onClickCancel: () => void;
+  isLoading: boolean;
   uploaded?: boolean;
+  createdLgtmImageUrl?: LgtmImageUrl;
 };
 
 const Wrapper = styled.div`
@@ -192,8 +197,11 @@ export const UploadModal: FC<Props> = ({
   isOpen,
   language,
   imagePreviewUrl,
+  onClickUpload,
   onClickCancel,
+  isLoading,
   uploaded = false,
+  createdLgtmImageUrl,
 }) => {
   if (uploaded) {
     modalStyle.content.height = '705px';
@@ -229,18 +237,22 @@ export const UploadModal: FC<Props> = ({
               </>
             )}
           </FormWrapper>
-          {uploaded ? (
-            <SuccessMessageArea imageUrl={imagePreviewUrl} />
+          {uploaded && createdLgtmImageUrl && !isLoading ? (
+            <SuccessMessageArea
+              createdLgtmImageUrl={createdLgtmImageUrl}
+              onClickClose={onClickCancel}
+            />
           ) : (
             <ButtonGroup>
               <CancelButton onClick={onClickCancel}>
                 <CancelButtonText>キャンセル</CancelButtonText>
               </CancelButton>
-              <UploadButton>
+              <UploadButton onClick={onClickUpload}>
                 <UploadButtonText>アップロード</UploadButtonText>
               </UploadButton>
             </ButtonGroup>
           )}
+          {isLoading ? <UploadProgressBar /> : ''}
         </ContentsWrapper>
       </Wrapper>
     </Modal>

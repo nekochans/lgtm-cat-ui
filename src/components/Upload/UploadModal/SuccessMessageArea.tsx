@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { AppUrl, defaultAppUrl } from '../../../constants/url';
 import useClipboardMarkdown from '../../../hooks/useClipboardMarkdown';
 import { useCopySuccess } from '../../../hooks/useCopySuccess';
+import { LgtmImageUrl } from '../../../types/lgtmImage';
 import { CopiedGithubMarkdownMessage } from '../../LgtmImages/CopiedGithubMarkdownMessage';
 
 const Wrapper = styled.div`
@@ -172,13 +173,15 @@ const MarkdownSourceCopyButtonText = styled.div`
 `;
 
 type Props = {
-  imageUrl: string;
+  createdLgtmImageUrl: LgtmImageUrl;
+  onClickClose?: () => void;
   appUrl?: AppUrl;
   callback?: () => void;
 };
 
 export const SuccessMessageArea: React.FC<Props> = ({
-  imageUrl,
+  createdLgtmImageUrl,
+  onClickClose,
   appUrl,
   callback,
 }) => {
@@ -186,7 +189,7 @@ export const SuccessMessageArea: React.FC<Props> = ({
 
   const { imageContextRef } = useClipboardMarkdown({
     onCopySuccess,
-    imageUrl,
+    imageUrl: createdLgtmImageUrl,
     appUrl: appUrl || defaultAppUrl,
   });
 
@@ -206,7 +209,7 @@ export const SuccessMessageArea: React.FC<Props> = ({
             </DescriptionText>
           </DescriptionWrapper>
           <ButtonGroup>
-            <CloseButton>
+            <CloseButton onClick={onClickClose}>
               <CloseButtonText>閉じる</CloseButtonText>
             </CloseButton>
             <MarkdownSourceCopyButton ref={imageContextRef}>

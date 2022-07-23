@@ -1,9 +1,11 @@
 import Clipboard from 'clipboard';
 import { MutableRefObject, useEffect, useRef } from 'react';
 
+import { LgtmImageUrl } from '../types/lgtmImage';
+
 type Request = {
   onCopySuccess: () => void;
-  imageUrl: `https://${string}` | string;
+  imageUrl: LgtmImageUrl;
   appUrl: `http://${string}` | `https://${string}`;
 };
 

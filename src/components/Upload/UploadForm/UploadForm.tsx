@@ -8,6 +8,8 @@ import {
   isValidFileType,
 } from '../../../features/lgtmImage';
 import { createLinksFromLanguages } from '../../../features/privacyPolicy';
+import { SuccessResult } from '../../../features/result';
+import { LgtmImageUrl } from '../../../types/lgtmImage';
 import assertNever from '../../../utils/assertNever';
 import { UploadButton } from '../UploadButton';
 import { UploadErrorMessageArea } from '../UploadErrorMessageArea';
@@ -279,9 +281,18 @@ const createNotAllowedImageExtensionErrorMessage = (
 
 export type Props = {
   language: Language;
+  imageValidationFunc: (
+    image: string,
+    imageExtension: AcceptedTypesImageExtension,
+  ) => Promise<
+    SuccessResult<{
+      isAcceptableCatImage: boolean;
+      notAcceptableReason: string[];
+    }>
+  >;
 };
 
-export const UploadForm: FC<Props> = ({ language }) => {
+export const UploadForm: FC<Props> = ({ language, imageValidationFunc }) => {
   const [base64Image, setBase64Image] = useState<string>('');
   const [imagePreviewUrl, setImagePreviewUrl] = useState<string>('');
   const [uploadImageExtension, setUploadImageExtension] = useState<
@@ -289,14 +300,19 @@ export const UploadForm: FC<Props> = ({ language }) => {
   >('');
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [uploaded, setUploaded] = useState<boolean>();
+  const [createdLgtmImageUrl, setCreatedLgtmImageUrl] =
+    useState<LgtmImageUrl>();
   const [displayErrorMessages, setDisplayErrorMessages] = useState<string[]>(
     [],
   );
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   // エラーが起きた時にStateを初期化する為に利用する
   const stateInitAtError = () => {
     setImagePreviewUrl('');
     setUploadImageExtension('');
+    setIsLoading(false);
+    closeModal();
   };
 
   const openModal = () => {
@@ -365,6 +381,44 @@ export const UploadForm: FC<Props> = ({ language }) => {
     openModal();
   };
 
+  const executeUpload = async () => {
+    setIsLoading(true);
+
+    const millisecond = 1000;
+
+    const sleep = (waitSeconds: number): Promise<void> =>
+      new Promise((resolve) => {
+        setTimeout(() => {
+          resolve();
+        }, waitSeconds * millisecond);
+      });
+
+    const waitSeconds = 3;
+
+    await sleep(waitSeconds);
+
+    const imageValidationResult = await imageValidationFunc(
+      base64Image,
+      uploadImageExtension as AcceptedTypesImageExtension,
+    );
+    if (
+      imageValidationResult.value.isAcceptableCatImage === false ||
+      imageValidationResult.value.notAcceptableReason
+    ) {
+      stateInitAtError();
+
+      return;
+    }
+
+    setUploaded(true);
+    setDisplayErrorMessages([]);
+    setIsLoading(false);
+    // TODO 後でちゃんとしたアップロード結果を返すようにする
+    setCreatedLgtmImageUrl(
+      'https://lgtm-images.lgtmeow.com/2022/04/11/00/42133f03-40e2-4cba-977d-6a93880d6727.webp',
+    );
+  };
+
   return (
     <Wrapper>
       {/* eslint-disable no-magic-numbers */}
@@ -403,12 +457,16 @@ export const UploadForm: FC<Props> = ({ language }) => {
           />
         </UploadButtonWrapper>
       </Form>
-      {imagePreviewUrl ? (
+      {imagePreviewUrl || createdLgtmImageUrl ? (
         <UploadModal
           isOpen={modalIsOpen}
           language={language}
           imagePreviewUrl={imagePreviewUrl}
+          onClickUpload={executeUpload}
           onClickCancel={closeModal}
+          isLoading={isLoading}
+          uploaded={uploaded}
+          createdLgtmImageUrl={createdLgtmImageUrl}
         />
       ) : (
         ''
