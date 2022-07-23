@@ -403,7 +403,7 @@ export const UploadForm: FC<Props> = ({ language, imageValidationFunc }) => {
     );
     if (
       imageValidationResult.value.isAcceptableCatImage === false ||
-      imageValidationResult.value.notAcceptableReason
+      imageValidationResult.value.notAcceptableReason.length !== 0
     ) {
       stateInitAtError();
 
