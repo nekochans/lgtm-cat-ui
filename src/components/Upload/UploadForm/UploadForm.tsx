@@ -402,9 +402,11 @@ export const UploadForm: FC<Props> = ({ language, imageValidationFunc }) => {
       uploadImageExtension as AcceptedTypesImageExtension,
     );
     if (
-      imageValidationResult.value.isAcceptableCatImage === false ||
+      !imageValidationResult.value.isAcceptableCatImage ||
+      // eslint-disable-next-line no-magic-numbers
       imageValidationResult.value.notAcceptableReason.length !== 0
     ) {
+      setDisplayErrorMessages(imageValidationResult.value.notAcceptableReason);
       stateInitAtError();
 
       return;

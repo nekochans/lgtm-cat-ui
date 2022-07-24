@@ -205,7 +205,7 @@ export const SuccessMessageArea: React.FC<Props> = ({
         <UnderSectionWrapper>
           <DescriptionWrapper>
             <DescriptionText>
-              ※トップページの「New arrival Cats」ボタンを押下するとアップロードした画像を確認できます。
+              ※トップページの「新着の猫ちゃんを表示」からもアップロードした画像を確認できます。
             </DescriptionText>
           </DescriptionWrapper>
           <ButtonGroup>

@@ -18,14 +18,26 @@ const imageValidationFunc = async (
 ) =>
   createSuccessResult({ isAcceptableCatImage: true, notAcceptableReason: [] });
 
+const imageValidationFuncReturnFalse = async (
+  image: string,
+  imageExtension: AcceptedTypesImageExtension,
+) =>
+  createSuccessResult({
+    isAcceptableCatImage: false,
+    notAcceptableReason: [
+      'An unexpected error occurred during upload.',
+      'Sorry, please try again after some time has passed.',
+    ],
+  });
+
 export const ViewInJapanese: Story = {
   args: { language: 'ja', imageValidationFunc },
 };
 
-export const ViewInJapaneseWithErrorMessages: Story = {
+export const ViewInJapaneseWithImageValidationFuncErrorMessages: Story = {
   args: {
     language: 'ja',
-    imageValidationFunc,
+    imageValidationFunc: imageValidationFuncReturnFalse,
   },
 };
 
@@ -33,9 +45,9 @@ export const ViewInEnglish: Story = {
   args: { language: 'en', imageValidationFunc },
 };
 
-export const ViewInEnglishWithErrorMessages: Story = {
+export const ViewInEnglishWithImageValidationFuncErrorMessages: Story = {
   args: {
     language: 'en',
-    imageValidationFunc,
+    imageValidationFunc: imageValidationFuncReturnFalse,
   },
 };
