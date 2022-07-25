@@ -229,14 +229,18 @@ export const UploadModal: FC<Props> = ({
                 createdLgtmImageUrl={createdLgtmImageUrl}
               />
             ) : (
+              <PreviewImageWrapper>
+                <PreviewImage src={imagePreviewUrl} />
+              </PreviewImageWrapper>
+            )}
+            {!isLoading && !uploaded ? (
               <>
-                <PreviewImageWrapper>
-                  <PreviewImage src={imagePreviewUrl} />
-                </PreviewImageWrapper>
                 <ConfirmMessage>
                   この画像をアップロードします。よろしいですか？
                 </ConfirmMessage>
               </>
+            ) : (
+              ''
             )}
           </FormWrapper>
           {uploaded && createdLgtmImageUrl && !isLoading ? (
@@ -245,6 +249,9 @@ export const UploadModal: FC<Props> = ({
               onClickClose={onClickClose}
             />
           ) : (
+            ''
+          )}
+          {!uploaded && !createdLgtmImageUrl && !isLoading ? (
             <ButtonGroup>
               <CancelButton onClick={onClickCancel}>
                 <CancelButtonText>キャンセル</CancelButtonText>
@@ -253,6 +260,8 @@ export const UploadModal: FC<Props> = ({
                 <UploadButtonText>アップロード</UploadButtonText>
               </UploadButton>
             </ButtonGroup>
+          ) : (
+            ''
           )}
           {isLoading ? <UploadProgressBar /> : ''}
         </ContentsWrapper>
