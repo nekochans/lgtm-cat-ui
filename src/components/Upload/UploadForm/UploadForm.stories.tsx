@@ -12,23 +12,43 @@ export default {
 
 type Story = ComponentStoryObj<typeof UploadForm>;
 
+const millisecond = 1000;
+
+const waitSeconds = 1;
+
+const sleep = (waitSeconds: number): Promise<void> =>
+  new Promise((resolve) => {
+    setTimeout(() => {
+      resolve();
+    }, waitSeconds * millisecond);
+  });
+
 const imageValidationFunc = async (
   image: string,
   imageExtension: AcceptedTypesImageExtension,
-) =>
-  createSuccessResult({ isAcceptableCatImage: true, notAcceptableReason: [] });
+) => {
+  await sleep(waitSeconds);
+
+  return createSuccessResult({
+    isAcceptableCatImage: true,
+    notAcceptableReason: [],
+  });
+};
 
 const imageValidationFuncReturnFalse = async (
   image: string,
   imageExtension: AcceptedTypesImageExtension,
-) =>
-  createSuccessResult({
+) => {
+  await sleep(waitSeconds);
+
+  return createSuccessResult({
     isAcceptableCatImage: false,
     notAcceptableReason: [
       'An unexpected error occurred during upload.',
       'Sorry, please try again after some time has passed.',
     ],
   });
+};
 
 export const ViewInJapanese: Story = {
   args: { language: 'ja', imageValidationFunc },

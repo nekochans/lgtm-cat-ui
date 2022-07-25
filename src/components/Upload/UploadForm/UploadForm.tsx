@@ -384,19 +384,6 @@ export const UploadForm: FC<Props> = ({ language, imageValidationFunc }) => {
   const executeUpload = async () => {
     setIsLoading(true);
 
-    const millisecond = 1000;
-
-    const sleep = (waitSeconds: number): Promise<void> =>
-      new Promise((resolve) => {
-        setTimeout(() => {
-          resolve();
-        }, waitSeconds * millisecond);
-      });
-
-    const waitSeconds = 3;
-
-    await sleep(waitSeconds);
-
     const imageValidationResult = await imageValidationFunc(
       base64Image,
       uploadImageExtension as AcceptedTypesImageExtension,
