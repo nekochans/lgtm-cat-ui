@@ -84,6 +84,7 @@ export const ViewInJapaneseWithImageValidationFuncErrorMessages: Story = {
   args: {
     language: 'ja',
     imageValidationFunc: imageValidationFuncReturnFalse,
+    imageUploadFunc,
   },
 };
 
@@ -103,6 +104,7 @@ export const ViewInEnglishWithImageValidationFuncErrorMessages: Story = {
   args: {
     language: 'en',
     imageValidationFunc: imageValidationFuncReturnFalse,
+    imageUploadFunc,
   },
 };
 
