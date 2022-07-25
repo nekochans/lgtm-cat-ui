@@ -196,6 +196,7 @@ const modalStyle = {
 
 export const UploadModal: FC<Props> = ({
   isOpen,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   language,
   imagePreviewUrl,
   onClickUpload,
