@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { createSuccessResult } from '../../../features/result';
 import { AcceptedTypesImageExtension } from '../../../types/lgtmImage';
 import { sleep } from '../../../utils/sleep';
