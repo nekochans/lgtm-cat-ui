@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import { AppUrl, defaultAppUrl } from '../../constants/url';
 import useClipboardMarkdown from '../../hooks/useClipboardMarkdown';
+import { useCopySuccess } from '../../hooks/useCopySuccess';
 import { LgtmImage } from '../../types/lgtmImage';
 
 import { CopiedGithubMarkdownMessage } from './CopiedGithubMarkdownMessage';
@@ -28,20 +29,7 @@ export const LgtmImageContent: React.FC<Props> = ({
   appUrl,
   callback,
 }) => {
-  const [copied, setCopied] = React.useState(false);
-
-  const onCopySuccess = React.useCallback(() => {
-    if (callback) {
-      callback();
-    }
-
-    const messageDisplayTime = 1000;
-
-    setCopied(true);
-    setTimeout(() => {
-      setCopied(false);
-    }, messageDisplayTime);
-  }, [callback]);
+  const { copied, onCopySuccess } = useCopySuccess(callback);
 
   const { imageContextRef } = useClipboardMarkdown({
     onCopySuccess,
