@@ -103,6 +103,7 @@ const ConfirmMessage = styled.div`
 `;
 
 const modalStyle = {
+  // stylelint-disable-next-line
   overlay: {
     background: 'rgba(54, 46, 43, 0.7)',
   },
