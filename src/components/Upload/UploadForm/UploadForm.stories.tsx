@@ -1,5 +1,5 @@
-import { AcceptedTypesImageExtension } from '../../../features/lgtmImage';
 import { createSuccessResult } from '../../../features/result';
+import { AcceptedTypesImageExtension } from '../../../types/lgtmImage';
 
 import { UploadForm } from '.';
 
@@ -23,7 +23,7 @@ const sleep = (waitSeconds: number): Promise<void> =>
     }, waitSeconds * millisecond);
   });
 
-const imageValidationFunc = async (
+const imageValidator = async (
   image: string,
   imageExtension: AcceptedTypesImageExtension,
 ) => {
@@ -35,7 +35,7 @@ const imageValidationFunc = async (
   });
 };
 
-const imageValidationFuncReturnFalse = async (
+const returnFalseImageValidator = async (
   image: string,
   imageExtension: AcceptedTypesImageExtension,
 ) => {
@@ -50,7 +50,7 @@ const imageValidationFuncReturnFalse = async (
   });
 };
 
-const imageUploadFunc = async (
+const imageUploader = async (
   image: string,
   imageExtension: AcceptedTypesImageExtension,
 ) => {
@@ -63,7 +63,7 @@ const imageUploadFunc = async (
   });
 };
 
-const imageUploadFuncWithErrors = async (
+const imageUploaderWithErrors = async (
   image: string,
   imageExtension: AcceptedTypesImageExtension,
 ) => {
@@ -77,41 +77,49 @@ const imageUploadFuncWithErrors = async (
 };
 
 export const ViewInJapanese: Story = {
-  args: { language: 'ja', imageValidationFunc, imageUploadFunc },
-};
-
-export const ViewInJapaneseWithImageValidationFuncErrorMessages: Story = {
   args: {
     language: 'ja',
-    imageValidationFunc: imageValidationFuncReturnFalse,
-    imageUploadFunc,
+    imageValidator,
+    imageUploader,
   },
 };
 
-export const ViewInJapaneseWithImageUploadFuncErrorMessages: Story = {
+export const ViewInJapaneseWithReturnFalseImageValidator: Story = {
   args: {
     language: 'ja',
-    imageValidationFunc,
-    imageUploadFunc: imageUploadFuncWithErrors,
+    imageValidator: returnFalseImageValidator,
+    imageUploader,
+  },
+};
+
+export const ViewInJapaneseWithImageUploaderWithErrors: Story = {
+  args: {
+    language: 'ja',
+    imageValidator,
+    imageUploader: imageUploaderWithErrors,
   },
 };
 
 export const ViewInEnglish: Story = {
-  args: { language: 'en', imageValidationFunc, imageUploadFunc },
-};
-
-export const ViewInEnglishWithImageValidationFuncErrorMessages: Story = {
   args: {
     language: 'en',
-    imageValidationFunc: imageValidationFuncReturnFalse,
-    imageUploadFunc,
+    imageValidator,
+    imageUploader,
   },
 };
 
-export const ViewInEnglishWithImageUploadFuncErrorMessages: Story = {
+export const ViewInEnglishWithReturnFalseImageValidator: Story = {
   args: {
     language: 'en',
-    imageValidationFunc,
-    imageUploadFunc: imageUploadFuncWithErrors,
+    imageValidator: returnFalseImageValidator,
+    imageUploader,
+  },
+};
+
+export const ViewInEnglishWithImageUploaderWithErrors: Story = {
+  args: {
+    language: 'en',
+    imageValidator,
+    imageUploader: imageUploaderWithErrors,
   },
 };

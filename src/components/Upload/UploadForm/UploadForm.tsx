@@ -3,13 +3,14 @@ import React, { useState, type FC, ChangeEvent } from 'react';
 import { FaCloudUploadAlt } from 'react-icons/fa';
 import styled from 'styled-components';
 
+import { isValidFileType } from '../../../features/lgtmImage';
+import { createLinksFromLanguages } from '../../../features/privacyPolicy';
 import {
   AcceptedTypesImageExtension,
-  isValidFileType,
-} from '../../../features/lgtmImage';
-import { createLinksFromLanguages } from '../../../features/privacyPolicy';
-import { SuccessResult } from '../../../features/result';
-import { LgtmImageUrl } from '../../../types/lgtmImage';
+  ImageUploader,
+  ImageValidator,
+  LgtmImageUrl,
+} from '../../../types/lgtmImage';
 import assertNever from '../../../utils/assertNever';
 import { UploadButton } from '../UploadButton';
 import { UploadErrorMessageArea } from '../UploadErrorMessageArea';
@@ -281,30 +282,14 @@ const createNotAllowedImageExtensionErrorMessage = (
 
 export type Props = {
   language: Language;
-  imageValidationFunc: (
-    image: string,
-    imageExtension: AcceptedTypesImageExtension,
-  ) => Promise<
-    SuccessResult<{
-      isAcceptableCatImage: boolean;
-      notAcceptableReason: string[];
-    }>
-  >;
-  imageUploadFunc: (
-    image: string,
-    imageExtension: AcceptedTypesImageExtension,
-  ) => Promise<
-    SuccessResult<{
-      displayErrorMessages: string[];
-      createdLgtmImageUrl?: LgtmImageUrl;
-    }>
-  >;
+  imageValidator: ImageValidator;
+  imageUploader: ImageUploader;
 };
 
 export const UploadForm: FC<Props> = ({
   language,
-  imageValidationFunc,
-  imageUploadFunc,
+  imageValidator,
+  imageUploader,
 }) => {
   const [base64Image, setBase64Image] = useState<string>('');
   const [imagePreviewUrl, setImagePreviewUrl] = useState<string>('');
@@ -398,7 +383,7 @@ export const UploadForm: FC<Props> = ({
   const executeUpload = async () => {
     setIsLoading(true);
 
-    const imageValidationResult = await imageValidationFunc(
+    const imageValidationResult = await imageValidator(
       base64Image,
       uploadImageExtension as AcceptedTypesImageExtension,
     );
@@ -413,7 +398,7 @@ export const UploadForm: FC<Props> = ({
       return;
     }
 
-    const imageUploadResult = await imageUploadFunc(
+    const imageUploadResult = await imageUploader(
       base64Image,
       uploadImageExtension as AcceptedTypesImageExtension,
     );
