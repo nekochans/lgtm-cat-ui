@@ -226,7 +226,7 @@ export const UploadModal: FC<Props> = ({
               // TODO 後でちゃんとパラメータを渡せるようにする
               <CreatedLgtmImage
                 imagePreviewUrl={imagePreviewUrl}
-                createdLgtmImageUrl="https://lgtm-images.lgtmeow.com/2022/02/24/22/04ce4f73-63fc-4772-aa00-613bab72e70b.webp"
+                createdLgtmImageUrl={createdLgtmImageUrl}
               />
             ) : (
               <>

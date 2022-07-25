@@ -26,7 +26,7 @@ const StyledImage = styled.img`
 
 type Props = {
   imagePreviewUrl: string;
-  createdLgtmImageUrl: LgtmImageUrl;
+  createdLgtmImageUrl: LgtmImageUrl | string;
   appUrl?: AppUrl;
   callback?: () => void;
 };
