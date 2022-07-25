@@ -306,20 +306,20 @@ export const UploadForm: FC<Props> = ({
   );
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  // エラーが起きた時にStateを初期化する為に利用する
-  const stateInitAtError = () => {
-    setImagePreviewUrl('');
-    setUploadImageExtension('');
-    setIsLoading(false);
-    closeModal();
-  };
-
   const openModal = () => {
     setModalIsOpen(true);
   };
 
   const closeModal = () => {
     setModalIsOpen(false);
+  };
+
+  // エラーが起きた時にStateを初期化する為に利用する
+  const stateInitAtError = () => {
+    setImagePreviewUrl('');
+    setUploadImageExtension('');
+    setIsLoading(false);
+    closeModal();
   };
 
   const handleReaderLoaded = (event: ProgressEvent<FileReader>) => {
