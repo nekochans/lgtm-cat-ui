@@ -290,9 +290,22 @@ export type Props = {
       notAcceptableReason: string[];
     }>
   >;
+  imageUploadFunc: (
+    image: string,
+    imageExtension: AcceptedTypesImageExtension,
+  ) => Promise<
+    SuccessResult<{
+      displayErrorMessages: string[];
+      createdLgtmImageUrl?: LgtmImageUrl;
+    }>
+  >;
 };
 
-export const UploadForm: FC<Props> = ({ language, imageValidationFunc }) => {
+export const UploadForm: FC<Props> = ({
+  language,
+  imageValidationFunc,
+  imageUploadFunc,
+}) => {
   const [base64Image, setBase64Image] = useState<string>('');
   const [imagePreviewUrl, setImagePreviewUrl] = useState<string>('');
   const [uploadImageExtension, setUploadImageExtension] = useState<
@@ -400,13 +413,22 @@ export const UploadForm: FC<Props> = ({ language, imageValidationFunc }) => {
       return;
     }
 
-    setUploaded(true);
-    setDisplayErrorMessages([]);
-    setIsLoading(false);
-    // TODO 後でちゃんとしたアップロード結果を返すようにする
-    setCreatedLgtmImageUrl(
-      'https://lgtm-images.lgtmeow.com/2022/04/11/00/42133f03-40e2-4cba-977d-6a93880d6727.webp',
+    const imageUploadResult = await imageUploadFunc(
+      base64Image,
+      uploadImageExtension as AcceptedTypesImageExtension,
     );
+
+    setIsLoading(false);
+    if (imageUploadResult.value.createdLgtmImageUrl) {
+      setUploaded(true);
+      setDisplayErrorMessages([]);
+      setCreatedLgtmImageUrl(imageUploadResult.value.createdLgtmImageUrl);
+    }
+
+    if (imageUploadResult.value.displayErrorMessages.length !== 0) {
+      setDisplayErrorMessages(imageUploadResult.value.displayErrorMessages);
+      stateInitAtError();
+    }
   };
 
   const onClickClose = () => {

@@ -50,8 +50,34 @@ const imageValidationFuncReturnFalse = async (
   });
 };
 
+const imageUploadFunc = async (
+  image: string,
+  imageExtension: AcceptedTypesImageExtension,
+) => {
+  await sleep(waitSeconds);
+
+  return createSuccessResult({
+    createdLgtmImageUrl:
+      'https://lgtm-images.lgtmeow.com/2022/06/22/11/56ddad8e-08ea-4d28-bd25-7ba11c4ebdc5.webp' as const,
+    displayErrorMessages: [],
+  });
+};
+
+const imageUploadFuncWithErrors = async (
+  image: string,
+  imageExtension: AcceptedTypesImageExtension,
+) => {
+  await sleep(waitSeconds);
+
+  return createSuccessResult({
+    displayErrorMessages: [
+      'Sorry, but please use images that clearly show the cat.',
+    ],
+  });
+};
+
 export const ViewInJapanese: Story = {
-  args: { language: 'ja', imageValidationFunc },
+  args: { language: 'ja', imageValidationFunc, imageUploadFunc },
 };
 
 export const ViewInJapaneseWithImageValidationFuncErrorMessages: Story = {
@@ -61,13 +87,29 @@ export const ViewInJapaneseWithImageValidationFuncErrorMessages: Story = {
   },
 };
 
+export const ViewInJapaneseWithImageUploadFuncErrorMessages: Story = {
+  args: {
+    language: 'ja',
+    imageValidationFunc,
+    imageUploadFunc: imageUploadFuncWithErrors,
+  },
+};
+
 export const ViewInEnglish: Story = {
-  args: { language: 'en', imageValidationFunc },
+  args: { language: 'en', imageValidationFunc, imageUploadFunc },
 };
 
 export const ViewInEnglishWithImageValidationFuncErrorMessages: Story = {
   args: {
     language: 'en',
     imageValidationFunc: imageValidationFuncReturnFalse,
+  },
+};
+
+export const ViewInEnglishWithImageUploadFuncErrorMessages: Story = {
+  args: {
+    language: 'en',
+    imageValidationFunc,
+    imageUploadFunc: imageUploadFuncWithErrors,
   },
 };
