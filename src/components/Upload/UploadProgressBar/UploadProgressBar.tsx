@@ -2,11 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
+  flex: none;
+  flex-grow: 0;
+  order: 1;
   width: 280px;
   height: 54px;
-  flex: none;
-  order: 1;
-  flex-grow: 0;
 `;
 
 const BarWrapper = styled.div`
@@ -32,9 +32,9 @@ const Message = styled.p`
   width: 56px;
   height: 28px;
   font-family: Roboto, sans-serif;
+  font-size: 15px;
   font-style: normal;
   font-weight: 400;
-  font-size: 15px;
   line-height: 28px;
   color: #8e7e78;
 `;

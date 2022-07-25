@@ -90,6 +90,7 @@ export type Props = {
   imageUploader: ImageUploader;
 };
 
+// eslint-disable-next-line max-lines-per-function, max-statements
 export const UploadForm: FC<Props> = ({
   language,
   imageValidator,
@@ -139,6 +140,7 @@ export const UploadForm: FC<Props> = ({
     setBase64Image(window.btoa(binaryString));
   };
 
+  // eslint-disable-next-line max-statements
   const handleFileUpload = (event: ChangeEvent<HTMLInputElement>) => {
     event.preventDefault();
     // eslint-disable-next-line no-magic-numbers
@@ -184,6 +186,7 @@ export const UploadForm: FC<Props> = ({
     openModal();
   };
 
+  // eslint-disable-next-line max-statements
   const executeUpload = async () => {
     setIsLoading(true);
 

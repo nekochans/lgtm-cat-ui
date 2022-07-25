@@ -26,80 +26,80 @@ const Wrapper = styled.div`
   @media (max-width: 767px) {
     width: 360px;
   }
+  position: absolute;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 27px 30px 45px;
   gap: 10px;
-  position: absolute;
+  align-items: center;
   width: 500px;
+  padding: 27px 30px 45px;
   background: #faf9f7;
   border: 1px dashed #8e7e78;
 `;
 
 const ContentsWrapper = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0;
-  gap: 14px;
   flex: none;
-  order: 0;
+  flex-direction: column;
   flex-grow: 0;
+  gap: 14px;
+  align-items: center;
+  order: 0;
+  padding: 0;
 `;
 
 const Title = styled.div`
+  flex: none;
+  flex-grow: 0;
+  order: 0;
   font-family: Roboto, sans-serif;
+  font-size: 18px;
   font-style: normal;
   font-weight: 700;
-  font-size: 18px;
   line-height: 28px;
-  text-align: center;
   color: #8e7e78;
-  flex: none;
-  order: 0;
-  flex-grow: 0;
+  text-align: center;
 `;
 
 const FormWrapper = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0;
-  gap: 16px;
   flex: none;
-  order: 1;
+  flex-direction: column;
   flex-grow: 0;
+  gap: 16px;
+  align-items: center;
+  order: 1;
+  padding: 0;
 `;
 
 const PreviewImageWrapper = styled.div`
   flex: none;
-  order: 0;
   flex-grow: 0;
+  order: 0;
 `;
 
 const PreviewImage = styled.img`
   @media (max-width: 767px) {
     max-width: 355px;
   }
+  flex: none;
+  flex-grow: 0;
+  order: 0;
   width: auto;
   height: 270px;
-  flex: none;
-  order: 0;
-  flex-grow: 0;
 `;
 
 const ConfirmMessage = styled.div`
+  flex: none;
+  flex-grow: 0;
+  order: 1;
   font-family: Roboto, sans-serif;
+  font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  font-size: 16px;
   line-height: 22px;
   color: #8e7e78;
-  flex: none;
-  order: 1;
-  flex-grow: 0;
 `;
 
 const modalStyle = {
@@ -110,13 +110,14 @@ const modalStyle = {
     '@media (maxWidth: 767px)': {
       width: '370px',
     },
+    inset: '0',
     width: '540px',
     height: '540px',
-    inset: '0',
     margin: 'auto',
   },
 };
 
+// eslint-disable-next-line max-lines-per-function
 export const UploadModal: FC<Props> = ({
   isOpen,
   // eslint-disable-next-line @typescript-eslint/no-unused-vars

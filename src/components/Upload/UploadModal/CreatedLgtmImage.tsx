@@ -9,19 +9,19 @@ import { CopiedGithubMarkdownMessage } from '../../LgtmImages/CopiedGithubMarkdo
 
 const Wrapper = styled.div`
   flex: none;
-  order: 0;
   flex-grow: 0;
+  order: 0;
 `;
 
 const StyledImage = styled.img`
   @media (max-width: 767px) {
     max-width: 355px;
   }
+  flex: none;
+  flex-grow: 0;
+  order: 0;
   width: auto;
   height: 270px;
-  flex: none;
-  order: 0;
-  flex-grow: 0;
 `;
 
 type Props = {
