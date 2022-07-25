@@ -410,6 +410,7 @@ export const UploadForm: FC<Props> = ({
       setCreatedLgtmImageUrl(imageUploadResult.value.createdLgtmImageUrl);
     }
 
+    // eslint-disable-next-line no-magic-numbers
     if (imageUploadResult.value.displayErrorMessages.length !== 0) {
       setDisplayErrorMessages(imageUploadResult.value.displayErrorMessages);
       stateInitAtError();
