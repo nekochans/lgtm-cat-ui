@@ -15,6 +15,7 @@ export type Props = {
   imagePreviewUrl: string;
   onClickUpload: () => Promise<void>;
   onClickCancel: () => void;
+  onClickClose: () => void;
   isLoading: boolean;
   uploaded?: boolean;
   createdLgtmImageUrl?: LgtmImageUrl;
@@ -199,6 +200,7 @@ export const UploadModal: FC<Props> = ({
   imagePreviewUrl,
   onClickUpload,
   onClickCancel,
+  onClickClose,
   isLoading,
   uploaded = false,
   createdLgtmImageUrl,
@@ -240,7 +242,7 @@ export const UploadModal: FC<Props> = ({
           {uploaded && createdLgtmImageUrl && !isLoading ? (
             <SuccessMessageArea
               createdLgtmImageUrl={createdLgtmImageUrl}
-              onClickClose={onClickCancel}
+              onClickClose={onClickClose}
             />
           ) : (
             <ButtonGroup>

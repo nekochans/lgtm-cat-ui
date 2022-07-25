@@ -408,6 +408,13 @@ export const UploadForm: FC<Props> = ({ language, imageValidationFunc }) => {
     );
   };
 
+  const onClickClose = () => {
+    closeModal();
+
+    setImagePreviewUrl('');
+    setUploaded(false);
+  };
+
   return (
     <Wrapper>
       {/* eslint-disable no-magic-numbers */}
@@ -453,6 +460,7 @@ export const UploadForm: FC<Props> = ({ language, imageValidationFunc }) => {
           imagePreviewUrl={imagePreviewUrl}
           onClickUpload={executeUpload}
           onClickCancel={closeModal}
+          onClickClose={onClickClose}
           isLoading={isLoading}
           uploaded={uploaded}
           createdLgtmImageUrl={createdLgtmImageUrl}
