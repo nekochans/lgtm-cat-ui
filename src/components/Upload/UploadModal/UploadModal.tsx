@@ -18,7 +18,7 @@ export type Props = {
   onClickClose: () => void;
   isLoading: boolean;
   uploaded?: boolean;
-  createdLgtmImageUrl?: LgtmImageUrl;
+  createdLgtmImageUrl: LgtmImageUrl | string;
 };
 
 const Wrapper = styled.div`

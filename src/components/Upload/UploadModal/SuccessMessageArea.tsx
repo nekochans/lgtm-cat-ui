@@ -173,7 +173,7 @@ const MarkdownSourceCopyButtonText = styled.div`
 `;
 
 type Props = {
-  createdLgtmImageUrl: LgtmImageUrl;
+  createdLgtmImageUrl: LgtmImageUrl | string;
   onClickClose?: () => void;
   appUrl?: AppUrl;
   callback?: () => void;

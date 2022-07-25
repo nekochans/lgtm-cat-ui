@@ -300,8 +300,9 @@ export const UploadForm: FC<Props> = ({ language, imageValidationFunc }) => {
   >('');
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [uploaded, setUploaded] = useState<boolean>();
-  const [createdLgtmImageUrl, setCreatedLgtmImageUrl] =
-    useState<LgtmImageUrl>();
+  const [createdLgtmImageUrl, setCreatedLgtmImageUrl] = useState<
+    LgtmImageUrl | string
+  >('');
   const [displayErrorMessages, setDisplayErrorMessages] = useState<string[]>(
     [],
   );
@@ -412,6 +413,7 @@ export const UploadForm: FC<Props> = ({ language, imageValidationFunc }) => {
     closeModal();
 
     setImagePreviewUrl('');
+    setCreatedLgtmImageUrl('');
     setUploaded(false);
   };
 
