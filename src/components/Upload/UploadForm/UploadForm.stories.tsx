@@ -1,5 +1,6 @@
 import { createSuccessResult } from '../../../features/result';
 import { AcceptedTypesImageExtension } from '../../../types/lgtmImage';
+import { sleep } from '../../../utils/sleep';
 
 import { UploadForm } from '.';
 
@@ -12,22 +13,11 @@ export default {
 
 type Story = ComponentStoryObj<typeof UploadForm>;
 
-const millisecond = 1000;
-
-const waitSeconds = 1;
-
-const sleep = (waitSeconds: number): Promise<void> =>
-  new Promise((resolve) => {
-    setTimeout(() => {
-      resolve();
-    }, waitSeconds * millisecond);
-  });
-
 const imageValidator = async (
   image: string,
   imageExtension: AcceptedTypesImageExtension,
 ) => {
-  await sleep(waitSeconds);
+  await sleep();
 
   return createSuccessResult({
     isAcceptableCatImage: true,
@@ -39,7 +29,7 @@ const returnFalseImageValidator = async (
   image: string,
   imageExtension: AcceptedTypesImageExtension,
 ) => {
-  await sleep(waitSeconds);
+  await sleep();
 
   return createSuccessResult({
     isAcceptableCatImage: false,
@@ -54,7 +44,7 @@ const imageUploader = async (
   image: string,
   imageExtension: AcceptedTypesImageExtension,
 ) => {
-  await sleep(waitSeconds);
+  await sleep();
 
   return createSuccessResult({
     createdLgtmImageUrl:
@@ -67,7 +57,7 @@ const imageUploaderWithErrors = async (
   image: string,
   imageExtension: AcceptedTypesImageExtension,
 ) => {
-  await sleep(waitSeconds);
+  await sleep();
 
   return createSuccessResult({
     displayErrorMessages: [
