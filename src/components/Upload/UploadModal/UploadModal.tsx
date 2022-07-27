@@ -206,7 +206,7 @@ export const UploadModal: FC<Props> = ({
           ) : (
             ''
           )}
-          {isLoading ? <UploadProgressBar /> : ''}
+          {isLoading ? <UploadProgressBar language={language} /> : ''}
         </ContentsWrapper>
       </Wrapper>
     </Modal>
