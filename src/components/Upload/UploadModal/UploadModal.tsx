@@ -171,7 +171,6 @@ export const UploadModal: FC<Props> = ({
           <Title>{titleText(language)}</Title>
           <FormWrapper>
             {uploaded ? (
-              // TODO 後でちゃんとパラメータを渡せるようにする
               <CreatedLgtmImage
                 imagePreviewUrl={imagePreviewUrl}
                 createdLgtmImageUrl={createdLgtmImageUrl}
