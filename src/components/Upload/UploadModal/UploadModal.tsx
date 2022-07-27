@@ -190,6 +190,7 @@ export const UploadModal: FC<Props> = ({
           </FormWrapper>
           {uploaded && createdLgtmImageUrl && !isLoading ? (
             <SuccessMessageArea
+              language={language}
               createdLgtmImageUrl={createdLgtmImageUrl}
               onClickClose={onClickClose}
             />
