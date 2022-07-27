@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import { Language } from '../../../types/language';
 import { LgtmImageUrl } from '../../../types/lgtmImage';
+import assertNever from '../../../utils/assertNever';
 import { UploadProgressBar } from '../UploadProgressBar';
 
 import { ButtonGroup } from './ButtonGroup';
@@ -102,6 +103,28 @@ const ConfirmMessage = styled.div`
   color: #8e7e78;
 `;
 
+const titleText = (language: Language): string => {
+  switch (language) {
+    case 'ja':
+      return '猫ちゃん画像アップロード確認';
+    case 'en':
+      return 'Cat image upload confirmed';
+    default:
+      return assertNever(language);
+  }
+};
+
+const confirmMessageText = (language: Language): string => {
+  switch (language) {
+    case 'ja':
+      return 'この画像をアップロードします。よろしいですか？';
+    case 'en':
+      return 'Upload this image. Are you sure?';
+    default:
+      return assertNever(language);
+  }
+};
+
 const modalStyle = {
   // stylelint-disable-next-line
   overlay: {
@@ -121,7 +144,6 @@ const modalStyle = {
 // eslint-disable-next-line max-lines-per-function
 export const UploadModal: FC<Props> = ({
   isOpen,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   language,
   imagePreviewUrl,
   onClickUpload,
@@ -146,7 +168,7 @@ export const UploadModal: FC<Props> = ({
     >
       <Wrapper>
         <ContentsWrapper>
-          <Title>猫ちゃん画像アップロード確認</Title>
+          <Title>{titleText(language)}</Title>
           <FormWrapper>
             {uploaded ? (
               // TODO 後でちゃんとパラメータを渡せるようにする
@@ -161,9 +183,7 @@ export const UploadModal: FC<Props> = ({
             )}
             {!isLoading && !uploaded ? (
               <>
-                <ConfirmMessage>
-                  この画像をアップロードします。よろしいですか？
-                </ConfirmMessage>
+                <ConfirmMessage>{confirmMessageText(language)}</ConfirmMessage>
               </>
             ) : (
               ''
