@@ -1,6 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { Language } from '../../../types/language';
+import assertNever from '../../../utils/assertNever';
+
 const Wrapper = styled.div`
   display: flex;
   flex: none;
@@ -79,21 +82,45 @@ const UploadButtonText = styled.div`
   }
 `;
 
+const cancelButtonText = (language: Language): string => {
+  switch (language) {
+    case 'ja':
+      return 'キャンセル';
+    case 'en':
+      return 'cancel';
+    default:
+      return assertNever(language);
+  }
+};
+
+const uploadButtonText = (language: Language): string => {
+  switch (language) {
+    case 'ja':
+      return 'アップロード';
+    case 'en':
+      return 'upload';
+    default:
+      return assertNever(language);
+  }
+};
+
 type Props = {
+  language: Language;
   onClickUpload: () => Promise<void>;
   onClickCancel: () => void;
 };
 
 export const ButtonGroup: React.FC<Props> = ({
+  language,
   onClickUpload,
   onClickCancel,
 }) => (
   <Wrapper>
     <CancelButton onClick={onClickCancel}>
-      <CancelButtonText>キャンセル</CancelButtonText>
+      <CancelButtonText>{cancelButtonText(language)}</CancelButtonText>
     </CancelButton>
     <UploadButton onClick={onClickUpload}>
-      <UploadButtonText>アップロード</UploadButtonText>
+      <UploadButtonText>{uploadButtonText(language)}</UploadButtonText>
     </UploadButton>
   </Wrapper>
 );

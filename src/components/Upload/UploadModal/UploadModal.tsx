@@ -198,6 +198,7 @@ export const UploadModal: FC<Props> = ({
           )}
           {!uploaded && !createdLgtmImageUrl && !isLoading ? (
             <ButtonGroup
+              language={language}
               onClickUpload={onClickUpload}
               onClickCancel={onClickCancel}
             />
