@@ -116,6 +116,8 @@ export const UploadForm: FC<Props> = ({
   };
 
   const closeModal = () => {
+    setUploaded(false);
+    setCreatedLgtmImageUrl('');
     setModalIsOpen(false);
   };
 
@@ -226,10 +228,6 @@ export const UploadForm: FC<Props> = ({
 
   const onClickClose = () => {
     closeModal();
-
-    setImagePreviewUrl('');
-    setCreatedLgtmImageUrl('');
-    setUploaded(false);
   };
 
   return (
