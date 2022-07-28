@@ -4,7 +4,9 @@ import styled from 'styled-components';
 import { AppUrl, defaultAppUrl } from '../../../constants/url';
 import useClipboardMarkdown from '../../../hooks/useClipboardMarkdown';
 import { useCopySuccess } from '../../../hooks/useCopySuccess';
+import { Language } from '../../../types/language';
 import { LgtmImageUrl } from '../../../types/lgtmImage';
+import assertNever from '../../../utils/assertNever';
 import { CopiedGithubMarkdownMessage } from '../../LgtmImages/CopiedGithubMarkdownMessage';
 
 const Wrapper = styled.div`
@@ -172,7 +174,67 @@ const MarkdownSourceCopyButtonText = styled.div`
   color: #fff;
 `;
 
+const titleText = (language: Language): string => {
+  switch (language) {
+    case 'ja':
+      return 'アップロードが成功しました🐱！';
+    case 'en':
+      return 'Upload succeeded🐱!';
+    default:
+      return assertNever(language);
+  }
+};
+
+const closeButtonText = (language: Language): string => {
+  switch (language) {
+    case 'ja':
+      return '閉じる';
+    case 'en':
+      return 'close';
+    default:
+      return assertNever(language);
+  }
+};
+
+const markdownSourceCopyButtonText = (language: Language): string => {
+  switch (language) {
+    case 'ja':
+      return 'Markdownソースをコピー';
+    case 'en':
+      return 'Copy Markdown source';
+    default:
+      return assertNever(language);
+  }
+};
+
+const mainMessageText = (language: Language): string => {
+  switch (language) {
+    case 'ja':
+      return `LGTM画像を作成しているので少々お待ち下さい。「${markdownSourceCopyButtonText(
+        language,
+      )}」ボタンか上の画像をクリックするとMarkdownソースがコピーされます。`;
+    case 'en':
+      return `Please wait a moment while we create the LGTM image. Click on the "${markdownSourceCopyButtonText(
+        language,
+      )}" button or the image above to copy the Markdown source.`;
+    default:
+      return assertNever(language);
+  }
+};
+
+const descriptionText = (language: Language): string => {
+  switch (language) {
+    case 'ja':
+      return '※トップページの「New arrival Cats」ボタンを押下するとアップロードした画像を確認できます。';
+    case 'en':
+      return '※Click the "New arrival Cats" button on the top page to see the uploaded images.';
+    default:
+      return assertNever(language);
+  }
+};
+
 type Props = {
+  language: Language;
   createdLgtmImageUrl: LgtmImageUrl | string;
   onClickClose?: () => void;
   appUrl?: AppUrl;
@@ -180,6 +242,7 @@ type Props = {
 };
 
 export const SuccessMessageArea: React.FC<Props> = ({
+  language,
   createdLgtmImageUrl,
   onClickClose,
   appUrl,
@@ -195,27 +258,20 @@ export const SuccessMessageArea: React.FC<Props> = ({
 
   return (
     <Wrapper>
-      <Title>アップロードに成功しました🐱！</Title>
+      <Title>{titleText(language)}</Title>
       <ContentsWrapper>
-        <MainMessage>
-          LGTM画像を作成しているので少々お待ち下さい。
-          「Markdownソースをコピー」ボタンか上の画像を
-          クリックするとMarkdownソースがコピーされます。
-        </MainMessage>
+        <MainMessage>{mainMessageText(language)}</MainMessage>
         <UnderSectionWrapper>
           <DescriptionWrapper>
-            <DescriptionText>
-              ※トップページの「New arrival
-              Cats」ボタンを押下するとアップロードした画像を確認できます。
-            </DescriptionText>
+            <DescriptionText>{descriptionText(language)}</DescriptionText>
           </DescriptionWrapper>
           <ButtonGroup>
             <CloseButton onClick={onClickClose}>
-              <CloseButtonText>閉じる</CloseButtonText>
+              <CloseButtonText>{closeButtonText(language)}</CloseButtonText>
             </CloseButton>
             <MarkdownSourceCopyButton ref={imageContextRef}>
               <MarkdownSourceCopyButtonText>
-                Markdownソースをコピー
+                {markdownSourceCopyButtonText(language)}
               </MarkdownSourceCopyButtonText>
             </MarkdownSourceCopyButton>
           </ButtonGroup>

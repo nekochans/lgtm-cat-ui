@@ -12,6 +12,7 @@ jobs:
   build:
     name: Build And Test
     runs-on: ubuntu-latest
+    timeout-minutes: 7
     strategy:
       matrix:
         node-version: [16.x]

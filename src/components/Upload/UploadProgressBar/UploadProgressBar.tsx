@@ -1,6 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { Language } from '../../../types/language';
+import assertNever from '../../../utils/assertNever';
+
 const Wrapper = styled.div`
   flex: none;
   flex-grow: 0;
@@ -39,7 +42,22 @@ const Message = styled.p`
   color: #8e7e78;
 `;
 
-export const UploadProgressBar: React.FC = () => {
+const messageText = (language: Language): string => {
+  switch (language) {
+    case 'ja':
+      return '送信中…';
+    case 'en':
+      return 'Uploading…';
+    default:
+      return assertNever(language);
+  }
+};
+
+type Props = {
+  language: Language;
+};
+
+export const UploadProgressBar: React.FC<Props> = ({ language }) => {
   const minWidth = 1;
 
   const maxWidth = 279;
@@ -68,7 +86,7 @@ export const UploadProgressBar: React.FC = () => {
           <MainColorBar style={{ width: `${progressLength}px` }} />
         </DefaultColorBar>
       </BarWrapper>
-      <Message>送信中…</Message>
+      <Message>{messageText(language)}</Message>
     </Wrapper>
   );
 };
