@@ -1,5 +1,7 @@
+/* eslint-disable max-lines */
 import Link from 'next/link';
 import React, { ChangeEvent, type FC, useState } from 'react';
+import { useDropzone } from 'react-dropzone';
 import { FaCloudUploadAlt } from 'react-icons/fa';
 
 import { isValidFileType } from '../../../features/lgtmImage';
@@ -143,33 +145,37 @@ export const UploadForm: FC<Props> = ({
   };
 
   // eslint-disable-next-line max-statements
+  const mightConvertImageToBase64 = (file: File) => {
+    setUploaded(false);
+    const fileType = file.type;
+    if (!isValidFileType(fileType)) {
+      setDisplayErrorMessages(
+        createNotAllowedImageExtensionErrorMessage(fileType, language),
+      );
+      stateInitAtError();
+
+      return;
+    }
+
+    const url = URL.createObjectURL(file);
+
+    setImagePreviewUrl(url);
+
+    const reader = new FileReader();
+    reader.onload = handleReaderLoaded;
+    reader.readAsBinaryString(file);
+
+    openModal();
+  };
+
+  // eslint-disable-next-line max-statements
   const handleFileUpload = (event: ChangeEvent<HTMLInputElement>) => {
     event.preventDefault();
     // eslint-disable-next-line no-magic-numbers
     if (event.target.files && event.target.files.length > 0) {
       const targetIndex = 0;
       const file = event.target.files[targetIndex];
-
-      setUploaded(false);
-      const fileType = file.type;
-      if (!isValidFileType(fileType)) {
-        setDisplayErrorMessages(
-          createNotAllowedImageExtensionErrorMessage(fileType, language),
-        );
-        stateInitAtError();
-
-        return;
-      }
-
-      const url = URL.createObjectURL(file);
-
-      setImagePreviewUrl(url);
-
-      const reader = new FileReader();
-      reader.onload = handleReaderLoaded;
-      reader.readAsBinaryString(file);
-
-      openModal();
+      mightConvertImageToBase64(file);
     }
   };
 
@@ -230,6 +236,19 @@ export const UploadForm: FC<Props> = ({
     closeModal();
   };
 
+  const onDrop = React.useCallback((acceptedFiles: File[]) => {
+    // eslint-disable-next-line no-magic-numbers
+    if (acceptedFiles && acceptedFiles.length > 0) {
+      const targetIndex = 0;
+      const file = acceptedFiles[targetIndex];
+
+      mightConvertImageToBase64(file);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const { getRootProps } = useDropzone({ onDrop });
+
   return (
     <Wrapper>
       {/* eslint-disable no-magic-numbers */}
@@ -240,16 +259,19 @@ export const UploadForm: FC<Props> = ({
       )}
       <UploadTitleArea language={language} />
       <Form>
-        <InputFileArea>
-          <FaCloudUploadAlt style={faCloudUploadAltStyle} />
-          <Text>{imageDropAreaText(language)}</Text>
-          <InputFileLabel>
-            <InputFileLabelText>
-              {uploadInputButtonText(language)}
-            </InputFileLabelText>
-            <InputFile type="file" onChange={handleFileUpload} />
-          </InputFileLabel>
-        </InputFileArea>
+        {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+        <div {...getRootProps()}>
+          <InputFileArea>
+            <FaCloudUploadAlt style={faCloudUploadAltStyle} />
+            <Text>{imageDropAreaText(language)}</Text>
+            <InputFileLabel>
+              <InputFileLabelText>
+                {uploadInputButtonText(language)}
+              </InputFileLabelText>
+              <InputFile type="file" onChange={handleFileUpload} />
+            </InputFileLabel>
+          </InputFileArea>
+        </div>
         <MaxUploadSizeText>Maximum upload size is 4MB</MaxUploadSizeText>
         <DescriptionAreaWrapper>
           <CautionTextArea>{cautionText(language)}</CautionTextArea>
