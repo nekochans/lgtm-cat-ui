@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React from 'react';
 
 import { ResponsiveLayoutContainer } from '../../containers';
 import { createSuccessResult } from '../../features/result';
@@ -9,6 +8,7 @@ import { sleep } from '../../utils/sleep';
 import { UploadTemplate, Props } from '.';
 
 import type { ComponentStoryObj, Meta } from '@storybook/react';
+import type { FC } from 'react';
 
 const imageValidator = async (
   image: string,
@@ -35,7 +35,7 @@ const imageUploader = async (
   });
 };
 
-const UploadTemplateWithResponsiveLayout: React.FC<Props> = ({ language }) => (
+const UploadTemplateWithResponsiveLayout: FC<Props> = ({ language }) => (
   <ResponsiveLayoutContainer>
     <UploadTemplate
       language={language}

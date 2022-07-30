@@ -1,9 +1,10 @@
-import React from 'react';
 import { FaBars } from 'react-icons/fa';
 import styled from 'styled-components';
 
 import { LanguageButton } from './LanguageButton';
 import { LanguageMenu, Props as LanguageMenuProps } from './LanguageMenu';
+
+import type { FC, MouseEvent } from 'react';
 
 const Wrapper = styled.div`
   background: #e9e2d7;
@@ -51,10 +52,10 @@ const faBarsStyle = {
 
 export type Props = LanguageMenuProps & {
   isLanguageMenuDisplayed: boolean;
-  onClickLanguageButton: (event: React.MouseEvent<HTMLDivElement>) => void;
+  onClickLanguageButton: (event: MouseEvent<HTMLDivElement>) => void;
 };
 
-export const Header: React.FC<Props> = ({
+export const Header: FC<Props> = ({
   language,
   isLanguageMenuDisplayed,
   onClickLanguageButton,

@@ -1,8 +1,9 @@
-import React from 'react';
 import { FaAngleRight } from 'react-icons/fa';
 import styled, { css } from 'styled-components';
 
 import { Language } from '../../types/language';
+
+import type { FC, MouseEvent } from 'react';
 
 const textWrapperStyle = css`
   display: flex;
@@ -83,15 +84,11 @@ const JaText = styled.div`
 
 export type Props = {
   language: Language;
-  onClickEn: (event: React.MouseEvent<HTMLDivElement>) => void;
-  onClickJa: (event: React.MouseEvent<HTMLDivElement>) => void;
+  onClickEn: (event: MouseEvent<HTMLDivElement>) => void;
+  onClickJa: (event: MouseEvent<HTMLDivElement>) => void;
 };
 
-export const LanguageMenu: React.FC<Props> = ({
-  language,
-  onClickEn,
-  onClickJa,
-}) => (
+export const LanguageMenu: FC<Props> = ({ language, onClickEn, onClickJa }) => (
   <StyledLanguageMenu>
     <EnTextWrapper>
       <EnText onClick={onClickEn}>

@@ -1,8 +1,7 @@
-import React from 'react';
-
 import { ResponsiveLayout } from './';
 
 import type { ComponentStoryObj, Meta } from '@storybook/react';
+import type { FC } from 'react';
 
 export default {
   title: 'src/layouts/ResponsiveLayout/ResponsiveLayout.tsx',
@@ -11,7 +10,7 @@ export default {
 
 type Story = ComponentStoryObj<typeof ResponsiveLayout>;
 
-const JpContents: React.FC = () => (
+const JpContents: FC = () => (
   <>
     <h1>タイトル</h1>
     <h2>サブタイトル</h2>
@@ -19,7 +18,7 @@ const JpContents: React.FC = () => (
   </>
 );
 
-const EnContents: React.FC = () => (
+const EnContents: FC = () => (
   <>
     <h1>Title</h1>
     <h2>SubTitle</h2>

@@ -1,6 +1,7 @@
-import React from 'react';
 import { FaCaretDown } from 'react-icons/fa';
 import styled from 'styled-components';
+
+import type { FC, MouseEvent } from 'react';
 
 const Wrapper = styled.div`
   @media (max-width: 767px) {
@@ -38,10 +39,10 @@ const faCaretDownStyle = {
 };
 
 type Props = {
-  onClick: (event: React.MouseEvent<HTMLDivElement>) => void;
+  onClick: (event: MouseEvent<HTMLDivElement>) => void;
 };
 
-export const LanguageButton: React.FC<Props> = ({ onClick }) => (
+export const LanguageButton: FC<Props> = ({ onClick }) => (
   <Wrapper onClick={onClick}>
     <Text>Language</Text>
     <FaCaretDown style={faCaretDownStyle} />

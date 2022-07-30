@@ -1,5 +1,6 @@
-import React from 'react';
 import styled from 'styled-components';
+
+import type { FC } from 'react';
 
 const Wrapper = styled.div`
   position: absolute;
@@ -13,6 +14,6 @@ const Wrapper = styled.div`
   transform: translate(-50%, 0);
 `;
 
-export const CopiedGithubMarkdownMessage: React.FC = () => (
+export const CopiedGithubMarkdownMessage: FC = () => (
   <Wrapper>Github Markdown Copied!</Wrapper>
 );

@@ -1,6 +1,6 @@
 /* eslint-disable max-lines */
 import Link from 'next/link';
-import React, { ChangeEvent, type FC, useState } from 'react';
+import { useState, useCallback, type FC, FormEvent, ChangeEvent } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { FaCloudUploadAlt } from 'react-icons/fa';
 
@@ -188,7 +188,7 @@ export const UploadForm: FC<Props> = ({
     return imagePreviewUrl === '';
   };
 
-  const onClickUploadButton = (event: React.FormEvent<HTMLFormElement>) => {
+  const onClickUploadButton = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     openModal();
@@ -236,7 +236,7 @@ export const UploadForm: FC<Props> = ({
     closeModal();
   };
 
-  const onDrop = React.useCallback((acceptedFiles: File[]) => {
+  const onDrop = useCallback((acceptedFiles: File[]) => {
     // eslint-disable-next-line no-magic-numbers
     if (acceptedFiles && acceptedFiles.length > 0) {
       const targetIndex = 0;

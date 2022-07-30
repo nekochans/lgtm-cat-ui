@@ -1,6 +1,7 @@
-import React from 'react';
 import { FaExclamationTriangle } from 'react-icons/fa';
 import styled from 'styled-components';
+
+import type { FC } from 'react';
 
 type Props = {
   messages: string[];
@@ -56,7 +57,7 @@ const MessageText = styled.p`
   text-align: center;
 `;
 
-export const UploadErrorMessageArea: React.FC<Props> = ({ messages }) => (
+export const UploadErrorMessageArea: FC<Props> = ({ messages }) => (
   <StyledUploadErrorMessageArea>
     <FaExclamationTriangle style={faExclamationTriangleStyle} />
     <MessageText>

@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState, useEffect, type FC } from 'react';
 import styled from 'styled-components';
 
 import { Language } from '../../../types/language';
@@ -57,7 +57,7 @@ type Props = {
   language: Language;
 };
 
-export const UploadProgressBar: React.FC<Props> = ({ language }) => {
+export const UploadProgressBar: FC<Props> = ({ language }) => {
   const minWidth = 1;
 
   const maxWidth = 279;
@@ -66,9 +66,9 @@ export const UploadProgressBar: React.FC<Props> = ({ language }) => {
 
   const interval = 200;
 
-  const [progressLength, setProgressLength] = React.useState<number>(minWidth);
+  const [progressLength, setProgressLength] = useState<number>(minWidth);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const id = setInterval(() => {
       const updatedWidth =
         progressLength <= maxWidth ? progressLength + incrementValue : minWidth;

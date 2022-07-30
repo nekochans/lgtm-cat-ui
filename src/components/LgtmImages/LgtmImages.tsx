@@ -1,10 +1,11 @@
-import React from 'react';
 import styled from 'styled-components';
 
 import { AppUrl } from '../../constants/url';
 import { LgtmImage } from '../../types/lgtmImage';
 
 import { LgtmImageContent } from './LgtmImageContent';
+
+import type { FC } from 'react';
 
 const Wrapper = styled.div`
   @media (max-width: 767px) {
@@ -22,7 +23,7 @@ type Props = {
   callback?: () => void;
 };
 
-export const LgtmImages: React.FC<Props> = ({ images, appUrl, callback }) => (
+export const LgtmImages: FC<Props> = ({ images, appUrl, callback }) => (
   <Wrapper>
     {images.map((image) => (
       <LgtmImageContent

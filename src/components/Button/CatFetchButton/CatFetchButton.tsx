@@ -1,9 +1,10 @@
-import React from 'react';
 import { FaSyncAlt } from 'react-icons/fa';
 import styled from 'styled-components';
 
 import { mixins } from '../../../styles/mixins';
 import assertNever from '../../../utils/assertNever';
+
+import type { FC } from 'react';
 
 const StyledButton = styled.button`
   background: #eb7c06;
@@ -42,7 +43,7 @@ type Props = {
   type: ButtonType;
 };
 
-export const CatFetchButton: React.FC<Props> = ({ type }) => (
+export const CatFetchButton: FC<Props> = ({ type }) => (
   <StyledButton>
     <FaSyncAlt style={faSyncAltStyle} />
     <Text>{buttonText(type)}</Text>

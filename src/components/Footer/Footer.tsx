@@ -1,10 +1,11 @@
 import Link from 'next/link';
-import React from 'react';
 import styled from 'styled-components';
 
 import { createLinksFromLanguages as createPrivacyLinksFromLanguages } from '../../features/privacyPolicy';
 import { createLinksFromLanguages as createTermsLinksFromLanguages } from '../../features/termsOfUse';
 import { Language } from '../../types/language';
+
+import type { FC } from 'react';
 
 const StyledFooter = styled.div`
   position: relative;
@@ -106,7 +107,7 @@ export type Props = {
   language: Language;
 };
 
-export const Footer: React.FC<Props> = ({ language }) => {
+export const Footer: FC<Props> = ({ language }) => {
   const terms = createTermsLinksFromLanguages(language);
 
   const privacy = createPrivacyLinksFromLanguages(language);

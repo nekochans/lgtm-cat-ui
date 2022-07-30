@@ -1,8 +1,9 @@
-import React from 'react';
 import styled from 'styled-components';
 
 import { Footer, Props as FooterProps } from '../../components/Footer';
 import { Header, Props as HeaderProps } from '../../components/Header';
+
+import type { FC, ReactNode } from 'react';
 
 const Wrapper = styled.div`
   position: relative;
@@ -14,9 +15,9 @@ const ContentsWrapper = styled.div`
   text-align: center;
 `;
 
-export type Props = FooterProps & HeaderProps & { children: React.ReactNode };
+export type Props = FooterProps & HeaderProps & { children: ReactNode };
 
-export const ResponsiveLayout: React.FC<Props> = ({
+export const ResponsiveLayout: FC<Props> = ({
   language,
   isLanguageMenuDisplayed,
   onClickLanguageButton,

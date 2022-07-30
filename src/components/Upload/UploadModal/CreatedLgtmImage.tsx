@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 
 import { AppUrl, defaultAppUrl } from '../../../constants/url';
@@ -6,6 +5,8 @@ import useClipboardMarkdown from '../../../hooks/useClipboardMarkdown';
 import { useCopySuccess } from '../../../hooks/useCopySuccess';
 import { LgtmImageUrl } from '../../../types/lgtmImage';
 import { CopiedGithubMarkdownMessage } from '../../LgtmImages/CopiedGithubMarkdownMessage';
+
+import type { FC } from 'react';
 
 const Wrapper = styled.div`
   flex: none;
@@ -31,7 +32,7 @@ type Props = {
   callback?: () => void;
 };
 
-export const CreatedLgtmImage: React.FC<Props> = ({
+export const CreatedLgtmImage: FC<Props> = ({
   imagePreviewUrl,
   createdLgtmImageUrl,
   appUrl,
