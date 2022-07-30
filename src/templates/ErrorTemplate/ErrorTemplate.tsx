@@ -123,25 +123,6 @@ const createErrorImage = (type: ErrorType): JSX.Element => {
   }
 };
 
-const backToTopPageText = {
-  ja: 'トップページに戻る',
-  en: 'Back to Top Page',
-} as const;
-
-type BackToTopPageText =
-  typeof backToTopPageText[keyof typeof backToTopPageText];
-
-const createBackToTopPageText = (language: Language): BackToTopPageText => {
-  switch (language) {
-    case 'ja':
-      return backToTopPageText.ja;
-    case 'en':
-      return backToTopPageText.en;
-    default:
-      return assertNever(language);
-  }
-};
-
 const jaErrorMessageText = {
   notFound:
     'お探しのページは見つかりません。一時的にアクセス出来ない状態か、移動もしくは削除されてしまった可能性があります。',
@@ -215,6 +196,6 @@ export const ErrorTemplate: FC<Props> = ({ type, language }) => (
     <Title>{createErrorTitleText(type)}</Title>
     {createErrorImage(type)}
     <Message>{createErrorMessageText(type, language)}</Message>
-    <BackToTopButton text={createBackToTopPageText(language)} />
+    <BackToTopButton language={language} />
   </Wrapper>
 );
