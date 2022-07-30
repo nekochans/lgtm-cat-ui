@@ -1,6 +1,9 @@
 import Link from 'next/link';
 import styled from 'styled-components';
 
+import { Language } from '../../types/language';
+import assertNever from '../../utils/assertNever';
+
 import type { FC } from 'react';
 
 const StyledSpan = styled.span`
@@ -35,14 +38,33 @@ const Text = styled.div`
   }
 `;
 
-type Props = {
-  text: string;
+const backToTopPageText = {
+  ja: 'トップページに戻る',
+  en: 'Back to Top Page',
+} as const;
+
+type BackToTopPageText =
+  typeof backToTopPageText[keyof typeof backToTopPageText];
+
+const createBackToTopPageText = (language: Language): BackToTopPageText => {
+  switch (language) {
+    case 'ja':
+      return backToTopPageText.ja;
+    case 'en':
+      return backToTopPageText.en;
+    default:
+      return assertNever(language);
+  }
 };
 
-export const BackToTopButton: FC<Props> = ({ text }) => (
+type Props = {
+  language: Language;
+};
+
+export const BackToTopButton: FC<Props> = ({ language }) => (
   <Link href="/" prefetch={false}>
     <StyledSpan>
-      <Text>{text}</Text>
+      <Text>{createBackToTopPageText(language)}</Text>
     </StyledSpan>
   </Link>
 );
