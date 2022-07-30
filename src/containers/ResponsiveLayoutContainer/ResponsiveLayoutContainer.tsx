@@ -1,4 +1,3 @@
-import React from 'react';
 import { useSnapshot } from 'valtio';
 
 import { ResponsiveLayout } from '../../layouts';
@@ -8,32 +7,34 @@ import {
   updateLanguage,
 } from '../../stores/valtio/header';
 
+import type { FC, ReactNode, MouseEvent } from 'react';
+
 type Props = {
-  children: React.ReactNode;
+  children: ReactNode;
 };
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const onClickEn = (event: React.MouseEvent<HTMLDivElement>) => {
+const onClickEn = (event: MouseEvent<HTMLDivElement>) => {
   updateLanguage('en');
 };
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const onClickJa = (event: React.MouseEvent<HTMLDivElement>) => {
+const onClickJa = (event: MouseEvent<HTMLDivElement>) => {
   updateLanguage('ja');
 };
 
-export const ResponsiveLayoutContainer: React.FC<Props> = ({ children }) => {
+export const ResponsiveLayoutContainer: FC<Props> = ({ children }) => {
   const snap = useSnapshot(headerStateSelector());
 
   const { language, isLanguageMenuDisplayed } = snap;
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const onClickLanguageButton = (event: React.MouseEvent<HTMLDivElement>) => {
+  const onClickLanguageButton = (event: MouseEvent<HTMLDivElement>) => {
     updateIsLanguageMenuDisplayed(!isLanguageMenuDisplayed);
   };
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const onClickOutSideMenu = (event: React.MouseEvent<HTMLDivElement>) => {
+  const onClickOutSideMenu = (event: MouseEvent<HTMLDivElement>) => {
     // メニューの外側をクリックしたときだけメニューを閉じる
     if (isLanguageMenuDisplayed) {
       updateIsLanguageMenuDisplayed(false);

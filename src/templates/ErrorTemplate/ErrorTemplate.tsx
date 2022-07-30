@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import React from 'react';
 import styled from 'styled-components';
 
 import { BackToTopButton } from '../../components/Button/BackToTopButton';
@@ -9,6 +8,8 @@ import assertNever from '../../utils/assertNever';
 import internalServerError from './images/internal_server_error.webp';
 import notFound from './images/not_found.webp';
 import serviceUnavailable from './images/service_unavailable.webp';
+
+import type { FC } from 'react';
 
 const Wrapper = styled.div`
   display: flex;
@@ -209,7 +210,7 @@ type Props = {
   language: Language;
 };
 
-export const ErrorTemplate: React.FC<Props> = ({ type, language }) => (
+export const ErrorTemplate: FC<Props> = ({ type, language }) => (
   <Wrapper>
     <Title>{createErrorTitleText(type)}</Title>
     {createErrorImage(type)}

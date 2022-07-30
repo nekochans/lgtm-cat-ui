@@ -1,6 +1,7 @@
 import Link from 'next/link';
-import React from 'react';
 import styled from 'styled-components';
+
+import type { FC } from 'react';
 
 const StyledSpan = styled.span`
   display: flex;
@@ -38,7 +39,7 @@ type Props = {
   text: string;
 };
 
-export const BackToTopButton: React.FC<Props> = ({ text }) => (
+export const BackToTopButton: FC<Props> = ({ text }) => (
   <Link href="/" prefetch={false}>
     <StyledSpan>
       <Text>{text}</Text>

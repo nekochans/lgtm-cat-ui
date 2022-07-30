@@ -1,8 +1,9 @@
-import React from 'react';
 import { FaGithub } from 'react-icons/fa';
 import styled from 'styled-components';
 
 import { mixins } from '../../../styles/mixins';
+
+import type { FC } from 'react';
 
 const StyledGitHubLoginButton = styled.button`
   background: #eb7c06;
@@ -24,7 +25,7 @@ const faGithubStyle = {
   flexGrow: 0,
 };
 
-export const GitHubLoginButton: React.FC = () => (
+export const GitHubLoginButton: FC = () => (
   <StyledGitHubLoginButton>
     <FaGithub style={faGithubStyle} />
     <Text>Login</Text>

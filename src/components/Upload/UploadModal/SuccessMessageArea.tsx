@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 
 import { AppUrl, defaultAppUrl } from '../../../constants/url';
@@ -8,6 +7,8 @@ import { Language } from '../../../types/language';
 import { LgtmImageUrl } from '../../../types/lgtmImage';
 import assertNever from '../../../utils/assertNever';
 import { CopiedGithubMarkdownMessage } from '../../LgtmImages/CopiedGithubMarkdownMessage';
+
+import type { FC } from 'react';
 
 const Wrapper = styled.div`
   display: flex;
@@ -241,7 +242,7 @@ type Props = {
   callback?: () => void;
 };
 
-export const SuccessMessageArea: React.FC<Props> = ({
+export const SuccessMessageArea: FC<Props> = ({
   language,
   createdLgtmImageUrl,
   onClickClose,

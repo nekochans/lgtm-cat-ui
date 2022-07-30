@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState, useCallback } from 'react';
 
 type Response = {
   copied: boolean;
@@ -6,9 +6,9 @@ type Response = {
 };
 
 export const useCopySuccess = (callback?: () => void): Response => {
-  const [copied, setCopied] = React.useState(false);
+  const [copied, setCopied] = useState(false);
 
-  const onCopySuccess = React.useCallback(() => {
+  const onCopySuccess = useCallback(() => {
     if (callback) {
       callback();
     }

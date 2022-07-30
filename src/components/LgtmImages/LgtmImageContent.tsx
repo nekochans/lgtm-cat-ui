@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import React from 'react';
 import styled from 'styled-components';
 
 import { AppUrl, defaultAppUrl } from '../../constants/url';
@@ -8,6 +7,8 @@ import { useCopySuccess } from '../../hooks/useCopySuccess';
 import { LgtmImage } from '../../types/lgtmImage';
 
 import { CopiedGithubMarkdownMessage } from './CopiedGithubMarkdownMessage';
+
+import type { FC } from 'react';
 
 const ImageWrapper = styled.div`
   position: relative;
@@ -23,7 +24,7 @@ type Props = LgtmImage & {
   callback?: () => void;
 };
 
-export const LgtmImageContent: React.FC<Props> = ({
+export const LgtmImageContent: FC<Props> = ({
   id,
   imageUrl,
   appUrl,

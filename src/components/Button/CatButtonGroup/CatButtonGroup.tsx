@@ -1,8 +1,9 @@
-import React from 'react';
 import styled from 'styled-components';
 
 import { CatFetchButton } from '../CatFetchButton';
 import { UploadCatButton } from '../UploadCatButton';
+
+import type { FC } from 'react';
 
 const Wrapper = styled.div`
   @media (max-width: 767px) {
@@ -30,7 +31,7 @@ const ButtonGroup = styled.div`
   padding: 0;
 `;
 
-export const CatButtonGroup = () => (
+export const CatButtonGroup: FC = () => (
   <Wrapper>
     <ButtonGroup>
       <UploadCatButton link="/upload" />

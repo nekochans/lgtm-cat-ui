@@ -1,8 +1,9 @@
-import React from 'react';
 import styled, { css } from 'styled-components';
 
 import { Language } from '../../types/language';
 import assertNever from '../../utils/assertNever';
+
+import type { FC } from 'react';
 
 const Wrapper = styled.div``;
 
@@ -38,21 +39,21 @@ export type Props = {
   language: Language;
 };
 
-const JaAppDescriptionArea: React.FC = () => (
+const JaAppDescriptionArea: FC = () => (
   <Wrapper>
     <JaText>{jaUpperSectionText}</JaText>
     <JaText>{jaLowerSectionText}</JaText>
   </Wrapper>
 );
 
-const EnAppDescriptionArea: React.FC = () => (
+const EnAppDescriptionArea: FC = () => (
   <Wrapper>
     <EnText>{enUpperSectionText}</EnText>
     <EnText>{enLowerSectionText}</EnText>
   </Wrapper>
 );
 
-export const AppDescriptionArea: React.FC<Props> = ({ language }) => {
+export const AppDescriptionArea: FC<Props> = ({ language }) => {
   switch (language) {
     case 'ja':
       return <JaAppDescriptionArea />;

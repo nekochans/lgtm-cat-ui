@@ -1,11 +1,12 @@
 import Link from 'next/link';
-import React from 'react';
 import { FaCloudUploadAlt } from 'react-icons/fa';
 import styled from 'styled-components';
 
 import { mixins } from '../../../styles/mixins';
 
 import slash from './slash.png';
+
+import type { FC } from 'react';
 
 const StyledSpan = styled.span`
   background: #eb7c06 url(${slash.src}) repeat 0 0/16px auto;
@@ -31,7 +32,7 @@ type Props = {
   link: `/${string}`;
 };
 
-export const UploadCatButton: React.FC<Props> = ({ link }) => (
+export const UploadCatButton: FC<Props> = ({ link }) => (
   <Link href={link} prefetch={false}>
     <StyledSpan>
       <FaCloudUploadAlt style={faCloudUploadAltStyle} />

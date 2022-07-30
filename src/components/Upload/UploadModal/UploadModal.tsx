@@ -1,4 +1,3 @@
-import React, { FC } from 'react';
 import Modal from 'react-modal';
 import styled from 'styled-components';
 
@@ -10,6 +9,8 @@ import { UploadProgressBar } from '../UploadProgressBar';
 import { ButtonGroup } from './ButtonGroup';
 import { CreatedLgtmImage } from './CreatedLgtmImage';
 import { SuccessMessageArea } from './SuccessMessageArea';
+
+import type { FC } from 'react';
 
 export type Props = {
   isOpen: boolean;

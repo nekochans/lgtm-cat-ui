@@ -1,8 +1,9 @@
-import React from 'react';
 import styled from 'styled-components';
 
 import { Language } from '../../../types/language';
 import assertNever from '../../../utils/assertNever';
+
+import type { FC } from 'react';
 
 const StyledUploadTitleArea = styled.div`
   font-family: Roboto, sans-serif;
@@ -32,6 +33,6 @@ const text = (language: Language): Text => {
   }
 };
 
-export const UploadTitleArea: React.FC<Props> = ({ language }) => (
+export const UploadTitleArea: FC<Props> = ({ language }) => (
   <StyledUploadTitleArea>{text(language)}</StyledUploadTitleArea>
 );

@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { LgtmImages } from '../../components';
 import { AppDescriptionArea } from '../../components/AppDescriptionArea';
 import { CatButtonGroup } from '../../components/Button/CatButtonGroup';
@@ -8,6 +6,7 @@ import { LgtmImage } from '../../types/lgtmImage';
 import { ResponsiveLayoutContainer } from './.';
 
 import type { ComponentStoryObj, Meta } from '@storybook/react';
+import type { FC } from 'react';
 
 export default {
   title:
@@ -17,7 +16,7 @@ export default {
 
 type Story = ComponentStoryObj<typeof ResponsiveLayoutContainer>;
 
-const JpContents: React.FC = () => (
+const JpContents: FC = () => (
   <>
     <h1>タイトル</h1>
     <h2>サブタイトル</h2>

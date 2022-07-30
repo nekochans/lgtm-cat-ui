@@ -1,8 +1,9 @@
-import React from 'react';
 import styled from 'styled-components';
 
 import { Language } from '../../../types/language';
 import assertNever from '../../../utils/assertNever';
+
+import type { FC } from 'react';
 
 const Wrapper = styled.div`
   display: flex;
@@ -110,7 +111,7 @@ type Props = {
   onClickCancel: () => void;
 };
 
-export const ButtonGroup: React.FC<Props> = ({
+export const ButtonGroup: FC<Props> = ({
   language,
   onClickUpload,
   onClickCancel,
