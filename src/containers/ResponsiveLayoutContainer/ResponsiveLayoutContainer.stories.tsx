@@ -74,6 +74,7 @@ const images: LgtmImage[] = [
 
 export const Default: Story = {
   args: {
+    language: 'ja',
     children: <JpContents />,
   },
 };
@@ -88,6 +89,7 @@ const LgtmImagesWithText = () => (
 
 export const WithLgtmImages: Story = {
   args: {
+    language: 'en',
     children: <LgtmImagesWithText />,
   },
 };

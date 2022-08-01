@@ -1,14 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-
-import { ResponsiveLayoutContainer } from '../../containers';
 import { createSuccessResult } from '../../features/result';
 import { AcceptedTypesImageExtension } from '../../types/lgtmImage';
 import { sleep } from '../../utils/sleep';
 
-import { UploadTemplate, Props } from '.';
+import { UploadTemplate } from '.';
 
 import type { ComponentStoryObj, Meta } from '@storybook/react';
-import type { FC } from 'react';
 
 const imageValidator = async (
   image: string,
@@ -35,27 +32,17 @@ const imageUploader = async (
   });
 };
 
-const UploadTemplateWithResponsiveLayout: FC<Props> = ({ language }) => (
-  <ResponsiveLayoutContainer>
-    <UploadTemplate
-      language={language}
-      imageValidator={imageValidator}
-      imageUploader={imageUploader}
-    />
-  </ResponsiveLayoutContainer>
-);
-
 export default {
   title: 'src/templates/UploadTemplate/UploadTemplate.tsx',
-  component: UploadTemplateWithResponsiveLayout,
-} as Meta<typeof UploadTemplateWithResponsiveLayout>;
+  component: UploadTemplate,
+} as Meta<typeof UploadTemplate>;
 
-type Story = ComponentStoryObj<typeof UploadTemplateWithResponsiveLayout>;
+type Story = ComponentStoryObj<typeof UploadTemplate>;
 
 export const ViewInJapanese: Story = {
-  args: { language: 'ja' },
+  args: { language: 'ja', imageValidator, imageUploader },
 };
 
 export const ViewInEnglish: Story = {
-  args: { language: 'en' },
+  args: { language: 'en', imageValidator, imageUploader },
 };

@@ -1,50 +1,31 @@
-import { useSnapshot } from 'valtio';
-
+import { useSwitchLanguage } from '../../hooks/useSwitchLanguage';
 import { ResponsiveLayout } from '../../layouts';
-import {
-  headerStateSelector,
-  updateIsLanguageMenuDisplayed,
-  updateLanguage,
-} from '../../stores/valtio/header';
 
-import type { FC, ReactNode, MouseEvent } from 'react';
+import type { Language } from '../../types/language';
+import type { FC, ReactNode } from 'react';
 
 type Props = {
+  language: Language;
   children: ReactNode;
 };
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const onClickEn = (event: MouseEvent<HTMLDivElement>) => {
-  updateLanguage('en');
-};
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const onClickJa = (event: MouseEvent<HTMLDivElement>) => {
-  updateLanguage('ja');
-};
-
-export const ResponsiveLayoutContainer: FC<Props> = ({ children }) => {
-  const snap = useSnapshot(headerStateSelector());
-
-  const { language, isLanguageMenuDisplayed } = snap;
-
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const onClickLanguageButton = (event: MouseEvent<HTMLDivElement>) => {
-    updateIsLanguageMenuDisplayed(!isLanguageMenuDisplayed);
-  };
-
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const onClickOutSideMenu = (event: MouseEvent<HTMLDivElement>) => {
-    // メニューの外側をクリックしたときだけメニューを閉じる
-    if (isLanguageMenuDisplayed) {
-      updateIsLanguageMenuDisplayed(false);
-    }
-  };
+export const ResponsiveLayoutContainer: FC<Props> = ({
+  language,
+  children,
+}) => {
+  const {
+    isLanguageMenuDisplayed,
+    selectedLanguage,
+    onClickEn,
+    onClickJa,
+    onClickLanguageButton,
+    onClickOutSideMenu,
+  } = useSwitchLanguage(language);
 
   return (
     <div onClick={onClickOutSideMenu} aria-hidden="true">
       <ResponsiveLayout
-        language={language}
+        language={selectedLanguage}
         isLanguageMenuDisplayed={isLanguageMenuDisplayed}
         onClickLanguageButton={onClickLanguageButton}
         onClickEn={onClickEn}
