@@ -2,14 +2,14 @@ import { MouseEvent } from 'react';
 import { useSnapshot } from 'valtio';
 
 import {
-  headerStateSelector,
+  commonStateSelector,
   updateIsLanguageMenuDisplayed,
   updateLanguage,
 } from '../stores/valtio/common';
 import { Language } from '../types/language';
 
 export const useSwitchLanguage = (language: Language) => {
-  const snap = useSnapshot(headerStateSelector());
+  const snap = useSnapshot(commonStateSelector());
 
   const { isLanguageMenuDisplayed } = snap;
 

@@ -21,4 +21,4 @@ export const updateLanguage = (language: Language): void => {
   commonState.language = language;
 };
 
-export const headerStateSelector = (): CommonState => commonState;
+export const commonStateSelector = (): CommonState => commonState;
