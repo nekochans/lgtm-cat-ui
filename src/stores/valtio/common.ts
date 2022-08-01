@@ -2,24 +2,24 @@ import { proxy } from 'valtio';
 
 import type { Language } from '../../types/language';
 
-export type HeaderState = {
+export type CommonState = {
   language: Language;
   isLanguageMenuDisplayed: boolean;
 };
 
-const headerState = proxy<HeaderState>({
+const commonState = proxy<CommonState>({
   language: 'ja',
   isLanguageMenuDisplayed: false,
 });
 
 export const updateLanguage = (language: Language): void => {
-  headerState.language = language;
+  commonState.language = language;
 };
 
 export const updateIsLanguageMenuDisplayed = (
   isLanguageMenuDisplayed: boolean,
 ): void => {
-  headerState.isLanguageMenuDisplayed = isLanguageMenuDisplayed;
+  commonState.isLanguageMenuDisplayed = isLanguageMenuDisplayed;
 };
 
-export const headerStateSelector = (): HeaderState => headerState;
+export const headerStateSelector = (): CommonState => commonState;

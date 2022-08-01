@@ -5,7 +5,7 @@ import {
   headerStateSelector,
   updateIsLanguageMenuDisplayed,
   updateLanguage,
-} from '../../stores/valtio/header';
+} from '../../stores/valtio/common';
 
 import type { FC, ReactNode, MouseEvent } from 'react';
 
