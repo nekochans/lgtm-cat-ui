@@ -3,6 +3,8 @@ import React, { FC } from 'react';
 import styled from 'styled-components';
 
 import { UploadForm } from '../../components';
+import { useSwitchLanguage } from '../../hooks/useSwitchLanguage';
+import { ResponsiveLayout } from '../../layouts';
 import { Language } from '../../types/language';
 import { ImageUploader, ImageValidator } from '../../types/lgtmImage';
 
@@ -39,13 +41,32 @@ export const UploadTemplate: FC<Props> = ({
   language,
   imageValidator,
   imageUploader,
-}) => (
-  <>
-    <UploadForm
-      language={language}
-      imageValidator={imageValidator}
-      imageUploader={imageUploader}
-    />
-    <CatImage />
-  </>
-);
+}) => {
+  const {
+    isLanguageMenuDisplayed,
+    selectedLanguage,
+    onClickEn,
+    onClickJa,
+    onClickLanguageButton,
+    onClickOutSideMenu,
+  } = useSwitchLanguage(language);
+
+  return (
+    <div onClick={onClickOutSideMenu} aria-hidden="true">
+      <ResponsiveLayout
+        language={selectedLanguage}
+        onClickJa={onClickJa}
+        onClickEn={onClickEn}
+        isLanguageMenuDisplayed={isLanguageMenuDisplayed}
+        onClickLanguageButton={onClickLanguageButton}
+      >
+        <UploadForm
+          language={selectedLanguage}
+          imageValidator={imageValidator}
+          imageUploader={imageUploader}
+        />
+        <CatImage />
+      </ResponsiveLayout>
+    </div>
+  );
+};
