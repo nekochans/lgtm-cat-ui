@@ -6,10 +6,12 @@ import {
   updateIsLanguageMenuDisplayed,
   updateLanguage,
 } from '../../stores/valtio/common';
+import { Language } from '../../types/language';
 
 import type { FC, ReactNode, MouseEvent } from 'react';
 
 type Props = {
+  language: Language;
   children: ReactNode;
 };
 
@@ -23,10 +25,15 @@ const onClickJa = (event: MouseEvent<HTMLDivElement>) => {
   updateLanguage('ja');
 };
 
-export const ResponsiveLayoutContainer: FC<Props> = ({ children }) => {
+export const ResponsiveLayoutContainer: FC<Props> = ({
+  language,
+  children,
+}) => {
   const snap = useSnapshot(headerStateSelector());
 
-  const { language, isLanguageMenuDisplayed } = snap;
+  const { isLanguageMenuDisplayed } = snap;
+
+  const selectedLanguage = snap.language ? snap.language : language;
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const onClickLanguageButton = (event: MouseEvent<HTMLDivElement>) => {
@@ -44,7 +51,7 @@ export const ResponsiveLayoutContainer: FC<Props> = ({ children }) => {
   return (
     <div onClick={onClickOutSideMenu} aria-hidden="true">
       <ResponsiveLayout
-        language={language}
+        language={selectedLanguage}
         isLanguageMenuDisplayed={isLanguageMenuDisplayed}
         onClickLanguageButton={onClickLanguageButton}
         onClickEn={onClickEn}
