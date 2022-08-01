@@ -6,7 +6,7 @@ import {
   updateIsLanguageMenuDisplayed,
   updateLanguage,
 } from '../../stores/valtio/common';
-import { Language } from '../../types/language';
+import type { Language } from '../../types/language';
 
 import type { FC, ReactNode, MouseEvent } from 'react';
 

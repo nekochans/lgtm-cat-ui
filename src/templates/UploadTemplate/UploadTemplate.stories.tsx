@@ -36,7 +36,7 @@ const imageUploader = async (
 };
 
 const UploadTemplateWithResponsiveLayout: FC<Props> = ({ language }) => (
-  <ResponsiveLayoutContainer>
+  <ResponsiveLayoutContainer language={language}>
     <UploadTemplate
       language={language}
       imageValidator={imageValidator}
