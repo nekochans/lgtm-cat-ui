@@ -1,32 +1,13 @@
-import { ResponsiveLayoutContainer } from '../../containers';
-
-import { TermsOrPrivacyTemplate, Props } from '.';
+import { TermsOrPrivacyTemplate } from '.';
 
 import type { ComponentStoryObj, Meta } from '@storybook/react';
-import type { FC } from 'react';
-
-const TermsOrPrivacyTemplateWithResponsiveLayout: FC<Props> = ({
-  type,
-  language,
-  markdown,
-}) => (
-  <ResponsiveLayoutContainer>
-    <TermsOrPrivacyTemplate
-      type={type}
-      language={language}
-      markdown={markdown}
-    />
-  </ResponsiveLayoutContainer>
-);
 
 export default {
   title: 'src/templates/TermsOrPrivacyTemplate/TermsOrPrivacyTemplate.tsx',
-  component: TermsOrPrivacyTemplateWithResponsiveLayout,
-} as Meta<typeof TermsOrPrivacyTemplateWithResponsiveLayout>;
+  component: TermsOrPrivacyTemplate,
+} as Meta<typeof TermsOrPrivacyTemplate>;
 
-type Story = ComponentStoryObj<
-  typeof TermsOrPrivacyTemplateWithResponsiveLayout
->;
+type Story = ComponentStoryObj<typeof TermsOrPrivacyTemplate>;
 
 const privacyPolicyJa = `
 # プライバシーポリシー

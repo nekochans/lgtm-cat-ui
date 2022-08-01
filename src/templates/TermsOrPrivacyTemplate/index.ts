@@ -1,1 +1,1 @@
-export { TermsOrPrivacyTemplate, Props } from './TermsOrPrivacyTemplate';
+export { TermsOrPrivacyTemplate } from './TermsOrPrivacyTemplate';
