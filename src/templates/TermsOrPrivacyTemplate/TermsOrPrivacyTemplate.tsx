@@ -1,18 +1,13 @@
-import { FC, MouseEvent } from 'react';
+import { FC } from 'react';
 import styled from 'styled-components';
-import { useSnapshot } from 'valtio';
 
 import { LibraryBooks } from '../../components/Icon/LibraryBooks';
 import { MarkdownContents } from '../../components/MarkdownContents';
 import { MarkdownPageTitle } from '../../components/MarkdownPageTitle';
 import { createLinksFromLanguages as createPrivacyPolicyLinksFromLanguages } from '../../features/privacyPolicy';
 import { createLinksFromLanguages as createTermsOfUseLinksFromLanguages } from '../../features/termsOfUse';
+import { useSwitchLanguage } from '../../hooks/useSwitchLanguage';
 import { ResponsiveLayout } from '../../layouts';
-import {
-  headerStateSelector,
-  updateIsLanguageMenuDisplayed,
-  updateLanguage,
-} from '../../stores/valtio/common';
 import { Language } from '../../types/language';
 import assertNever from '../../utils/assertNever';
 
@@ -37,16 +32,6 @@ const Wrapper = styled.div`
   justify-content: center;
 `;
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const onClickEn = (event: MouseEvent<HTMLDivElement>) => {
-  updateLanguage('en');
-};
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const onClickJa = (event: MouseEvent<HTMLDivElement>) => {
-  updateLanguage('ja');
-};
-
 type Props = {
   type: TemplateType;
   language: Language;
@@ -58,24 +43,14 @@ export const TermsOrPrivacyTemplate: FC<Props> = ({
   language,
   markdown,
 }) => {
-  const snap = useSnapshot(headerStateSelector());
-
-  const { isLanguageMenuDisplayed } = snap;
-
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const onClickLanguageButton = (event: MouseEvent<HTMLDivElement>) => {
-    updateIsLanguageMenuDisplayed(!isLanguageMenuDisplayed);
-  };
-
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const onClickOutSideMenu = (event: MouseEvent<HTMLDivElement>) => {
-    // メニューの外側をクリックしたときだけメニューを閉じる
-    if (isLanguageMenuDisplayed) {
-      updateIsLanguageMenuDisplayed(false);
-    }
-  };
-
-  const selectedLanguage = snap.language ? snap.language : language;
+  const {
+    isLanguageMenuDisplayed,
+    selectedLanguage,
+    onClickEn,
+    onClickJa,
+    onClickLanguageButton,
+    onClickOutSideMenu,
+  } = useSwitchLanguage(language);
 
   return (
     <div onClick={onClickOutSideMenu} aria-hidden="true">
