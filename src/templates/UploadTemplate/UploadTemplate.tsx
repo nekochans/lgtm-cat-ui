@@ -31,7 +31,7 @@ const CatImage = () => (
   </ImageWrapper>
 );
 
-export type Props = {
+type Props = {
   language: Language;
   imageValidator: ImageValidator;
   imageUploader: ImageUploader;
