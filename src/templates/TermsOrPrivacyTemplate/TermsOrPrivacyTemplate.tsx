@@ -1,17 +1,16 @@
-import { FC } from 'react';
 import styled from 'styled-components';
 
 import { LibraryBooks } from '../../components/Icon/LibraryBooks';
-import { MarkdownContents } from '../../components/MarkdownContents';
 import { MarkdownPageTitle } from '../../components/MarkdownPageTitle';
 import { createLinksFromLanguages as createPrivacyPolicyLinksFromLanguages } from '../../features/privacyPolicy';
 import { createLinksFromLanguages as createTermsOfUseLinksFromLanguages } from '../../features/termsOfUse';
-import { useSwitchLanguage } from '../../hooks/useSwitchLanguage';
 import { ResponsiveLayout } from '../../layouts';
 import { Language } from '../../types/language';
 import assertNever from '../../utils/assertNever';
 
-type TemplateType = 'terms' | 'privacy';
+import type { FC, MouseEventHandler, ReactNode } from 'react';
+
+export type TemplateType = 'terms' | 'privacy';
 
 const createTitle = (type: TemplateType, language: Language): string => {
   switch (type) {
@@ -32,41 +31,57 @@ const Wrapper = styled.div`
   justify-content: center;
 `;
 
+const ChildrenWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 750px;
+  font-family: Roboto, sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  line-height: 25px;
+  text-align: left;
+  overflow-wrap: normal;
+  list-style-position: inside;
+  @media (max-width: 767px) {
+    max-width: 380px;
+  }
+`;
+
 type Props = {
   type: TemplateType;
   language: Language;
-  markdown: string;
+  isLanguageMenuDisplayed: boolean;
+  onClickEn: MouseEventHandler;
+  onClickJa: MouseEventHandler;
+  onClickLanguageButton: MouseEventHandler;
+  onClickOutSideMenu: MouseEventHandler;
+  children: ReactNode;
 };
 
 export const TermsOrPrivacyTemplate: FC<Props> = ({
   type,
   language,
-  markdown,
-}) => {
-  const {
-    isLanguageMenuDisplayed,
-    selectedLanguage,
-    onClickEn,
-    onClickJa,
-    onClickLanguageButton,
-    onClickOutSideMenu,
-  } = useSwitchLanguage(language);
-
-  return (
-    <div onClick={onClickOutSideMenu} aria-hidden="true">
-      <ResponsiveLayout
-        language={selectedLanguage}
-        onClickJa={onClickJa}
-        onClickEn={onClickEn}
-        isLanguageMenuDisplayed={isLanguageMenuDisplayed}
-        onClickLanguageButton={onClickLanguageButton}
-      >
-        <Wrapper>
-          <MarkdownPageTitle text={createTitle(type, selectedLanguage)} />
-          <LibraryBooks />
-          <MarkdownContents markdown={markdown} />
-        </Wrapper>
-      </ResponsiveLayout>
-    </div>
-  );
-};
+  isLanguageMenuDisplayed,
+  onClickEn,
+  onClickJa,
+  onClickLanguageButton,
+  onClickOutSideMenu,
+  children,
+}) => (
+  <div onClick={onClickOutSideMenu} aria-hidden="true">
+    <ResponsiveLayout
+      language={language}
+      onClickJa={onClickJa}
+      onClickEn={onClickEn}
+      isLanguageMenuDisplayed={isLanguageMenuDisplayed}
+      onClickLanguageButton={onClickLanguageButton}
+    >
+      <Wrapper>
+        <MarkdownPageTitle text={createTitle(type, language)} />
+        <LibraryBooks />
+        <ChildrenWrapper>{children}</ChildrenWrapper>
+      </Wrapper>
+    </ResponsiveLayout>
+  </div>
+);
