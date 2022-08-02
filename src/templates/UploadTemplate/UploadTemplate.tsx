@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import { UploadForm } from '../../components';
-import { useSwitchLanguage } from '../../hooks/useSwitchLanguage';
+import { useSwitchLanguage } from '../../hooks';
 import { ResponsiveLayout } from '../../layouts';
 import { Language } from '../../types/language';
 import { ImageUploader, ImageValidator } from '../../types/lgtmImage';
