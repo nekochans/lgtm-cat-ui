@@ -1,11 +1,19 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import Image from 'next/image';
+
 import { createSuccessResult } from '../../features/result';
 import { AcceptedTypesImageExtension } from '../../types/lgtmImage';
 import { sleep } from '../../utils/sleep';
 
+import cat from './images/cat.webp';
+
 import { UploadTemplate } from '.';
 
 import type { ComponentStoryObj, Meta } from '@storybook/react';
+
+const CatImage = () => (
+  <Image src={cat.src} width="302px" height="302px" alt="Cat" priority={true} />
+);
 
 const imageValidator = async (
   image: string,
@@ -40,9 +48,19 @@ export default {
 type Story = ComponentStoryObj<typeof UploadTemplate>;
 
 export const ViewInJapanese: Story = {
-  args: { language: 'ja', imageValidator, imageUploader },
+  args: {
+    language: 'ja',
+    imageValidator,
+    imageUploader,
+    catImage: <CatImage />,
+  },
 };
 
 export const ViewInEnglish: Story = {
-  args: { language: 'en', imageValidator, imageUploader },
+  args: {
+    language: 'en',
+    imageValidator,
+    imageUploader,
+    catImage: <CatImage />,
+  },
 };

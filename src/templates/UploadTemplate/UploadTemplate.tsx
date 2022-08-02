@@ -1,5 +1,3 @@
-import Image from 'next/image';
-import React, { FC } from 'react';
 import styled from 'styled-components';
 
 import { UploadForm } from '../../components';
@@ -8,7 +6,7 @@ import { ResponsiveLayout } from '../../layouts';
 import { Language } from '../../types/language';
 import { ImageUploader, ImageValidator } from '../../types/lgtmImage';
 
-import cat from './images/cat.webp';
+import type { FC, ReactNode } from 'react';
 
 const ImageWrapper = styled.div`
   display: flex;
@@ -19,28 +17,18 @@ const ImageWrapper = styled.div`
   }
 `;
 
-const CatImage = () => (
-  <ImageWrapper>
-    <Image
-      src={cat.src}
-      width="302px"
-      height="302px"
-      alt="Cat"
-      priority={true}
-    />
-  </ImageWrapper>
-);
-
 type Props = {
   language: Language;
   imageValidator: ImageValidator;
   imageUploader: ImageUploader;
+  catImage: ReactNode;
 };
 
 export const UploadTemplate: FC<Props> = ({
   language,
   imageValidator,
   imageUploader,
+  catImage,
 }) => {
   const {
     isLanguageMenuDisplayed,
@@ -65,7 +53,7 @@ export const UploadTemplate: FC<Props> = ({
           imageValidator={imageValidator}
           imageUploader={imageUploader}
         />
-        <CatImage />
+        <ImageWrapper>{catImage}</ImageWrapper>
       </ResponsiveLayout>
     </div>
   );
