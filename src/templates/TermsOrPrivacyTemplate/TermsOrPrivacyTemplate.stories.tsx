@@ -1,13 +1,13 @@
-import { TermsOrPrivacyTemplate } from '.';
+import ReactMarkdown from 'react-markdown';
 
+import { useSwitchLanguage } from '../../hooks';
+import assertNever from '../../utils/assertNever';
+
+import { TermsOrPrivacyTemplate, type TemplateType } from '.';
+
+import type { Language } from '../../types/language';
 import type { ComponentStoryObj, Meta } from '@storybook/react';
-
-export default {
-  title: 'src/templates/TermsOrPrivacyTemplate/TermsOrPrivacyTemplate.tsx',
-  component: TermsOrPrivacyTemplate,
-} as Meta<typeof TermsOrPrivacyTemplate>;
-
-type Story = ComponentStoryObj<typeof TermsOrPrivacyTemplate>;
+import type { FC } from 'react';
 
 const privacyPolicyJa = `
 # プライバシーポリシー
@@ -168,35 +168,6 @@ const termsOfUseJa = `
 
 運営チームは，本サービスの提供の停止または中断により，ユーザーまたは第三者が被ったいかなる不利益または損害について，理由を問わず一切の責任を負わないものとします。
 
-## 第 8 条（ 著作権）
-
-ユーザーは，投稿データについて，自らが投稿その他送信することについての適法な権利を有していること，及び投稿データが第三者の権利を侵害していないことについて，運営チームに対し表明し，保証するものとします。
-ユーザーが本サービスを利用して投稿したデータの著作権については，当該ユーザーその他既存の権利者に留保されるものとします。ただし，運営チームは，本サービスを利用して投稿または編集された文章，画像，映像等を利用できるものとし，ユーザーは，この利用に関して，著作者人格権を行使しないものとします。
-前項本文の定めるものを除き，本サービス及び本サービスに関連する一切の情報についての著作権及びその他知的財産権は，全て運営チームまたは運営チームにその利用を許諾した権利者に帰属し，ユーザーは無断で複製，譲渡，貸与，翻訳，改変，転載，公衆送信（送信可能化を含みます），伝送，配布，出版，又は営業使用等をしてはならないものとします。
-
-## 第 9 条（利用制限および登録抹消）
-
-運営チームは，以下の場合には，事前の通知なく，ユーザーに対して，本サービスの全部もしくは一部の利用を制限し，またはユーザーとしての登録を抹消することができるものとします。
-
-1. 本規約のいずれかの条項に違反した場合
-1. 登録事項に虚偽の事実があることが判明した場合
-1. 1 年間以上本サービスの利用がない場合
-1. 公序良俗に違反するコンテンツをアップロードしていた事が判明した場合（対象コンテンツを削除）
-1. 著作権違反のコンテンツをアップロードしていた事が判明した場合（対象コンテンツを削除）
-1. その他，運営チームが本サービスの利用を適当でないと判断した場合
-
-運営チームは，本条に基づき運営チームが行った行為によりユーザーに生じた損害について，一切の責任を負いません。
-
-## 第 10 条（第三者による提供）
-
-本サービスにおいて他の Web サイトやリソースへのリンクを提供している場合があります。当該サイトやリソースについては，それぞれの運営主体が管理しており，運営チームはいかなる責任も負わず，義務が生じることもありません。
-
-## 第 11 条（免責事項）
-
-運営チームは，本サービスがユーザーの特定の目的に適合すること，期待する機能・商品的価値・正確性・有用性を有すること，ユーザーによる本サービスの利用がユーザーに適用のある法令または業界団体の内部規則等に適合すること，および不具合が生じないことについて，何ら保証するものではありません。
-運営チームは，本サービスに起因してユーザーに生じたあらゆる損害について一切の責任を負いません。
-運営チームは，本サービスに関して，ユーザーと他のユーザーまたは第三者との間において生じた取引，連絡または紛争等について一切責任を負いません。
-
 2021 年 2 月 22 日 制定
 
 - 2022 年 7 月 14 日 一部改訂
@@ -228,18 +199,80 @@ User shall be responsible for registering, changing, and managing the informatio
 You shall be responsible for any damages caused by unauthorized use of your GitHub account, and the Management Team shall not be liable for any such damages.
 `;
 
+const getMarkdownSource = (type: TemplateType, language: Language) => {
+  switch (type) {
+    case 'terms':
+      switch (language) {
+        case 'ja':
+          return termsOfUseJa;
+        case 'en':
+          return termsOfUseEn;
+        default:
+          return assertNever(language);
+      }
+    case 'privacy':
+      switch (language) {
+        case 'ja':
+          return privacyPolicyJa;
+        case 'en':
+          return privacyPolicyEn;
+        default:
+          return assertNever(language);
+      }
+    default:
+      return assertNever(type);
+  }
+};
+
+type Props = {
+  type: TemplateType;
+  language: Language;
+};
+
+const EnhanceTermsOrPrivacyTemplate: FC<Props> = ({ type, language }) => {
+  const {
+    isLanguageMenuDisplayed,
+    selectedLanguage,
+    onClickEn,
+    onClickJa,
+    onClickLanguageButton,
+    onClickOutSideMenu,
+  } = useSwitchLanguage(language);
+
+  return (
+    <TermsOrPrivacyTemplate
+      type={type}
+      language={selectedLanguage}
+      isLanguageMenuDisplayed={isLanguageMenuDisplayed}
+      onClickEn={onClickEn}
+      onClickJa={onClickJa}
+      onClickLanguageButton={onClickLanguageButton}
+      onClickOutSideMenu={onClickOutSideMenu}
+    >
+      <ReactMarkdown>{getMarkdownSource(type, selectedLanguage)}</ReactMarkdown>
+    </TermsOrPrivacyTemplate>
+  );
+};
+
+export default {
+  title: 'src/templates/TermsOrPrivacyTemplate/TermsOrPrivacyTemplate.tsx',
+  component: EnhanceTermsOrPrivacyTemplate,
+} as Meta<typeof EnhanceTermsOrPrivacyTemplate>;
+
+type Story = ComponentStoryObj<typeof EnhanceTermsOrPrivacyTemplate>;
+
 export const ViewPrivacyPolicyInJapanese: Story = {
-  args: { type: 'privacy', language: 'ja', markdown: privacyPolicyJa },
+  args: { type: 'privacy', language: 'ja' },
 };
 
 export const ViewPrivacyPolicyInEnglish: Story = {
-  args: { type: 'privacy', language: 'en', markdown: privacyPolicyEn },
+  args: { type: 'privacy', language: 'en' },
 };
 
 export const ViewTermsOfUseInJapanese: Story = {
-  args: { type: 'terms', language: 'ja', markdown: termsOfUseJa },
+  args: { type: 'terms', language: 'ja' },
 };
 
 export const ViewTermsOfUseInEnglish: Story = {
-  args: { type: 'terms', language: 'en', markdown: termsOfUseEn },
+  args: { type: 'terms', language: 'en' },
 };
