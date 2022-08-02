@@ -1,6 +1,6 @@
 {
   "name": "@nekochans/lgtm-cat-ui",
-  "version": "0.9.1",
+  "version": "0.10.0",
   "description": "https://lgtmeow.com のUIComponentを管理する為のpackage",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
