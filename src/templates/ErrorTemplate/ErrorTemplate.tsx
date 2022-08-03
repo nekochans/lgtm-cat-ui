@@ -1,15 +1,13 @@
-import Image from 'next/image';
 import styled from 'styled-components';
 
+import { useSwitchLanguage } from '../../hooks';
+import { ResponsiveLayout } from '../../layouts';
 import { Language } from '../../types/language';
 import assertNever from '../../utils/assertNever';
 
 import { BackToTopButton } from './BackToTopButton';
-import internalServerError from './images/internal_server_error.webp';
-import notFound from './images/not_found.webp';
-import serviceUnavailable from './images/service_unavailable.webp';
 
-import type { FC } from 'react';
+import type { FC, ReactNode } from 'react';
 
 const Wrapper = styled.div`
   display: flex;
@@ -69,55 +67,6 @@ const createErrorTitleText = (type: ErrorType): ErrorTitleText => {
       return errorTitleText.internalServerError;
     case errorType.serviceUnavailable:
       return errorTitleText.serviceUnavailable;
-    default:
-      return assertNever(type);
-  }
-};
-
-const NotFoundImage = () => (
-  <ImageWrapper>
-    <Image
-      src={notFound.src}
-      layout="fill"
-      objectFit="contain"
-      alt={errorTitleText.notFound}
-      priority={true}
-    />
-  </ImageWrapper>
-);
-
-const InternalServerErrorImage = () => (
-  <ImageWrapper>
-    <Image
-      src={internalServerError.src}
-      layout="fill"
-      objectFit="contain"
-      alt={errorTitleText.internalServerError}
-      priority={true}
-    />
-  </ImageWrapper>
-);
-
-const ServiceUnavailableImage = () => (
-  <ImageWrapper>
-    <Image
-      src={serviceUnavailable.src}
-      layout="fill"
-      objectFit="contain"
-      alt={errorTitleText.serviceUnavailable}
-      priority={true}
-    />
-  </ImageWrapper>
-);
-
-const createErrorImage = (type: ErrorType): JSX.Element => {
-  switch (type) {
-    case errorType.notFound:
-      return <NotFoundImage />;
-    case errorType.internalServerError:
-      return <InternalServerErrorImage />;
-    case errorType.serviceUnavailable:
-      return <ServiceUnavailableImage />;
     default:
       return assertNever(type);
   }
@@ -189,13 +138,35 @@ const createErrorMessageText = (
 type Props = {
   type: ErrorType;
   language: Language;
+  catImage: ReactNode;
 };
 
-export const ErrorTemplate: FC<Props> = ({ type, language }) => (
-  <Wrapper>
-    <Title>{createErrorTitleText(type)}</Title>
-    {createErrorImage(type)}
-    <Message>{createErrorMessageText(type, language)}</Message>
-    <BackToTopButton language={language} />
-  </Wrapper>
-);
+export const ErrorTemplate: FC<Props> = ({ type, language, catImage }) => {
+  const {
+    isLanguageMenuDisplayed,
+    selectedLanguage,
+    onClickEn,
+    onClickJa,
+    onClickLanguageButton,
+    onClickOutSideMenu,
+  } = useSwitchLanguage(language);
+
+  return (
+    <div onClick={onClickOutSideMenu} aria-hidden="true">
+      <ResponsiveLayout
+        language={selectedLanguage}
+        onClickJa={onClickJa}
+        onClickEn={onClickEn}
+        isLanguageMenuDisplayed={isLanguageMenuDisplayed}
+        onClickLanguageButton={onClickLanguageButton}
+      >
+        <Wrapper>
+          <Title>{createErrorTitleText(type)}</Title>
+          <ImageWrapper>{catImage}</ImageWrapper>
+          <Message>{createErrorMessageText(type, selectedLanguage)}</Message>
+          <BackToTopButton language={selectedLanguage} />
+        </Wrapper>
+      </ResponsiveLayout>
+    </div>
+  );
+};
