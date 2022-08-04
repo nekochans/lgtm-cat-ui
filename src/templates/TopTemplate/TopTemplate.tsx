@@ -1,8 +1,9 @@
 import { LgtmImages } from '../../components';
-import { AppDescriptionArea } from '../../components/AppDescriptionArea';
 import { CatButtonGroup } from '../../components/Button/CatButtonGroup';
 import { useSwitchLanguage } from '../../hooks';
 import { ResponsiveLayout } from '../../layouts';
+
+import { AppDescriptionArea } from './AppDescriptionArea';
 
 import type { Language } from '../../types/language';
 import type { LgtmImage } from '../../types/lgtmImage';
