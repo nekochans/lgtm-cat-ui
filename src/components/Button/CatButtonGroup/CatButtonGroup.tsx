@@ -31,12 +31,20 @@ const ButtonGroup = styled.div`
   padding: 0;
 `;
 
-export const CatButtonGroup: FC = () => (
+type Props = {
+  onClickFetchRandomCatButton: () => Promise<void>;
+  onClickFetchNewArrivalCatButton: () => Promise<void>;
+};
+
+export const CatButtonGroup: FC<Props> = ({
+  onClickFetchRandomCatButton,
+  onClickFetchNewArrivalCatButton,
+}) => (
   <Wrapper>
     <ButtonGroup>
       <UploadCatButton link="/upload" />
-      <CatFetchButton type="refresh" />
-      <CatFetchButton type="new" />
+      <CatFetchButton type="refresh" onClick={onClickFetchRandomCatButton} />
+      <CatFetchButton type="new" onClick={onClickFetchNewArrivalCatButton} />
     </ButtonGroup>
   </Wrapper>
 );

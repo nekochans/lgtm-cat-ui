@@ -41,10 +41,11 @@ type ButtonType = 'refresh' | 'new';
 
 type Props = {
   type: ButtonType;
+  onClick: () => Promise<void>;
 };
 
-export const CatFetchButton: FC<Props> = ({ type }) => (
-  <StyledButton>
+export const CatFetchButton: FC<Props> = ({ type, onClick }) => (
+  <StyledButton onClick={onClick}>
     <FaSyncAlt style={faSyncAltStyle} />
     <Text>{buttonText(type)}</Text>
   </StyledButton>
