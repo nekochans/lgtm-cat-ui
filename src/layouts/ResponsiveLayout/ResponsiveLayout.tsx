@@ -6,13 +6,18 @@ import { Header, Props as HeaderProps } from '../../components/Header';
 import type { FC, ReactNode } from 'react';
 
 const Wrapper = styled.div`
-  position: relative;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 100%;
+  gap: 16px;
+  min-height: 100vh;
 `;
 
 const ContentsWrapper = styled.div`
-  display: block;
-  margin: 16px auto;
+  display: inline-block;
+  margin: 0 auto;
   text-align: center;
+  vertical-align: middle;
 `;
 
 export type Props = FooterProps & HeaderProps & { children: ReactNode };
