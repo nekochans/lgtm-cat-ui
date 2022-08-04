@@ -9,10 +9,10 @@ import { ImageUploader, ImageValidator } from '../../types/lgtmImage';
 import type { FC, ReactNode } from 'react';
 
 const ImageWrapper = styled.div`
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: flex-start;
+  display: grid;
+  grid-template-columns: 302px 302px 302px;
   @media (max-width: 767px) {
+    grid-template-columns: 302px;
     justify-content: center;
   }
 `;
