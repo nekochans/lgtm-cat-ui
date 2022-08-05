@@ -1,1 +1,0 @@
-export { AppDescriptionArea } from './AppDescriptionArea';

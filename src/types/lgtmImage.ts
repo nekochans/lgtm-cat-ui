@@ -25,3 +25,5 @@ export type ImageUploader = (
     createdLgtmImageUrl?: LgtmImageUrl;
   }>
 >;
+
+export type CatImagesFetcher = () => Promise<LgtmImage[]>;
