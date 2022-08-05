@@ -165,12 +165,30 @@ const newArrivalCatImagesFetcher = async () => {
   return lgtmImagesList;
 };
 
+const appUrl = 'http://localhost:2222';
+
+const clipboardMarkdownCallback = () =>
+  // eslint-disable-next-line no-console
+  console.log('clipboardMarkdownCallback executed!');
+
+const fetchRandomCatImagesCallback = () =>
+  // eslint-disable-next-line no-console
+  console.log('fetchRandomCatImagesCallback executed!');
+
+const fetchNewArrivalCatImagesCallback = () =>
+  // eslint-disable-next-line no-console
+  console.log('fetchNewArrivalCatImagesCallback executed!');
+
 export const ViewInJapanese: Story = {
   args: {
     language: 'ja',
     lgtmImages,
     randomCatImagesFetcher,
     newArrivalCatImagesFetcher,
+    appUrl,
+    clipboardMarkdownCallback,
+    fetchRandomCatImagesCallback,
+    fetchNewArrivalCatImagesCallback,
   },
 };
 
@@ -180,5 +198,9 @@ export const ViewInEnglish: Story = {
     lgtmImages,
     randomCatImagesFetcher,
     newArrivalCatImagesFetcher,
+    appUrl,
+    clipboardMarkdownCallback,
+    fetchRandomCatImagesCallback,
+    fetchNewArrivalCatImagesCallback,
   },
 };

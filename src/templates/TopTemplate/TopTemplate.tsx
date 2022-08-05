@@ -2,6 +2,7 @@ import { useSnapshot } from 'valtio';
 
 import { LgtmImages } from '../../components';
 import { CatButtonGroup } from '../../components/Button/CatButtonGroup';
+import { AppUrl } from '../../constants/url';
 import { useSwitchLanguage } from '../../hooks';
 import { ResponsiveLayout } from '../../layouts';
 import {
@@ -20,13 +21,22 @@ type Props = {
   lgtmImages: LgtmImage[];
   randomCatImagesFetcher: CatImagesFetcher;
   newArrivalCatImagesFetcher: CatImagesFetcher;
+  appUrl?: AppUrl;
+  clipboardMarkdownCallback?: () => void;
+  fetchRandomCatImagesCallback?: () => void;
+  fetchNewArrivalCatImagesCallback?: () => void;
 };
 
+// eslint-disable-next-line max-lines-per-function
 export const TopTemplate: FC<Props> = ({
   language,
   lgtmImages,
   randomCatImagesFetcher,
   newArrivalCatImagesFetcher,
+  appUrl,
+  clipboardMarkdownCallback,
+  fetchRandomCatImagesCallback,
+  fetchNewArrivalCatImagesCallback,
 }) => {
   const {
     isLanguageMenuDisplayed,
@@ -43,12 +53,20 @@ export const TopTemplate: FC<Props> = ({
     const lgtmImagesList = await randomCatImagesFetcher();
 
     updateLgtmImages(lgtmImagesList);
+
+    if (fetchRandomCatImagesCallback) {
+      fetchRandomCatImagesCallback();
+    }
   };
 
   const onClickFetchNewArrivalCatButton = async () => {
     const lgtmImagesList = await newArrivalCatImagesFetcher();
 
     updateLgtmImages(lgtmImagesList);
+
+    if (fetchNewArrivalCatImagesCallback) {
+      fetchNewArrivalCatImagesCallback();
+    }
   };
 
   const fetchedLgtmImagesList = snap.lgtmImages ? snap.lgtmImages : lgtmImages;
@@ -67,7 +85,11 @@ export const TopTemplate: FC<Props> = ({
           onClickFetchRandomCatButton={onClickFetchRandomCatButton}
           onClickFetchNewArrivalCatButton={onClickFetchNewArrivalCatButton}
         />
-        <LgtmImages images={fetchedLgtmImagesList as LgtmImage[]} />
+        <LgtmImages
+          images={fetchedLgtmImagesList as LgtmImage[]}
+          appUrl={appUrl}
+          callback={clipboardMarkdownCallback}
+        />
       </ResponsiveLayout>
     </div>
   );
