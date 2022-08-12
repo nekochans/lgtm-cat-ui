@@ -1,1 +1,4 @@
-export { useSwitchLanguage } from './useSwitchLanguage';
+export {
+  useSwitchLanguage,
+  type ChangeLanguageCallbackFunctions,
+} from './useSwitchLanguage';
