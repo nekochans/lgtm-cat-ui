@@ -179,6 +179,19 @@ const fetchNewArrivalCatImagesCallback = () =>
   // eslint-disable-next-line no-console
   console.log('fetchNewArrivalCatImagesCallback executed!');
 
+const onClickEnCallback = () =>
+  // eslint-disable-next-line no-console
+  console.log('onClickEnCallback executed!');
+
+const onClickJaCallback = () =>
+  // eslint-disable-next-line no-console
+  console.log('onClickJaCallback executed!');
+
+const changeLanguageCallbackFunctions = {
+  onClickEnCallback,
+  onClickJaCallback,
+};
+
 export const ViewInJapanese: Story = {
   args: {
     language: 'ja',
@@ -189,6 +202,7 @@ export const ViewInJapanese: Story = {
     clipboardMarkdownCallback,
     fetchRandomCatImagesCallback,
     fetchNewArrivalCatImagesCallback,
+    changeLanguageCallbackFunctions,
   },
 };
 
@@ -202,5 +216,6 @@ export const ViewInEnglish: Story = {
     clipboardMarkdownCallback,
     fetchRandomCatImagesCallback,
     fetchNewArrivalCatImagesCallback,
+    changeLanguageCallbackFunctions,
   },
 };

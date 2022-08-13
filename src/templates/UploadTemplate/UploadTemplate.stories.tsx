@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import Image from 'next/image';
 
-import { createSuccessResult } from '../../features/result';
-import { AcceptedTypesImageExtension } from '../../types/lgtmImage';
+import { createSuccessResult } from '../../features';
+import { AcceptedTypesImageExtension } from '../../types';
 import { sleep } from '../../utils/sleep';
 
 import cat from './images/cat.webp';
@@ -40,6 +40,19 @@ const imageUploader = async (
   });
 };
 
+const onClickEnCallback = () =>
+  // eslint-disable-next-line no-console
+  console.log('onClickEnCallback executed!');
+
+const onClickJaCallback = () =>
+  // eslint-disable-next-line no-console
+  console.log('onClickJaCallback executed!');
+
+const changeLanguageCallbackFunctions = {
+  onClickEnCallback,
+  onClickJaCallback,
+};
+
 export default {
   title: 'src/templates/UploadTemplate/UploadTemplate.tsx',
   component: UploadTemplate,
@@ -53,6 +66,7 @@ export const ViewInJapanese: Story = {
     imageValidator,
     imageUploader,
     catImage: <CatImage />,
+    changeLanguageCallbackFunctions,
   },
 };
 
@@ -62,5 +76,6 @@ export const ViewInEnglish: Story = {
     imageValidator,
     imageUploader,
     catImage: <CatImage />,
+    changeLanguageCallbackFunctions,
   },
 };
