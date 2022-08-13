@@ -2,7 +2,10 @@ import styled from 'styled-components';
 
 import { useSwitchLanguage } from '../../hooks';
 import { ResponsiveLayout } from '../../layouts';
-import { Language } from '../../types/language';
+import {
+  ChangeLanguageCallbackFunctions,
+  Language,
+} from '../../types/language';
 import assertNever from '../../utils/assertNever';
 
 import { BackToTopButton } from './BackToTopButton';
@@ -139,9 +142,15 @@ type Props = {
   type: ErrorType;
   language: Language;
   catImage: ReactNode;
+  changeLanguageCallbackFunctions?: ChangeLanguageCallbackFunctions;
 };
 
-export const ErrorTemplate: FC<Props> = ({ type, language, catImage }) => {
+export const ErrorTemplate: FC<Props> = ({
+  type,
+  language,
+  catImage,
+  changeLanguageCallbackFunctions,
+}) => {
   const {
     isLanguageMenuDisplayed,
     selectedLanguage,
@@ -149,7 +158,7 @@ export const ErrorTemplate: FC<Props> = ({ type, language, catImage }) => {
     onClickJa,
     onClickLanguageButton,
     onClickOutSideMenu,
-  } = useSwitchLanguage(language);
+  } = useSwitchLanguage(language, changeLanguageCallbackFunctions);
 
   return (
     <div onClick={onClickOutSideMenu} aria-hidden="true">
