@@ -5,7 +5,7 @@ import { MarkdownPageTitle } from '../../components/MarkdownPageTitle';
 import { createLinksFromLanguages as createPrivacyPolicyLinksFromLanguages } from '../../features/privacyPolicy';
 import { createLinksFromLanguages as createTermsOfUseLinksFromLanguages } from '../../features/termsOfUse';
 import { ResponsiveLayout } from '../../layouts';
-import { Language } from '../../types/language';
+import { Language } from '../../types';
 import assertNever from '../../utils/assertNever';
 
 import type { FC, MouseEventHandler, ReactNode } from 'react';

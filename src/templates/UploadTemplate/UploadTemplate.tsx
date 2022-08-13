@@ -3,8 +3,12 @@ import styled from 'styled-components';
 import { UploadForm } from '../../components';
 import { useSwitchLanguage } from '../../hooks';
 import { ResponsiveLayout } from '../../layouts';
-import { Language } from '../../types/language';
-import { ImageUploader, ImageValidator } from '../../types/lgtmImage';
+import {
+  ChangeLanguageCallbackFunctions,
+  Language,
+  ImageUploader,
+  ImageValidator,
+} from '../../types';
 
 import type { FC, ReactNode } from 'react';
 
@@ -22,6 +26,7 @@ type Props = {
   imageValidator: ImageValidator;
   imageUploader: ImageUploader;
   catImage: ReactNode;
+  changeLanguageCallbackFunctions?: ChangeLanguageCallbackFunctions;
 };
 
 export const UploadTemplate: FC<Props> = ({
@@ -29,6 +34,7 @@ export const UploadTemplate: FC<Props> = ({
   imageValidator,
   imageUploader,
   catImage,
+  changeLanguageCallbackFunctions,
 }) => {
   const {
     isLanguageMenuDisplayed,
@@ -37,7 +43,7 @@ export const UploadTemplate: FC<Props> = ({
     onClickJa,
     onClickLanguageButton,
     onClickOutSideMenu,
-  } = useSwitchLanguage(language);
+  } = useSwitchLanguage(language, changeLanguageCallbackFunctions);
 
   return (
     <div onClick={onClickOutSideMenu} aria-hidden="true">

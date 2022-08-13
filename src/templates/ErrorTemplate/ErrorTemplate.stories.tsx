@@ -45,11 +45,25 @@ const ServiceUnavailableImage = () => (
   />
 );
 
+const onClickEnCallback = () =>
+  // eslint-disable-next-line no-console
+  console.log('onClickEnCallback executed!');
+
+const onClickJaCallback = () =>
+  // eslint-disable-next-line no-console
+  console.log('onClickJaCallback executed!');
+
+const changeLanguageCallbackFunctions = {
+  onClickEnCallback,
+  onClickJaCallback,
+};
+
 export const NotFoundViewInJapanese: Story = {
   args: {
     type: 404,
     language: 'ja',
     catImage: <NotFoundImage />,
+    changeLanguageCallbackFunctions,
   },
 };
 
@@ -58,6 +72,7 @@ export const NotFoundViewInEnglish: Story = {
     type: 404,
     language: 'en',
     catImage: <NotFoundImage />,
+    changeLanguageCallbackFunctions,
   },
 };
 
@@ -66,6 +81,7 @@ export const InternalServerErrorViewInJapanese: Story = {
     type: 500,
     language: 'ja',
     catImage: <InternalServerErrorImage />,
+    changeLanguageCallbackFunctions,
   },
 };
 
@@ -74,6 +90,7 @@ export const InternalServerErrorViewInEnglish: Story = {
     type: 500,
     language: 'en',
     catImage: <InternalServerErrorImage />,
+    changeLanguageCallbackFunctions,
   },
 };
 
@@ -82,6 +99,7 @@ export const ServiceUnavailableViewInJapanese: Story = {
     type: 503,
     language: 'ja',
     catImage: <ServiceUnavailableImage />,
+    changeLanguageCallbackFunctions,
   },
 };
 
@@ -90,5 +108,6 @@ export const ServiceUnavailableViewInEnglish: Story = {
     type: 503,
     language: 'en',
     catImage: <ServiceUnavailableImage />,
+    changeLanguageCallbackFunctions,
   },
 };

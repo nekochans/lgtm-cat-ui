@@ -6,9 +6,13 @@ import {
   updateIsLanguageMenuDisplayed,
   updateLanguage,
 } from '../stores/valtio/common';
-import { Language } from '../types/language';
 
-export const useSwitchLanguage = (language: Language) => {
+import type { ChangeLanguageCallbackFunctions, Language } from '../types';
+
+export const useSwitchLanguage = (
+  language: Language,
+  changeLanguageCallbackFunctions?: ChangeLanguageCallbackFunctions,
+) => {
   const snap = useSnapshot(commonStateSelector());
 
   const { isLanguageMenuDisplayed } = snap;
@@ -18,11 +22,19 @@ export const useSwitchLanguage = (language: Language) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const onClickEn = (event: MouseEvent<HTMLDivElement>) => {
     updateLanguage('en');
+
+    if (changeLanguageCallbackFunctions) {
+      changeLanguageCallbackFunctions.onClickEnCallback();
+    }
   };
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const onClickJa = (event: MouseEvent<HTMLDivElement>) => {
     updateLanguage('ja');
+
+    if (changeLanguageCallbackFunctions) {
+      changeLanguageCallbackFunctions.onClickJaCallback();
+    }
   };
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
