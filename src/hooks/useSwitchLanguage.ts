@@ -6,12 +6,8 @@ import {
   updateIsLanguageMenuDisplayed,
   updateLanguage,
 } from '../stores/valtio/common';
-import { Language } from '../types';
 
-export type ChangeLanguageCallbackFunctions = {
-  onClickEnCallback: () => void;
-  onClickJaCallback: () => void;
-};
+import type { ChangeLanguageCallbackFunctions, Language } from '../types';
 
 export const useSwitchLanguage = (
   language: Language,
