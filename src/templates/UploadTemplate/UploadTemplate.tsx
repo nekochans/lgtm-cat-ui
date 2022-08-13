@@ -6,8 +6,9 @@ import { ResponsiveLayout } from '../../layouts';
 import {
   ChangeLanguageCallbackFunctions,
   Language,
-} from '../../types/language';
-import { ImageUploader, ImageValidator } from '../../types/lgtmImage';
+  ImageUploader,
+  ImageValidator,
+} from '../../types';
 
 import type { FC, ReactNode } from 'react';
 

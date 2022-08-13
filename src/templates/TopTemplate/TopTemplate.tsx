@@ -15,8 +15,9 @@ import { AppDescriptionArea } from './AppDescriptionArea';
 import type {
   Language,
   ChangeLanguageCallbackFunctions,
-} from '../../types/language';
-import type { CatImagesFetcher, LgtmImage } from '../../types/lgtmImage';
+  CatImagesFetcher,
+  LgtmImage,
+} from '../../types';
 import type { FC } from 'react';
 
 type Props = {

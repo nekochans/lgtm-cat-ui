@@ -5,7 +5,7 @@ import assertNever from '../../utils/assertNever';
 
 import { TermsOrPrivacyTemplate, type TemplateType } from '.';
 
-import type { Language } from '../../types/language';
+import type { Language } from '../../types';
 import type { ComponentStoryObj, Meta } from '@storybook/react';
 import type { FC } from 'react';
 
