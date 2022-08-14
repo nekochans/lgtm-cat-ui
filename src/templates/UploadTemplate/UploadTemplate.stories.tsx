@@ -40,18 +40,9 @@ const imageUploader = async (
   });
 };
 
-const onClickEnCallback = () =>
+const changeLanguageCallback = () =>
   // eslint-disable-next-line no-console
-  console.log('onClickEnCallback executed!');
-
-const onClickJaCallback = () =>
-  // eslint-disable-next-line no-console
-  console.log('onClickJaCallback executed!');
-
-const changeLanguageCallbackFunctions = {
-  onClickEnCallback,
-  onClickJaCallback,
-};
+  console.log('changeLanguageCallback executed!');
 
 export default {
   title: 'src/templates/UploadTemplate/UploadTemplate.tsx',
@@ -66,7 +57,7 @@ export const ViewInJapanese: Story = {
     imageValidator,
     imageUploader,
     catImage: <CatImage />,
-    changeLanguageCallbackFunctions,
+    changeLanguageCallback,
   },
 };
 
@@ -76,6 +67,6 @@ export const ViewInEnglish: Story = {
     imageValidator,
     imageUploader,
     catImage: <CatImage />,
-    changeLanguageCallbackFunctions,
+    changeLanguageCallback,
   },
 };

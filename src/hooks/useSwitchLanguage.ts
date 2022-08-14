@@ -7,11 +7,11 @@ import {
   updateLanguage,
 } from '../stores/valtio/common';
 
-import type { ChangeLanguageCallbackFunctions, Language } from '../types';
+import type { ChangeLanguageCallback, Language } from '../types';
 
 export const useSwitchLanguage = (
   language: Language,
-  changeLanguageCallbackFunctions?: ChangeLanguageCallbackFunctions,
+  changeLanguageCallback?: ChangeLanguageCallback,
 ) => {
   const snap = useSnapshot(commonStateSelector());
 
@@ -23,8 +23,8 @@ export const useSwitchLanguage = (
   const onClickEn = (event: MouseEvent<HTMLDivElement>) => {
     updateLanguage('en');
 
-    if (changeLanguageCallbackFunctions) {
-      changeLanguageCallbackFunctions.onClickEnCallback();
+    if (changeLanguageCallback) {
+      changeLanguageCallback(selectedLanguage);
     }
   };
 
@@ -32,8 +32,8 @@ export const useSwitchLanguage = (
   const onClickJa = (event: MouseEvent<HTMLDivElement>) => {
     updateLanguage('ja');
 
-    if (changeLanguageCallbackFunctions) {
-      changeLanguageCallbackFunctions.onClickJaCallback();
+    if (changeLanguageCallback) {
+      changeLanguageCallback(selectedLanguage);
     }
   };
 
