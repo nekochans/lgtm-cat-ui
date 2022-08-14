@@ -9,6 +9,10 @@ import {
 
 import type { ChangeLanguageCallback, Language } from '../types';
 
+const languageEn = 'en';
+
+const languageJa = 'ja';
+
 export const useSwitchLanguage = (
   language: Language,
   changeLanguageCallback?: ChangeLanguageCallback,
@@ -21,19 +25,19 @@ export const useSwitchLanguage = (
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const onClickEn = (event: MouseEvent<HTMLDivElement>) => {
-    updateLanguage('en');
+    updateLanguage(languageEn);
 
     if (changeLanguageCallback) {
-      changeLanguageCallback(selectedLanguage);
+      changeLanguageCallback(languageEn);
     }
   };
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const onClickJa = (event: MouseEvent<HTMLDivElement>) => {
-    updateLanguage('ja');
+    updateLanguage(languageJa);
 
     if (changeLanguageCallback) {
-      changeLanguageCallback(selectedLanguage);
+      changeLanguageCallback(languageJa);
     }
   };
 
