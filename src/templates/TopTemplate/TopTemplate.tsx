@@ -14,7 +14,7 @@ import { AppDescriptionArea } from './AppDescriptionArea';
 
 import type {
   Language,
-  ChangeLanguageCallbackFunctions,
+  ChangeLanguageCallback,
   CatImagesFetcher,
   LgtmImage,
 } from '../../types';
@@ -29,7 +29,7 @@ type Props = {
   clipboardMarkdownCallback?: () => void;
   fetchRandomCatImagesCallback?: () => void;
   fetchNewArrivalCatImagesCallback?: () => void;
-  changeLanguageCallbackFunctions?: ChangeLanguageCallbackFunctions;
+  changeLanguageCallback?: ChangeLanguageCallback;
 };
 
 // eslint-disable-next-line max-lines-per-function
@@ -42,7 +42,7 @@ export const TopTemplate: FC<Props> = ({
   clipboardMarkdownCallback,
   fetchRandomCatImagesCallback,
   fetchNewArrivalCatImagesCallback,
-  changeLanguageCallbackFunctions,
+  changeLanguageCallback,
 }) => {
   const {
     isLanguageMenuDisplayed,
@@ -51,7 +51,7 @@ export const TopTemplate: FC<Props> = ({
     onClickJa,
     onClickLanguageButton,
     onClickOutSideMenu,
-  } = useSwitchLanguage(language, changeLanguageCallbackFunctions);
+  } = useSwitchLanguage(language, changeLanguageCallback);
 
   const snap = useSnapshot(lgtmImageStateSelector());
 
