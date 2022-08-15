@@ -49,7 +49,7 @@ const errorType = {
   serviceUnavailable: 503,
 } as const;
 
-type ErrorType = typeof errorType[keyof typeof errorType];
+export type ErrorType = typeof errorType[keyof typeof errorType];
 
 const errorTitleText = {
   notFound: '404 Not Found',
