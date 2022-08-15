@@ -1,1 +1,1 @@
-export { ErrorTemplate } from './ErrorTemplate';
+export { ErrorTemplate, ErrorType } from './ErrorTemplate';
