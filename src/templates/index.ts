@@ -1,4 +1,4 @@
-export { ErrorTemplate } from './ErrorTemplate';
-export { UploadTemplate } from './UploadTemplate';
-export { TermsOrPrivacyTemplate } from './TermsOrPrivacyTemplate';
-export { TopTemplate } from './TopTemplate';
+export * from './ErrorTemplate';
+export * from './UploadTemplate';
+export * from './TermsOrPrivacyTemplate';
+export * from './TopTemplate';
