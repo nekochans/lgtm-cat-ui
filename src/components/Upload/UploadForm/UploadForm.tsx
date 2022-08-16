@@ -90,6 +90,9 @@ export type Props = {
   language: Language;
   imageValidator: ImageValidator;
   imageUploader: ImageUploader;
+  uploadCallback?: () => void;
+  onClickCreatedLgtmImage?: () => void;
+  onClickMarkdownSourceCopyButton?: () => void;
 };
 
 // eslint-disable-next-line max-lines-per-function, max-statements
@@ -97,6 +100,9 @@ export const UploadForm: FC<Props> = ({
   language,
   imageValidator,
   imageUploader,
+  uploadCallback,
+  onClickCreatedLgtmImage,
+  onClickMarkdownSourceCopyButton,
 }) => {
   const [base64Image, setBase64Image] = useState<string>('');
   const [imagePreviewUrl, setImagePreviewUrl] = useState<string>('');
@@ -223,6 +229,10 @@ export const UploadForm: FC<Props> = ({
       setUploaded(true);
       setDisplayErrorMessages([]);
       setCreatedLgtmImageUrl(imageUploadResult.value.createdLgtmImageUrl);
+
+      if (uploadCallback) {
+        uploadCallback();
+      }
     }
 
     // eslint-disable-next-line no-magic-numbers
@@ -301,6 +311,8 @@ export const UploadForm: FC<Props> = ({
           isLoading={isLoading}
           uploaded={uploaded}
           createdLgtmImageUrl={createdLgtmImageUrl}
+          onClickCreatedLgtmImage={onClickCreatedLgtmImage}
+          onClickMarkdownSourceCopyButton={onClickMarkdownSourceCopyButton}
         />
       ) : (
         ''

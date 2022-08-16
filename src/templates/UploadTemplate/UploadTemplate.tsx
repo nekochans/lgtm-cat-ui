@@ -27,6 +27,9 @@ type Props = {
   imageUploader: ImageUploader;
   catImage: ReactNode;
   changeLanguageCallback?: ChangeLanguageCallback;
+  uploadCallback?: () => void;
+  onClickCreatedLgtmImage?: () => void;
+  onClickMarkdownSourceCopyButton?: () => void;
 };
 
 export const UploadTemplate: FC<Props> = ({
@@ -35,6 +38,9 @@ export const UploadTemplate: FC<Props> = ({
   imageUploader,
   catImage,
   changeLanguageCallback,
+  uploadCallback,
+  onClickCreatedLgtmImage,
+  onClickMarkdownSourceCopyButton,
 }) => {
   const {
     isLanguageMenuDisplayed,
@@ -58,6 +64,9 @@ export const UploadTemplate: FC<Props> = ({
           language={selectedLanguage}
           imageValidator={imageValidator}
           imageUploader={imageUploader}
+          uploadCallback={uploadCallback}
+          onClickCreatedLgtmImage={onClickCreatedLgtmImage}
+          onClickMarkdownSourceCopyButton={onClickMarkdownSourceCopyButton}
         />
         <ImageWrapper>{catImage}</ImageWrapper>
       </ResponsiveLayout>
