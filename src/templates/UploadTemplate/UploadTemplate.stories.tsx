@@ -44,6 +44,17 @@ const changeLanguageCallback = () =>
   // eslint-disable-next-line no-console
   console.log('changeLanguageCallback executed!');
 
+// eslint-disable-next-line no-console
+const uploadCallback = () => console.log('uploadCallback executed!');
+
+const onClickCreatedLgtmImage = () =>
+  // eslint-disable-next-line no-console
+  console.log('onClickCreatedLgtmImage executed!');
+
+const onClickMarkdownSourceCopyButton = () =>
+  // eslint-disable-next-line no-console
+  console.log('onClickMarkdownSourceCopyButton executed!');
+
 export default {
   title: 'src/templates/UploadTemplate/UploadTemplate.tsx',
   component: UploadTemplate,
@@ -58,6 +69,9 @@ export const ViewInJapanese: Story = {
     imageUploader,
     catImage: <CatImage />,
     changeLanguageCallback,
+    uploadCallback,
+    onClickCreatedLgtmImage,
+    onClickMarkdownSourceCopyButton,
   },
 };
 
@@ -68,5 +82,8 @@ export const ViewInEnglish: Story = {
     imageUploader,
     catImage: <CatImage />,
     changeLanguageCallback,
+    uploadCallback,
+    onClickCreatedLgtmImage,
+    onClickMarkdownSourceCopyButton,
   },
 };

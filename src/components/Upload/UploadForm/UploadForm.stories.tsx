@@ -67,11 +67,25 @@ const imageUploaderWithErrors = async (
   });
 };
 
+// eslint-disable-next-line no-console
+const uploadCallback = () => console.log('uploadCallback executed!');
+
+const onClickCreatedLgtmImage = () =>
+  // eslint-disable-next-line no-console
+  console.log('onClickCreatedLgtmImage executed!');
+
+const onClickMarkdownSourceCopyButton = () =>
+  // eslint-disable-next-line no-console
+  console.log('onClickMarkdownSourceCopyButton executed!');
+
 export const ViewInJapanese: Story = {
   args: {
     language: 'ja',
     imageValidator,
     imageUploader,
+    uploadCallback,
+    onClickCreatedLgtmImage,
+    onClickMarkdownSourceCopyButton,
   },
 };
 
@@ -80,6 +94,9 @@ export const ViewInJapaneseWithReturnFalseImageValidator: Story = {
     language: 'ja',
     imageValidator: returnFalseImageValidator,
     imageUploader,
+    uploadCallback,
+    onClickCreatedLgtmImage,
+    onClickMarkdownSourceCopyButton,
   },
 };
 
@@ -88,6 +105,9 @@ export const ViewInJapaneseWithImageUploaderWithErrors: Story = {
     language: 'ja',
     imageValidator,
     imageUploader: imageUploaderWithErrors,
+    uploadCallback,
+    onClickCreatedLgtmImage,
+    onClickMarkdownSourceCopyButton,
   },
 };
 
@@ -96,6 +116,9 @@ export const ViewInEnglish: Story = {
     language: 'en',
     imageValidator,
     imageUploader,
+    uploadCallback,
+    onClickCreatedLgtmImage,
+    onClickMarkdownSourceCopyButton,
   },
 };
 
@@ -104,6 +127,9 @@ export const ViewInEnglishWithReturnFalseImageValidator: Story = {
     language: 'en',
     imageValidator: returnFalseImageValidator,
     imageUploader,
+    uploadCallback,
+    onClickCreatedLgtmImage,
+    onClickMarkdownSourceCopyButton,
   },
 };
 
@@ -112,5 +138,8 @@ export const ViewInEnglishWithImageUploaderWithErrors: Story = {
     language: 'en',
     imageValidator,
     imageUploader: imageUploaderWithErrors,
+    uploadCallback,
+    onClickCreatedLgtmImage,
+    onClickMarkdownSourceCopyButton,
   },
 };

@@ -20,8 +20,10 @@ export type Props = {
   onClickCancel: () => void;
   onClickClose: () => void;
   isLoading: boolean;
-  uploaded?: boolean;
   createdLgtmImageUrl: LgtmImageUrl | string;
+  uploaded?: boolean;
+  onClickCreatedLgtmImage?: () => void;
+  onClickMarkdownSourceCopyButton?: () => void;
 };
 
 const Wrapper = styled.div`
@@ -153,6 +155,8 @@ export const UploadModal: FC<Props> = ({
   isLoading,
   uploaded = false,
   createdLgtmImageUrl,
+  onClickCreatedLgtmImage,
+  onClickMarkdownSourceCopyButton,
 }) => {
   if (uploaded) {
     modalStyle.content.height = '705px';
@@ -175,6 +179,7 @@ export const UploadModal: FC<Props> = ({
               <CreatedLgtmImage
                 imagePreviewUrl={imagePreviewUrl}
                 createdLgtmImageUrl={createdLgtmImageUrl}
+                callback={onClickCreatedLgtmImage}
               />
             ) : (
               <PreviewImageWrapper>
@@ -194,6 +199,7 @@ export const UploadModal: FC<Props> = ({
               language={language}
               createdLgtmImageUrl={createdLgtmImageUrl}
               onClickClose={onClickClose}
+              callback={onClickMarkdownSourceCopyButton}
             />
           ) : (
             ''
