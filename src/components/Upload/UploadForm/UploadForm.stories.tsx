@@ -35,10 +35,18 @@ const returnFalseImageValidator = async (
   return createSuccessResult({
     isAcceptableCatImage: false,
     notAcceptableReason: [
-      'An unexpected error occurred during upload.',
-      'Sorry, please try again after some time has passed.',
+      "Sorry, please use images that do not show people's faces.",
     ],
   });
+};
+
+const throwErrorImageValidator = async (
+  image: string,
+  imageExtension: AcceptedTypesImageExtension,
+) => {
+  await sleep();
+
+  throw new Error('throwErrorImageValidator');
 };
 
 const imageUploader = async (
@@ -65,6 +73,15 @@ const imageUploaderWithErrors = async (
       'Sorry, but please use images that clearly show the cat.',
     ],
   });
+};
+
+const throwErrorImageUploader = async (
+  image: string,
+  imageExtension: AcceptedTypesImageExtension,
+) => {
+  await sleep();
+
+  throw new Error('throwErrorImageUploader');
 };
 
 // eslint-disable-next-line no-console
@@ -111,6 +128,28 @@ export const ViewInJapaneseWithImageUploaderWithErrors: Story = {
   },
 };
 
+export const ViewInJapaneseWithThrowErrorImageValidator: Story = {
+  args: {
+    language: 'ja',
+    imageValidator: throwErrorImageValidator,
+    imageUploader,
+    uploadCallback,
+    onClickCreatedLgtmImage,
+    onClickMarkdownSourceCopyButton,
+  },
+};
+
+export const ViewInJapaneseWithThrowErrorImageUploader: Story = {
+  args: {
+    language: 'ja',
+    imageValidator,
+    imageUploader: throwErrorImageUploader,
+    uploadCallback,
+    onClickCreatedLgtmImage,
+    onClickMarkdownSourceCopyButton,
+  },
+};
+
 export const ViewInEnglish: Story = {
   args: {
     language: 'en',
@@ -138,6 +177,28 @@ export const ViewInEnglishWithImageUploaderWithErrors: Story = {
     language: 'en',
     imageValidator,
     imageUploader: imageUploaderWithErrors,
+    uploadCallback,
+    onClickCreatedLgtmImage,
+    onClickMarkdownSourceCopyButton,
+  },
+};
+
+export const ViewInEnglishWithThrowErrorImageValidator: Story = {
+  args: {
+    language: 'en',
+    imageValidator: throwErrorImageValidator,
+    imageUploader,
+    uploadCallback,
+    onClickCreatedLgtmImage,
+    onClickMarkdownSourceCopyButton,
+  },
+};
+
+export const ViewInEnglishWithThrowErrorImageUploader: Story = {
+  args: {
+    language: 'en',
+    imageValidator,
+    imageUploader: throwErrorImageUploader,
     uploadCallback,
     onClickCreatedLgtmImage,
     onClickMarkdownSourceCopyButton,

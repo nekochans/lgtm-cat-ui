@@ -39,6 +39,7 @@ import {
   createNotAllowedImageExtensionErrorMessage,
   imageDropAreaText,
   noteList,
+  unexpectedErrorMessage,
   uploadInputButtonText,
 } from './i18n';
 
@@ -204,41 +205,51 @@ export const UploadForm: FC<Props> = ({
   const executeUpload = async () => {
     setIsLoading(true);
 
-    const imageValidationResult = await imageValidator(
-      base64Image,
-      uploadImageExtension as AcceptedTypesImageExtension,
-    );
-    if (
-      !imageValidationResult.value.isAcceptableCatImage ||
-      // eslint-disable-next-line no-magic-numbers
-      imageValidationResult.value.notAcceptableReason.length !== 0
-    ) {
-      setDisplayErrorMessages(imageValidationResult.value.notAcceptableReason);
-      stateInitAtError();
+    try {
+      const imageValidationResult = await imageValidator(
+        base64Image,
+        uploadImageExtension as AcceptedTypesImageExtension,
+      );
 
-      return;
-    }
+      if (
+        !imageValidationResult.value.isAcceptableCatImage ||
+        // eslint-disable-next-line no-magic-numbers
+        imageValidationResult.value.notAcceptableReason.length !== 0
+      ) {
+        setDisplayErrorMessages(
+          imageValidationResult.value.notAcceptableReason,
+        );
+        stateInitAtError();
 
-    const imageUploadResult = await imageUploader(
-      base64Image,
-      uploadImageExtension as AcceptedTypesImageExtension,
-    );
-
-    setIsLoading(false);
-    if (imageUploadResult.value.createdLgtmImageUrl) {
-      setUploaded(true);
-      setDisplayErrorMessages([]);
-      setCreatedLgtmImageUrl(imageUploadResult.value.createdLgtmImageUrl);
-
-      if (uploadCallback) {
-        uploadCallback();
+        return;
       }
-    }
 
-    // eslint-disable-next-line no-magic-numbers
-    if (imageUploadResult.value.displayErrorMessages.length !== 0) {
-      setDisplayErrorMessages(imageUploadResult.value.displayErrorMessages);
+      const imageUploadResult = await imageUploader(
+        base64Image,
+        uploadImageExtension as AcceptedTypesImageExtension,
+      );
+
+      setIsLoading(false);
+      if (imageUploadResult.value.createdLgtmImageUrl) {
+        setUploaded(true);
+        setDisplayErrorMessages([]);
+        setCreatedLgtmImageUrl(imageUploadResult.value.createdLgtmImageUrl);
+
+        if (uploadCallback) {
+          uploadCallback();
+        }
+      }
+
+      // eslint-disable-next-line no-magic-numbers
+      if (imageUploadResult.value.displayErrorMessages.length !== 0) {
+        setDisplayErrorMessages(imageUploadResult.value.displayErrorMessages);
+        stateInitAtError();
+      }
+    } catch (error) {
+      setDisplayErrorMessages(unexpectedErrorMessage(language));
       stateInitAtError();
+    } finally {
+      setIsLoading(false);
     }
   };
 

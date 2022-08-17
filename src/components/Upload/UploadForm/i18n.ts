@@ -74,3 +74,20 @@ export const createNotAllowedImageExtensionErrorMessage = (
       return assertNever(language);
   }
 };
+
+export const unexpectedErrorMessage = (language: Language): string[] => {
+  switch (language) {
+    case 'ja':
+      return [
+        '予期せぬエラーが発生しました。',
+        'お手数ですが、しばらく時間が経ってからお試し下さい。',
+      ];
+    case 'en':
+      return [
+        'An unexpected error occurred during upload.',
+        'Sorry, please try again after some time has passed.',
+      ];
+    default:
+      return assertNever(language);
+  }
+};
