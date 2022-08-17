@@ -35,8 +35,7 @@ const returnFalseImageValidator = async (
   return createSuccessResult({
     isAcceptableCatImage: false,
     notAcceptableReason: [
-      'An unexpected error occurred during upload.',
-      'Sorry, please try again after some time has passed.',
+      "Sorry, please use images that do not show people's faces.",
     ],
   });
 };
