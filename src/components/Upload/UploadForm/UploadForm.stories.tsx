@@ -41,6 +41,15 @@ const returnFalseImageValidator = async (
   });
 };
 
+const throwErrorImageValidator = async (
+  image: string,
+  imageExtension: AcceptedTypesImageExtension,
+) => {
+  await sleep();
+
+  throw new Error('throwErrorImageValidator');
+};
+
 const imageUploader = async (
   image: string,
   imageExtension: AcceptedTypesImageExtension,
@@ -65,6 +74,15 @@ const imageUploaderWithErrors = async (
       'Sorry, but please use images that clearly show the cat.',
     ],
   });
+};
+
+const throwErrorImageUploader = async (
+  image: string,
+  imageExtension: AcceptedTypesImageExtension,
+) => {
+  await sleep();
+
+  throw new Error('throwErrorImageUploader');
 };
 
 // eslint-disable-next-line no-console
@@ -111,6 +129,28 @@ export const ViewInJapaneseWithImageUploaderWithErrors: Story = {
   },
 };
 
+export const ViewInJapaneseWithThrowErrorImageValidator: Story = {
+  args: {
+    language: 'ja',
+    imageValidator: throwErrorImageValidator,
+    imageUploader,
+    uploadCallback,
+    onClickCreatedLgtmImage,
+    onClickMarkdownSourceCopyButton,
+  },
+};
+
+export const ViewInJapaneseWithThrowErrorImageUploader: Story = {
+  args: {
+    language: 'ja',
+    imageValidator,
+    imageUploader: throwErrorImageUploader,
+    uploadCallback,
+    onClickCreatedLgtmImage,
+    onClickMarkdownSourceCopyButton,
+  },
+};
+
 export const ViewInEnglish: Story = {
   args: {
     language: 'en',
@@ -138,6 +178,28 @@ export const ViewInEnglishWithImageUploaderWithErrors: Story = {
     language: 'en',
     imageValidator,
     imageUploader: imageUploaderWithErrors,
+    uploadCallback,
+    onClickCreatedLgtmImage,
+    onClickMarkdownSourceCopyButton,
+  },
+};
+
+export const ViewInEnglishWithThrowErrorImageValidator: Story = {
+  args: {
+    language: 'en',
+    imageValidator: throwErrorImageValidator,
+    imageUploader,
+    uploadCallback,
+    onClickCreatedLgtmImage,
+    onClickMarkdownSourceCopyButton,
+  },
+};
+
+export const ViewInEnglishWithThrowErrorImageUploader: Story = {
+  args: {
+    language: 'en',
+    imageValidator,
+    imageUploader: throwErrorImageUploader,
     uploadCallback,
     onClickCreatedLgtmImage,
     onClickMarkdownSourceCopyButton,
