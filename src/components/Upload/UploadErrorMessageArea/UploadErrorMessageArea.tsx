@@ -39,7 +39,7 @@ const faExclamationTriangleStyle = {
   flexGrow: 0,
 };
 
-const MessageText = styled.p`
+const MessageText = styled.span`
   @media (max-width: 767px) {
     width: 380px;
   }
