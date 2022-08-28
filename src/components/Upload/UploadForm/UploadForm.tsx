@@ -4,14 +4,18 @@ import { useState, useCallback, type FC, FormEvent, ChangeEvent } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { FaCloudUploadAlt } from 'react-icons/fa';
 
-import { isValidFileType , extractImageExtFromValidFileType } from '../../../features/lgtmImage';
+import {
+  isValidFileType,
+  extractImageExtFromValidFileType,
+} from '../../../features/lgtmImage';
 import { createLinksFromLanguages } from '../../../features/privacyPolicy';
 import {
   AcceptedTypesImageExtension,
   ImageUploader,
   ImageValidator,
   LgtmImageUrl,
-} from '../../../types/lgtmImage';
+  Language,
+} from '../../../types';
 import assertNever from '../../../utils/assertNever';
 import { UploadButton } from '../UploadButton';
 import { UploadErrorMessageArea } from '../UploadErrorMessageArea';
@@ -42,8 +46,6 @@ import {
   unexpectedErrorMessage,
   uploadInputButtonText,
 } from './i18n';
-
-import type { Language } from '../../../types/language';
 
 const faCloudUploadAltStyle = {
   fontStyle: 'normal',
