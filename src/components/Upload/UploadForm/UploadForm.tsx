@@ -4,7 +4,7 @@ import { useState, useCallback, type FC, FormEvent, ChangeEvent } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { FaCloudUploadAlt } from 'react-icons/fa';
 
-import { isValidFileType } from '../../../features/lgtmImage';
+import { isValidFileType , extractImageExtFromValidFileType } from '../../../features/lgtmImage';
 import { createLinksFromLanguages } from '../../../features/privacyPolicy';
 import {
   AcceptedTypesImageExtension,
@@ -167,6 +167,7 @@ export const UploadForm: FC<Props> = ({
     const url = URL.createObjectURL(file);
 
     setImagePreviewUrl(url);
+    setUploadImageExtension(extractImageExtFromValidFileType(fileType));
 
     const reader = new FileReader();
     reader.onload = handleReaderLoaded;
