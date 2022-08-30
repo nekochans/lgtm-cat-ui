@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { FaBars } from 'react-icons/fa';
 import styled from 'styled-components';
 
@@ -21,7 +22,7 @@ const StyledHeader = styled.div`
   margin: 0 auto;
 `;
 
-const Title = styled.h1`
+const Title = styled.a`
   position: absolute;
   top: 26.67%;
   bottom: 26.67%;
@@ -33,6 +34,7 @@ const Title = styled.h1`
   line-height: 28px;
   color: #000;
   text-align: center;
+  cursor: pointer;
   transform: translateX(-50%);
 `;
 
@@ -66,7 +68,9 @@ export const Header: FC<Props> = ({
     <Wrapper>
       <StyledHeader>
         <FaBars style={faBarsStyle} />
-        <Title>LGTMeow</Title>
+        <Link href="/" prefetch={false}>
+          <Title>LGTMeow</Title>
+        </Link>
         <LanguageButton onClick={onClickLanguageButton} />
         {isLanguageMenuDisplayed ? (
           <LanguageMenu
