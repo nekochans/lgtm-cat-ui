@@ -1,11 +1,13 @@
 import Link from 'next/link';
+import { useState, type FC, MouseEvent } from 'react';
 import { FaBars } from 'react-icons/fa';
+import Modal from 'react-modal';
 import styled from 'styled-components';
+
+import { GlobalMenu } from '../GlobalMenu';
 
 import { LanguageButton } from './LanguageButton';
 import { LanguageMenu, Props as LanguageMenuProps } from './LanguageMenu';
-
-import type { FC, MouseEvent } from 'react';
 
 const Wrapper = styled.div`
   background: #e9e2d7;
@@ -57,31 +59,64 @@ export type Props = LanguageMenuProps & {
   onClickLanguageButton: (event: MouseEvent<HTMLDivElement>) => void;
 };
 
+const modalStyle = {
+  // stylelint-disable-next-line
+  overlay: {
+    background: 'rgba(54, 46, 43, 0.7)',
+  },
+  content: {
+    top: '0',
+    left: '0',
+    width: '365px',
+    height: '100vh',
+  },
+};
+
 export const Header: FC<Props> = ({
   language,
   isLanguageMenuDisplayed,
   onClickLanguageButton,
   onClickEn,
   onClickJa,
-}) => (
-  <>
-    <Wrapper>
-      <StyledHeader>
-        <FaBars style={faBarsStyle} />
-        <Link href="/" prefetch={false}>
-          <Title>LGTMeow</Title>
-        </Link>
-        <LanguageButton onClick={onClickLanguageButton} />
-        {isLanguageMenuDisplayed ? (
-          <LanguageMenu
-            language={language}
-            onClickEn={onClickEn}
-            onClickJa={onClickJa}
-          />
-        ) : (
-          ''
-        )}
-      </StyledHeader>
-    </Wrapper>
-  </>
-);
+}) => {
+  const [isMenuOpened, setIsMenuOpened] = useState<boolean>(false);
+
+  const openMenu = () => {
+    setIsMenuOpened(true);
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpened(false);
+  };
+
+  return (
+    <>
+      <Modal
+        isOpen={isMenuOpened}
+        ariaHideApp={false}
+        style={modalStyle}
+        onRequestClose={closeMenu}
+      >
+        <GlobalMenu language={language} onClickCloseButton={closeMenu} />
+      </Modal>
+      <Wrapper>
+        <StyledHeader>
+          <FaBars style={faBarsStyle} onClick={openMenu} />
+          <Link href="/" prefetch={false}>
+            <Title>LGTMeow</Title>
+          </Link>
+          <LanguageButton onClick={onClickLanguageButton} />
+          {isLanguageMenuDisplayed ? (
+            <LanguageMenu
+              language={language}
+              onClickEn={onClickEn}
+              onClickJa={onClickJa}
+            />
+          ) : (
+            ''
+          )}
+        </StyledHeader>
+      </Wrapper>
+    </>
+  );
+};

@@ -96,9 +96,10 @@ const faCloudUploadAltStyle = {
 
 export type Props = {
   language: Language;
+  onClickCloseButton: () => void;
 };
 
-export const GlobalMenu: FC<Props> = ({ language }) => {
+export const GlobalMenu: FC<Props> = ({ language, onClickCloseButton }) => {
   const termsOfUseLinks = createTermsOfUseLinks(language);
 
   const privacyPolicyLinks = createPrivacyPolicyLinks(language);
@@ -106,7 +107,7 @@ export const GlobalMenu: FC<Props> = ({ language }) => {
   return (
     <Wrapper>
       <HeaderWrapper>
-        <FaTimesWrapper>
+        <FaTimesWrapper onClick={onClickCloseButton}>
           <FaTimes style={faTimesStyle} />
         </FaTimesWrapper>
       </HeaderWrapper>
