@@ -1,4 +1,5 @@
 import 'ress/ress.css';
+import './markdown.css';
 
 const customViewports = {
   iPhone12: {

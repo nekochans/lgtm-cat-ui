@@ -1,3 +1,4 @@
+import styled from 'styled-components';
 import { useSnapshot } from 'valtio';
 
 import { LgtmImages } from '../../components';
@@ -19,6 +20,14 @@ import type {
   LgtmImage,
 } from '../../types';
 import type { FC } from 'react';
+
+const Wrapper = styled.div`
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 100%;
+  gap: 32px;
+  min-height: 100vh;
+`;
 
 type Props = {
   language: Language;
@@ -86,16 +95,18 @@ export const TopTemplate: FC<Props> = ({
         isLanguageMenuDisplayed={isLanguageMenuDisplayed}
         onClickLanguageButton={onClickLanguageButton}
       >
-        <AppDescriptionArea language={selectedLanguage} />
-        <CatButtonGroup
-          onClickFetchRandomCatButton={onClickFetchRandomCatButton}
-          onClickFetchNewArrivalCatButton={onClickFetchNewArrivalCatButton}
-        />
-        <LgtmImages
-          images={fetchedLgtmImagesList as LgtmImage[]}
-          appUrl={appUrl}
-          callback={clipboardMarkdownCallback}
-        />
+        <Wrapper>
+          <AppDescriptionArea language={selectedLanguage} />
+          <CatButtonGroup
+            onClickFetchRandomCatButton={onClickFetchRandomCatButton}
+            onClickFetchNewArrivalCatButton={onClickFetchNewArrivalCatButton}
+          />
+          <LgtmImages
+            images={fetchedLgtmImagesList as LgtmImage[]}
+            appUrl={appUrl}
+            callback={clipboardMarkdownCallback}
+          />
+        </Wrapper>
       </ResponsiveLayout>
     </div>
   );

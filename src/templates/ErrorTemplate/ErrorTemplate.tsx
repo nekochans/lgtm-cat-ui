@@ -12,7 +12,7 @@ import type { FC, ReactNode } from 'react';
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 64px;
   align-items: center;
   justify-content: center;
 `;
