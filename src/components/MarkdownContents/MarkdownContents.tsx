@@ -25,7 +25,7 @@ export type Props = {
 };
 
 export const MarkdownContents: FC<Props> = ({ markdown }) => (
-  <Wrapper>
+  <Wrapper className="markdown">
     <ReactMarkdown>{markdown}</ReactMarkdown>
   </Wrapper>
 );

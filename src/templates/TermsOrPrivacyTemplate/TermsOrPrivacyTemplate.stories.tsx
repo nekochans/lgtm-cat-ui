@@ -1,5 +1,4 @@
-import ReactMarkdown from 'react-markdown';
-
+import { MarkdownContents } from '../../components/MarkdownContents';
 import { useSwitchLanguage } from '../../hooks';
 import assertNever from '../../utils/assertNever';
 
@@ -253,7 +252,7 @@ const EnhanceTermsOrPrivacyTemplate: FC<Props> = ({ type, language }) => {
       onClickLanguageButton={onClickLanguageButton}
       onClickOutSideMenu={onClickOutSideMenu}
     >
-      <ReactMarkdown>{getMarkdownSource(type, selectedLanguage)}</ReactMarkdown>
+      <MarkdownContents markdown={getMarkdownSource(type, selectedLanguage)} />
     </TermsOrPrivacyTemplate>
   );
 };
