@@ -26,7 +26,6 @@ const Wrapper = styled.div`
   grid-template-rows: auto 1fr auto;
   grid-template-columns: 100%;
   gap: 32px;
-  min-height: 100vh;
 `;
 
 type Props = {
