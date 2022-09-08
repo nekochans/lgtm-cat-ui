@@ -1,10 +1,10 @@
 import Image from 'next/image';
 
-import internalServerError from './images/internal_server_error.webp';
-import notFound from './images/not_found.webp';
-import serviceUnavailable from './images/service_unavailable.webp';
+import internalServerError from '../../images/internal_server_error.webp';
+import notFound from '../../images/not_found.webp';
+import serviceUnavailable from '../../images/service_unavailable.webp';
 
-import { ErrorTemplate } from './index';
+import { ErrorTemplate } from './';
 
 import type { ComponentStoryObj, Meta } from '@storybook/react';
 
