@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+import { errorType, type ErrorType } from '../../features';
 import { Language } from '../../types';
 import assertNever from '../../utils/assertNever';
 
@@ -40,14 +41,6 @@ const Message = styled.div`
   color: #362e2b;
   text-align: center;
 `;
-
-const errorType = {
-  notFound: 404,
-  internalServerError: 500,
-  serviceUnavailable: 503,
-} as const;
-
-export type ErrorType = typeof errorType[keyof typeof errorType];
 
 const errorTitleText = {
   notFound: '404 Not Found',

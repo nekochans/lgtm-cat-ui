@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
+import { errorType, type ErrorType } from '../../features';
 import { useSwitchLanguage } from '../../hooks';
 import { ResponsiveLayout } from '../../layouts';
-import { ChangeLanguageCallback, Language } from '../../types/language';
+import { ChangeLanguageCallback, Language } from '../../types';
 import assertNever from '../../utils/assertNever';
 
 import { BackToTopButton } from './BackToTopButton';
@@ -42,14 +43,6 @@ const Message = styled.div`
   color: #362e2b;
   text-align: center;
 `;
-
-const errorType = {
-  notFound: 404,
-  internalServerError: 500,
-  serviceUnavailable: 503,
-} as const;
-
-export type ErrorType = typeof errorType[keyof typeof errorType];
 
 const errorTitleText = {
   notFound: '404 Not Found',
