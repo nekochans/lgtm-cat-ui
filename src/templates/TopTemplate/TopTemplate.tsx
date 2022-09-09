@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 import { useSnapshot } from 'valtio';
 
-import { LgtmImages } from '../../components';
+import { ErrorContent, LgtmImages } from '../../components';
 import { CatButtonGroup } from '../../components/Button/CatButtonGroup';
 import { AppUrl } from '../../constants/url';
+import { errorType } from '../../features';
 import { NewArrivalCatImagesFetcherError } from '../../features/errors/NewArrivalCatImagesFetcherError';
 import { RandomCatImagesFetcherError } from '../../features/errors/RandomCatImagesFetcherError';
 import { useSwitchLanguage } from '../../hooks';
@@ -22,7 +23,7 @@ import type {
   CatImagesFetcher,
   LgtmImage,
 } from '../../types';
-import type { FC } from 'react';
+import type { FC, ReactNode } from 'react';
 
 const Wrapper = styled.div`
   display: grid;
@@ -36,6 +37,7 @@ type Props = {
   lgtmImages: LgtmImage[];
   randomCatImagesFetcher: CatImagesFetcher;
   newArrivalCatImagesFetcher: CatImagesFetcher;
+  errorCatImage: ReactNode;
   appUrl?: AppUrl;
   clipboardMarkdownCallback?: () => void;
   fetchRandomCatImagesCallback?: () => void;
@@ -49,6 +51,7 @@ export const TopTemplate: FC<Props> = ({
   lgtmImages,
   randomCatImagesFetcher,
   newArrivalCatImagesFetcher,
+  errorCatImage,
   appUrl,
   clipboardMarkdownCallback,
   fetchRandomCatImagesCallback,
@@ -128,7 +131,12 @@ export const TopTemplate: FC<Props> = ({
             onClickFetchNewArrivalCatButton={onClickFetchNewArrivalCatButton}
           />
           {isFailedFetchLgtmImages ? (
-            ''
+            <ErrorContent
+              type={errorType.internalServerError}
+              language={selectedLanguage}
+              catImage={errorCatImage}
+              shouldDisplayBackToTopButton={false}
+            />
           ) : (
             <LgtmImages
               images={fetchedLgtmImagesList as LgtmImage[]}
