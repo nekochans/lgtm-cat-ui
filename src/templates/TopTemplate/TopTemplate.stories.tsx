@@ -1,4 +1,7 @@
-import { LgtmImage } from '../../types/lgtmImage';
+import Image from 'next/image';
+
+import internalServerError from '../../images/internal_server_error.webp';
+import { LgtmImage } from '../../types';
 
 import { TopTemplate } from './.';
 
@@ -183,12 +186,33 @@ const changeLanguageCallback = () =>
   // eslint-disable-next-line no-console
   console.log('changeLanguageCallback executed!');
 
+// eslint-disable-next-line require-await
+const failureRandomCatImagesFetcher = async () => {
+  throw new Error('failureRandomCatImagesFetcher');
+};
+
+// eslint-disable-next-line require-await
+const failureNewArrivalCatImagesFetcher = async () => {
+  throw new Error('failureNewArrivalCatImagesFetcher');
+};
+
+const InternalServerErrorImage = () => (
+  <Image
+    src={internalServerError.src}
+    layout="fill"
+    objectFit="contain"
+    alt="500 Internal Server Error"
+    priority={true}
+  />
+);
+
 export const ViewInJapanese: Story = {
   args: {
     language: 'ja',
     lgtmImages,
     randomCatImagesFetcher,
     newArrivalCatImagesFetcher,
+    errorCatImage: <InternalServerErrorImage />,
     appUrl,
     clipboardMarkdownCallback,
     fetchRandomCatImagesCallback,
@@ -203,6 +227,37 @@ export const ViewInEnglish: Story = {
     lgtmImages,
     randomCatImagesFetcher,
     newArrivalCatImagesFetcher,
+    errorCatImage: <InternalServerErrorImage />,
+    appUrl,
+    clipboardMarkdownCallback,
+    fetchRandomCatImagesCallback,
+    fetchNewArrivalCatImagesCallback,
+    changeLanguageCallback,
+  },
+};
+
+export const ViewInJapaneseError: Story = {
+  args: {
+    language: 'ja',
+    lgtmImages,
+    randomCatImagesFetcher: failureRandomCatImagesFetcher,
+    newArrivalCatImagesFetcher: failureNewArrivalCatImagesFetcher,
+    errorCatImage: <InternalServerErrorImage />,
+    appUrl,
+    clipboardMarkdownCallback,
+    fetchRandomCatImagesCallback,
+    fetchNewArrivalCatImagesCallback,
+    changeLanguageCallback,
+  },
+};
+
+export const ViewInEnglishError: Story = {
+  args: {
+    language: 'en',
+    lgtmImages,
+    randomCatImagesFetcher: failureRandomCatImagesFetcher,
+    newArrivalCatImagesFetcher: failureNewArrivalCatImagesFetcher,
+    errorCatImage: <InternalServerErrorImage />,
     appUrl,
     clipboardMarkdownCallback,
     fetchRandomCatImagesCallback,

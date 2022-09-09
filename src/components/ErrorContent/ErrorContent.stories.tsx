@@ -4,16 +4,16 @@ import internalServerError from '../../images/internal_server_error.webp';
 import notFound from '../../images/not_found.webp';
 import serviceUnavailable from '../../images/service_unavailable.webp';
 
-import { ErrorTemplate } from './';
+import { ErrorContent } from './';
 
 import type { ComponentStoryObj, Meta } from '@storybook/react';
 
 export default {
-  title: 'src/templates/ErrorTemplate/ErrorTemplate.tsx',
-  component: ErrorTemplate,
-} as Meta<typeof ErrorTemplate>;
+  title: 'src/components/ErrorContent/ErrorContent.tsx',
+  component: ErrorContent,
+} as Meta<typeof ErrorContent>;
 
-type Story = ComponentStoryObj<typeof ErrorTemplate>;
+type Story = ComponentStoryObj<typeof ErrorContent>;
 
 const NotFoundImage = () => (
   <Image
@@ -45,16 +45,12 @@ const ServiceUnavailableImage = () => (
   />
 );
 
-const changeLanguageCallback = () =>
-  // eslint-disable-next-line no-console
-  console.log('changeLanguageCallback executed!');
-
 export const NotFoundViewInJapanese: Story = {
   args: {
     type: 404,
     language: 'ja',
     catImage: <NotFoundImage />,
-    changeLanguageCallback,
+    shouldDisplayBackToTopButton: true,
   },
 };
 
@@ -63,7 +59,7 @@ export const NotFoundViewInEnglish: Story = {
     type: 404,
     language: 'en',
     catImage: <NotFoundImage />,
-    changeLanguageCallback,
+    shouldDisplayBackToTopButton: true,
   },
 };
 
@@ -72,7 +68,7 @@ export const InternalServerErrorViewInJapanese: Story = {
     type: 500,
     language: 'ja',
     catImage: <InternalServerErrorImage />,
-    changeLanguageCallback,
+    shouldDisplayBackToTopButton: true,
   },
 };
 
@@ -81,7 +77,7 @@ export const InternalServerErrorViewInEnglish: Story = {
     type: 500,
     language: 'en',
     catImage: <InternalServerErrorImage />,
-    changeLanguageCallback,
+    shouldDisplayBackToTopButton: true,
   },
 };
 
@@ -90,7 +86,7 @@ export const ServiceUnavailableViewInJapanese: Story = {
     type: 503,
     language: 'ja',
     catImage: <ServiceUnavailableImage />,
-    changeLanguageCallback,
+    shouldDisplayBackToTopButton: true,
   },
 };
 
@@ -99,6 +95,6 @@ export const ServiceUnavailableViewInEnglish: Story = {
     type: 503,
     language: 'en',
     catImage: <ServiceUnavailableImage />,
-    changeLanguageCallback,
+    shouldDisplayBackToTopButton: true,
   },
 };

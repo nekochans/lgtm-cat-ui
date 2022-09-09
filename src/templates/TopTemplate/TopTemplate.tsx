@@ -1,13 +1,17 @@
 import styled from 'styled-components';
 import { useSnapshot } from 'valtio';
 
-import { LgtmImages } from '../../components';
+import { ErrorContent, LgtmImages } from '../../components';
 import { CatButtonGroup } from '../../components/Button/CatButtonGroup';
 import { AppUrl } from '../../constants/url';
+import { errorType } from '../../features';
+import { NewArrivalCatImagesFetcherError } from '../../features/errors/NewArrivalCatImagesFetcherError';
+import { RandomCatImagesFetcherError } from '../../features/errors/RandomCatImagesFetcherError';
 import { useSwitchLanguage } from '../../hooks';
 import { ResponsiveLayout } from '../../layouts';
 import {
   lgtmImageStateSelector,
+  updateIsFailedFetchLgtmImages,
   updateLgtmImages,
 } from '../../stores/valtio/lgtmImage';
 
@@ -19,7 +23,7 @@ import type {
   CatImagesFetcher,
   LgtmImage,
 } from '../../types';
-import type { FC } from 'react';
+import type { FC, ReactNode } from 'react';
 
 const Wrapper = styled.div`
   display: grid;
@@ -33,6 +37,7 @@ type Props = {
   lgtmImages: LgtmImage[];
   randomCatImagesFetcher: CatImagesFetcher;
   newArrivalCatImagesFetcher: CatImagesFetcher;
+  errorCatImage: ReactNode;
   appUrl?: AppUrl;
   clipboardMarkdownCallback?: () => void;
   fetchRandomCatImagesCallback?: () => void;
@@ -46,6 +51,7 @@ export const TopTemplate: FC<Props> = ({
   lgtmImages,
   randomCatImagesFetcher,
   newArrivalCatImagesFetcher,
+  errorCatImage,
   appUrl,
   clipboardMarkdownCallback,
   fetchRandomCatImagesCallback,
@@ -64,26 +70,50 @@ export const TopTemplate: FC<Props> = ({
   const snap = useSnapshot(lgtmImageStateSelector());
 
   const onClickFetchRandomCatButton = async () => {
-    const lgtmImagesList = await randomCatImagesFetcher();
+    try {
+      const lgtmImagesList = await randomCatImagesFetcher();
 
-    updateLgtmImages(lgtmImagesList);
+      updateLgtmImages(lgtmImagesList);
+      updateIsFailedFetchLgtmImages(false);
 
-    if (fetchRandomCatImagesCallback) {
-      fetchRandomCatImagesCallback();
+      if (fetchRandomCatImagesCallback) {
+        fetchRandomCatImagesCallback();
+      }
+    } catch (error) {
+      updateIsFailedFetchLgtmImages(true);
+      if (error instanceof Error) {
+        throw new RandomCatImagesFetcherError(error.message);
+      }
+
+      throw new RandomCatImagesFetcherError('failed to randomCatImagesFetcher');
     }
   };
 
   const onClickFetchNewArrivalCatButton = async () => {
-    const lgtmImagesList = await newArrivalCatImagesFetcher();
+    try {
+      const lgtmImagesList = await newArrivalCatImagesFetcher();
 
-    updateLgtmImages(lgtmImagesList);
+      updateLgtmImages(lgtmImagesList);
+      updateIsFailedFetchLgtmImages(false);
 
-    if (fetchNewArrivalCatImagesCallback) {
-      fetchNewArrivalCatImagesCallback();
+      if (fetchNewArrivalCatImagesCallback) {
+        fetchNewArrivalCatImagesCallback();
+      }
+    } catch (error) {
+      updateIsFailedFetchLgtmImages(true);
+      if (error instanceof Error) {
+        throw new NewArrivalCatImagesFetcherError(error.message);
+      }
+
+      throw new RandomCatImagesFetcherError(
+        'failed to newArrivalCatImagesFetcher',
+      );
     }
   };
 
   const fetchedLgtmImagesList = snap.lgtmImages ? snap.lgtmImages : lgtmImages;
+
+  const { isFailedFetchLgtmImages } = snap;
 
   return (
     <div onClick={onClickOutSideMenu} aria-hidden="true">
@@ -100,11 +130,20 @@ export const TopTemplate: FC<Props> = ({
             onClickFetchRandomCatButton={onClickFetchRandomCatButton}
             onClickFetchNewArrivalCatButton={onClickFetchNewArrivalCatButton}
           />
-          <LgtmImages
-            images={fetchedLgtmImagesList as LgtmImage[]}
-            appUrl={appUrl}
-            callback={clipboardMarkdownCallback}
-          />
+          {isFailedFetchLgtmImages ? (
+            <ErrorContent
+              type={errorType.internalServerError}
+              language={selectedLanguage}
+              catImage={errorCatImage}
+              shouldDisplayBackToTopButton={false}
+            />
+          ) : (
+            <LgtmImages
+              images={fetchedLgtmImagesList as LgtmImage[]}
+              appUrl={appUrl}
+              callback={clipboardMarkdownCallback}
+            />
+          )}
         </Wrapper>
       </ResponsiveLayout>
     </div>

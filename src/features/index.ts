@@ -7,3 +7,5 @@ export {
   SuccessResult,
   FailureResult,
 } from './result';
+
+export { errorType, type ErrorType } from './error';
