@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { createLinksFromLanguages as createPrivacyLinksFromLanguages } from '../../features/privacyPolicy';
 import { createLinksFromLanguages as createTermsLinksFromLanguages } from '../../features/termsOfUse';
-import { Language } from '../../types/language';
+import { Language } from '../../types';
 
 import type { FC } from 'react';
 
@@ -115,12 +115,20 @@ export const Footer: FC<Props> = ({ language }) => {
   return (
     <StyledFooter>
       <UpperSection>
-        <Link href={terms.link} prefetch={false}>
+        <Link
+          href={terms.link}
+          prefetch={false}
+          data-gtm-click="footer-terms-link"
+        >
           <TermsLinkText>{terms.text}</TermsLinkText>
         </Link>
         {/* eslint-disable no-irregular-whitespace */}
         <SeparatorText> / </SeparatorText>
-        <Link href={privacy.link} prefetch={false}>
+        <Link
+          href={privacy.link}
+          prefetch={false}
+          data-gtm-click="footer-privacy-link"
+        >
           <PrivacyLinkText>{privacy.text}</PrivacyLinkText>
         </Link>
       </UpperSection>

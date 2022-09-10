@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { AppUrl, defaultAppUrl } from '../../../constants/url';
 import useClipboardMarkdown from '../../../hooks/useClipboardMarkdown';
 import { useCopySuccess } from '../../../hooks/useCopySuccess';
-import { LgtmImageUrl } from '../../../types/lgtmImage';
+import { LgtmImageUrl } from '../../../types';
 import { CopiedGithubMarkdownMessage } from '../../LgtmImages/CopiedGithubMarkdownMessage';
 
 import type { FC } from 'react';
@@ -48,7 +48,10 @@ export const CreatedLgtmImage: FC<Props> = ({
 
   return (
     <>
-      <Wrapper ref={imageContextRef}>
+      <Wrapper
+        ref={imageContextRef}
+        data-gtm-click="copy-markdown-from-created-image"
+      >
         <StyledImage src={imagePreviewUrl} />
       </Wrapper>
       {copied ? <CopiedGithubMarkdownMessage /> : ''}
