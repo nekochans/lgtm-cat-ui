@@ -24,7 +24,7 @@ export const useSwitchLanguage = (
   const selectedLanguage = snap.language ? snap.language : language;
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const onClickEn = (event: MouseEvent<HTMLDivElement>) => {
+  const onClickEn = (event: MouseEvent<HTMLButtonElement>) => {
     updateLanguage(languageEn);
 
     if (changeLanguageCallback) {
@@ -33,7 +33,7 @@ export const useSwitchLanguage = (
   };
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const onClickJa = (event: MouseEvent<HTMLDivElement>) => {
+  const onClickJa = (event: MouseEvent<HTMLButtonElement>) => {
     updateLanguage(languageJa);
 
     if (changeLanguageCallback) {

@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { mixins } from '../../../styles/mixins';
 import slash from '../images/slash.png';
 
+import type { CustomDataAttrGtmClick } from '../../../types/gtm';
 import type { FC } from 'react';
 
 const StyledSpan = styled.span`
@@ -29,11 +30,15 @@ const faCloudUploadAltStyle = {
 
 type Props = {
   link: `/${string}`;
+  customDataAttrGtmClick?: CustomDataAttrGtmClick;
 };
 
-export const UploadCatButton: FC<Props> = ({ link }) => (
+export const UploadCatButton: FC<Props> = ({
+  link,
+  customDataAttrGtmClick,
+}) => (
   <Link href={link} prefetch={false}>
-    <StyledSpan>
+    <StyledSpan data-gtm-click={customDataAttrGtmClick}>
       <FaCloudUploadAlt style={faCloudUploadAltStyle} />
       <Text>Upload new Cats</Text>
     </StyledSpan>

@@ -99,6 +99,7 @@ export type Props = {
   onClickCloseButton: () => void;
 };
 
+// eslint-disable-next-line max-lines-per-function
 export const GlobalMenu: FC<Props> = ({ language, onClickCloseButton }) => {
   const termsOfUseLinks = createTermsOfUseLinks(language);
 
@@ -107,19 +108,26 @@ export const GlobalMenu: FC<Props> = ({ language, onClickCloseButton }) => {
   return (
     <Wrapper>
       <HeaderWrapper>
-        <FaTimesWrapper onClick={onClickCloseButton}>
+        <FaTimesWrapper
+          onClick={onClickCloseButton}
+          data-gtm-click="global-menu-close-button"
+        >
           <FaTimes style={faTimesStyle} />
         </FaTimesWrapper>
       </HeaderWrapper>
       <LinkGroupWrapper>
         <LinkWrapper>
-          <Link href="/" prefetch={false}>
+          <Link href="/" prefetch={false} data-gtm-click="global-menu-top-link">
             <LinkText>TOP</LinkText>
           </Link>
           <UnderLine />
         </LinkWrapper>
         <LinkWrapper>
-          <Link href="/upload" prefetch={false}>
+          <Link
+            href="/upload"
+            prefetch={false}
+            data-gtm-click="global-menu-upload-cat-link"
+          >
             <LinkText>
               <FaCloudUploadAlt style={faCloudUploadAltStyle} />
               Upload new Cats
@@ -128,13 +136,21 @@ export const GlobalMenu: FC<Props> = ({ language, onClickCloseButton }) => {
           <UnderLine />
         </LinkWrapper>
         <LinkWrapper>
-          <Link href={termsOfUseLinks.link} prefetch={false}>
+          <Link
+            href={termsOfUseLinks.link}
+            prefetch={false}
+            data-gtm-click="global-menu-terms-link"
+          >
             <LinkText>{termsOfUseLinks.text}</LinkText>
           </Link>
           <UnderLine />
         </LinkWrapper>
         <LinkWrapper>
-          <Link href={privacyPolicyLinks.link} prefetch={false}>
+          <Link
+            href={privacyPolicyLinks.link}
+            prefetch={false}
+            data-gtm-click="global-menu-terms-link"
+          >
             <LinkText>{privacyPolicyLinks.text}</LinkText>
           </Link>
           <UnderLine />

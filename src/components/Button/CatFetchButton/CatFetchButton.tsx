@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { mixins } from '../../../styles/mixins';
 import assertNever from '../../../utils/assertNever';
 
+import type { CustomDataAttrGtmClick } from '../../../types/gtm';
 import type { FC } from 'react';
 
 const StyledButton = styled.button`
@@ -42,10 +43,15 @@ type ButtonType = 'refresh' | 'new';
 type Props = {
   type: ButtonType;
   onClick: () => Promise<void>;
+  customDataAttrGtmClick?: CustomDataAttrGtmClick;
 };
 
-export const CatFetchButton: FC<Props> = ({ type, onClick }) => (
-  <StyledButton onClick={onClick}>
+export const CatFetchButton: FC<Props> = ({
+  type,
+  onClick,
+  customDataAttrGtmClick,
+}) => (
+  <StyledButton onClick={onClick} data-gtm-click={customDataAttrGtmClick}>
     <FaSyncAlt style={faSyncAltStyle} />
     <Text>{buttonText(type)}</Text>
   </StyledButton>
