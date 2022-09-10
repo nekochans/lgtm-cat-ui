@@ -1,7 +1,7 @@
 import { FaAngleRight } from 'react-icons/fa';
 import styled, { css } from 'styled-components';
 
-import { Language } from '../../types/language';
+import { Language } from '../../types';
 
 import type { FC, MouseEvent } from 'react';
 
@@ -84,21 +84,21 @@ const JaText = styled.div`
 
 export type Props = {
   language: Language;
-  onClickEn: (event: MouseEvent<HTMLDivElement>) => void;
-  onClickJa: (event: MouseEvent<HTMLDivElement>) => void;
+  onClickEn: (event: MouseEvent<HTMLButtonElement>) => void;
+  onClickJa: (event: MouseEvent<HTMLButtonElement>) => void;
 };
 
 export const LanguageMenu: FC<Props> = ({ language, onClickEn, onClickJa }) => (
   <StyledLanguageMenu>
-    <EnTextWrapper>
-      <EnText onClick={onClickEn}>
+    <EnTextWrapper onClick={onClickEn} data-gtm-click="language-menu-en-button">
+      <EnText>
         {language === 'en' ? <FaAngleRight /> : ''}
         English
       </EnText>
     </EnTextWrapper>
     <Separator />
-    <JaTextWrapper>
-      <JaText onClick={onClickJa}>
+    <JaTextWrapper onClick={onClickJa} data-gtm-click="language-menu-ja-button">
+      <JaText>
         {language === 'ja' ? <FaAngleRight /> : ''}
         日本語
       </JaText>
