@@ -108,10 +108,7 @@ export const GlobalMenu: FC<Props> = ({ language, onClickCloseButton }) => {
   return (
     <Wrapper>
       <HeaderWrapper>
-        <FaTimesWrapper
-          onClick={onClickCloseButton}
-          data-gtm-click="global-menu-close-button"
-        >
+        <FaTimesWrapper onClick={onClickCloseButton}>
           <FaTimes style={faTimesStyle} />
         </FaTimesWrapper>
       </HeaderWrapper>
