@@ -6,6 +6,4 @@ export type CustomDataAttrGtmClick =
   | 'global-menu-top-link'
   | 'global-menu-upload-cat-link'
   | 'global-menu-terms-link'
-  | 'global-menu-privacy-link'
-  | 'global-menu-open-button'
-  | 'global-menu-close-button';
+  | 'global-menu-privacy-link';
