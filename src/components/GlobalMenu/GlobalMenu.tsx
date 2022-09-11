@@ -117,18 +117,14 @@ export const GlobalMenu: FC<Props> = ({ language, onClickCloseButton }) => {
       </HeaderWrapper>
       <LinkGroupWrapper>
         <LinkWrapper>
-          <Link href="/" prefetch={false} data-gtm-click="global-menu-top-link">
-            <LinkText>TOP</LinkText>
+          <Link href="/" prefetch={false}>
+            <LinkText data-gtm-click="global-menu-top-link">TOP</LinkText>
           </Link>
           <UnderLine />
         </LinkWrapper>
         <LinkWrapper>
-          <Link
-            href="/upload"
-            prefetch={false}
-            data-gtm-click="global-menu-upload-cat-link"
-          >
-            <LinkText>
+          <Link href="/upload" prefetch={false}>
+            <LinkText data-gtm-click="global-menu-upload-cat-link">
               <FaCloudUploadAlt style={faCloudUploadAltStyle} />
               Upload new Cats
             </LinkText>
@@ -136,22 +132,18 @@ export const GlobalMenu: FC<Props> = ({ language, onClickCloseButton }) => {
           <UnderLine />
         </LinkWrapper>
         <LinkWrapper>
-          <Link
-            href={termsOfUseLinks.link}
-            prefetch={false}
-            data-gtm-click="global-menu-terms-link"
-          >
-            <LinkText>{termsOfUseLinks.text}</LinkText>
+          <Link href={termsOfUseLinks.link} prefetch={false}>
+            <LinkText data-gtm-click="global-menu-terms-link">
+              {termsOfUseLinks.text}
+            </LinkText>
           </Link>
           <UnderLine />
         </LinkWrapper>
         <LinkWrapper>
-          <Link
-            href={privacyPolicyLinks.link}
-            prefetch={false}
-            data-gtm-click="global-menu-terms-link"
-          >
-            <LinkText>{privacyPolicyLinks.text}</LinkText>
+          <Link href={privacyPolicyLinks.link} prefetch={false}>
+            <LinkText data-gtm-click="global-menu-terms-link">
+              {privacyPolicyLinks.text}
+            </LinkText>
           </Link>
           <UnderLine />
         </LinkWrapper>

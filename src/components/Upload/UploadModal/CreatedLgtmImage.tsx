@@ -48,10 +48,7 @@ export const CreatedLgtmImage: FC<Props> = ({
 
   return (
     <>
-      <Wrapper
-        ref={imageContextRef}
-        data-gtm-click="copy-markdown-from-created-image"
-      >
+      <Wrapper ref={imageContextRef}>
         <StyledImage src={imagePreviewUrl} />
       </Wrapper>
       {copied ? <CopiedGithubMarkdownMessage /> : ''}

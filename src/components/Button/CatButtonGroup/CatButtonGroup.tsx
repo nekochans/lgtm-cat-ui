@@ -46,16 +46,8 @@ export const CatButtonGroup: FC<Props> = ({
         link="/upload"
         customDataAttrGtmClick="top-upload-cat-button"
       />
-      <CatFetchButton
-        type="refresh"
-        onClick={onClickFetchRandomCatButton}
-        customDataAttrGtmClick="top-fetch-random-cat-button"
-      />
-      <CatFetchButton
-        type="new"
-        onClick={onClickFetchNewArrivalCatButton}
-        customDataAttrGtmClick="top-fetch-new-arrival-cat-button"
-      />
+      <CatFetchButton type="refresh" onClick={onClickFetchRandomCatButton} />
+      <CatFetchButton type="new" onClick={onClickFetchNewArrivalCatButton} />
     </ButtonGroup>
   </Wrapper>
 );

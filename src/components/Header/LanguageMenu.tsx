@@ -90,14 +90,14 @@ export type Props = {
 
 export const LanguageMenu: FC<Props> = ({ language, onClickEn, onClickJa }) => (
   <StyledLanguageMenu>
-    <EnTextWrapper onClick={onClickEn} data-gtm-click="language-menu-en-button">
+    <EnTextWrapper onClick={onClickEn}>
       <EnText>
         {language === 'en' ? <FaAngleRight /> : ''}
         English
       </EnText>
     </EnTextWrapper>
     <Separator />
-    <JaTextWrapper onClick={onClickJa} data-gtm-click="language-menu-ja-button">
+    <JaTextWrapper onClick={onClickJa}>
       <JaText>
         {language === 'ja' ? <FaAngleRight /> : ''}
         日本語

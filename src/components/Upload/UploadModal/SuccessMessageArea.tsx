@@ -270,10 +270,7 @@ export const SuccessMessageArea: FC<Props> = ({
             <CloseButton onClick={onClickClose}>
               <CloseButtonText>{closeButtonText(language)}</CloseButtonText>
             </CloseButton>
-            <MarkdownSourceCopyButton
-              ref={imageContextRef}
-              data-gtm-click="copy-markdown-from-copy-button"
-            >
+            <MarkdownSourceCopyButton ref={imageContextRef}>
               <MarkdownSourceCopyButtonText>
                 {markdownSourceCopyButtonText(language)}
               </MarkdownSourceCopyButtonText>
