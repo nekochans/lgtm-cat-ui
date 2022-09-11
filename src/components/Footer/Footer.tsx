@@ -115,21 +115,17 @@ export const Footer: FC<Props> = ({ language }) => {
   return (
     <StyledFooter>
       <UpperSection>
-        <Link
-          href={terms.link}
-          prefetch={false}
-          data-gtm-click="footer-terms-link"
-        >
-          <TermsLinkText>{terms.text}</TermsLinkText>
+        <Link href={terms.link} prefetch={false}>
+          <TermsLinkText data-gtm-click="footer-terms-link">
+            {terms.text}
+          </TermsLinkText>
         </Link>
         {/* eslint-disable no-irregular-whitespace */}
         <SeparatorText> / </SeparatorText>
-        <Link
-          href={privacy.link}
-          prefetch={false}
-          data-gtm-click="footer-privacy-link"
-        >
-          <PrivacyLinkText>{privacy.text}</PrivacyLinkText>
+        <Link href={privacy.link} prefetch={false}>
+          <PrivacyLinkText data-gtm-click="footer-privacy-link">
+            {privacy.text}
+          </PrivacyLinkText>
         </Link>
       </UpperSection>
       <LowerSection>

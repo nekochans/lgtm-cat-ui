@@ -39,11 +39,7 @@ export const LgtmImageContent: FC<Props> = ({
   });
 
   return (
-    <ImageWrapper
-      key={id}
-      ref={imageContextRef}
-      data-gtm-click="copy-markdown-from-top-images"
-    >
+    <ImageWrapper key={id} ref={imageContextRef}>
       <Image
         src={imageUrl}
         layout="fill"
