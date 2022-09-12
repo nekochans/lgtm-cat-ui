@@ -204,7 +204,7 @@ export const UploadForm: FC<Props> = ({
     openModal();
   };
 
-  // eslint-disable-next-line max-statements
+  // eslint-disable-next-line max-statements, max-lines-per-function
   const executeUpload = async () => {
     setIsLoading(true);
 
@@ -251,6 +251,10 @@ export const UploadForm: FC<Props> = ({
     } catch (error) {
       setDisplayErrorMessages(unexpectedErrorMessage(language));
       stateInitAtError();
+
+      if (error instanceof Error) {
+        throw error;
+      }
     } finally {
       setIsLoading(false);
     }
