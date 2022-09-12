@@ -1,8 +1,6 @@
 import Modal from 'react-modal';
 import styled from 'styled-components';
 
-import { Language } from '../../../types/language';
-import { LgtmImageUrl } from '../../../types/lgtmImage';
 import assertNever from '../../../utils/assertNever';
 import { UploadProgressBar } from '../UploadProgressBar';
 
@@ -10,6 +8,8 @@ import { ButtonGroup } from './ButtonGroup';
 import { CreatedLgtmImage } from './CreatedLgtmImage';
 import { SuccessMessageArea } from './SuccessMessageArea';
 
+import type { AppUrl } from '../../../constants/url';
+import type { Language, LgtmImageUrl } from '../../../types';
 import type { FC } from 'react';
 
 export type Props = {
@@ -24,6 +24,7 @@ export type Props = {
   uploaded?: boolean;
   onClickCreatedLgtmImage?: () => void;
   onClickMarkdownSourceCopyButton?: () => void;
+  appUrl?: AppUrl;
 };
 
 const Wrapper = styled.div`
@@ -157,6 +158,7 @@ export const UploadModal: FC<Props> = ({
   createdLgtmImageUrl,
   onClickCreatedLgtmImage,
   onClickMarkdownSourceCopyButton,
+  appUrl,
 }) => {
   if (uploaded) {
     modalStyle.content.height = '705px';
@@ -180,6 +182,7 @@ export const UploadModal: FC<Props> = ({
                 imagePreviewUrl={imagePreviewUrl}
                 createdLgtmImageUrl={createdLgtmImageUrl}
                 callback={onClickCreatedLgtmImage}
+                appUrl={appUrl}
               />
             ) : (
               <PreviewImageWrapper>

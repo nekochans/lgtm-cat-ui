@@ -4,6 +4,7 @@ import { useState, useCallback, type FC, FormEvent, ChangeEvent } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { FaCloudUploadAlt } from 'react-icons/fa';
 
+import { AppUrl } from '../../../constants/url';
 import {
   isValidFileType,
   extractImageExtFromValidFileType,
@@ -96,6 +97,7 @@ export type Props = {
   uploadCallback?: () => void;
   onClickCreatedLgtmImage?: () => void;
   onClickMarkdownSourceCopyButton?: () => void;
+  appUrl?: AppUrl;
 };
 
 // eslint-disable-next-line max-lines-per-function, max-statements
@@ -106,6 +108,7 @@ export const UploadForm: FC<Props> = ({
   uploadCallback,
   onClickCreatedLgtmImage,
   onClickMarkdownSourceCopyButton,
+  appUrl,
 }) => {
   const [base64Image, setBase64Image] = useState<string>('');
   const [imagePreviewUrl, setImagePreviewUrl] = useState<string>('');
@@ -331,6 +334,7 @@ export const UploadForm: FC<Props> = ({
           createdLgtmImageUrl={createdLgtmImageUrl}
           onClickCreatedLgtmImage={onClickCreatedLgtmImage}
           onClickMarkdownSourceCopyButton={onClickMarkdownSourceCopyButton}
+          appUrl={appUrl}
         />
       ) : (
         ''

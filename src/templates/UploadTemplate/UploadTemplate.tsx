@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import { UploadForm } from '../../components';
+import { AppUrl } from '../../constants/url';
 import { useSwitchLanguage } from '../../hooks';
 import { ResponsiveLayout } from '../../layouts';
 import {
@@ -30,6 +31,7 @@ type Props = {
   uploadCallback?: () => void;
   onClickCreatedLgtmImage?: () => void;
   onClickMarkdownSourceCopyButton?: () => void;
+  appUrl?: AppUrl;
 };
 
 export const UploadTemplate: FC<Props> = ({
@@ -41,6 +43,7 @@ export const UploadTemplate: FC<Props> = ({
   uploadCallback,
   onClickCreatedLgtmImage,
   onClickMarkdownSourceCopyButton,
+  appUrl,
 }) => {
   const {
     isLanguageMenuDisplayed,
@@ -67,6 +70,7 @@ export const UploadTemplate: FC<Props> = ({
           uploadCallback={uploadCallback}
           onClickCreatedLgtmImage={onClickCreatedLgtmImage}
           onClickMarkdownSourceCopyButton={onClickMarkdownSourceCopyButton}
+          appUrl={appUrl}
         />
         <ImageWrapper>{catImage}</ImageWrapper>
       </ResponsiveLayout>
