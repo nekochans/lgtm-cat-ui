@@ -55,6 +55,8 @@ const onClickMarkdownSourceCopyButton = () =>
   // eslint-disable-next-line no-console
   console.log('onClickMarkdownSourceCopyButton executed!');
 
+const appUrl = 'http://localhost:2222';
+
 export default {
   title: 'src/templates/UploadTemplate/UploadTemplate.tsx',
   component: UploadTemplate,
@@ -72,6 +74,7 @@ export const ViewInJapanese: Story = {
     uploadCallback,
     onClickCreatedLgtmImage,
     onClickMarkdownSourceCopyButton,
+    appUrl,
   },
 };
 
@@ -85,5 +88,6 @@ export const ViewInEnglish: Story = {
     uploadCallback,
     onClickCreatedLgtmImage,
     onClickMarkdownSourceCopyButton,
+    appUrl,
   },
 };
