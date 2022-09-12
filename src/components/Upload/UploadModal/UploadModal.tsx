@@ -203,6 +203,7 @@ export const UploadModal: FC<Props> = ({
               createdLgtmImageUrl={createdLgtmImageUrl}
               onClickClose={onClickClose}
               callback={onClickMarkdownSourceCopyButton}
+              appUrl={appUrl}
             />
           ) : (
             ''
