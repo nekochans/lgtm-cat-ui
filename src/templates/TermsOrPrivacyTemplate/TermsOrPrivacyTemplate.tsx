@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 import { LibraryBooks } from '../../components/Icon/LibraryBooks';
 import { MarkdownPageTitle } from '../../components/MarkdownPageTitle';
-import { createLinksFromLanguages as createPrivacyPolicyLinksFromLanguages } from '../../features/privacyPolicy';
-import { createLinksFromLanguages as createTermsOfUseLinksFromLanguages } from '../../features/termsOfUse';
+import { createPrivacyPolicyLinksFromLanguages } from '../../features/privacyPolicy';
+import { createTermsOfUseLinksFromLanguages } from '../../features/termsOfUse';
 import { ResponsiveLayout } from '../../layouts';
 import { Language } from '../../types';
 import assertNever from '../../utils/assertNever';

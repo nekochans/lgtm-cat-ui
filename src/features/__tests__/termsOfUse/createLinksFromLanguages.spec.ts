@@ -1,6 +1,6 @@
-import { createLinksFromLanguages } from '../../termsOfUse';
+import { createTermsOfUseLinksFromLanguages } from '../../termsOfUse';
 
-describe('src/features/termsOfUse.ts createLinksFromLanguages TestCase', () => {
+describe('src/features/termsOfUse.ts createTermsOfUseLinksFromLanguages TestCase', () => {
   it('should return an English link', () => {
     const language = 'en';
 
@@ -9,7 +9,9 @@ describe('src/features/termsOfUse.ts createLinksFromLanguages TestCase', () => {
       link: '/terms',
     };
 
-    expect(createLinksFromLanguages(language)).toStrictEqual(expected);
+    expect(createTermsOfUseLinksFromLanguages(language)).toStrictEqual(
+      expected,
+    );
   });
 
   it('should return a Japanese link', () => {
@@ -20,6 +22,8 @@ describe('src/features/termsOfUse.ts createLinksFromLanguages TestCase', () => {
       link: '/terms',
     };
 
-    expect(createLinksFromLanguages(language)).toStrictEqual(expected);
+    expect(createTermsOfUseLinksFromLanguages(language)).toStrictEqual(
+      expected,
+    );
   });
 });

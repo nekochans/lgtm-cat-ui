@@ -1,6 +1,6 @@
-import { createLinksFromLanguages } from '../../privacyPolicy';
+import { createPrivacyPolicyLinksFromLanguages } from '../../privacyPolicy';
 
-describe('src/features/privacyPolicy.ts createLinksFromLanguages TestCase', () => {
+describe('src/features/privacyPolicy.ts createPrivacyPolicyLinksFromLanguages TestCase', () => {
   it('should return an English link', () => {
     const language = 'en';
 
@@ -9,7 +9,9 @@ describe('src/features/privacyPolicy.ts createLinksFromLanguages TestCase', () =
       link: '/privacy',
     };
 
-    expect(createLinksFromLanguages(language)).toStrictEqual(expected);
+    expect(createPrivacyPolicyLinksFromLanguages(language)).toStrictEqual(
+      expected,
+    );
   });
 
   it('should return a Japanese link', () => {
@@ -20,6 +22,8 @@ describe('src/features/privacyPolicy.ts createLinksFromLanguages TestCase', () =
       link: '/privacy',
     };
 
-    expect(createLinksFromLanguages(language)).toStrictEqual(expected);
+    expect(createPrivacyPolicyLinksFromLanguages(language)).toStrictEqual(
+      expected,
+    );
   });
 });

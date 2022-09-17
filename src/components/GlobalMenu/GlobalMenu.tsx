@@ -2,8 +2,8 @@ import Link from 'next/link';
 import { FaTimes, FaCloudUploadAlt } from 'react-icons/fa';
 import styled from 'styled-components';
 
-import { createLinksFromLanguages as createPrivacyPolicyLinks } from './../../features/privacyPolicy';
-import { createLinksFromLanguages as createTermsOfUseLinks } from './../../features/termsOfUse';
+import { createPrivacyPolicyLinksFromLanguages } from './../../features/privacyPolicy';
+import { createTermsOfUseLinksFromLanguages } from './../../features/termsOfUse';
 
 import type { Language } from '../../types';
 import type { FC } from 'react';
@@ -101,9 +101,9 @@ export type Props = {
 
 // eslint-disable-next-line max-lines-per-function
 export const GlobalMenu: FC<Props> = ({ language, onClickCloseButton }) => {
-  const termsOfUseLinks = createTermsOfUseLinks(language);
+  const termsOfUseLinks = createTermsOfUseLinksFromLanguages(language);
 
-  const privacyPolicyLinks = createPrivacyPolicyLinks(language);
+  const privacyPolicyLinks = createPrivacyPolicyLinksFromLanguages(language);
 
   return (
     <Wrapper>

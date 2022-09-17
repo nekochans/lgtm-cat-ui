@@ -9,7 +9,7 @@ import {
   isValidFileType,
   extractImageExtFromValidFileType,
 } from '../../../features/lgtmImage';
-import { createLinksFromLanguages } from '../../../features/privacyPolicy';
+import { createPrivacyPolicyLinksFromLanguages } from '../../../features/privacyPolicy';
 import {
   AcceptedTypesImageExtension,
   ImageUploader,
@@ -62,7 +62,7 @@ const faCloudUploadAltStyle = {
 };
 
 export const createPrivacyPolicyArea = (language: Language): JSX.Element => {
-  const privacyLinkAttribute = createLinksFromLanguages(language);
+  const privacyLinkAttribute = createPrivacyPolicyLinksFromLanguages(language);
 
   switch (language) {
     case 'ja':
