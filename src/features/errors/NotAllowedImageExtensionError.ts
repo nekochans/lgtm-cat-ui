@@ -1,4 +1,4 @@
-export default class NotAllowedImageExtensionError extends Error {
+export class NotAllowedImageExtensionError extends Error {
   constructor(error?: string) {
     super(error);
     this.name = new.target.name;

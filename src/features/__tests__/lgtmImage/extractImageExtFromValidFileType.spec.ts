@@ -1,4 +1,4 @@
-import NotAllowedImageExtensionError from '../../errors/NotAllowedImageExtensionError';
+import { NotAllowedImageExtensionError } from '../../errors/NotAllowedImageExtensionError';
 import { extractImageExtFromValidFileType } from '../../lgtmImage';
 
 describe('src/features/lgtmImage.ts extractImageExtFromValidFileType TestCase', () => {
