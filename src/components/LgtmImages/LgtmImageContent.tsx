@@ -2,7 +2,7 @@ import Image from 'next/image';
 import styled from 'styled-components';
 
 import { AppUrl, defaultAppUrl } from '../../constants/url';
-import useClipboardMarkdown from '../../hooks/useClipboardMarkdown';
+import { useClipboardMarkdown } from '../../hooks/useClipboardMarkdown';
 import { useCopySuccess } from '../../hooks/useCopySuccess';
 import { LgtmImage } from '../../types/lgtmImage';
 

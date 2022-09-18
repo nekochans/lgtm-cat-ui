@@ -9,7 +9,7 @@ type Request = {
   appUrl: `http://${string}` | `https://${string}`;
 };
 
-const useClipboardMarkdown = ({
+export const useClipboardMarkdown = ({
   onCopySuccess,
   imageUrl,
   appUrl,
@@ -32,5 +32,3 @@ const useClipboardMarkdown = ({
 
   return { imageContextRef: ref };
 };
-
-export default useClipboardMarkdown;

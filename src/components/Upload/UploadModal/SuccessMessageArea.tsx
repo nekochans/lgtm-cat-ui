@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import { AppUrl, defaultAppUrl } from '../../../constants/url';
-import useClipboardMarkdown from '../../../hooks/useClipboardMarkdown';
+import { useClipboardMarkdown } from '../../../hooks/useClipboardMarkdown';
 import { useCopySuccess } from '../../../hooks/useCopySuccess';
 import { Language } from '../../../types/language';
 import { LgtmImageUrl } from '../../../types/lgtmImage';
