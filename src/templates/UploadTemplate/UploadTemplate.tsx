@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import { UploadForm } from '../../components';
-import { AppUrl } from '../../constants/url';
+import { AppUrl } from '../../constants';
 import { useSwitchLanguage } from '../../hooks';
 import { ResponsiveLayout } from '../../layouts';
 import {

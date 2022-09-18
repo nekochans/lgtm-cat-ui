@@ -5,7 +5,7 @@ import {
   commonStateSelector,
   updateIsLanguageMenuDisplayed,
   updateLanguage,
-} from '../stores/valtio/common';
+} from '../stores';
 
 import type { ChangeLanguageCallback, Language } from '../types';
 

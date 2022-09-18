@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { createSuccessResult } from '../../../features/result';
-import { AcceptedTypesImageExtension } from '../../../types/lgtmImage';
-import { sleep } from '../../../utils/sleep';
+import { createSuccessResult } from '../../../features';
+import { sleep } from '../../../utils';
 
 import { UploadForm } from '.';
 
+import type { AcceptedTypesImageExtension } from '../../../types';
 import type { ComponentStoryObj, Meta } from '@storybook/react';
 
 export default {

@@ -1,6 +1,6 @@
 import { MarkdownContents } from '../../components/MarkdownContents';
 import { useSwitchLanguage } from '../../hooks';
-import assertNever from '../../utils/assertNever';
+import { assertNever } from '../../utils';
 
 import { TermsOrPrivacyTemplate, type TemplateType } from '.';
 

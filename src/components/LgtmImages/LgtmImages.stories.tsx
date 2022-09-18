@@ -1,4 +1,4 @@
-import { LgtmImage } from '../../types/lgtmImage';
+import { LgtmImage } from '../../types';
 
 import { LgtmImages } from './';
 

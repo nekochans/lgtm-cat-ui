@@ -1,6 +1,6 @@
 import { proxy } from 'valtio';
 
-import type { Language } from '../../types/language';
+import type { Language } from '../../types';
 
 export type CommonState = {
   isLanguageMenuDisplayed: boolean;

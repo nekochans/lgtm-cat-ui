@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 
-import { AppUrl, defaultAppUrl } from '../../../constants/url';
-import useClipboardMarkdown from '../../../hooks/useClipboardMarkdown';
-import { useCopySuccess } from '../../../hooks/useCopySuccess';
+import { defaultAppUrl, type AppUrl } from '../../../constants';
+import { useClipboardMarkdown, useCopySuccess } from '../../../hooks';
 import { LgtmImageUrl } from '../../../types';
 import { CopiedGithubMarkdownMessage } from '../../LgtmImages/CopiedGithubMarkdownMessage';
 

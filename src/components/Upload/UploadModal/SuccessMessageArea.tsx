@@ -1,13 +1,11 @@
 import styled from 'styled-components';
 
-import { AppUrl, defaultAppUrl } from '../../../constants/url';
-import useClipboardMarkdown from '../../../hooks/useClipboardMarkdown';
-import { useCopySuccess } from '../../../hooks/useCopySuccess';
-import { Language } from '../../../types/language';
-import { LgtmImageUrl } from '../../../types/lgtmImage';
-import assertNever from '../../../utils/assertNever';
+import { defaultAppUrl, type AppUrl } from '../../../constants';
+import { useClipboardMarkdown, useCopySuccess } from '../../../hooks';
+import { assertNever } from '../../../utils';
 import { CopiedGithubMarkdownMessage } from '../../LgtmImages/CopiedGithubMarkdownMessage';
 
+import type { Language, LgtmImageUrl } from '../../../types';
 import type { FC } from 'react';
 
 const Wrapper = styled.div`

@@ -1,8 +1,8 @@
 import { FaSyncAlt } from 'react-icons/fa';
 import styled from 'styled-components';
 
-import { mixins } from '../../../styles/mixins';
-import assertNever from '../../../utils/assertNever';
+import { mixins } from '../../../styles';
+import { assertNever } from '../../../utils';
 
 import type { FC } from 'react';
 

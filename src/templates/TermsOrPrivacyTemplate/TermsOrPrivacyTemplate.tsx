@@ -1,13 +1,15 @@
 import styled from 'styled-components';
 
-import { LibraryBooks } from '../../components/Icon/LibraryBooks';
+import { LibraryBooks } from '../../components';
 import { MarkdownPageTitle } from '../../components/MarkdownPageTitle';
-import { createLinksFromLanguages as createPrivacyPolicyLinksFromLanguages } from '../../features/privacyPolicy';
-import { createLinksFromLanguages as createTermsOfUseLinksFromLanguages } from '../../features/termsOfUse';
+import {
+  createPrivacyPolicyLinksFromLanguages,
+  createTermsOfUseLinksFromLanguages,
+} from '../../features';
 import { ResponsiveLayout } from '../../layouts';
-import { Language } from '../../types';
-import assertNever from '../../utils/assertNever';
+import { assertNever } from '../../utils';
 
+import type { Language } from '../../types';
 import type { FC, MouseEventHandler, ReactNode } from 'react';
 
 export type TemplateType = 'terms' | 'privacy';

@@ -1,8 +1,10 @@
-import { Language } from '../types/language';
-import { LinkAttribute } from '../types/link';
-import assertNever from '../utils/assertNever';
+import { assertNever } from '../utils';
 
-export const createLinksFromLanguages = (language: Language): LinkAttribute => {
+import type { Language, LinkAttribute } from '../types';
+
+export const createTermsOfUseLinksFromLanguages = (
+  language: Language,
+): LinkAttribute => {
   const link = '/terms';
 
   switch (language) {

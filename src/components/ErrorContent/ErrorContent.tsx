@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
 import { errorType, type ErrorType } from '../../features';
-import { Language } from '../../types';
-import assertNever from '../../utils/assertNever';
+import { assertNever } from '../../utils';
 
 import { BackToTopButton } from './BackToTopButton';
 
+import type { Language } from '../../types';
 import type { FC, ReactNode } from 'react';
 
 const Wrapper = styled.div`

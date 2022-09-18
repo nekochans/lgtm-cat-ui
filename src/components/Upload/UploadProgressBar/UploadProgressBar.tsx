@@ -1,8 +1,9 @@
 import { useState, useEffect, type FC } from 'react';
 import styled from 'styled-components';
 
-import { Language } from '../../../types/language';
-import assertNever from '../../../utils/assertNever';
+import { assertNever } from '../../../utils';
+
+import type { Language } from '../../../types';
 
 const Wrapper = styled.div`
   flex: none;

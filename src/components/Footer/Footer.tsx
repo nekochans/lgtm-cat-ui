@@ -1,10 +1,12 @@
 import Link from 'next/link';
 import styled from 'styled-components';
 
-import { createLinksFromLanguages as createPrivacyLinksFromLanguages } from '../../features/privacyPolicy';
-import { createLinksFromLanguages as createTermsLinksFromLanguages } from '../../features/termsOfUse';
-import { Language } from '../../types';
+import {
+  createPrivacyPolicyLinksFromLanguages,
+  createTermsOfUseLinksFromLanguages,
+} from '../../features';
 
+import type { Language } from '../../types';
 import type { FC } from 'react';
 
 const StyledFooter = styled.div`
@@ -108,9 +110,9 @@ export type Props = {
 };
 
 export const Footer: FC<Props> = ({ language }) => {
-  const terms = createTermsLinksFromLanguages(language);
+  const terms = createTermsOfUseLinksFromLanguages(language);
 
-  const privacy = createPrivacyLinksFromLanguages(language);
+  const privacy = createPrivacyPolicyLinksFromLanguages(language);
 
   return (
     <StyledFooter>
