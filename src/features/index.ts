@@ -15,3 +15,9 @@ export { isValidFileType, extractImageExtFromValidFileType } from './lgtmImage';
 export { createPrivacyPolicyLinksFromLanguages } from './privacyPolicy';
 
 export { createTermsOfUseLinksFromLanguages } from './termsOfUse';
+
+export {
+  NewArrivalCatImagesFetcherError,
+  NotAllowedImageExtensionError,
+  RandomCatImagesFetcherError,
+} from './errors';
