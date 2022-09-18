@@ -1,6 +1,18 @@
 export { useSwitchLanguage } from './hooks';
+
 export * from './templates';
-export * from './types';
+
+export type {
+  Language,
+  ChangeLanguageCallback,
+  LgtmImageUrl,
+  LgtmImage,
+  AcceptedTypesImageExtension,
+  ImageValidator,
+  ImageUploader,
+  CatImagesFetcher,
+} from './types';
+
 export {
   createSuccessResult,
   createFailureResult,
