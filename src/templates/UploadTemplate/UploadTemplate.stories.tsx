@@ -2,13 +2,13 @@
 import Image from 'next/image';
 
 import { createSuccessResult } from '../../features';
-import { AcceptedTypesImageExtension } from '../../types';
-import { sleep } from '../../utils/sleep';
+import { sleep } from '../../utils';
 
 import cat from './images/cat.webp';
 
 import { UploadTemplate } from '.';
 
+import type { AcceptedTypesImageExtension } from '../../types';
 import type { ComponentStoryObj, Meta } from '@storybook/react';
 
 const CatImage = () => (

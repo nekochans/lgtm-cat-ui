@@ -1,10 +1,9 @@
 import styled from 'styled-components';
 
-import { AppUrl } from '../../constants/url';
-import { LgtmImage } from '../../types/lgtmImage';
-
 import { LgtmImageContent } from './LgtmImageContent';
 
+import type { AppUrl } from '../../constants';
+import type { LgtmImage } from '../../types';
 import type { FC } from 'react';
 
 const Wrapper = styled.div`

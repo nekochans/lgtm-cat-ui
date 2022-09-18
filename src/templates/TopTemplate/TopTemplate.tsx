@@ -2,18 +2,20 @@ import styled from 'styled-components';
 import { useSnapshot } from 'valtio';
 
 import { ErrorContent, LgtmImages } from '../../components';
-import { CatButtonGroup } from '../../components/Button/CatButtonGroup';
-import { AppUrl } from '../../constants/url';
-import { errorType } from '../../features';
-import { NewArrivalCatImagesFetcherError } from '../../features/errors/NewArrivalCatImagesFetcherError';
-import { RandomCatImagesFetcherError } from '../../features/errors/RandomCatImagesFetcherError';
+import { CatButtonGroup } from '../../components/Button';
+import { AppUrl } from '../../constants';
+import {
+  errorType,
+  NewArrivalCatImagesFetcherError,
+  RandomCatImagesFetcherError,
+} from '../../features';
 import { useSwitchLanguage } from '../../hooks';
 import { ResponsiveLayout } from '../../layouts';
 import {
   lgtmImageStateSelector,
   updateIsFailedFetchLgtmImages,
   updateLgtmImages,
-} from '../../stores/valtio/lgtmImage';
+} from '../../stores';
 
 import { AppDescriptionArea } from './AppDescriptionArea';
 

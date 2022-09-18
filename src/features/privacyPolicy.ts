@@ -1,6 +1,6 @@
-import { Language } from '../types/language';
-import { LinkAttribute } from '../types/link';
-import { assertNever } from '../utils/assertNever';
+import { assertNever } from '../utils';
+
+import type { Language, LinkAttribute } from '../types';
 
 export const createPrivacyPolicyLinksFromLanguages = (
   language: Language,

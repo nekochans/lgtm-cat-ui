@@ -1,10 +1,12 @@
 import Link from 'next/link';
 import styled from 'styled-components';
 
-import { createPrivacyPolicyLinksFromLanguages } from '../../features/privacyPolicy';
-import { createTermsOfUseLinksFromLanguages } from '../../features/termsOfUse';
-import { Language } from '../../types';
+import {
+  createPrivacyPolicyLinksFromLanguages,
+  createTermsOfUseLinksFromLanguages,
+} from '../../features';
 
+import type { Language } from '../../types';
 import type { FC } from 'react';
 
 const StyledFooter = styled.div`

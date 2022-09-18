@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components';
 
-import { Language } from '../../../types/language';
-import { assertNever } from '../../../utils/assertNever';
+import { assertNever } from '../../../utils';
 
+import type { Language } from '../../../types';
 import type { FC, FormEventHandler } from 'react';
 
 const buttonCss = css`

@@ -1,4 +1,4 @@
-import { SuccessResult } from '../features/result';
+import type { SuccessResult } from '../features';
 
 export type LgtmImageUrl = `https://${string}`;
 

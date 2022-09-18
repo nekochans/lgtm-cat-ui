@@ -1,6 +1,6 @@
-import { AcceptedTypesImageExtension } from '../types/lgtmImage';
+import { NotAllowedImageExtensionError } from './errors';
 
-import { NotAllowedImageExtensionError } from './errors/NotAllowedImageExtensionError';
+import type { AcceptedTypesImageExtension } from '../types';
 
 const acceptedTypes: string[] = ['image/png', 'image/jpg', 'image/jpeg'];
 

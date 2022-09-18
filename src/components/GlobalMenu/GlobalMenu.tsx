@@ -2,8 +2,10 @@ import Link from 'next/link';
 import { FaTimes, FaCloudUploadAlt } from 'react-icons/fa';
 import styled from 'styled-components';
 
-import { createPrivacyPolicyLinksFromLanguages } from './../../features/privacyPolicy';
-import { createTermsOfUseLinksFromLanguages } from './../../features/termsOfUse';
+import {
+  createPrivacyPolicyLinksFromLanguages,
+  createTermsOfUseLinksFromLanguages,
+} from '../../features';
 
 import type { Language } from '../../types';
 import type { FC } from 'react';

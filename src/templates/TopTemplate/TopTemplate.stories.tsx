@@ -1,10 +1,10 @@
 import Image from 'next/image';
 
 import internalServerError from '../../images/internal_server_error.webp';
-import { LgtmImage } from '../../types';
 
 import { TopTemplate } from './.';
 
+import type { LgtmImage } from '../../types';
 import type { ComponentStoryObj, Meta } from '@storybook/react';
 
 export default {

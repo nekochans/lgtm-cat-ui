@@ -1,4 +1,4 @@
-import { CatFetchButton } from './index';
+import { CatFetchButton } from '.';
 
 import type { ComponentStoryObj, Meta } from '@storybook/react';
 

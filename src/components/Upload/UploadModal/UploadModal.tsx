@@ -1,14 +1,14 @@
 import Modal from 'react-modal';
 import styled from 'styled-components';
 
-import { assertNever } from '../../../utils/assertNever';
+import { assertNever } from '../../../utils';
 import { UploadProgressBar } from '../UploadProgressBar';
 
 import { ButtonGroup } from './ButtonGroup';
 import { CreatedLgtmImage } from './CreatedLgtmImage';
 import { SuccessMessageArea } from './SuccessMessageArea';
 
-import type { AppUrl } from '../../../constants/url';
+import type { AppUrl } from '../../../constants';
 import type { Language, LgtmImageUrl } from '../../../types';
 import type { FC } from 'react';
 
