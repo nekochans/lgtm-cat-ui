@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import assertNever from '../../utils/assertNever';
+import { assertNever } from '../../utils/assertNever';
 
 import type { Language } from '../../types/language';
 import type { FC } from 'react';

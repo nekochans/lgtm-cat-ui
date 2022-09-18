@@ -1,5 +1,5 @@
 import { Language } from '../../../types/language';
-import assertNever from '../../../utils/assertNever';
+import { assertNever } from '../../../utils/assertNever';
 
 export const imageDropAreaText = (language: Language): string => {
   switch (language) {

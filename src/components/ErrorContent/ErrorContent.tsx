@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { errorType, type ErrorType } from '../../features';
 import { Language } from '../../types';
-import assertNever from '../../utils/assertNever';
+import { assertNever } from '../../utils/assertNever';
 
 import { BackToTopButton } from './BackToTopButton';
 

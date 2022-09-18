@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
 import { Language } from '../../../types/language';
-import assertNever from '../../../utils/assertNever';
+import { assertNever } from '../../../utils/assertNever';
 
 import type { FC, FormEventHandler } from 'react';
 

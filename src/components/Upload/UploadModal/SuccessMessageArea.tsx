@@ -5,7 +5,7 @@ import useClipboardMarkdown from '../../../hooks/useClipboardMarkdown';
 import { useCopySuccess } from '../../../hooks/useCopySuccess';
 import { Language } from '../../../types/language';
 import { LgtmImageUrl } from '../../../types/lgtmImage';
-import assertNever from '../../../utils/assertNever';
+import { assertNever } from '../../../utils/assertNever';
 import { CopiedGithubMarkdownMessage } from '../../LgtmImages/CopiedGithubMarkdownMessage';
 
 import type { FC } from 'react';

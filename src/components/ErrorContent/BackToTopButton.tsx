@@ -2,7 +2,7 @@ import Link from 'next/link';
 import styled from 'styled-components';
 
 import { Language } from '../../types';
-import assertNever from '../../utils/assertNever';
+import { assertNever } from '../../utils/assertNever';
 
 import type { FC } from 'react';
 

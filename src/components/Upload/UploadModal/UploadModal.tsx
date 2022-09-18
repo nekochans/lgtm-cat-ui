@@ -1,7 +1,7 @@
 import Modal from 'react-modal';
 import styled from 'styled-components';
 
-import assertNever from '../../../utils/assertNever';
+import { assertNever } from '../../../utils/assertNever';
 import { UploadProgressBar } from '../UploadProgressBar';
 
 import { ButtonGroup } from './ButtonGroup';

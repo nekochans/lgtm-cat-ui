@@ -17,7 +17,7 @@ import {
   LgtmImageUrl,
   Language,
 } from '../../../types';
-import assertNever from '../../../utils/assertNever';
+import { assertNever } from '../../../utils/assertNever';
 import { UploadButton } from '../UploadButton';
 import { UploadErrorMessageArea } from '../UploadErrorMessageArea';
 import { UploadModal } from '../UploadModal';

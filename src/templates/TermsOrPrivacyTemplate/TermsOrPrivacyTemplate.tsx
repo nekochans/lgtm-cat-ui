@@ -6,7 +6,7 @@ import { createPrivacyPolicyLinksFromLanguages } from '../../features/privacyPol
 import { createTermsOfUseLinksFromLanguages } from '../../features/termsOfUse';
 import { ResponsiveLayout } from '../../layouts';
 import { Language } from '../../types';
-import assertNever from '../../utils/assertNever';
+import { assertNever } from '../../utils/assertNever';
 
 import type { FC, MouseEventHandler, ReactNode } from 'react';
 
