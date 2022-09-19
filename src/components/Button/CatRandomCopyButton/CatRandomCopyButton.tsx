@@ -31,7 +31,7 @@ const faRandomStyle = {
   flexGrow: 0,
 };
 
-type Props = ComponentProps<'button'> & {
+export type Props = ComponentProps<'button'> & {
   imageUrl: LgtmImageUrl;
   callback?: () => void;
   appUrl?: AppUrl;

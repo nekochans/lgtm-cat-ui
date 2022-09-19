@@ -1,11 +1,7 @@
 import styled from 'styled-components';
 import { useSnapshot } from 'valtio';
 
-import {
-  CatRandomCopyButton,
-  ErrorContent,
-  LgtmImages,
-} from '../../components';
+import { ErrorContent, LgtmImages } from '../../components';
 import { CatButtonGroup } from '../../components/Button';
 import { AppUrl } from '../../constants';
 import {
@@ -22,6 +18,7 @@ import {
 } from '../../stores';
 
 import { AppDescriptionArea } from './AppDescriptionArea';
+import { CatRandomCopyButtonWrapper } from './CatRandomCopyButtonWrapper';
 
 import type {
   Language,
@@ -36,15 +33,6 @@ const Wrapper = styled.div`
   grid-template-rows: auto 1fr auto;
   grid-template-columns: 100%;
   gap: 32px;
-`;
-
-const CatRandomCopyButtonWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  gap: 20px;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
 `;
 
 type Props = {
@@ -132,6 +120,11 @@ export const TopTemplate: FC<Props> = ({
 
   const { isFailedFetchLgtmImages } = snap;
 
+  const { imageUrl } =
+    fetchedLgtmImagesList[
+      Math.floor(Math.random() * fetchedLgtmImagesList.length)
+    ];
+
   return (
     <div onClick={onClickOutSideMenu} aria-hidden="true">
       <ResponsiveLayout
@@ -143,17 +136,11 @@ export const TopTemplate: FC<Props> = ({
       >
         <Wrapper>
           <AppDescriptionArea language={selectedLanguage} />
-          <CatRandomCopyButtonWrapper>
-            <CatRandomCopyButton
-              appUrl={appUrl}
-              imageUrl={
-                fetchedLgtmImagesList[
-                  Math.floor(Math.random() * fetchedLgtmImagesList.length)
-                ].imageUrl
-              }
-              callback={catRandomCopyCallback}
-            />
-          </CatRandomCopyButtonWrapper>
+          <CatRandomCopyButtonWrapper
+            appUrl={appUrl}
+            imageUrl={imageUrl}
+            callback={catRandomCopyCallback}
+          />
           <CatButtonGroup
             onClickFetchRandomCatButton={onClickFetchRandomCatButton}
             onClickFetchNewArrivalCatButton={onClickFetchNewArrivalCatButton}
