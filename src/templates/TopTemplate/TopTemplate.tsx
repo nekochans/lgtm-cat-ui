@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 import { useSnapshot } from 'valtio';
 
-import { ErrorContent, LgtmImages } from '../../components';
+import {
+  CatRandomCopyButton,
+  ErrorContent,
+  LgtmImages,
+} from '../../components';
 import { CatButtonGroup } from '../../components/Button';
 import { AppUrl } from '../../constants';
 import {
@@ -34,6 +38,15 @@ const Wrapper = styled.div`
   gap: 32px;
 `;
 
+const CatRandomCopyButtonWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+`;
+
 type Props = {
   language: Language;
   lgtmImages: LgtmImage[];
@@ -44,6 +57,7 @@ type Props = {
   clipboardMarkdownCallback?: () => void;
   fetchRandomCatImagesCallback?: () => void;
   fetchNewArrivalCatImagesCallback?: () => void;
+  catRandomCopyCallback?: () => void;
   changeLanguageCallback?: ChangeLanguageCallback;
 };
 
@@ -58,6 +72,7 @@ export const TopTemplate: FC<Props> = ({
   clipboardMarkdownCallback,
   fetchRandomCatImagesCallback,
   fetchNewArrivalCatImagesCallback,
+  catRandomCopyCallback,
   changeLanguageCallback,
 }) => {
   const {
@@ -128,6 +143,17 @@ export const TopTemplate: FC<Props> = ({
       >
         <Wrapper>
           <AppDescriptionArea language={selectedLanguage} />
+          <CatRandomCopyButtonWrapper>
+            <CatRandomCopyButton
+              appUrl={appUrl}
+              imageUrl={
+                fetchedLgtmImagesList[
+                  Math.floor(Math.random() * fetchedLgtmImagesList.length)
+                ].imageUrl
+              }
+              callback={catRandomCopyCallback}
+            />
+          </CatRandomCopyButtonWrapper>
           <CatButtonGroup
             onClickFetchRandomCatButton={onClickFetchRandomCatButton}
             onClickFetchNewArrivalCatButton={onClickFetchNewArrivalCatButton}
