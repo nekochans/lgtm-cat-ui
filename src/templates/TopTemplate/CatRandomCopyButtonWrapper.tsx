@@ -8,8 +8,7 @@ import {
 import type { FC } from 'react';
 
 const Wrapper = styled.div`
-  display: flex;
-  flex-direction: row;
+  display: grid;
   gap: 20px;
   align-items: center;
   justify-content: center;
