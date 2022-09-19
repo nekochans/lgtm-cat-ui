@@ -56,7 +56,7 @@ export const CatRandomCopyButton: FC<Props> = ({
         <FaRandom style={faRandomStyle} />
         <Text>Cats Random Copied</Text>
       </StyledButton>
-      {copied ? <CopiedGithubMarkdownMessage /> : ''}
+      {copied ? <CopiedGithubMarkdownMessage position="upper" /> : ''}
     </>
   );
 };
