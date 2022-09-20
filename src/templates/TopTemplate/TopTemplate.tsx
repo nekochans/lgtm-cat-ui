@@ -18,6 +18,7 @@ import {
 } from '../../stores';
 
 import { AppDescriptionArea } from './AppDescriptionArea';
+import { CatRandomCopyButtonWrapper } from './CatRandomCopyButtonWrapper';
 
 import type {
   Language,
@@ -44,6 +45,7 @@ type Props = {
   clipboardMarkdownCallback?: () => void;
   fetchRandomCatImagesCallback?: () => void;
   fetchNewArrivalCatImagesCallback?: () => void;
+  catRandomCopyCallback?: () => void;
   changeLanguageCallback?: ChangeLanguageCallback;
 };
 
@@ -58,6 +60,7 @@ export const TopTemplate: FC<Props> = ({
   clipboardMarkdownCallback,
   fetchRandomCatImagesCallback,
   fetchNewArrivalCatImagesCallback,
+  catRandomCopyCallback,
   changeLanguageCallback,
 }) => {
   const {
@@ -117,6 +120,11 @@ export const TopTemplate: FC<Props> = ({
 
   const { isFailedFetchLgtmImages } = snap;
 
+  const { imageUrl } =
+    fetchedLgtmImagesList[
+      Math.floor(Math.random() * fetchedLgtmImagesList.length)
+    ];
+
   return (
     <div onClick={onClickOutSideMenu} aria-hidden="true">
       <ResponsiveLayout
@@ -128,6 +136,11 @@ export const TopTemplate: FC<Props> = ({
       >
         <Wrapper>
           <AppDescriptionArea language={selectedLanguage} />
+          <CatRandomCopyButtonWrapper
+            appUrl={appUrl}
+            imageUrl={imageUrl}
+            callback={catRandomCopyCallback}
+          />
           <CatButtonGroup
             onClickFetchRandomCatButton={onClickFetchRandomCatButton}
             onClickFetchNewArrivalCatButton={onClickFetchNewArrivalCatButton}

@@ -182,6 +182,10 @@ const fetchNewArrivalCatImagesCallback = () =>
   // eslint-disable-next-line no-console
   console.log('fetchNewArrivalCatImagesCallback executed!');
 
+const catRandomCopyCallback = () =>
+  // eslint-disable-next-line no-console
+  console.log('catRandomCopyCallback executed!');
+
 const changeLanguageCallback = () =>
   // eslint-disable-next-line no-console
   console.log('changeLanguageCallback executed!');
@@ -217,6 +221,7 @@ export const ViewInJapanese: Story = {
     clipboardMarkdownCallback,
     fetchRandomCatImagesCallback,
     fetchNewArrivalCatImagesCallback,
+    catRandomCopyCallback,
     changeLanguageCallback,
   },
 };
@@ -232,6 +237,7 @@ export const ViewInEnglish: Story = {
     clipboardMarkdownCallback,
     fetchRandomCatImagesCallback,
     fetchNewArrivalCatImagesCallback,
+    catRandomCopyCallback,
     changeLanguageCallback,
   },
 };
@@ -247,6 +253,7 @@ export const ViewInJapaneseError: Story = {
     clipboardMarkdownCallback,
     fetchRandomCatImagesCallback,
     fetchNewArrivalCatImagesCallback,
+    catRandomCopyCallback,
     changeLanguageCallback,
   },
 };
@@ -262,6 +269,7 @@ export const ViewInEnglishError: Story = {
     clipboardMarkdownCallback,
     fetchRandomCatImagesCallback,
     fetchNewArrivalCatImagesCallback,
+    catRandomCopyCallback,
     changeLanguageCallback,
   },
 };
