@@ -154,10 +154,10 @@ jest.config.js
 __mocks__/
 
 # ESLint
-.eslintrc.js
+.eslintrc.json
 .eslintignore
 tsconfig.eslint.json
 
 # Prettier
-.prettierrc
+.prettierrc.json
 .prettierignore
