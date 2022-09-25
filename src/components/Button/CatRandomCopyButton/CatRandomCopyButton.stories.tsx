@@ -1,10 +1,9 @@
-import type { ComponentStoryObj, Meta } from '@storybook/react';
+import type { ComponentStoryObj } from '@storybook/react';
 import { CatRandomCopyButton } from '.';
 
 export default {
-  title: 'src/components/Button/CatRandomCopyButton/CatRandomCopyButton.tsx',
   component: CatRandomCopyButton,
-} as Meta<typeof CatRandomCopyButton>;
+};
 
 type Story = ComponentStoryObj<typeof CatRandomCopyButton>;
 

@@ -1,10 +1,9 @@
-import type { ComponentStoryObj, Meta } from '@storybook/react';
+import type { ComponentStoryObj } from '@storybook/react';
 import { LibraryBooks } from './';
 
 export default {
-  title: 'src/components/Icon/LibraryBooks/LibraryBooks.tsx',
   component: LibraryBooks,
-} as Meta<typeof LibraryBooks>;
+};
 
 type Story = ComponentStoryObj<typeof LibraryBooks>;
 

@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import type { ComponentStoryObj, Meta } from '@storybook/react';
+import type { ComponentStoryObj } from '@storybook/react';
 import Image from 'next/image';
 
 import { createSuccessResult } from '../../features';
@@ -57,9 +57,8 @@ const onClickMarkdownSourceCopyButton = () =>
 const appUrl = 'http://localhost:2222';
 
 export default {
-  title: 'src/templates/UploadTemplate/UploadTemplate.tsx',
   component: UploadTemplate,
-} as Meta<typeof UploadTemplate>;
+};
 
 type Story = ComponentStoryObj<typeof UploadTemplate>;
 

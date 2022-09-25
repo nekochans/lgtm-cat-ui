@@ -1,12 +1,11 @@
-import type { ComponentStoryObj, Meta } from '@storybook/react';
+import type { ComponentStoryObj } from '@storybook/react';
 import { LgtmImage } from '../../types';
 
 import { LgtmImages } from './';
 
 export default {
-  title: 'src/components/LgtmImages/LgtmImages.tsx',
   component: LgtmImages,
-} as Meta<typeof LgtmImages>;
+};
 
 type Story = ComponentStoryObj<typeof LgtmImages>;
 

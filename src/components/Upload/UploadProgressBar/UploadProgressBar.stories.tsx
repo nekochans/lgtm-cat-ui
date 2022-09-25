@@ -1,10 +1,9 @@
-import type { ComponentStoryObj, Meta } from '@storybook/react';
+import type { ComponentStoryObj } from '@storybook/react';
 import { UploadProgressBar } from '.';
 
 export default {
-  title: 'src/components/Upload/UploadProgressBar/UploadProgressBar.tsx',
   component: UploadProgressBar,
-} as Meta<typeof UploadProgressBar>;
+};
 
 type Story = ComponentStoryObj<typeof UploadProgressBar>;
 

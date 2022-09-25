@@ -1,10 +1,9 @@
-import type { ComponentStoryObj, Meta } from '@storybook/react';
+import type { ComponentStoryObj } from '@storybook/react';
 import { Footer } from './';
 
 export default {
-  title: 'src/components/Footer/Footer.tsx',
   component: Footer,
-} as Meta<typeof Footer>;
+};
 
 type Story = ComponentStoryObj<typeof Footer>;
 

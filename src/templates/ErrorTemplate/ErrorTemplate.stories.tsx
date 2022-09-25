@@ -1,4 +1,4 @@
-import type { ComponentStoryObj, Meta } from '@storybook/react';
+import type { ComponentStoryObj } from '@storybook/react';
 import Image from 'next/image';
 
 import internalServerError from '../../images/internal_server_error.webp';
@@ -8,9 +8,8 @@ import serviceUnavailable from '../../images/service_unavailable.webp';
 import { ErrorTemplate } from './';
 
 export default {
-  title: 'src/templates/ErrorTemplate/ErrorTemplate.tsx',
   component: ErrorTemplate,
-} as Meta<typeof ErrorTemplate>;
+};
 
 type Story = ComponentStoryObj<typeof ErrorTemplate>;
 

@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import type { ComponentStoryObj, Meta } from '@storybook/react';
+import type { ComponentStoryObj } from '@storybook/react';
 import { createSuccessResult } from '../../../features';
 import type { AcceptedTypesImageExtension } from '../../../types';
 import { sleep } from '../../../utils';
@@ -7,9 +7,8 @@ import { sleep } from '../../../utils';
 import { UploadForm } from '.';
 
 export default {
-  title: 'src/components/Upload/UploadForm/UploadForm.tsx',
   component: UploadForm,
-} as Meta<typeof UploadForm>;
+};
 
 type Story = ComponentStoryObj<typeof UploadForm>;
 

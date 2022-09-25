@@ -1,4 +1,4 @@
-import type { ComponentStoryObj, Meta } from '@storybook/react';
+import type { ComponentStoryObj } from '@storybook/react';
 import Image from 'next/image';
 
 import internalServerError from '../../images/internal_server_error.webp';
@@ -7,9 +7,8 @@ import type { LgtmImage } from '../../types';
 import { TopTemplate } from './.';
 
 export default {
-  title: 'src/templates/TopTemplate/TopTemplate.tsx',
   component: TopTemplate,
-} as Meta<typeof TopTemplate>;
+};
 
 type Story = ComponentStoryObj<typeof TopTemplate>;
 
