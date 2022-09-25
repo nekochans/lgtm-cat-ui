@@ -27,8 +27,8 @@ describe('src/features/lgtmImage.ts extractImageExtFromValidFileType TestCase', 
         // eslint-disable-next-line jest/no-conditional-expect
         expect(error).toStrictEqual(
           new NotAllowedImageExtensionError(
-            `${arg} is not an allowed image extension`,
-          ),
+            `${arg} is not an allowed image extension`
+          )
         );
       }
     }

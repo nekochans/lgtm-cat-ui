@@ -1,6 +1,5 @@
-import { UploadTitleArea } from './index';
-
 import type { ComponentStoryObj, Meta } from '@storybook/react';
+import { UploadTitleArea } from './index';
 
 export default {
   title: 'src/components/Upload/UploadTitleArea/UploadTitleArea.tsx',

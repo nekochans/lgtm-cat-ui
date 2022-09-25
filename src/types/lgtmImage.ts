@@ -8,7 +8,7 @@ export type AcceptedTypesImageExtension = '.png' | '.jpg' | '.jpeg';
 
 export type ImageValidator = (
   image: string,
-  imageExtension: AcceptedTypesImageExtension,
+  imageExtension: AcceptedTypesImageExtension
 ) => Promise<
   SuccessResult<{
     isAcceptableCatImage: boolean;
@@ -18,7 +18,7 @@ export type ImageValidator = (
 
 export type ImageUploader = (
   image: string,
-  imageExtension: AcceptedTypesImageExtension,
+  imageExtension: AcceptedTypesImageExtension
 ) => Promise<
   SuccessResult<{
     displayErrorMessages: string[];

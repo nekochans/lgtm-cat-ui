@@ -10,7 +10,7 @@ describe('src/features/privacyPolicy.ts createPrivacyPolicyLinksFromLanguages Te
     };
 
     expect(createPrivacyPolicyLinksFromLanguages(language)).toStrictEqual(
-      expected,
+      expected
     );
   });
 
@@ -23,7 +23,7 @@ describe('src/features/privacyPolicy.ts createPrivacyPolicyLinksFromLanguages Te
     };
 
     expect(createPrivacyPolicyLinksFromLanguages(language)).toStrictEqual(
-      expected,
+      expected
     );
   });
 });

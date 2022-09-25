@@ -1,10 +1,9 @@
+import type { FC } from 'react';
 import styled from 'styled-components';
-
-import { LgtmImageContent } from './LgtmImageContent';
 
 import type { AppUrl } from '../../constants';
 import type { LgtmImage } from '../../types';
-import type { FC } from 'react';
+import { LgtmImageContent } from './LgtmImageContent';
 
 const Wrapper = styled.div`
   @media (max-width: 767px) {

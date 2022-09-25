@@ -1,12 +1,11 @@
+import type { FC } from 'react';
 import styled from 'styled-components';
 
 import { defaultAppUrl, type AppUrl } from '../../../constants';
 import { useClipboardMarkdown, useCopySuccess } from '../../../hooks';
+import type { Language, LgtmImageUrl } from '../../../types';
 import { assertNever } from '../../../utils';
 import { CopiedGithubMarkdownMessage } from '../../LgtmImages/CopiedGithubMarkdownMessage';
-
-import type { Language, LgtmImageUrl } from '../../../types';
-import type { FC } from 'react';
 
 const Wrapper = styled.div`
   display: flex;
@@ -210,11 +209,11 @@ const mainMessageText = (language: Language): string => {
   switch (language) {
     case 'ja':
       return `LGTM画像を作成しているので少々お待ち下さい。「${markdownSourceCopyButtonText(
-        language,
+        language
       )}」ボタンか上の画像をクリックするとMarkdownソースがコピーされます。`;
     case 'en':
       return `Please wait a moment while we create the LGTM image. Click on the "${markdownSourceCopyButtonText(
-        language,
+        language
       )}" button or the image above to copy the Markdown source.`;
     default:
       return assertNever(language);

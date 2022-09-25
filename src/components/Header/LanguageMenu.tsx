@@ -1,9 +1,8 @@
+import type { FC, MouseEvent } from 'react';
 import { FaAngleRight } from 'react-icons/fa';
 import styled, { css } from 'styled-components';
 
 import { Language } from '../../types';
-
-import type { FC, MouseEvent } from 'react';
 
 const textWrapperStyle = css`
   display: flex;

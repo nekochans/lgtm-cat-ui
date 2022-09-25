@@ -1,14 +1,22 @@
 /* eslint-disable max-lines */
-import Link from 'next/link';
 import { useState, useCallback, type FC, FormEvent, ChangeEvent } from 'react';
+import Link from 'next/link';
 import { useDropzone } from 'react-dropzone';
 import { FaCloudUploadAlt } from 'react-icons/fa';
 
+import type { AppUrl } from '../../../constants';
 import {
   isValidFileType,
   extractImageExtFromValidFileType,
   createPrivacyPolicyLinksFromLanguages,
 } from '../../../features';
+import type {
+  AcceptedTypesImageExtension,
+  ImageUploader,
+  ImageValidator,
+  LgtmImageUrl,
+  Language,
+} from '../../../types';
 import { assertNever } from '../../../utils';
 import { UploadButton } from '../UploadButton';
 import { UploadErrorMessageArea } from '../UploadErrorMessageArea';
@@ -39,15 +47,6 @@ import {
   unexpectedErrorMessage,
   uploadInputButtonText,
 } from './i18n';
-
-import type { AppUrl } from '../../../constants';
-import type {
-  AcceptedTypesImageExtension,
-  ImageUploader,
-  ImageValidator,
-  LgtmImageUrl,
-  Language,
-} from '../../../types';
 
 const faCloudUploadAltStyle = {
   fontStyle: 'normal',
@@ -122,7 +121,7 @@ export const UploadForm: FC<Props> = ({
     LgtmImageUrl | string
   >('');
   const [displayErrorMessages, setDisplayErrorMessages] = useState<string[]>(
-    [],
+    []
   );
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -163,7 +162,7 @@ export const UploadForm: FC<Props> = ({
     const fileType = file.type;
     if (!isValidFileType(fileType)) {
       setDisplayErrorMessages(
-        createNotAllowedImageExtensionErrorMessage(fileType, language),
+        createNotAllowedImageExtensionErrorMessage(fileType, language)
       );
       stateInitAtError();
 
@@ -215,7 +214,7 @@ export const UploadForm: FC<Props> = ({
     try {
       const imageValidationResult = await imageValidator(
         base64Image,
-        uploadImageExtension as AcceptedTypesImageExtension,
+        uploadImageExtension as AcceptedTypesImageExtension
       );
 
       if (
@@ -224,7 +223,7 @@ export const UploadForm: FC<Props> = ({
         imageValidationResult.value.notAcceptableReason.length !== 0
       ) {
         setDisplayErrorMessages(
-          imageValidationResult.value.notAcceptableReason,
+          imageValidationResult.value.notAcceptableReason
         );
         stateInitAtError();
 
@@ -233,7 +232,7 @@ export const UploadForm: FC<Props> = ({
 
       const imageUploadResult = await imageUploader(
         base64Image,
-        uploadImageExtension as AcceptedTypesImageExtension,
+        uploadImageExtension as AcceptedTypesImageExtension
       );
 
       setIsLoading(false);

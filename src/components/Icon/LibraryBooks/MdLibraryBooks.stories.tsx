@@ -1,6 +1,5 @@
-import { LibraryBooks } from './';
-
 import type { ComponentStoryObj, Meta } from '@storybook/react';
+import { LibraryBooks } from './';
 
 export default {
   title: 'src/components/Icon/LibraryBooks/LibraryBooks.tsx',

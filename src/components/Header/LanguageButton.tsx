@@ -1,7 +1,6 @@
+import type { FC, MouseEvent } from 'react';
 import { FaCaretDown } from 'react-icons/fa';
 import styled from 'styled-components';
-
-import type { FC, MouseEvent } from 'react';
 
 const Wrapper = styled.div`
   @media (max-width: 767px) {

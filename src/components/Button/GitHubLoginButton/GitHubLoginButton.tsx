@@ -1,9 +1,8 @@
+import type { FC } from 'react';
 import { FaGithub } from 'react-icons/fa';
 import styled from 'styled-components';
 
 import { mixins } from '../../../styles';
-
-import type { FC } from 'react';
 
 const StyledGitHubLoginButton = styled.button`
   background: #eb7c06;

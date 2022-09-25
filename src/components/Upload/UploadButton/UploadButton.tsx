@@ -1,9 +1,8 @@
+import type { FC, FormEventHandler } from 'react';
 import styled, { css } from 'styled-components';
 
-import { assertNever } from '../../../utils';
-
 import type { Language } from '../../../types';
-import type { FC, FormEventHandler } from 'react';
+import { assertNever } from '../../../utils';
 
 const buttonCss = css`
   display: flex;
@@ -78,7 +77,7 @@ type Props = {
 };
 
 export const UploadButton: FC<Props> = ({ language, disabled, onClick }) => {
-  if (disabled === false) {
+  if (!disabled) {
     return (
       <Button type="submit" disabled={disabled} onClick={onClick}>
         <Text>{createText(language)}</Text>

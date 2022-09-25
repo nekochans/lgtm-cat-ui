@@ -1,6 +1,5 @@
-import { MarkdownPageTitle } from './';
-
 import type { ComponentStoryObj, Meta } from '@storybook/react';
+import { MarkdownPageTitle } from './';
 
 export default {
   title: 'src/components/MarkdownPageTitle/MarkdownPageTitle.tsx',

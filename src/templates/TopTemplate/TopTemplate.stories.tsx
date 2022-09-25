@@ -1,11 +1,10 @@
+import type { ComponentStoryObj, Meta } from '@storybook/react';
 import Image from 'next/image';
 
 import internalServerError from '../../images/internal_server_error.webp';
 
-import { TopTemplate } from './.';
-
 import type { LgtmImage } from '../../types';
-import type { ComponentStoryObj, Meta } from '@storybook/react';
+import { TopTemplate } from './.';
 
 export default {
   title: 'src/templates/TopTemplate/TopTemplate.tsx',

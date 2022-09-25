@@ -1,6 +1,5 @@
-import styled from 'styled-components';
-
 import type { FC } from 'react';
+import styled from 'styled-components';
 
 const StyledTitle = styled.h1`
   font-family: Roboto, sans-serif;

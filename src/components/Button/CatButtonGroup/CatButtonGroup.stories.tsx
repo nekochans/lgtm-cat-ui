@@ -1,6 +1,5 @@
-import { CatButtonGroup } from './';
-
 import type { ComponentStoryObj, Meta } from '@storybook/react';
+import { CatButtonGroup } from './';
 
 export default {
   title: 'src/components/Button/CatButtonGroup/CatButtonGroup.tsx',

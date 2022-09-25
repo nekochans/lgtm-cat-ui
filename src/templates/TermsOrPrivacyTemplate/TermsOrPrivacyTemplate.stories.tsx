@@ -1,12 +1,11 @@
+import type { FC } from 'react';
+import type { ComponentStoryObj, Meta } from '@storybook/react';
 import { MarkdownContents } from '../../components/MarkdownContents';
 import { useSwitchLanguage } from '../../hooks';
+import type { Language } from '../../types';
 import { assertNever } from '../../utils';
 
 import { TermsOrPrivacyTemplate, type TemplateType } from '.';
-
-import type { Language } from '../../types';
-import type { ComponentStoryObj, Meta } from '@storybook/react';
-import type { FC } from 'react';
 
 const privacyPolicyJa = `
 # プライバシーポリシー

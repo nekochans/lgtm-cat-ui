@@ -1,11 +1,10 @@
+import type { FC } from 'react';
 import styled from 'styled-components';
 
 import { defaultAppUrl, type AppUrl } from '../../../constants';
 import { useClipboardMarkdown, useCopySuccess } from '../../../hooks';
 import { LgtmImageUrl } from '../../../types';
 import { CopiedGithubMarkdownMessage } from '../../LgtmImages/CopiedGithubMarkdownMessage';
-
-import type { FC } from 'react';
 
 const Wrapper = styled.div`
   flex: none;

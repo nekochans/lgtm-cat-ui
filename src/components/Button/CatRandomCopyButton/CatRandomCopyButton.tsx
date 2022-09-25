@@ -1,14 +1,13 @@
+import type { FC, ComponentProps } from 'react';
 import { FaRandom } from 'react-icons/fa';
 import styled from 'styled-components';
 
 import { defaultAppUrl, type AppUrl } from '../../../constants';
 import { useClipboardMarkdown, useCopySuccess } from '../../../hooks';
 import { mixins } from '../../../styles';
+import type { LgtmImageUrl } from '../../../types';
 import { CopiedGithubMarkdownMessage } from '../../LgtmImages/CopiedGithubMarkdownMessage';
 import slash from '../images/slash.png';
-
-import type { LgtmImageUrl } from '../../../types';
-import type { FC, ComponentProps } from 'react';
 
 const StyledButton = styled.button`
   ${mixins.buttonBase};

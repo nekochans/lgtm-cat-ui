@@ -1,6 +1,5 @@
-import { assertNever } from '../../../utils';
-
 import type { Language } from '../../../types';
+import { assertNever } from '../../../utils';
 
 export const imageDropAreaText = (language: Language): string => {
   switch (language) {
@@ -58,7 +57,7 @@ export const noteList = (language: Language): string[] => {
 
 export const createNotAllowedImageExtensionErrorMessage = (
   fileType: string,
-  language: Language,
+  language: Language
 ): string[] => {
   switch (language) {
     case 'ja':

@@ -1,7 +1,6 @@
-import { ResponsiveLayout } from './';
-
-import type { ComponentStoryObj, Meta } from '@storybook/react';
 import type { FC } from 'react';
+import type { ComponentStoryObj, Meta } from '@storybook/react';
+import { ResponsiveLayout } from './';
 
 export default {
   title: 'src/layouts/ResponsiveLayout/ResponsiveLayout.tsx',

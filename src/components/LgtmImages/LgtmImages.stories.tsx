@@ -1,8 +1,7 @@
+import type { ComponentStoryObj, Meta } from '@storybook/react';
 import { LgtmImage } from '../../types';
 
 import { LgtmImages } from './';
-
-import type { ComponentStoryObj, Meta } from '@storybook/react';
 
 export default {
   title: 'src/components/LgtmImages/LgtmImages.tsx',

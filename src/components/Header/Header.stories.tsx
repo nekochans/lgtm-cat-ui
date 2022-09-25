@@ -1,6 +1,5 @@
-import { Header } from './';
-
 import type { ComponentStoryObj, Meta } from '@storybook/react';
+import { Header } from './';
 
 export default {
   title: 'src/components/Header/Header.tsx',

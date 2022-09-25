@@ -1,6 +1,5 @@
-import { UploadCatButton } from './index';
-
 import type { ComponentStoryObj, Meta } from '@storybook/react';
+import { UploadCatButton } from './index';
 
 export default {
   title: 'src/components/Button/UploadCatButton/UploadCatButton.tsx',

@@ -1,6 +1,5 @@
-import { GlobalMenu } from './';
-
 import type { ComponentStoryObj, Meta } from '@storybook/react';
+import { GlobalMenu } from './';
 
 export default {
   title: 'src/components/GlobalMenu/GlobalMenu.tsx',

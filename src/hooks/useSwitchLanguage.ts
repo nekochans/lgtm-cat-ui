@@ -15,7 +15,7 @@ const languageJa = 'ja';
 
 export const useSwitchLanguage = (
   language: Language,
-  changeLanguageCallback?: ChangeLanguageCallback,
+  changeLanguageCallback?: ChangeLanguageCallback
 ) => {
   const snap = useSnapshot(commonStateSelector());
 

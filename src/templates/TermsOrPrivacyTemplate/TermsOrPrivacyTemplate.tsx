@@ -1,3 +1,4 @@
+import type { FC, MouseEventHandler, ReactNode } from 'react';
 import styled from 'styled-components';
 
 import { LibraryBooks } from '../../components';
@@ -7,10 +8,8 @@ import {
   createTermsOfUseLinksFromLanguages,
 } from '../../features';
 import { ResponsiveLayout } from '../../layouts';
-import { assertNever } from '../../utils';
-
 import type { Language } from '../../types';
-import type { FC, MouseEventHandler, ReactNode } from 'react';
+import { assertNever } from '../../utils';
 
 export type TemplateType = 'terms' | 'privacy';
 

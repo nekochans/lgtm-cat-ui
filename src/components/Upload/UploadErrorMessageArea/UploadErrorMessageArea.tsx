@@ -1,7 +1,6 @@
+import type { FC } from 'react';
 import { FaExclamationTriangle } from 'react-icons/fa';
 import styled from 'styled-components';
-
-import type { FC } from 'react';
 
 type Props = {
   messages: string[];

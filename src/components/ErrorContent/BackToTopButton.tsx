@@ -1,10 +1,9 @@
+import type { FC } from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
 
-import { assertNever } from '../../utils';
-
 import type { Language } from '../../types';
-import type { FC } from 'react';
+import { assertNever } from '../../utils';
 
 const StyledSpan = styled.span`
   display: flex;

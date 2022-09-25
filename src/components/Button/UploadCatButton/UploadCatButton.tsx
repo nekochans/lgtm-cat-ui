@@ -1,12 +1,11 @@
+import type { FC } from 'react';
 import Link from 'next/link';
 import { FaCloudUploadAlt } from 'react-icons/fa';
 import styled from 'styled-components';
 
 import { mixins } from '../../../styles';
-import slash from '../images/slash.png';
-
 import type { CustomDataAttrGtmClick } from '../../../types';
-import type { FC } from 'react';
+import slash from '../images/slash.png';
 
 const StyledSpan = styled.span`
   background: #eb7c06 url(${slash.src}) repeat 0 0/16px auto;

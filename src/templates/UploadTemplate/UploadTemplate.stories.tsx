@@ -1,15 +1,14 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import type { ComponentStoryObj, Meta } from '@storybook/react';
 import Image from 'next/image';
 
 import { createSuccessResult } from '../../features';
+import type { AcceptedTypesImageExtension } from '../../types';
 import { sleep } from '../../utils';
 
 import cat from './images/cat.webp';
 
 import { UploadTemplate } from '.';
-
-import type { AcceptedTypesImageExtension } from '../../types';
-import type { ComponentStoryObj, Meta } from '@storybook/react';
 
 const CatImage = () => (
   <Image src={cat.src} width="302px" height="302px" alt="Cat" priority={true} />
@@ -17,7 +16,7 @@ const CatImage = () => (
 
 const imageValidator = async (
   image: string,
-  imageExtension: AcceptedTypesImageExtension,
+  imageExtension: AcceptedTypesImageExtension
 ) => {
   await sleep();
 
@@ -29,7 +28,7 @@ const imageValidator = async (
 
 const imageUploader = async (
   image: string,
-  imageExtension: AcceptedTypesImageExtension,
+  imageExtension: AcceptedTypesImageExtension
 ) => {
   await sleep();
 

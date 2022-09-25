@@ -1,3 +1,4 @@
+import type { FC } from 'react';
 import Link from 'next/link';
 import { FaTimes, FaCloudUploadAlt } from 'react-icons/fa';
 import styled from 'styled-components';
@@ -8,7 +9,6 @@ import {
 } from '../../features';
 
 import type { Language } from '../../types';
-import type { FC } from 'react';
 
 const Wrapper = styled.div`
   position: relative;

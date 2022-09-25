@@ -1,6 +1,5 @@
-import { Footer } from './';
-
 import type { ComponentStoryObj, Meta } from '@storybook/react';
+import { Footer } from './';
 
 export default {
   title: 'src/components/Footer/Footer.tsx',

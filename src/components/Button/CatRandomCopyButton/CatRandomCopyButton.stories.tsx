@@ -1,6 +1,5 @@
-import { CatRandomCopyButton } from '.';
-
 import type { ComponentStoryObj, Meta } from '@storybook/react';
+import { CatRandomCopyButton } from '.';
 
 export default {
   title: 'src/components/Button/CatRandomCopyButton/CatRandomCopyButton.tsx',

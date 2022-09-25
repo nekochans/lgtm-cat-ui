@@ -1,6 +1,5 @@
-import { UploadProgressBar } from '.';
-
 import type { ComponentStoryObj, Meta } from '@storybook/react';
+import { UploadProgressBar } from '.';
 
 export default {
   title: 'src/components/Upload/UploadProgressBar/UploadProgressBar.tsx',

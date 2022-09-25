@@ -1,6 +1,5 @@
-import { UploadModal } from './';
-
 import type { ComponentStoryObj, Meta } from '@storybook/react';
+import { UploadModal } from './';
 
 export default {
   title: 'src/components/Upload/UploadModal/UploadModal.tsx',

@@ -1,11 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import type { ComponentStoryObj, Meta } from '@storybook/react';
 import { createSuccessResult } from '../../../features';
+import type { AcceptedTypesImageExtension } from '../../../types';
 import { sleep } from '../../../utils';
 
 import { UploadForm } from '.';
-
-import type { AcceptedTypesImageExtension } from '../../../types';
-import type { ComponentStoryObj, Meta } from '@storybook/react';
 
 export default {
   title: 'src/components/Upload/UploadForm/UploadForm.tsx',
@@ -16,7 +15,7 @@ type Story = ComponentStoryObj<typeof UploadForm>;
 
 const imageValidator = async (
   image: string,
-  imageExtension: AcceptedTypesImageExtension,
+  imageExtension: AcceptedTypesImageExtension
 ) => {
   await sleep();
 
@@ -28,7 +27,7 @@ const imageValidator = async (
 
 const returnFalseImageValidator = async (
   image: string,
-  imageExtension: AcceptedTypesImageExtension,
+  imageExtension: AcceptedTypesImageExtension
 ) => {
   await sleep();
 
@@ -42,7 +41,7 @@ const returnFalseImageValidator = async (
 
 const throwErrorImageValidator = async (
   image: string,
-  imageExtension: AcceptedTypesImageExtension,
+  imageExtension: AcceptedTypesImageExtension
 ) => {
   await sleep();
 
@@ -51,7 +50,7 @@ const throwErrorImageValidator = async (
 
 const imageUploader = async (
   image: string,
-  imageExtension: AcceptedTypesImageExtension,
+  imageExtension: AcceptedTypesImageExtension
 ) => {
   await sleep();
 
@@ -64,7 +63,7 @@ const imageUploader = async (
 
 const imageUploaderWithErrors = async (
   image: string,
-  imageExtension: AcceptedTypesImageExtension,
+  imageExtension: AcceptedTypesImageExtension
 ) => {
   await sleep();
 
@@ -77,7 +76,7 @@ const imageUploaderWithErrors = async (
 
 const throwErrorImageUploader = async (
   image: string,
-  imageExtension: AcceptedTypesImageExtension,
+  imageExtension: AcceptedTypesImageExtension
 ) => {
   await sleep();
 
