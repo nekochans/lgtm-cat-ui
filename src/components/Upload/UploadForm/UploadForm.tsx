@@ -236,6 +236,8 @@ export const UploadForm: FC<Props> = ({
       );
 
       setIsLoading(false);
+      // setCreatedLgtmImageUrlで空文字を指定しているのでtruthyな値での判定を許可する
+      // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
       if (imageUploadResult.value.createdLgtmImageUrl) {
         setUploaded(true);
         setDisplayErrorMessages([]);
