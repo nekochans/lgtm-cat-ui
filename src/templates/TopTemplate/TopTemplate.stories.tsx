@@ -4,6 +4,7 @@ import Image from 'next/image';
 import internalServerError from '../../images/internal_server_error.webp';
 
 import type { LgtmImage } from '../../types';
+import { CatImagesFetcher } from '../../types';
 import { TopTemplate } from './.';
 
 export default {
@@ -60,8 +61,8 @@ const lgtmImages: LgtmImage[] = [
   } as const,
 ];
 
-// eslint-disable-next-line max-lines-per-function, require-await
-const randomCatImagesFetcher = async () => {
+// eslint-disable-next-line max-lines-per-function, @typescript-eslint/require-await
+const randomCatImagesFetcher: CatImagesFetcher = async () => {
   const lgtmImagesList: LgtmImage[] = [
     {
       id: 11,
@@ -113,8 +114,8 @@ const randomCatImagesFetcher = async () => {
   return lgtmImagesList;
 };
 
-// eslint-disable-next-line max-lines-per-function, require-await
-const newArrivalCatImagesFetcher = async () => {
+// eslint-disable-next-line max-lines-per-function, @typescript-eslint/require-await
+const newArrivalCatImagesFetcher: CatImagesFetcher = async () => {
   const lgtmImagesList: LgtmImage[] = [
     {
       id: 21,
@@ -168,33 +169,33 @@ const newArrivalCatImagesFetcher = async () => {
 
 const appUrl = 'http://localhost:2222';
 
-const clipboardMarkdownCallback = () =>
+const clipboardMarkdownCallback: () => void = () =>
   // eslint-disable-next-line no-console
   console.log('clipboardMarkdownCallback executed!');
 
-const fetchRandomCatImagesCallback = () =>
+const fetchRandomCatImagesCallback: () => void = () =>
   // eslint-disable-next-line no-console
   console.log('fetchRandomCatImagesCallback executed!');
 
-const fetchNewArrivalCatImagesCallback = () =>
+const fetchNewArrivalCatImagesCallback: () => void = () =>
   // eslint-disable-next-line no-console
   console.log('fetchNewArrivalCatImagesCallback executed!');
 
-const catRandomCopyCallback = () =>
+const catRandomCopyCallback: () => void = () =>
   // eslint-disable-next-line no-console
   console.log('catRandomCopyCallback executed!');
 
-const changeLanguageCallback = () =>
+const changeLanguageCallback: () => void = () =>
   // eslint-disable-next-line no-console
   console.log('changeLanguageCallback executed!');
 
-// eslint-disable-next-line require-await
-const failureRandomCatImagesFetcher = async () => {
+// eslint-disable-next-line @typescript-eslint/require-await
+const failureRandomCatImagesFetcher: CatImagesFetcher = async () => {
   throw new Error('failureRandomCatImagesFetcher');
 };
 
-// eslint-disable-next-line require-await
-const failureNewArrivalCatImagesFetcher = async () => {
+// eslint-disable-next-line @typescript-eslint/require-await
+const failureNewArrivalCatImagesFetcher: CatImagesFetcher = async () => {
   throw new Error('failureNewArrivalCatImagesFetcher');
 };
 

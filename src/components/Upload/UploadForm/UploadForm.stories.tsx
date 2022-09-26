@@ -1,7 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import type { ComponentStoryObj } from '@storybook/react';
 import { createSuccessResult } from '../../../features';
-import type { AcceptedTypesImageExtension } from '../../../types';
+import type {
+  AcceptedTypesImageExtension,
+  ImageUploader,
+  ImageValidator,
+} from '../../../types';
 import { sleep } from '../../../utils';
 
 import { UploadForm } from '.';
@@ -12,7 +16,7 @@ export default {
 
 type Story = ComponentStoryObj<typeof UploadForm>;
 
-const imageValidator = async (
+const imageValidator: ImageValidator = async (
   image: string,
   imageExtension: AcceptedTypesImageExtension
 ) => {
@@ -24,7 +28,7 @@ const imageValidator = async (
   });
 };
 
-const returnFalseImageValidator = async (
+const returnFalseImageValidator: ImageValidator = async (
   image: string,
   imageExtension: AcceptedTypesImageExtension
 ) => {
@@ -38,7 +42,7 @@ const returnFalseImageValidator = async (
   });
 };
 
-const throwErrorImageValidator = async (
+const throwErrorImageValidator: ImageValidator = async (
   image: string,
   imageExtension: AcceptedTypesImageExtension
 ) => {
@@ -47,7 +51,7 @@ const throwErrorImageValidator = async (
   throw new Error('throwErrorImageValidator');
 };
 
-const imageUploader = async (
+const imageUploader: ImageUploader = async (
   image: string,
   imageExtension: AcceptedTypesImageExtension
 ) => {
@@ -60,7 +64,7 @@ const imageUploader = async (
   });
 };
 
-const imageUploaderWithErrors = async (
+const imageUploaderWithErrors: ImageUploader = async (
   image: string,
   imageExtension: AcceptedTypesImageExtension
 ) => {
@@ -73,7 +77,7 @@ const imageUploaderWithErrors = async (
   });
 };
 
-const throwErrorImageUploader = async (
+const throwErrorImageUploader: ImageUploader = async (
   image: string,
   imageExtension: AcceptedTypesImageExtension
 ) => {
@@ -83,13 +87,14 @@ const throwErrorImageUploader = async (
 };
 
 // eslint-disable-next-line no-console
-const uploadCallback = () => console.log('uploadCallback executed!');
+const uploadCallback: () => void = () =>
+  console.log('uploadCallback executed!');
 
-const onClickCreatedLgtmImage = () =>
+const onClickCreatedLgtmImage: () => void = () =>
   // eslint-disable-next-line no-console
   console.log('onClickCreatedLgtmImage executed!');
 
-const onClickMarkdownSourceCopyButton = () =>
+const onClickMarkdownSourceCopyButton: () => void = () =>
   // eslint-disable-next-line no-console
   console.log('onClickMarkdownSourceCopyButton executed!');
 

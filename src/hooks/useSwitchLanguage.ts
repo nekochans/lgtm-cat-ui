@@ -1,4 +1,4 @@
-import { MouseEvent } from 'react';
+import type { MouseEvent, MouseEventHandler } from 'react';
 import { useSnapshot } from 'valtio';
 
 import {
@@ -13,18 +13,29 @@ const languageEn = 'en';
 
 const languageJa = 'ja';
 
+type UseSwitchLanguageResponse = {
+  isLanguageMenuDisplayed: boolean;
+  selectedLanguage: Language;
+  onClickEn: MouseEventHandler<HTMLButtonElement>;
+  onClickJa: MouseEventHandler<HTMLButtonElement>;
+  onClickLanguageButton: MouseEventHandler<HTMLDivElement>;
+  onClickOutSideMenu: MouseEventHandler<HTMLDivElement>;
+};
+
 export const useSwitchLanguage = (
   language: Language,
   changeLanguageCallback?: ChangeLanguageCallback
-) => {
+): UseSwitchLanguageResponse => {
   const snap = useSnapshot(commonStateSelector());
 
   const { isLanguageMenuDisplayed } = snap;
 
   const selectedLanguage = snap.language ? snap.language : language;
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const onClickEn = (event: MouseEvent<HTMLButtonElement>) => {
+  const onClickEn: MouseEventHandler<HTMLButtonElement> = (
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    event: MouseEvent<HTMLButtonElement>
+  ) => {
     updateLanguage(languageEn);
 
     if (changeLanguageCallback) {
@@ -32,8 +43,10 @@ export const useSwitchLanguage = (
     }
   };
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const onClickJa = (event: MouseEvent<HTMLButtonElement>) => {
+  const onClickJa: MouseEventHandler<HTMLButtonElement> = (
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    event: MouseEvent<HTMLButtonElement>
+  ) => {
     updateLanguage(languageJa);
 
     if (changeLanguageCallback) {
@@ -41,13 +54,17 @@ export const useSwitchLanguage = (
     }
   };
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const onClickLanguageButton = (event: MouseEvent<HTMLDivElement>) => {
+  const onClickLanguageButton: MouseEventHandler<HTMLDivElement> = (
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    event: MouseEvent<HTMLDivElement>
+  ) => {
     updateIsLanguageMenuDisplayed(!isLanguageMenuDisplayed);
   };
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const onClickOutSideMenu = (event: MouseEvent<HTMLDivElement>) => {
+  const onClickOutSideMenu: MouseEventHandler<HTMLDivElement> = (
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    event: MouseEvent<HTMLDivElement>
+  ) => {
     // メニューの外側をクリックしたときだけメニューを閉じる
     if (isLanguageMenuDisplayed) {
       updateIsLanguageMenuDisplayed(false);

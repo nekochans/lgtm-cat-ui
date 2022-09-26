@@ -43,7 +43,7 @@ const ServiceUnavailableImage = () => (
   />
 );
 
-const changeLanguageCallback = () =>
+const changeLanguageCallback: () => void = () =>
   // eslint-disable-next-line no-console
   console.log('changeLanguageCallback executed!');
 

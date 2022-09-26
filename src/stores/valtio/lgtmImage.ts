@@ -15,8 +15,8 @@ export const updateLgtmImages = (lgtmImages: LgtmImage[]): void => {
 
 export const updateIsFailedFetchLgtmImages = (
   isFailedFetchLgtmImages: boolean
-) => {
+): void => {
   lgtmImageState.isFailedFetchLgtmImages = isFailedFetchLgtmImages;
 };
 
-export const lgtmImageStateSelector = () => lgtmImageState;
+export const lgtmImageStateSelector = (): LgtmImageState => lgtmImageState;
