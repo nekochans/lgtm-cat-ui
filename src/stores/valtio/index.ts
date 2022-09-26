@@ -1,6 +1,5 @@
 export {
   commonStateSelector,
-  updateLanguage,
   updateIsLanguageMenuDisplayed,
   type CommonState,
 } from './common';

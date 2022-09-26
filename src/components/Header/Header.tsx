@@ -76,8 +76,7 @@ export const Header: FC<Props> = ({
   language,
   isLanguageMenuDisplayed,
   onClickLanguageButton,
-  onClickEn,
-  onClickJa,
+  currentUrlPath,
 }) => {
   const [isMenuOpened, setIsMenuOpened] = useState<boolean>(false);
 
@@ -107,11 +106,7 @@ export const Header: FC<Props> = ({
           </Link>
           <LanguageButton onClick={onClickLanguageButton} />
           {isLanguageMenuDisplayed ? (
-            <LanguageMenu
-              language={language}
-              onClickEn={onClickEn}
-              onClickJa={onClickJa}
-            />
+            <LanguageMenu language={language} currentUrlPath={currentUrlPath} />
           ) : (
             ''
           )}

@@ -25,8 +25,7 @@ export const ResponsiveLayout: FC<Props> = ({
   language,
   isLanguageMenuDisplayed,
   onClickLanguageButton,
-  onClickEn,
-  onClickJa,
+  currentUrlPath,
   children,
 }) => (
   <Wrapper>
@@ -34,8 +33,7 @@ export const ResponsiveLayout: FC<Props> = ({
       language={language}
       isLanguageMenuDisplayed={isLanguageMenuDisplayed}
       onClickLanguageButton={onClickLanguageButton}
-      onClickEn={onClickEn}
-      onClickJa={onClickJa}
+      currentUrlPath={currentUrlPath}
     />
     <ContentsWrapper>{children}</ContentsWrapper>
     <Footer language={language} />

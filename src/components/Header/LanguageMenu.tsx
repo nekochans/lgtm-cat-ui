@@ -1,8 +1,8 @@
-import type { FC, MouseEvent } from 'react';
+import type { FC } from 'react';
+import Link from 'next/link';
 import { FaAngleRight } from 'react-icons/fa';
 import styled, { css } from 'styled-components';
-
-import { Language } from '../../types';
+import type { Language } from '../../types';
 
 const textWrapperStyle = css`
   display: flex;
@@ -17,7 +17,7 @@ const textWrapperStyle = css`
   background: rgba(54, 46, 43, 0.4);
 `;
 
-const StyledLanguageMenu = styled.div`
+const StyledLanguageMenu = styled.ul`
   @media (max-width: 767px) {
     right: 0;
   }
@@ -30,7 +30,12 @@ const StyledLanguageMenu = styled.div`
   padding: 0;
 `;
 
-const EnTextWrapper = styled.button`
+const StyledLink = styled.a`
+  text-decoration: none;
+  cursor: pointer;
+`;
+
+const EnTextWrapper = styled.li`
   ${textWrapperStyle};
   order: 0;
 `;
@@ -51,7 +56,7 @@ const EnText = styled.div`
   cursor: pointer;
 `;
 
-const Separator = styled.div`
+const Separator = styled.li`
   flex: none;
   flex-grow: 0;
   order: 1;
@@ -60,7 +65,7 @@ const Separator = styled.div`
   border: 1px solid rgba(54, 46, 43, 0.5);
 `;
 
-const JaTextWrapper = styled.button`
+const JaTextWrapper = styled.li`
   ${textWrapperStyle};
   order: 2;
 `;
@@ -83,24 +88,31 @@ const JaText = styled.div`
 
 export type Props = {
   language: Language;
-  onClickEn: (event: MouseEvent<HTMLButtonElement>) => void;
-  onClickJa: (event: MouseEvent<HTMLButtonElement>) => void;
+  currentUrlPath: string;
 };
 
-export const LanguageMenu: FC<Props> = ({ language, onClickEn, onClickJa }) => (
-  <StyledLanguageMenu>
-    <EnTextWrapper onClick={onClickEn}>
-      <EnText>
-        {language === 'en' ? <FaAngleRight /> : ''}
-        English
-      </EnText>
-    </EnTextWrapper>
-    <Separator />
-    <JaTextWrapper onClick={onClickJa}>
-      <JaText>
-        {language === 'ja' ? <FaAngleRight /> : ''}
-        日本語
-      </JaText>
-    </JaTextWrapper>
+export const LanguageMenu: FC<Props> = ({ language, currentUrlPath }) => (
+  <StyledLanguageMenu role="menu">
+    <Link href={currentUrlPath} locale="en" prefetch={false}>
+      <StyledLink role="presentation" data-gtm-click="language-menu-en-link">
+        <EnTextWrapper role="menuitem">
+          <EnText>
+            {language === 'en' ? <FaAngleRight /> : ''}
+            English
+          </EnText>
+        </EnTextWrapper>
+      </StyledLink>
+    </Link>
+    <Separator role="presentation" />
+    <Link href={currentUrlPath} locale="ja" prefetch={false}>
+      <StyledLink role="presentation" data-gtm-click="language-menu-ja-link">
+        <JaTextWrapper role="menuitem">
+          <JaText>
+            {language === 'ja' ? <FaAngleRight /> : ''}
+            日本語
+          </JaText>
+        </JaTextWrapper>
+      </StyledLink>
+    </Link>
   </StyledLanguageMenu>
 );

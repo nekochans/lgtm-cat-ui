@@ -3,39 +3,30 @@ import { ErrorContent, type ErrorContentProps } from '../../components';
 import { useSwitchLanguage } from '../../hooks';
 import { ResponsiveLayout } from '../../layouts';
 
-import type { ChangeLanguageCallback } from '../../types';
-
 type Props = ErrorContentProps & {
-  changeLanguageCallback?: ChangeLanguageCallback;
+  currentUrlPath: string;
 };
 
 export const ErrorTemplate: FC<Props> = ({
   type,
   language,
   catImage,
-  changeLanguageCallback,
+  currentUrlPath,
 }) => {
-  const {
-    isLanguageMenuDisplayed,
-    selectedLanguage,
-    onClickEn,
-    onClickJa,
-    onClickLanguageButton,
-    onClickOutSideMenu,
-  } = useSwitchLanguage(language, changeLanguageCallback);
+  const { isLanguageMenuDisplayed, onClickLanguageButton, onClickOutSideMenu } =
+    useSwitchLanguage();
 
   return (
     <div onClick={onClickOutSideMenu} aria-hidden="true">
       <ResponsiveLayout
-        language={selectedLanguage}
-        onClickJa={onClickJa}
-        onClickEn={onClickEn}
+        language={language}
         isLanguageMenuDisplayed={isLanguageMenuDisplayed}
         onClickLanguageButton={onClickLanguageButton}
+        currentUrlPath={currentUrlPath}
       >
         <ErrorContent
           type={type}
-          language={selectedLanguage}
+          language={language}
           catImage={catImage}
           shouldDisplayBackToTopButton={true}
         />

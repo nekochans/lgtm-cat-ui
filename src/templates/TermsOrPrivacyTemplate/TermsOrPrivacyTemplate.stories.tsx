@@ -228,30 +228,18 @@ type Props = {
 };
 
 const EnhanceTermsOrPrivacyTemplate: FC<Props> = ({ type, language }) => {
-  const changeLanguageCallback = () =>
-    // eslint-disable-next-line no-console
-    console.log('changeLanguageCallback executed!');
-
-  const {
-    isLanguageMenuDisplayed,
-    selectedLanguage,
-    onClickEn,
-    onClickJa,
-    onClickLanguageButton,
-    onClickOutSideMenu,
-  } = useSwitchLanguage(language, changeLanguageCallback);
+  const { isLanguageMenuDisplayed, onClickLanguageButton, onClickOutSideMenu } =
+    useSwitchLanguage();
 
   return (
     <TermsOrPrivacyTemplate
       type={type}
-      language={selectedLanguage}
+      language={language}
       isLanguageMenuDisplayed={isLanguageMenuDisplayed}
-      onClickEn={onClickEn}
-      onClickJa={onClickJa}
       onClickLanguageButton={onClickLanguageButton}
       onClickOutSideMenu={onClickOutSideMenu}
     >
-      <MarkdownContents markdown={getMarkdownSource(type, selectedLanguage)} />
+      <MarkdownContents markdown={getMarkdownSource(type, language)} />
     </TermsOrPrivacyTemplate>
   );
 };

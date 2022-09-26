@@ -5,12 +5,7 @@ import { UploadForm } from '../../components';
 import { AppUrl } from '../../constants';
 import { useSwitchLanguage } from '../../hooks';
 import { ResponsiveLayout } from '../../layouts';
-import {
-  ChangeLanguageCallback,
-  Language,
-  ImageUploader,
-  ImageValidator,
-} from '../../types';
+import type { Language, ImageUploader, ImageValidator } from '../../types';
 
 const ImageWrapper = styled.div`
   display: grid;
@@ -26,7 +21,6 @@ type Props = {
   imageValidator: ImageValidator;
   imageUploader: ImageUploader;
   catImage: ReactNode;
-  changeLanguageCallback?: ChangeLanguageCallback;
   uploadCallback?: () => void;
   onClickCreatedLgtmImage?: () => void;
   onClickMarkdownSourceCopyButton?: () => void;
@@ -38,32 +32,24 @@ export const UploadTemplate: FC<Props> = ({
   imageValidator,
   imageUploader,
   catImage,
-  changeLanguageCallback,
   uploadCallback,
   onClickCreatedLgtmImage,
   onClickMarkdownSourceCopyButton,
   appUrl,
 }) => {
-  const {
-    isLanguageMenuDisplayed,
-    selectedLanguage,
-    onClickEn,
-    onClickJa,
-    onClickLanguageButton,
-    onClickOutSideMenu,
-  } = useSwitchLanguage(language, changeLanguageCallback);
+  const { isLanguageMenuDisplayed, onClickLanguageButton, onClickOutSideMenu } =
+    useSwitchLanguage();
 
   return (
     <div onClick={onClickOutSideMenu} aria-hidden="true">
       <ResponsiveLayout
-        language={selectedLanguage}
-        onClickJa={onClickJa}
-        onClickEn={onClickEn}
+        language={language}
         isLanguageMenuDisplayed={isLanguageMenuDisplayed}
         onClickLanguageButton={onClickLanguageButton}
+        currentUrlPath="/upload"
       >
         <UploadForm
-          language={selectedLanguage}
+          language={language}
           imageValidator={imageValidator}
           imageUploader={imageUploader}
           uploadCallback={uploadCallback}
