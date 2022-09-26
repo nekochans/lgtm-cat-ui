@@ -18,12 +18,7 @@ import {
   updateLgtmImages,
 } from '../../stores';
 
-import type {
-  Language,
-  ChangeLanguageCallback,
-  CatImagesFetcher,
-  LgtmImage,
-} from '../../types';
+import type { Language, CatImagesFetcher, LgtmImage } from '../../types';
 import { AppDescriptionArea } from './AppDescriptionArea';
 import { CatRandomCopyButtonWrapper } from './CatRandomCopyButtonWrapper';
 
@@ -45,7 +40,6 @@ type Props = {
   fetchRandomCatImagesCallback?: () => void;
   fetchNewArrivalCatImagesCallback?: () => void;
   catRandomCopyCallback?: () => void;
-  changeLanguageCallback?: ChangeLanguageCallback;
 };
 
 // eslint-disable-next-line max-lines-per-function
@@ -60,16 +54,9 @@ export const TopTemplate: FC<Props> = ({
   fetchRandomCatImagesCallback,
   fetchNewArrivalCatImagesCallback,
   catRandomCopyCallback,
-  changeLanguageCallback,
 }) => {
-  const {
-    isLanguageMenuDisplayed,
-    selectedLanguage,
-    onClickEn,
-    onClickJa,
-    onClickLanguageButton,
-    onClickOutSideMenu,
-  } = useSwitchLanguage(language, changeLanguageCallback);
+  const { isLanguageMenuDisplayed, onClickLanguageButton, onClickOutSideMenu } =
+    useSwitchLanguage();
 
   const snap = useSnapshot(lgtmImageStateSelector());
 
@@ -127,14 +114,13 @@ export const TopTemplate: FC<Props> = ({
   return (
     <div onClick={onClickOutSideMenu} aria-hidden="true">
       <ResponsiveLayout
-        language={selectedLanguage}
-        onClickJa={onClickJa}
-        onClickEn={onClickEn}
+        language={language}
         isLanguageMenuDisplayed={isLanguageMenuDisplayed}
         onClickLanguageButton={onClickLanguageButton}
+        currentUrlPath="/"
       >
         <Wrapper>
-          <AppDescriptionArea language={selectedLanguage} />
+          <AppDescriptionArea language={language} />
           <CatRandomCopyButtonWrapper
             appUrl={appUrl}
             imageUrl={imageUrl}
@@ -147,7 +133,7 @@ export const TopTemplate: FC<Props> = ({
           {isFailedFetchLgtmImages === true ? (
             <ErrorContent
               type={errorType.internalServerError}
-              language={selectedLanguage}
+              language={language}
               catImage={errorCatImage}
               shouldDisplayBackToTopButton={false}
             />

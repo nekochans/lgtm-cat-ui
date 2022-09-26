@@ -53,8 +53,6 @@ type Props = {
   type: TemplateType;
   language: Language;
   isLanguageMenuDisplayed: boolean;
-  onClickEn: MouseEventHandler;
-  onClickJa: MouseEventHandler;
   onClickLanguageButton: MouseEventHandler;
   onClickOutSideMenu: MouseEventHandler;
   children: ReactNode;
@@ -64,25 +62,29 @@ export const TermsOrPrivacyTemplate: FC<Props> = ({
   type,
   language,
   isLanguageMenuDisplayed,
-  onClickEn,
-  onClickJa,
   onClickLanguageButton,
   onClickOutSideMenu,
   children,
-}) => (
-  <div onClick={onClickOutSideMenu} aria-hidden="true">
-    <ResponsiveLayout
-      language={language}
-      onClickJa={onClickJa}
-      onClickEn={onClickEn}
-      isLanguageMenuDisplayed={isLanguageMenuDisplayed}
-      onClickLanguageButton={onClickLanguageButton}
-    >
-      <Wrapper>
-        <MarkdownPageTitle text={createTitle(type, language)} />
-        <LibraryBooks />
-        <ChildrenWrapper>{children}</ChildrenWrapper>
-      </Wrapper>
-    </ResponsiveLayout>
-  </div>
-);
+}) => {
+  const currentUrlPath =
+    type === 'terms'
+      ? createTermsOfUseLinksFromLanguages(language).link
+      : createPrivacyPolicyLinksFromLanguages(language).link;
+
+  return (
+    <div onClick={onClickOutSideMenu} aria-hidden="true">
+      <ResponsiveLayout
+        language={language}
+        isLanguageMenuDisplayed={isLanguageMenuDisplayed}
+        onClickLanguageButton={onClickLanguageButton}
+        currentUrlPath={currentUrlPath}
+      >
+        <Wrapper>
+          <MarkdownPageTitle text={createTitle(type, language)} />
+          <LibraryBooks />
+          <ChildrenWrapper>{children}</ChildrenWrapper>
+        </Wrapper>
+      </ResponsiveLayout>
+    </div>
+  );
+};

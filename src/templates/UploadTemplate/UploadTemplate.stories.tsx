@@ -44,10 +44,6 @@ const imageUploader: ImageUploader = async (
   });
 };
 
-const changeLanguageCallback: () => void = () =>
-  // eslint-disable-next-line no-console
-  console.log('changeLanguageCallback executed!');
-
 // eslint-disable-next-line no-console
 const uploadCallback: () => void = () =>
   console.log('uploadCallback executed!');
@@ -74,7 +70,6 @@ export const ViewInJapanese: Story = {
     imageValidator,
     imageUploader,
     catImage: <CatImage />,
-    changeLanguageCallback,
     uploadCallback,
     onClickCreatedLgtmImage,
     onClickMarkdownSourceCopyButton,
@@ -88,7 +83,6 @@ export const ViewInEnglish: Story = {
     imageValidator,
     imageUploader,
     catImage: <CatImage />,
-    changeLanguageCallback,
     uploadCallback,
     onClickCreatedLgtmImage,
     onClickMarkdownSourceCopyButton,

@@ -185,10 +185,6 @@ const catRandomCopyCallback: () => void = () =>
   // eslint-disable-next-line no-console
   console.log('catRandomCopyCallback executed!');
 
-const changeLanguageCallback: () => void = () =>
-  // eslint-disable-next-line no-console
-  console.log('changeLanguageCallback executed!');
-
 // eslint-disable-next-line @typescript-eslint/require-await
 const failureRandomCatImagesFetcher: CatImagesFetcher = async () => {
   throw new Error('failureRandomCatImagesFetcher');
@@ -222,7 +218,6 @@ export const ViewInJapanese: Story = {
     fetchRandomCatImagesCallback,
     fetchNewArrivalCatImagesCallback,
     catRandomCopyCallback,
-    changeLanguageCallback,
   },
 };
 
@@ -238,7 +233,6 @@ export const ViewInEnglish: Story = {
     fetchRandomCatImagesCallback,
     fetchNewArrivalCatImagesCallback,
     catRandomCopyCallback,
-    changeLanguageCallback,
   },
 };
 
@@ -254,7 +248,6 @@ export const ViewInJapaneseError: Story = {
     fetchRandomCatImagesCallback,
     fetchNewArrivalCatImagesCallback,
     catRandomCopyCallback,
-    changeLanguageCallback,
   },
 };
 
@@ -270,6 +263,5 @@ export const ViewInEnglishError: Story = {
     fetchRandomCatImagesCallback,
     fetchNewArrivalCatImagesCallback,
     catRandomCopyCallback,
-    changeLanguageCallback,
   },
 };

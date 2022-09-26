@@ -1,58 +1,18 @@
 import type { MouseEvent, MouseEventHandler } from 'react';
 import { useSnapshot } from 'valtio';
 
-import {
-  commonStateSelector,
-  updateIsLanguageMenuDisplayed,
-  updateLanguage,
-} from '../stores';
-
-import type { ChangeLanguageCallback, Language } from '../types';
-
-const languageEn = 'en';
-
-const languageJa = 'ja';
+import { commonStateSelector, updateIsLanguageMenuDisplayed } from '../stores';
 
 type UseSwitchLanguageResponse = {
   isLanguageMenuDisplayed: boolean;
-  selectedLanguage: Language;
-  onClickEn: MouseEventHandler<HTMLButtonElement>;
-  onClickJa: MouseEventHandler<HTMLButtonElement>;
   onClickLanguageButton: MouseEventHandler<HTMLDivElement>;
   onClickOutSideMenu: MouseEventHandler<HTMLDivElement>;
 };
 
-export const useSwitchLanguage = (
-  language: Language,
-  changeLanguageCallback?: ChangeLanguageCallback
-): UseSwitchLanguageResponse => {
+export const useSwitchLanguage = (): UseSwitchLanguageResponse => {
   const snap = useSnapshot(commonStateSelector());
 
   const { isLanguageMenuDisplayed } = snap;
-
-  const selectedLanguage = snap.language ? snap.language : language;
-
-  const onClickEn: MouseEventHandler<HTMLButtonElement> = (
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    event: MouseEvent<HTMLButtonElement>
-  ) => {
-    updateLanguage(languageEn);
-
-    if (changeLanguageCallback) {
-      changeLanguageCallback(languageEn);
-    }
-  };
-
-  const onClickJa: MouseEventHandler<HTMLButtonElement> = (
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    event: MouseEvent<HTMLButtonElement>
-  ) => {
-    updateLanguage(languageJa);
-
-    if (changeLanguageCallback) {
-      changeLanguageCallback(languageJa);
-    }
-  };
 
   const onClickLanguageButton: MouseEventHandler<HTMLDivElement> = (
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -73,9 +33,6 @@ export const useSwitchLanguage = (
 
   return {
     isLanguageMenuDisplayed,
-    selectedLanguage,
-    onClickEn,
-    onClickJa,
     onClickLanguageButton,
     onClickOutSideMenu,
   };

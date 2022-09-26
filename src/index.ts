@@ -4,7 +4,6 @@ export * from './templates';
 
 export type {
   Language,
-  ChangeLanguageCallback,
   LgtmImageUrl,
   LgtmImage,
   AcceptedTypesImageExtension,

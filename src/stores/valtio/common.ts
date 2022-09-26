@@ -17,8 +17,4 @@ export const updateIsLanguageMenuDisplayed = (
   commonState.isLanguageMenuDisplayed = isLanguageMenuDisplayed;
 };
 
-export const updateLanguage = (language: Language): void => {
-  commonState.language = language;
-};
-
 export const commonStateSelector = (): CommonState => commonState;

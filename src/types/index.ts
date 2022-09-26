@@ -1,4 +1,4 @@
-export type { Language, ChangeLanguageCallback } from './language';
+export type { Language } from './language';
 
 export type {
   LgtmImageUrl,
