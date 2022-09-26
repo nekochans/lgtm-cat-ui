@@ -144,7 +144,7 @@ export const TopTemplate: FC<Props> = ({
             onClickFetchRandomCatButton={onClickFetchRandomCatButton}
             onClickFetchNewArrivalCatButton={onClickFetchNewArrivalCatButton}
           />
-          {isFailedFetchLgtmImages ? (
+          {isFailedFetchLgtmImages === true ? (
             <ErrorContent
               type={errorType.internalServerError}
               language={selectedLanguage}
