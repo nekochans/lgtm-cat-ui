@@ -271,7 +271,7 @@ export const UploadForm: FC<Props> = ({
 
   const onDrop = useCallback((acceptedFiles: File[]) => {
     // eslint-disable-next-line no-magic-numbers
-    if (acceptedFiles && acceptedFiles.length > 0) {
+    if (acceptedFiles.length > 0) {
       const targetIndex = 0;
       const file = acceptedFiles[targetIndex];
 
