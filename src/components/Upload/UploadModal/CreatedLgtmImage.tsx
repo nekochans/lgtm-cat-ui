@@ -41,7 +41,7 @@ export const CreatedLgtmImage: FC<Props> = ({
   const { imageContextRef } = useClipboardMarkdown({
     onCopySuccess,
     imageUrl: createdLgtmImageUrl,
-    appUrl: appUrl || defaultAppUrl,
+    appUrl: appUrl ?? defaultAppUrl,
   });
 
   return (

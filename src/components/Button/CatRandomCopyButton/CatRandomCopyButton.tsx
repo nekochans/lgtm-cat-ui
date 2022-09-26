@@ -46,7 +46,7 @@ export const CatRandomCopyButton: FC<Props> = ({
   const { imageContextRef } = useClipboardMarkdown({
     onCopySuccess,
     imageUrl,
-    appUrl: appUrl || defaultAppUrl,
+    appUrl: appUrl ?? defaultAppUrl,
   });
 
   return (
