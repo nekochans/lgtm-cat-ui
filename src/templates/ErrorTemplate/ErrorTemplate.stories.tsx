@@ -13,9 +13,13 @@ export default {
 
 type Story = ComponentStoryObj<typeof ErrorTemplate>;
 
+// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-assignment
+const notFoundSrc = notFound.src;
+
 const NotFoundImage = () => (
   <Image
-    src={notFound.src}
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    src={notFoundSrc}
     layout="fill"
     objectFit="contain"
     alt="404 Not Found"
@@ -23,9 +27,13 @@ const NotFoundImage = () => (
   />
 );
 
+// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-assignment
+const internalServerErrorSrc = internalServerError.src;
+
 const InternalServerErrorImage = () => (
   <Image
-    src={internalServerError.src}
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    src={internalServerErrorSrc}
     layout="fill"
     objectFit="contain"
     alt="500 Internal Server Error"
@@ -33,9 +41,13 @@ const InternalServerErrorImage = () => (
   />
 );
 
+// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-assignment
+const serviceUnavailableSrc = serviceUnavailable.src;
+
 const ServiceUnavailableImage = () => (
   <Image
-    src={serviceUnavailable.src}
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    src={serviceUnavailableSrc}
     layout="fill"
     objectFit="contain"
     alt="503 Service Unavailable"

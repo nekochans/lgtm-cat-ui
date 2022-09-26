@@ -201,6 +201,7 @@ const failureNewArrivalCatImagesFetcher: CatImagesFetcher = async () => {
 
 const InternalServerErrorImage = () => (
   <Image
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-assignment
     src={internalServerError.src}
     layout="fill"
     objectFit="contain"

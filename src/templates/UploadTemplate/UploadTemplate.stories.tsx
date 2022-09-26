@@ -15,6 +15,7 @@ import cat from './images/cat.webp';
 import { UploadTemplate } from '.';
 
 const CatImage = () => (
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-assignment
   <Image src={cat.src} width="302px" height="302px" alt="Cat" priority={true} />
 );
 
