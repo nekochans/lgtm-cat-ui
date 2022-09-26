@@ -1,11 +1,9 @@
+import type { ComponentStoryObj } from '@storybook/react';
 import { UploadModal } from './';
 
-import type { ComponentStoryObj, Meta } from '@storybook/react';
-
 export default {
-  title: 'src/components/Upload/UploadModal/UploadModal.tsx',
   component: UploadModal,
-} as Meta<typeof UploadModal>;
+};
 
 type Story = ComponentStoryObj<typeof UploadModal>;
 

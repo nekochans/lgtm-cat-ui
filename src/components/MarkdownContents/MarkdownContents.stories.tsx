@@ -1,11 +1,9 @@
+import type { ComponentStoryObj } from '@storybook/react';
 import { MarkdownContents } from './';
 
-import type { ComponentStoryObj, Meta } from '@storybook/react';
-
 export default {
-  title: 'src/components/MarkdownContents/MarkdownContents.tsx',
   component: MarkdownContents,
-} as Meta<typeof MarkdownContents>;
+};
 
 type Story = ComponentStoryObj<typeof MarkdownContents>;
 

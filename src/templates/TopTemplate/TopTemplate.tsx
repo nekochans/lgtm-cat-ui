@@ -1,3 +1,4 @@
+import type { FC, ReactNode } from 'react';
 import styled from 'styled-components';
 import { useSnapshot } from 'valtio';
 
@@ -17,16 +18,14 @@ import {
   updateLgtmImages,
 } from '../../stores';
 
-import { AppDescriptionArea } from './AppDescriptionArea';
-import { CatRandomCopyButtonWrapper } from './CatRandomCopyButtonWrapper';
-
 import type {
   Language,
   ChangeLanguageCallback,
   CatImagesFetcher,
   LgtmImage,
 } from '../../types';
-import type { FC, ReactNode } from 'react';
+import { AppDescriptionArea } from './AppDescriptionArea';
+import { CatRandomCopyButtonWrapper } from './CatRandomCopyButtonWrapper';
 
 const Wrapper = styled.div`
   display: grid;
@@ -111,7 +110,7 @@ export const TopTemplate: FC<Props> = ({
       }
 
       throw new RandomCatImagesFetcherError(
-        'failed to newArrivalCatImagesFetcher',
+        'failed to newArrivalCatImagesFetcher'
       );
     }
   };
@@ -145,7 +144,7 @@ export const TopTemplate: FC<Props> = ({
             onClickFetchRandomCatButton={onClickFetchRandomCatButton}
             onClickFetchNewArrivalCatButton={onClickFetchNewArrivalCatButton}
           />
-          {isFailedFetchLgtmImages ? (
+          {isFailedFetchLgtmImages === true ? (
             <ErrorContent
               type={errorType.internalServerError}
               language={selectedLanguage}

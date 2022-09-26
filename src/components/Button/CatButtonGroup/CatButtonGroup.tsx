@@ -1,9 +1,8 @@
+import type { FC } from 'react';
 import styled from 'styled-components';
 
 import { CatFetchButton } from '../CatFetchButton';
 import { UploadCatButton } from '../UploadCatButton';
-
-import type { FC } from 'react';
 
 const Wrapper = styled.div`
   @media (max-width: 767px) {

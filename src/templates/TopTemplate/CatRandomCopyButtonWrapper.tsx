@@ -1,11 +1,10 @@
+import type { FC } from 'react';
 import styled from 'styled-components';
 
 import {
   CatRandomCopyButton,
   type CatRandomCopyButtonProps,
 } from '../../components';
-
-import type { FC } from 'react';
 
 const Wrapper = styled.div`
   display: grid;

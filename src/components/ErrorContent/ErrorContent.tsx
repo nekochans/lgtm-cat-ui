@@ -1,12 +1,11 @@
+import type { FC, ReactNode } from 'react';
 import styled from 'styled-components';
 
 import { errorType, type ErrorType } from '../../features';
+import type { Language } from '../../types';
 import { assertNever } from '../../utils';
 
 import { BackToTopButton } from './BackToTopButton';
-
-import type { Language } from '../../types';
-import type { FC, ReactNode } from 'react';
 
 const Wrapper = styled.div`
   display: flex;
@@ -91,7 +90,7 @@ type ErrorMessageText = JaErrorMessageText | EnErrorMessageText;
 
 const createErrorMessageText = (
   type: ErrorType,
-  language: Language,
+  language: Language
 ): ErrorMessageText => {
   switch (type) {
     case errorType.notFound:

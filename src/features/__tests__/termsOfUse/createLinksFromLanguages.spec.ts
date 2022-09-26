@@ -10,7 +10,7 @@ describe('src/features/termsOfUse.ts createTermsOfUseLinksFromLanguages TestCase
     };
 
     expect(createTermsOfUseLinksFromLanguages(language)).toStrictEqual(
-      expected,
+      expected
     );
   });
 
@@ -23,7 +23,7 @@ describe('src/features/termsOfUse.ts createTermsOfUseLinksFromLanguages TestCase
     };
 
     expect(createTermsOfUseLinksFromLanguages(language)).toStrictEqual(
-      expected,
+      expected
     );
   });
 });

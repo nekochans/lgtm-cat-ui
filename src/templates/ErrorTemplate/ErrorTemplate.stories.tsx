@@ -1,3 +1,4 @@
+import type { ComponentStoryObj } from '@storybook/react';
 import Image from 'next/image';
 
 import internalServerError from '../../images/internal_server_error.webp';
@@ -6,18 +7,19 @@ import serviceUnavailable from '../../images/service_unavailable.webp';
 
 import { ErrorTemplate } from './';
 
-import type { ComponentStoryObj, Meta } from '@storybook/react';
-
 export default {
-  title: 'src/templates/ErrorTemplate/ErrorTemplate.tsx',
   component: ErrorTemplate,
-} as Meta<typeof ErrorTemplate>;
+};
 
 type Story = ComponentStoryObj<typeof ErrorTemplate>;
 
+// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-assignment
+const notFoundSrc = notFound.src;
+
 const NotFoundImage = () => (
   <Image
-    src={notFound.src}
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    src={notFoundSrc}
     layout="fill"
     objectFit="contain"
     alt="404 Not Found"
@@ -25,9 +27,13 @@ const NotFoundImage = () => (
   />
 );
 
+// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-assignment
+const internalServerErrorSrc = internalServerError.src;
+
 const InternalServerErrorImage = () => (
   <Image
-    src={internalServerError.src}
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    src={internalServerErrorSrc}
     layout="fill"
     objectFit="contain"
     alt="500 Internal Server Error"
@@ -35,9 +41,13 @@ const InternalServerErrorImage = () => (
   />
 );
 
+// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-assignment
+const serviceUnavailableSrc = serviceUnavailable.src;
+
 const ServiceUnavailableImage = () => (
   <Image
-    src={serviceUnavailable.src}
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    src={serviceUnavailableSrc}
     layout="fill"
     objectFit="contain"
     alt="503 Service Unavailable"
@@ -45,7 +55,7 @@ const ServiceUnavailableImage = () => (
   />
 );
 
-const changeLanguageCallback = () =>
+const changeLanguageCallback: () => void = () =>
   // eslint-disable-next-line no-console
   console.log('changeLanguageCallback executed!');
 

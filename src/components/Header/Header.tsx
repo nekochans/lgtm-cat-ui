@@ -1,5 +1,5 @@
-import Link from 'next/link';
 import { useState, type FC, MouseEvent } from 'react';
+import Link from 'next/link';
 import { FaBars } from 'react-icons/fa';
 import Modal from 'react-modal';
 import styled from 'styled-components';

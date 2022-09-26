@@ -1,9 +1,9 @@
+import type { FC } from 'react';
 import { ErrorContent, type ErrorContentProps } from '../../components';
 import { useSwitchLanguage } from '../../hooks';
 import { ResponsiveLayout } from '../../layouts';
 
 import type { ChangeLanguageCallback } from '../../types';
-import type { FC } from 'react';
 
 type Props = ErrorContentProps & {
   changeLanguageCallback?: ChangeLanguageCallback;

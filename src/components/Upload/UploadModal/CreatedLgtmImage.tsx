@@ -1,11 +1,10 @@
+import type { FC } from 'react';
 import styled from 'styled-components';
 
 import { defaultAppUrl, type AppUrl } from '../../../constants';
 import { useClipboardMarkdown, useCopySuccess } from '../../../hooks';
 import { LgtmImageUrl } from '../../../types';
 import { CopiedGithubMarkdownMessage } from '../../LgtmImages/CopiedGithubMarkdownMessage';
-
-import type { FC } from 'react';
 
 const Wrapper = styled.div`
   flex: none;
@@ -42,7 +41,7 @@ export const CreatedLgtmImage: FC<Props> = ({
   const { imageContextRef } = useClipboardMarkdown({
     onCopySuccess,
     imageUrl: createdLgtmImageUrl,
-    appUrl: appUrl || defaultAppUrl,
+    appUrl: appUrl ?? defaultAppUrl,
   });
 
   return (

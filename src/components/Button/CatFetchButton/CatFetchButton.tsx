@@ -1,10 +1,9 @@
+import type { FC } from 'react';
 import { FaSyncAlt } from 'react-icons/fa';
 import styled from 'styled-components';
 
 import { mixins } from '../../../styles';
 import { assertNever } from '../../../utils';
-
-import type { FC } from 'react';
 
 const StyledButton = styled.button`
   background: #eb7c06;

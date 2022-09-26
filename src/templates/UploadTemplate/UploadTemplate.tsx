@@ -1,3 +1,4 @@
+import type { FC, ReactNode } from 'react';
 import styled from 'styled-components';
 
 import { UploadForm } from '../../components';
@@ -10,8 +11,6 @@ import {
   ImageUploader,
   ImageValidator,
 } from '../../types';
-
-import type { FC, ReactNode } from 'react';
 
 const ImageWrapper = styled.div`
   display: grid;

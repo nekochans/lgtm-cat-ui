@@ -1,9 +1,8 @@
+import type { FC, ReactNode } from 'react';
 import styled from 'styled-components';
 
 import { Footer, Props as FooterProps } from '../../components/Footer';
 import { Header, Props as HeaderProps } from '../../components/Header';
-
-import type { FC, ReactNode } from 'react';
 
 const Wrapper = styled.div`
   display: grid;

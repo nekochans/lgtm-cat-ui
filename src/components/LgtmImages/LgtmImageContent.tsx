@@ -1,13 +1,12 @@
+import type { FC } from 'react';
 import Image from 'next/image';
 import styled from 'styled-components';
 
 import { AppUrl, defaultAppUrl } from '../../constants';
 import { useClipboardMarkdown, useCopySuccess } from '../../hooks';
 
-import { CopiedGithubMarkdownMessage } from './CopiedGithubMarkdownMessage';
-
 import type { LgtmImage } from '../../types';
-import type { FC } from 'react';
+import { CopiedGithubMarkdownMessage } from './CopiedGithubMarkdownMessage';
 
 const ImageWrapper = styled.div`
   position: relative;
@@ -34,7 +33,7 @@ export const LgtmImageContent: FC<Props> = ({
   const { imageContextRef } = useClipboardMarkdown({
     onCopySuccess,
     imageUrl,
-    appUrl: appUrl || defaultAppUrl,
+    appUrl: appUrl ?? defaultAppUrl,
   });
 
   return (

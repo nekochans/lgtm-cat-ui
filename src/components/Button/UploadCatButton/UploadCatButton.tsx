@@ -1,15 +1,17 @@
+import type { FC } from 'react';
 import Link from 'next/link';
 import { FaCloudUploadAlt } from 'react-icons/fa';
 import styled from 'styled-components';
 
 import { mixins } from '../../../styles';
+import type { CustomDataAttrGtmClick } from '../../../types';
 import slash from '../images/slash.png';
 
-import type { CustomDataAttrGtmClick } from '../../../types';
-import type { FC } from 'react';
+// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-assignment
+const slashSrc = slash.src;
 
 const StyledSpan = styled.span`
-  background: #eb7c06 url(${slash.src}) repeat 0 0/16px auto;
+  background: #eb7c06 url(${slashSrc}) repeat 0 0/16px auto;
   ${mixins.buttonBase};
 `;
 

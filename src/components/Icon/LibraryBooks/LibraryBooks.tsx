@@ -1,6 +1,5 @@
-import { MdLibraryBooks } from 'react-icons/md';
-
 import type { FC } from 'react';
+import { MdLibraryBooks } from 'react-icons/md';
 
 const style = {
   width: '69.31px',

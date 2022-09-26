@@ -1,12 +1,11 @@
+import type { FC } from 'react';
+import type { ComponentStoryObj } from '@storybook/react';
 import { MarkdownContents } from '../../components/MarkdownContents';
 import { useSwitchLanguage } from '../../hooks';
+import type { Language } from '../../types';
 import { assertNever } from '../../utils';
 
 import { TermsOrPrivacyTemplate, type TemplateType } from '.';
-
-import type { Language } from '../../types';
-import type { ComponentStoryObj, Meta } from '@storybook/react';
-import type { FC } from 'react';
 
 const privacyPolicyJa = `
 # プライバシーポリシー
@@ -258,9 +257,8 @@ const EnhanceTermsOrPrivacyTemplate: FC<Props> = ({ type, language }) => {
 };
 
 export default {
-  title: 'src/templates/TermsOrPrivacyTemplate/TermsOrPrivacyTemplate.tsx',
   component: EnhanceTermsOrPrivacyTemplate,
-} as Meta<typeof EnhanceTermsOrPrivacyTemplate>;
+};
 
 type Story = ComponentStoryObj<typeof EnhanceTermsOrPrivacyTemplate>;
 

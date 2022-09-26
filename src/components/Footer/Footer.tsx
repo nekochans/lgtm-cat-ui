@@ -1,3 +1,4 @@
+import type { FC } from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
 
@@ -7,7 +8,6 @@ import {
 } from '../../features';
 
 import type { Language } from '../../types';
-import type { FC } from 'react';
 
 const StyledFooter = styled.div`
   position: relative;
