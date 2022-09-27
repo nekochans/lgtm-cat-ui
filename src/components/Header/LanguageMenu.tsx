@@ -17,7 +17,7 @@ const textWrapperStyle = css`
   background: rgba(54, 46, 43, 0.4);
 `;
 
-const StyledLanguageMenu = styled.ul`
+const StyledLanguageMenu = styled.nav`
   @media (max-width: 767px) {
     right: 0;
   }
@@ -30,17 +30,12 @@ const StyledLanguageMenu = styled.ul`
   padding: 0;
 `;
 
-const StyledLink = styled.a`
-  text-decoration: none;
-  cursor: pointer;
-`;
-
-const EnTextWrapper = styled.li`
+const EnTextWrapper = styled.span`
   ${textWrapperStyle};
   order: 0;
 `;
 
-const EnText = styled.div`
+const EnText = styled.a`
   flex: none;
   flex-grow: 0;
   order: 0;
@@ -56,7 +51,7 @@ const EnText = styled.div`
   cursor: pointer;
 `;
 
-const Separator = styled.li`
+const Separator = styled.span`
   flex: none;
   flex-grow: 0;
   order: 1;
@@ -65,12 +60,12 @@ const Separator = styled.li`
   border: 1px solid rgba(54, 46, 43, 0.5);
 `;
 
-const JaTextWrapper = styled.li`
+const JaTextWrapper = styled.span`
   ${textWrapperStyle};
   order: 2;
 `;
 
-const JaText = styled.div`
+const JaText = styled.a`
   flex: none;
   flex-grow: 0;
   order: 0;
@@ -92,27 +87,27 @@ export type Props = {
 };
 
 export const LanguageMenu: FC<Props> = ({ language, currentUrlPath }) => (
-  <StyledLanguageMenu role="menu">
-    <Link href={currentUrlPath} locale="en" prefetch={false}>
-      <StyledLink role="presentation" data-gtm-click="language-menu-en-link">
-        <EnTextWrapper role="menuitem">
-          <EnText>
-            {language === 'en' ? <FaAngleRight /> : ''}
-            English
-          </EnText>
-        </EnTextWrapper>
-      </StyledLink>
-    </Link>
-    <Separator role="presentation" />
-    <Link href={currentUrlPath} locale="ja" prefetch={false}>
-      <StyledLink role="presentation" data-gtm-click="language-menu-ja-link">
-        <JaTextWrapper role="menuitem">
-          <JaText>
-            {language === 'ja' ? <FaAngleRight /> : ''}
-            日本語
-          </JaText>
-        </JaTextWrapper>
-      </StyledLink>
-    </Link>
+  <StyledLanguageMenu>
+    <EnTextWrapper>
+      <Link href={currentUrlPath} locale="en" prefetch={false}>
+        <EnText data-gtm-click="language-menu-en-link">
+          {language === 'en' ? <FaAngleRight /> : ''}
+          English
+        </EnText>
+      </Link>
+      <EnText>
+        {language === 'en' ? <FaAngleRight /> : ''}
+        English
+      </EnText>
+    </EnTextWrapper>
+    <Separator />
+    <JaTextWrapper>
+      <Link href={currentUrlPath} locale="ja" prefetch={false}>
+        <JaText data-gtm-click="language-menu-ja-link">
+          {language === 'ja' ? <FaAngleRight /> : ''}
+          日本語
+        </JaText>
+      </Link>
+    </JaTextWrapper>
   </StyledLanguageMenu>
 );
