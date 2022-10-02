@@ -1,1 +1,4 @@
-export { TermsOrPrivacyTemplate, TemplateType } from './TermsOrPrivacyTemplate';
+export {
+  TermsOrPrivacyTemplate,
+  type TemplateType,
+} from './TermsOrPrivacyTemplate';

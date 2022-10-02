@@ -18,7 +18,10 @@ export {
   isSuccessResult,
   isFailureResult,
   errorType,
-  type Result,
+} from './features';
+
+export type {
+  Result,
   SuccessResult,
   FailureResult,
   ErrorType,
