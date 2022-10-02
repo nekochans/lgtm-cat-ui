@@ -20,4 +20,9 @@ export {
   errorType,
 } from './features';
 
-export type {Result, SuccessResult, FailureResult, ErrorType} from './features';
+export type {
+  Result,
+  SuccessResult,
+  FailureResult,
+  ErrorType,
+} from './features';
