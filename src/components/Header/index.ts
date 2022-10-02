@@ -1,1 +1,1 @@
-export { Header, Props } from './Header';
+export { Header, type Props } from './Header';

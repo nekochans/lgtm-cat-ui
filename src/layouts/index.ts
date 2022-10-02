@@ -1,1 +1,1 @@
-export { ResponsiveLayout, Props } from './ResponsiveLayout';
+export { ResponsiveLayout, type Props } from './ResponsiveLayout';
