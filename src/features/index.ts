@@ -3,10 +3,9 @@ export {
   createFailureResult,
   isSuccessResult,
   isFailureResult,
-  type Result,
-  SuccessResult,
-  FailureResult,
 } from './result';
+
+export type { Result, SuccessResult, FailureResult } from './result';
 
 export { errorType, type ErrorType } from './error';
 

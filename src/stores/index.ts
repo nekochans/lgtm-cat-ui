@@ -4,6 +4,6 @@ export {
   lgtmImageStateSelector,
   updateLgtmImages,
   updateIsFailedFetchLgtmImages,
-  type CommonState,
-  LgtmImageState,
 } from './valtio';
+
+export type { CommonState, LgtmImageState } from './valtio';
