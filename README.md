@@ -8,6 +8,10 @@ https://lgtmeow.com の UIComponent を管理する為の package です。
 
 本 Package は https://lgtmeow.com でのみ利用する事を想定しています。
 
+この README には Package 利用者向けの情報しか載っていません。
+
+本リポジトリのコントリビューターは [CONTRIBUTING](https://github.com/nekochans/lgtm-cat-ui/blob/main/.github/CONTRIBUTING.md) を参考に環境構築や開発の流れをご理解した上での開発をお願いします。
+
 以下から最新の Storybook を確認出来ます。
 
 https://main--62729802bbcc7d004a663d4c.chromatic.com
