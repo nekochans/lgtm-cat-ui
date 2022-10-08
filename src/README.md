@@ -4,7 +4,7 @@
 
 アトミックデザインの用語が出てきますが、アトミックデザインに準拠している訳ではありません。
 
-Component に関しては基本的にはアトミックデザインでいうところの `Templates` 相当の Component を外部公開するします。
+Component に関しては基本的にはアトミックデザインでいうところの `Templates` 相当の Component を外部公開します。
 
 その他の関数や型定義などは必要な物だけを Package 外に公開します。
 
@@ -119,9 +119,7 @@ Package の利用者にとっても重要な情報になるので、一部の型
 
 `utils` への機能追加を行う前に `features` に定義出来ないか検討を行うようにお願いします。
 
-現状では [never 型を使った網羅性チェック](https://typescriptbook.jp/reference/statements/never#never%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%9F%E7%B6%B2%E7%BE%85%E6%80%A7%E3%83%81%E3%82%A7%E3%83%83%E3%82%AF) を行う為の `assertNever` 関数。
-
-sleep を行う為の `sleep` が定義されています。
+現状では [never 型を使った網羅性チェック](https://typescriptbook.jp/reference/statements/never#never%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%9F%E7%B6%B2%E7%BE%85%E6%80%A7%E3%83%81%E3%82%A7%E3%83%83%E3%82%AF) を行う為の `assertNever` 関数や sleep を行う為の `sleep` が定義されています。
 
 ## その他
 
