@@ -41,6 +41,8 @@ https://smallbusinessprogramming.com/optimal-pull-request-size/
 
 1 つの目安として参考にすると良いでしょう。
 
+開発の際は [ディレクトリ構成の説明](https://github.com/nekochans/lgtm-cat-ui/blob/main/src/README.md) を参考にします。
+
 ### Git のコミットルールについて
 
 https://github.com/nekochans/nekochans/wiki/Rules-of-Git-commit を参照して下さい。
