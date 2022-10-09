@@ -19,7 +19,7 @@ const DefaultWrapper = styled.div`
 
 const UpperWrapper = styled.div`
   ${baseCss};
-  top: 30%;
+  top: 15%;
   opacity: 0.5;
 `;
 
