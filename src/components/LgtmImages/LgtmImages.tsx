@@ -5,7 +5,7 @@ import type { AppUrl } from '../../constants';
 import type { LgtmImage } from '../../types';
 import { LgtmImageContent } from './LgtmImageContent';
 
-const Wrapper = styled.div`
+const _Wrapper = styled.div`
   @media (max-width: 767px) {
     grid-template-columns: 1fr;
     gap: 10px;
@@ -22,7 +22,7 @@ type Props = {
 };
 
 export const LgtmImages: FC<Props> = ({ images, appUrl, callback }) => (
-  <Wrapper>
+  <_Wrapper>
     {images.map((image) => (
       <LgtmImageContent
         id={image.id}
@@ -32,5 +32,5 @@ export const LgtmImages: FC<Props> = ({ images, appUrl, callback }) => (
         callback={callback}
       />
     ))}
-  </Wrapper>
+  </_Wrapper>
 );

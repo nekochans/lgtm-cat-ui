@@ -7,7 +7,7 @@ import type { Language, LgtmImageUrl } from '../../../types';
 import { assertNever } from '../../../utils';
 import { CopiedGithubMarkdownMessage } from '../../LgtmImages/CopiedGithubMarkdownMessage';
 
-const Wrapper = styled.div`
+const _Wrapper = styled.div`
   display: flex;
   flex: none;
   flex-direction: column;
@@ -20,7 +20,7 @@ const Wrapper = styled.div`
   padding: 0;
 `;
 
-const Title = styled.div`
+const _Title = styled.div`
   flex: none;
   flex-grow: 0;
   order: 0;
@@ -34,7 +34,7 @@ const Title = styled.div`
   color: #eb7c06;
 `;
 
-const ContentsWrapper = styled.div`
+const _ContentsWrapper = styled.div`
   display: flex;
   flex: none;
   flex-direction: column;
@@ -47,7 +47,7 @@ const ContentsWrapper = styled.div`
   padding: 0;
 `;
 
-const MainMessage = styled.div`
+const _MainMessage = styled.div`
   flex: none;
   flex-grow: 0;
   order: 0;
@@ -62,7 +62,7 @@ const MainMessage = styled.div`
   text-align: center;
 `;
 
-const UnderSectionWrapper = styled.div`
+const _UnderSectionWrapper = styled.div`
   display: flex;
   flex: none;
   flex-direction: column;
@@ -75,7 +75,7 @@ const UnderSectionWrapper = styled.div`
   padding: 0;
 `;
 
-const DescriptionWrapper = styled.div`
+const _DescriptionWrapper = styled.div`
   box-sizing: border-box;
   display: flex;
   flex: none;
@@ -92,7 +92,7 @@ const DescriptionWrapper = styled.div`
   border-radius: 3px;
 `;
 
-const DescriptionText = styled.div`
+const _DescriptionText = styled.div`
   flex: none;
   flex-grow: 0;
   order: 0;
@@ -106,7 +106,7 @@ const DescriptionText = styled.div`
   color: #8e7e78;
 `;
 
-const ButtonGroup = styled.div`
+const _ButtonGroup = styled.div`
   display: flex;
   flex: none;
   flex-direction: row;
@@ -118,7 +118,7 @@ const ButtonGroup = styled.div`
   padding: 0;
 `;
 
-const CloseButton = styled.button`
+const _CloseButton = styled.button`
   box-sizing: border-box;
   display: flex;
   flex: none;
@@ -134,7 +134,7 @@ const CloseButton = styled.button`
   border-radius: 4px;
 `;
 
-const CloseButtonText = styled.div`
+const _CloseButtonText = styled.div`
   flex: none;
   flex-grow: 0;
   order: 0;
@@ -146,7 +146,7 @@ const CloseButtonText = styled.div`
   color: #f0a14e;
 `;
 
-const MarkdownSourceCopyButton = styled.button`
+const _MarkdownSourceCopyButton = styled.button`
   display: flex;
   flex: none;
   flex-direction: row;
@@ -160,7 +160,7 @@ const MarkdownSourceCopyButton = styled.button`
   border-radius: 4px;
 `;
 
-const MarkdownSourceCopyButtonText = styled.div`
+const _MarkdownSourceCopyButtonText = styled.div`
   flex: none;
   flex-grow: 0;
   order: 0;
@@ -255,27 +255,27 @@ export const SuccessMessageArea: FC<Props> = ({
   });
 
   return (
-    <Wrapper>
-      <Title>{titleText(language)}</Title>
-      <ContentsWrapper>
-        <MainMessage>{mainMessageText(language)}</MainMessage>
-        <UnderSectionWrapper>
-          <DescriptionWrapper>
-            <DescriptionText>{descriptionText(language)}</DescriptionText>
-          </DescriptionWrapper>
-          <ButtonGroup>
-            <CloseButton onClick={onClickClose}>
-              <CloseButtonText>{closeButtonText(language)}</CloseButtonText>
-            </CloseButton>
-            <MarkdownSourceCopyButton ref={imageContextRef}>
-              <MarkdownSourceCopyButtonText>
+    <_Wrapper>
+      <_Title>{titleText(language)}</_Title>
+      <_ContentsWrapper>
+        <_MainMessage>{mainMessageText(language)}</_MainMessage>
+        <_UnderSectionWrapper>
+          <_DescriptionWrapper>
+            <_DescriptionText>{descriptionText(language)}</_DescriptionText>
+          </_DescriptionWrapper>
+          <_ButtonGroup>
+            <_CloseButton onClick={onClickClose}>
+              <_CloseButtonText>{closeButtonText(language)}</_CloseButtonText>
+            </_CloseButton>
+            <_MarkdownSourceCopyButton ref={imageContextRef}>
+              <_MarkdownSourceCopyButtonText>
                 {markdownSourceCopyButtonText(language)}
-              </MarkdownSourceCopyButtonText>
-            </MarkdownSourceCopyButton>
-          </ButtonGroup>
-        </UnderSectionWrapper>
+              </_MarkdownSourceCopyButtonText>
+            </_MarkdownSourceCopyButton>
+          </_ButtonGroup>
+        </_UnderSectionWrapper>
         {copied ? <CopiedGithubMarkdownMessage /> : ''}
-      </ContentsWrapper>
-    </Wrapper>
+      </_ContentsWrapper>
+    </_Wrapper>
   );
 };

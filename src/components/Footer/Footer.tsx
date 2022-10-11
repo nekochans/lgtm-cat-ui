@@ -9,7 +9,7 @@ import {
 
 import type { Language } from '../../types';
 
-const StyledFooter = styled.div`
+const _Wrapper = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -17,7 +17,7 @@ const StyledFooter = styled.div`
   justify-content: center;
 `;
 
-const UpperSection = styled.div`
+const _UpperSection = styled.div`
   display: flex;
   flex: none;
   flex-direction: row;
@@ -30,7 +30,7 @@ const UpperSection = styled.div`
   background: #fffcf6;
 `;
 
-const TermsLinkText = styled.a`
+const _TermsLinkText = styled.a`
   flex: none;
   flex-grow: 0;
   order: 0;
@@ -46,7 +46,7 @@ const TermsLinkText = styled.a`
   cursor: pointer;
 `;
 
-const PrivacyLinkText = styled.a`
+const _PrivacyLinkText = styled.a`
   flex: none;
   flex-grow: 0;
   order: 2;
@@ -62,7 +62,7 @@ const PrivacyLinkText = styled.a`
   cursor: pointer;
 `;
 
-const SeparatorText = styled.div`
+const _SeparatorText = styled.div`
   flex: none;
   flex-grow: 0;
   order: 1;
@@ -77,7 +77,7 @@ const SeparatorText = styled.div`
   text-align: center;
 `;
 
-const LowerSection = styled.div`
+const _LowerSection = styled.div`
   display: flex;
   flex: none;
   flex-direction: row;
@@ -91,7 +91,7 @@ const LowerSection = styled.div`
   background: #f2ebdf;
 `;
 
-const LowerSectionText = styled.div`
+const _LowerSectionText = styled.div`
   flex: none;
   flex-grow: 0;
   order: 0;
@@ -115,24 +115,24 @@ export const Footer: FC<Props> = ({ language }) => {
   const privacy = createPrivacyPolicyLinksFromLanguages(language);
 
   return (
-    <StyledFooter>
-      <UpperSection>
+    <_Wrapper>
+      <_UpperSection>
         <Link href={terms.link} prefetch={false}>
-          <TermsLinkText data-gtm-click="footer-terms-link">
+          <_TermsLinkText data-gtm-click="footer-terms-link">
             {terms.text}
-          </TermsLinkText>
+          </_TermsLinkText>
         </Link>
         {/* eslint-disable no-irregular-whitespace */}
-        <SeparatorText> / </SeparatorText>
+        <_SeparatorText> / </_SeparatorText>
         <Link href={privacy.link} prefetch={false}>
-          <PrivacyLinkText data-gtm-click="footer-privacy-link">
+          <_PrivacyLinkText data-gtm-click="footer-privacy-link">
             {privacy.text}
-          </PrivacyLinkText>
+          </_PrivacyLinkText>
         </Link>
-      </UpperSection>
-      <LowerSection>
-        <LowerSectionText>Copyright (c) nekochans</LowerSectionText>
-      </LowerSection>
-    </StyledFooter>
+      </_UpperSection>
+      <_LowerSection>
+        <_LowerSectionText>Copyright (c) nekochans</_LowerSectionText>
+      </_LowerSection>
+    </_Wrapper>
   );
 };

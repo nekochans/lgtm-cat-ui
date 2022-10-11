@@ -10,7 +10,7 @@ import {
 
 import type { Language } from '../../types';
 
-const Wrapper = styled.div`
+const _Wrapper = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -22,7 +22,7 @@ const Wrapper = styled.div`
   padding: 10px 22px 7px 0;
 `;
 
-const HeaderWrapper = styled.div`
+const _HeaderWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -31,7 +31,7 @@ const HeaderWrapper = styled.div`
   padding: 10px 22px 7px 0;
 `;
 
-const FaTimesWrapper = styled.div`
+const _FaTimesWrapper = styled.div`
   flex: none;
   flex-grow: 0;
   order: 0;
@@ -48,7 +48,7 @@ const faTimesStyle = {
   cursor: 'pointer',
 };
 
-const LinkGroupWrapper = styled.div`
+const _LinkGroupWrapper = styled.div`
   position: absolute;
   top: 73px;
   left: 15px;
@@ -60,7 +60,7 @@ const LinkGroupWrapper = styled.div`
   padding: 0;
 `;
 
-const LinkWrapper = styled.div`
+const _LinkWrapper = styled.div`
   flex: none;
   flex-grow: 0;
   order: 0;
@@ -68,7 +68,7 @@ const LinkWrapper = styled.div`
   height: 45px;
 `;
 
-const LinkText = styled.a`
+const _LinkText = styled.a`
   display: flex;
   align-items: center;
   font-family: Roboto, sans-serif;
@@ -81,7 +81,7 @@ const LinkText = styled.a`
   cursor: pointer;
 `;
 
-const UnderLine = styled.div`
+const _UnderLine = styled.div`
   box-sizing: border-box;
   background: #faf9f7;
   border-bottom: 1px solid #f2ebdf;
@@ -108,45 +108,45 @@ export const GlobalMenu: FC<Props> = ({ language, onClickCloseButton }) => {
   const privacyPolicyLinks = createPrivacyPolicyLinksFromLanguages(language);
 
   return (
-    <Wrapper>
-      <HeaderWrapper>
-        <FaTimesWrapper onClick={onClickCloseButton}>
+    <_Wrapper>
+      <_HeaderWrapper>
+        <_FaTimesWrapper onClick={onClickCloseButton}>
           <FaTimes style={faTimesStyle} />
-        </FaTimesWrapper>
-      </HeaderWrapper>
-      <LinkGroupWrapper>
-        <LinkWrapper>
+        </_FaTimesWrapper>
+      </_HeaderWrapper>
+      <_LinkGroupWrapper>
+        <_LinkWrapper>
           <Link href="/" prefetch={false}>
-            <LinkText data-gtm-click="global-menu-top-link">TOP</LinkText>
+            <_LinkText data-gtm-click="global-menu-top-link">TOP</_LinkText>
           </Link>
-          <UnderLine />
-        </LinkWrapper>
-        <LinkWrapper>
+          <_UnderLine />
+        </_LinkWrapper>
+        <_LinkWrapper>
           <Link href="/upload" prefetch={false}>
-            <LinkText data-gtm-click="global-menu-upload-cat-link">
+            <_LinkText data-gtm-click="global-menu-upload-cat-link">
               <FaCloudUploadAlt style={faCloudUploadAltStyle} />
               Upload new Cats
-            </LinkText>
+            </_LinkText>
           </Link>
-          <UnderLine />
-        </LinkWrapper>
-        <LinkWrapper>
+          <_UnderLine />
+        </_LinkWrapper>
+        <_LinkWrapper>
           <Link href={termsOfUseLinks.link} prefetch={false}>
-            <LinkText data-gtm-click="global-menu-terms-link">
+            <_LinkText data-gtm-click="global-menu-terms-link">
               {termsOfUseLinks.text}
-            </LinkText>
+            </_LinkText>
           </Link>
-          <UnderLine />
-        </LinkWrapper>
-        <LinkWrapper>
+          <_UnderLine />
+        </_LinkWrapper>
+        <_LinkWrapper>
           <Link href={privacyPolicyLinks.link} prefetch={false}>
-            <LinkText data-gtm-click="global-menu-terms-link">
+            <_LinkText data-gtm-click="global-menu-terms-link">
               {privacyPolicyLinks.text}
-            </LinkText>
+            </_LinkText>
           </Link>
-          <UnderLine />
-        </LinkWrapper>
-      </LinkGroupWrapper>
-    </Wrapper>
+          <_UnderLine />
+        </_LinkWrapper>
+      </_LinkGroupWrapper>
+    </_Wrapper>
   );
 };

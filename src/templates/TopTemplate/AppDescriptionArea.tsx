@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components';
 import type { Language } from '../../types';
 import { assertNever } from '../../utils';
 
-const Wrapper = styled.div``;
+const _Wrapper = styled.div``;
 
 const textStyle = css`
   font-size: 14px;
@@ -15,12 +15,12 @@ const textStyle = css`
   text-align: center;
 `;
 
-const JaText = styled.div`
+const _JaText = styled.div`
   font-family: Zen Kaku Gothic New, sans-serif;
   ${textStyle};
 `;
 
-const EnText = styled.div`
+const _EnText = styled.div`
   font-family: Roboto, sans-serif;
   ${textStyle};
 `;
@@ -39,17 +39,17 @@ export type Props = {
 };
 
 const JaAppDescriptionArea: FC = () => (
-  <Wrapper>
-    <JaText>{jaUpperSectionText}</JaText>
-    <JaText>{jaLowerSectionText}</JaText>
-  </Wrapper>
+  <_Wrapper>
+    <_JaText>{jaUpperSectionText}</_JaText>
+    <_JaText>{jaLowerSectionText}</_JaText>
+  </_Wrapper>
 );
 
 const EnAppDescriptionArea: FC = () => (
-  <Wrapper>
-    <EnText>{enUpperSectionText}</EnText>
-    <EnText>{enLowerSectionText}</EnText>
-  </Wrapper>
+  <_Wrapper>
+    <_EnText>{enUpperSectionText}</_EnText>
+    <_EnText>{enLowerSectionText}</_EnText>
+  </_Wrapper>
 );
 
 export const AppDescriptionArea: FC<Props> = ({ language }) => {

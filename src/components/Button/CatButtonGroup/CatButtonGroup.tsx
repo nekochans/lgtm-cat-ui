@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { CatFetchButton } from '../CatFetchButton';
 import { UploadCatButton } from '../UploadCatButton';
 
-const Wrapper = styled.div`
+const _Wrapper = styled.div`
   @media (max-width: 767px) {
     display: flex;
     flex-direction: column;
@@ -15,7 +15,7 @@ const Wrapper = styled.div`
   background: #fff;
 `;
 
-const ButtonGroup = styled.div`
+const _ButtonGroup = styled.div`
   @media (max-width: 767px) {
     flex: none;
     flex-direction: column;
@@ -39,14 +39,14 @@ export const CatButtonGroup: FC<Props> = ({
   onClickFetchRandomCatButton,
   onClickFetchNewArrivalCatButton,
 }) => (
-  <Wrapper>
-    <ButtonGroup>
+  <_Wrapper>
+    <_ButtonGroup>
       <UploadCatButton
         link="/upload"
         customDataAttrGtmClick="top-upload-cat-button"
       />
       <CatFetchButton type="refresh" onClick={onClickFetchRandomCatButton} />
       <CatFetchButton type="new" onClick={onClickFetchNewArrivalCatButton} />
-    </ButtonGroup>
-  </Wrapper>
+    </_ButtonGroup>
+  </_Wrapper>
 );

@@ -1,7 +1,7 @@
 import type { FC } from 'react';
 import styled from 'styled-components';
 
-const StyledTitle = styled.h1`
+const _Title = styled.h1`
   font-family: Roboto, sans-serif;
   font-size: 16px;
   font-style: normal;
@@ -15,5 +15,5 @@ export type Props = {
 };
 
 export const MarkdownPageTitle: FC<Props> = ({ text }) => (
-  <StyledTitle>{text}</StyledTitle>
+  <_Title>{text}</_Title>
 );

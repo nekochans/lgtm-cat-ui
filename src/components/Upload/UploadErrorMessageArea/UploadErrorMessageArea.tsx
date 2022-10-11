@@ -6,7 +6,7 @@ type Props = {
   messages: string[];
 };
 
-const StyledUploadErrorMessageArea = styled.div`
+const _Wrapper = styled.div`
   @media (max-width: 767px) {
     width: 380px;
   }
@@ -38,7 +38,7 @@ const faExclamationTriangleStyle = {
   flexGrow: 0,
 };
 
-const MessageText = styled.span`
+const _MessageText = styled.span`
   @media (max-width: 767px) {
     width: 380px;
   }
@@ -57,12 +57,12 @@ const MessageText = styled.span`
 `;
 
 export const UploadErrorMessageArea: FC<Props> = ({ messages }) => (
-  <StyledUploadErrorMessageArea>
+  <_Wrapper>
     <FaExclamationTriangle style={faExclamationTriangleStyle} />
-    <MessageText>
+    <_MessageText>
       {messages.map((message, index) => (
         <p key={index}>{message}</p>
       ))}
-    </MessageText>
-  </StyledUploadErrorMessageArea>
+    </_MessageText>
+  </_Wrapper>
 );

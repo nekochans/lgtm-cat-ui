@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { Footer, Props as FooterProps } from '../../components/Footer';
 import { Header, Props as HeaderProps } from '../../components/Header';
 
-const Wrapper = styled.div`
+const _Wrapper = styled.div`
   display: grid;
   grid-template-rows: auto 1fr auto;
   grid-template-columns: 100%;
@@ -12,7 +12,7 @@ const Wrapper = styled.div`
   min-height: 100vh;
 `;
 
-const ContentsWrapper = styled.div`
+const _ContentsWrapper = styled.div`
   display: inline-block;
   margin: 0 auto;
   text-align: center;
@@ -28,14 +28,14 @@ export const ResponsiveLayout: FC<Props> = ({
   currentUrlPath,
   children,
 }) => (
-  <Wrapper>
+  <_Wrapper>
     <Header
       language={language}
       isLanguageMenuDisplayed={isLanguageMenuDisplayed}
       onClickLanguageButton={onClickLanguageButton}
       currentUrlPath={currentUrlPath}
     />
-    <ContentsWrapper>{children}</ContentsWrapper>
+    <_ContentsWrapper>{children}</_ContentsWrapper>
     <Footer language={language} />
-  </Wrapper>
+  </_Wrapper>
 );

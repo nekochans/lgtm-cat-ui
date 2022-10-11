@@ -6,7 +6,7 @@ import {
   type CatRandomCopyButtonProps,
 } from '../../components';
 
-const Wrapper = styled.div`
+const _Wrapper = styled.div`
   display: grid;
   gap: 20px;
   align-items: center;
@@ -21,11 +21,11 @@ export const CatRandomCopyButtonWrapper: FC<Props> = ({
   imageUrl,
   callback,
 }) => (
-  <Wrapper>
+  <_Wrapper>
     <CatRandomCopyButton
       appUrl={appUrl}
       imageUrl={imageUrl}
       callback={callback}
     />
-  </Wrapper>
+  </_Wrapper>
 );

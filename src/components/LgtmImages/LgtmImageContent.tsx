@@ -8,7 +8,7 @@ import { useClipboardMarkdown, useCopySuccess } from '../../hooks';
 import type { LgtmImage } from '../../types';
 import { CopiedGithubMarkdownMessage } from './CopiedGithubMarkdownMessage';
 
-const ImageWrapper = styled.div`
+const _Wrapper = styled.div`
   position: relative;
   height: 300px;
   cursor: pointer;
@@ -37,7 +37,7 @@ export const LgtmImageContent: FC<Props> = ({
   });
 
   return (
-    <ImageWrapper key={id} ref={imageContextRef}>
+    <_Wrapper key={id} ref={imageContextRef}>
       <Image
         src={imageUrl}
         layout="fill"
@@ -46,6 +46,6 @@ export const LgtmImageContent: FC<Props> = ({
         priority={true}
       />
       {copied ? <CopiedGithubMarkdownMessage /> : ''}
-    </ImageWrapper>
+    </_Wrapper>
   );
 };

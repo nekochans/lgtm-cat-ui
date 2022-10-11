@@ -4,12 +4,12 @@ import styled from 'styled-components';
 
 import { mixins } from '../../../styles';
 
-const StyledGitHubLoginButton = styled.button`
+const _Button = styled.button`
   background: #eb7c06;
   ${mixins.buttonBase};
 `;
 
-const Text = styled.div`
+const _Text = styled.div`
   ${mixins.buttonText};
 `;
 
@@ -25,8 +25,8 @@ const faGithubStyle = {
 };
 
 export const GitHubLoginButton: FC = () => (
-  <StyledGitHubLoginButton>
+  <_Button>
     <FaGithub style={faGithubStyle} />
-    <Text>Login</Text>
-  </StyledGitHubLoginButton>
+    <_Text>Login</_Text>
+  </_Button>
 );

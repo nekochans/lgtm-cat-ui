@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import type { Language } from '../../types';
 import { assertNever } from '../../utils';
 
-const StyledSpan = styled.span`
+const _Span = styled.span`
   display: flex;
   flex-direction: row;
   gap: 10px;
@@ -20,7 +20,7 @@ const StyledSpan = styled.span`
   }
 `;
 
-const Text = styled.div`
+const _Text = styled.div`
   flex: none;
   flex-grow: 0;
   order: 0;
@@ -62,8 +62,8 @@ type Props = {
 
 export const BackToTopButton: FC<Props> = ({ language }) => (
   <Link href="/" prefetch={false}>
-    <StyledSpan>
-      <Text>{createBackToTopPageText(language)}</Text>
-    </StyledSpan>
+    <_Span>
+      <_Text>{createBackToTopPageText(language)}</_Text>
+    </_Span>
   </Link>
 );

@@ -17,7 +17,7 @@ const textWrapperStyle = css`
   background: rgba(54, 46, 43, 0.4);
 `;
 
-const StyledLanguageMenu = styled.nav`
+const _Wrapper = styled.nav`
   @media (max-width: 767px) {
     right: 0;
   }
@@ -30,12 +30,12 @@ const StyledLanguageMenu = styled.nav`
   padding: 0;
 `;
 
-const EnTextWrapper = styled.span`
+const _EnTextWrapper = styled.span`
   ${textWrapperStyle};
   order: 0;
 `;
 
-const EnText = styled.a`
+const _EnText = styled.a`
   flex: none;
   flex-grow: 0;
   order: 0;
@@ -51,7 +51,7 @@ const EnText = styled.a`
   cursor: pointer;
 `;
 
-const Separator = styled.span`
+const _Separator = styled.span`
   flex: none;
   flex-grow: 0;
   order: 1;
@@ -60,12 +60,12 @@ const Separator = styled.span`
   border: 1px solid rgba(54, 46, 43, 0.5);
 `;
 
-const JaTextWrapper = styled.span`
+const _JaTextWrapper = styled.span`
   ${textWrapperStyle};
   order: 2;
 `;
 
-const JaText = styled.a`
+const _JaText = styled.a`
   flex: none;
   flex-grow: 0;
   order: 0;
@@ -87,27 +87,27 @@ export type Props = {
 };
 
 export const LanguageMenu: FC<Props> = ({ language, currentUrlPath }) => (
-  <StyledLanguageMenu>
-    <EnTextWrapper>
+  <_Wrapper>
+    <_EnTextWrapper>
       <Link href={currentUrlPath} locale="en" prefetch={false}>
-        <EnText data-gtm-click="language-menu-en-link">
+        <_EnText data-gtm-click="language-menu-en-link">
           {language === 'en' ? <FaAngleRight /> : ''}
           English
-        </EnText>
+        </_EnText>
       </Link>
-      <EnText>
+      <_EnText>
         {language === 'en' ? <FaAngleRight /> : ''}
         English
-      </EnText>
-    </EnTextWrapper>
-    <Separator />
-    <JaTextWrapper>
+      </_EnText>
+    </_EnTextWrapper>
+    <_Separator />
+    <_JaTextWrapper>
       <Link href={currentUrlPath} locale="ja" prefetch={false}>
-        <JaText data-gtm-click="language-menu-ja-link">
+        <_JaText data-gtm-click="language-menu-ja-link">
           {language === 'ja' ? <FaAngleRight /> : ''}
           日本語
-        </JaText>
+        </_JaText>
       </Link>
-    </JaTextWrapper>
-  </StyledLanguageMenu>
+    </_JaTextWrapper>
+  </_Wrapper>
 );

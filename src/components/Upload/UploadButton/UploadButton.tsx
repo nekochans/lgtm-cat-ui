@@ -21,7 +21,7 @@ const hoverCss = css`
   }
 `;
 
-const Button = styled.button`
+const _Button = styled.button`
   ${buttonCss};
   ${hoverCss};
 `;
@@ -40,7 +40,7 @@ const buttonTextCss = css`
   color: #fff;
 `;
 
-const Text = styled.div`
+const _Text = styled.div`
   ${buttonTextCss};
   ${hoverCss};
 `;
@@ -49,12 +49,12 @@ const disableCss = css`
   opacity: 0.5;
 `;
 
-const DisableButton = styled.button`
+const _DisableButton = styled.button`
   ${buttonCss};
   ${disableCss};
 `;
 
-const DisableText = styled.div`
+const _DisableText = styled.div`
   ${buttonTextCss};
   ${disableCss};
 `;
@@ -79,15 +79,15 @@ type Props = {
 export const UploadButton: FC<Props> = ({ language, disabled, onClick }) => {
   if (!disabled) {
     return (
-      <Button type="submit" disabled={disabled} onClick={onClick}>
-        <Text>{createText(language)}</Text>
-      </Button>
+      <_Button type="submit" disabled={disabled} onClick={onClick}>
+        <_Text>{createText(language)}</_Text>
+      </_Button>
     );
   }
 
   return (
-    <DisableButton type="submit" disabled={disabled} onClick={onClick}>
-      <DisableText>{createText(language)}</DisableText>
-    </DisableButton>
+    <_DisableButton type="submit" disabled={disabled} onClick={onClick}>
+      <_DisableText>{createText(language)}</_DisableText>
+    </_DisableButton>
   );
 };

@@ -9,11 +9,11 @@ import { GlobalMenu } from '../GlobalMenu';
 import { LanguageButton } from './LanguageButton';
 import { LanguageMenu, Props as LanguageMenuProps } from './LanguageMenu';
 
-const Wrapper = styled.div`
+const _Wrapper = styled.div`
   background: #e9e2d7;
 `;
 
-const StyledHeader = styled.div`
+const _Header = styled.div`
   position: relative;
   display: flex;
   flex-direction: row;
@@ -24,7 +24,7 @@ const StyledHeader = styled.div`
   margin: 0 auto;
 `;
 
-const Title = styled.a`
+const _Title = styled.a`
   position: absolute;
   top: 26.67%;
   bottom: 26.67%;
@@ -98,11 +98,11 @@ export const Header: FC<Props> = ({
       >
         <GlobalMenu language={language} onClickCloseButton={closeMenu} />
       </Modal>
-      <Wrapper>
-        <StyledHeader>
+      <_Wrapper>
+        <_Header>
           <FaBars style={faBarsStyle} onClick={openMenu} />
           <Link href="/" prefetch={false}>
-            <Title data-gtm-click="header-app-title">LGTMeow</Title>
+            <_Title data-gtm-click="header-app-title">LGTMeow</_Title>
           </Link>
           <LanguageButton onClick={onClickLanguageButton} />
           {isLanguageMenuDisplayed ? (
@@ -110,8 +110,8 @@ export const Header: FC<Props> = ({
           ) : (
             ''
           )}
-        </StyledHeader>
-      </Wrapper>
+        </_Header>
+      </_Wrapper>
     </>
   );
 };

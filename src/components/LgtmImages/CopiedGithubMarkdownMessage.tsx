@@ -12,12 +12,12 @@ const baseCss = css`
   transform: translate(-50%, 0);
 `;
 
-const DefaultWrapper = styled.div`
+const _DefaultWrapper = styled.div`
   ${baseCss};
   bottom: 30%;
 `;
 
-const UpperWrapper = styled.div`
+const _UpperWrapper = styled.div`
   ${baseCss};
   top: 15%;
   opacity: 0.5;
@@ -35,9 +35,9 @@ export const CopiedGithubMarkdownMessage: FC<Props> = ({
   return (
     <>
       {position === 'default' ? (
-        <DefaultWrapper>{text}</DefaultWrapper>
+        <_DefaultWrapper>{text}</_DefaultWrapper>
       ) : (
-        <UpperWrapper>{text}</UpperWrapper>
+        <_UpperWrapper>{text}</_UpperWrapper>
       )}
     </>
   );
