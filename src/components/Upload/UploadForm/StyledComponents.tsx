@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.div`
+export const _Wrapper = styled.div`
   display: flex;
   flex: none;
   flex-direction: column;
@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
   padding: 0;
 `;
 
-export const Form = styled.form`
+export const _Form = styled.form`
   @media (max-width: 767px) {
     width: 380px;
   }
@@ -21,7 +21,7 @@ export const Form = styled.form`
   width: 500px;
 `;
 
-export const InputFileArea = styled.div`
+export const _InputFileArea = styled.div`
   box-sizing: border-box;
   display: grid;
   height: 220px;
@@ -29,7 +29,7 @@ export const InputFileArea = styled.div`
   border: 1px dashed #362e2b;
 `;
 
-export const Text = styled.div`
+export const _Text = styled.div`
   font-family: Roboto, sans-serif;
   font-size: 16px;
   font-style: normal;
@@ -39,11 +39,11 @@ export const Text = styled.div`
   text-align: center;
 `;
 
-export const InputFile = styled.input`
+export const _InputFile = styled.input`
   display: none;
 `;
 
-export const InputFileLabel = styled.label`
+export const _InputFileLabel = styled.label`
   top: 0;
   right: 0;
   bottom: 0;
@@ -63,7 +63,7 @@ export const InputFileLabel = styled.label`
   border-radius: 4px;
 `;
 
-export const InputFileLabelText = styled.div`
+export const _InputFileLabelText = styled.div`
   flex: none;
   flex-grow: 0;
   order: 0;
@@ -77,7 +77,7 @@ export const InputFileLabelText = styled.div`
   color: #f0a14e;
 `;
 
-export const MaxUploadSizeText = styled.div`
+export const _MaxUploadSizeText = styled.div`
   height: 28px;
   font-family: Roboto, sans-serif;
   font-size: 13px;
@@ -88,7 +88,7 @@ export const MaxUploadSizeText = styled.div`
   text-align: right;
 `;
 
-export const CautionTextArea = styled.div`
+export const _CautionTextArea = styled.div`
   height: 28px;
   font-family: Roboto, sans-serif;
   font-size: 14px;
@@ -99,7 +99,7 @@ export const CautionTextArea = styled.div`
   text-align: center;
 `;
 
-export const Notes = styled.div`
+export const _Notes = styled.div`
   top: 609px;
   height: 96px;
   font-family: Roboto, sans-serif;
@@ -110,12 +110,12 @@ export const Notes = styled.div`
   color: #362e2b;
 `;
 
-export const DescriptionAreaWrapper = styled.div`
+export const _DescriptionAreaWrapper = styled.div`
   display: grid;
   gap: 24px;
 `;
 
-export const PrivacyPolicyArea = styled.div`
+export const _PrivacyPolicyArea = styled.div`
   height: 42px;
   font-family: Roboto, sans-serif;
   font-size: 12px;
@@ -126,7 +126,7 @@ export const PrivacyPolicyArea = styled.div`
   text-align: center;
 `;
 
-export const PrivacyLinkText = styled.a`
+export const _PrivacyLinkText = styled.a`
   height: 42px;
   font-family: Roboto, sans-serif;
   font-size: 12px;
@@ -139,7 +139,7 @@ export const PrivacyLinkText = styled.a`
   cursor: pointer;
 `;
 
-export const UploadButtonWrapper = styled.div`
+export const _UploadButtonWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;

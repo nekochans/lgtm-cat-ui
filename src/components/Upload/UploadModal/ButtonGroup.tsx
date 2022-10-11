@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import type { Language } from '../../../types';
 import { assertNever } from '../../../utils';
 
-const Wrapper = styled.div`
+const _Wrapper = styled.div`
   display: flex;
   flex: none;
   flex-direction: row;
@@ -16,7 +16,7 @@ const Wrapper = styled.div`
   padding: 0;
 `;
 
-const CancelButton = styled.button`
+const _CancelButton = styled.button`
   box-sizing: border-box;
   display: flex;
   flex: none;
@@ -35,7 +35,7 @@ const CancelButton = styled.button`
   }
 `;
 
-const CancelButtonText = styled.div`
+const _CancelButtonText = styled.div`
   flex: none;
   flex-grow: 0;
   order: 0;
@@ -50,7 +50,7 @@ const CancelButtonText = styled.div`
   }
 `;
 
-const UploadButton = styled.button`
+const _UploadButton = styled.button`
   display: flex;
   flex: none;
   flex-direction: row;
@@ -67,7 +67,7 @@ const UploadButton = styled.button`
   }
 `;
 
-const UploadButtonText = styled.div`
+const _UploadButtonText = styled.div`
   flex: none;
   flex-grow: 0;
   order: 0;
@@ -115,12 +115,12 @@ export const ButtonGroup: FC<Props> = ({
   onClickUpload,
   onClickCancel,
 }) => (
-  <Wrapper>
-    <CancelButton onClick={onClickCancel}>
-      <CancelButtonText>{cancelButtonText(language)}</CancelButtonText>
-    </CancelButton>
-    <UploadButton onClick={onClickUpload}>
-      <UploadButtonText>{uploadButtonText(language)}</UploadButtonText>
-    </UploadButton>
-  </Wrapper>
+  <_Wrapper>
+    <_CancelButton onClick={onClickCancel}>
+      <_CancelButtonText>{cancelButtonText(language)}</_CancelButtonText>
+    </_CancelButton>
+    <_UploadButton onClick={onClickUpload}>
+      <_UploadButtonText>{uploadButtonText(language)}</_UploadButtonText>
+    </_UploadButton>
+  </_Wrapper>
 );

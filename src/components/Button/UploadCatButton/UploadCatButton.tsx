@@ -10,12 +10,12 @@ import slash from '../images/slash.png';
 // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-assignment
 const slashSrc = slash.src;
 
-const StyledSpan = styled.span`
+const _Span = styled.span`
   background: #eb7c06 url(${slashSrc}) repeat 0 0/16px auto;
   ${mixins.buttonBase};
 `;
 
-const Text = styled.div`
+const _Text = styled.div`
   ${mixins.buttonText};
 `;
 
@@ -40,12 +40,12 @@ export const UploadCatButton: FC<Props> = ({
   customDataAttrGtmClick,
 }) => (
   <Link href={link} prefetch={false}>
-    <StyledSpan data-gtm-click={customDataAttrGtmClick}>
+    <_Span data-gtm-click={customDataAttrGtmClick}>
       <FaCloudUploadAlt
         style={faCloudUploadAltStyle}
         data-gtm-click={customDataAttrGtmClick}
       />
-      <Text data-gtm-click={customDataAttrGtmClick}>Upload new Cats</Text>
-    </StyledSpan>
+      <_Text data-gtm-click={customDataAttrGtmClick}>Upload new Cats</_Text>
+    </_Span>
   </Link>
 );

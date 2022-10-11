@@ -24,7 +24,7 @@ const createTitle = (type: TemplateType, language: Language): string => {
   }
 };
 
-const Wrapper = styled.div`
+const _Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -32,7 +32,7 @@ const Wrapper = styled.div`
   justify-content: center;
 `;
 
-const ChildrenWrapper = styled.div`
+const _ChildrenWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -79,11 +79,11 @@ export const TermsOrPrivacyTemplate: FC<Props> = ({
         onClickLanguageButton={onClickLanguageButton}
         currentUrlPath={currentUrlPath}
       >
-        <Wrapper>
+        <_Wrapper>
           <MarkdownPageTitle text={createTitle(type, language)} />
           <LibraryBooks />
-          <ChildrenWrapper>{children}</ChildrenWrapper>
-        </Wrapper>
+          <_ChildrenWrapper>{children}</_ChildrenWrapper>
+        </_Wrapper>
       </ResponsiveLayout>
     </div>
   );

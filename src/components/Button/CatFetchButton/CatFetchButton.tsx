@@ -5,12 +5,12 @@ import styled from 'styled-components';
 import { mixins } from '../../../styles';
 import { assertNever } from '../../../utils';
 
-const StyledButton = styled.button`
+const _Button = styled.button`
   background: #eb7c06;
   ${mixins.buttonBase};
 `;
 
-const Text = styled.div`
+const _Text = styled.div`
   ${mixins.buttonText};
 `;
 
@@ -44,8 +44,8 @@ type Props = {
 };
 
 export const CatFetchButton: FC<Props> = ({ type, onClick }) => (
-  <StyledButton onClick={onClick}>
+  <_Button onClick={onClick}>
     <FaSyncAlt style={faSyncAltStyle} />
-    <Text>{buttonText(type)}</Text>
-  </StyledButton>
+    <_Text>{buttonText(type)}</_Text>
+  </_Button>
 );

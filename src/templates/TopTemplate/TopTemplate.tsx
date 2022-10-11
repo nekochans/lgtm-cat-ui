@@ -22,7 +22,7 @@ import type { Language, CatImagesFetcher, LgtmImage } from '../../types';
 import { AppDescriptionArea } from './AppDescriptionArea';
 import { CatRandomCopyButtonWrapper } from './CatRandomCopyButtonWrapper';
 
-const Wrapper = styled.div`
+const _Wrapper = styled.div`
   display: grid;
   grid-template-rows: auto 1fr auto;
   grid-template-columns: 100%;
@@ -119,7 +119,7 @@ export const TopTemplate: FC<Props> = ({
         onClickLanguageButton={onClickLanguageButton}
         currentUrlPath="/"
       >
-        <Wrapper>
+        <_Wrapper>
           <AppDescriptionArea language={language} />
           <CatRandomCopyButtonWrapper
             appUrl={appUrl}
@@ -144,7 +144,7 @@ export const TopTemplate: FC<Props> = ({
               callback={clipboardMarkdownCallback}
             />
           )}
-        </Wrapper>
+        </_Wrapper>
       </ResponsiveLayout>
     </div>
   );

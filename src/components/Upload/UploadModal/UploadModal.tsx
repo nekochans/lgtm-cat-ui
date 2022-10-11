@@ -26,7 +26,7 @@ export type Props = {
   appUrl?: AppUrl;
 };
 
-const Wrapper = styled.div`
+const _Wrapper = styled.div`
   @media (max-width: 767px) {
     width: 360px;
   }
@@ -42,7 +42,7 @@ const Wrapper = styled.div`
   border: 1px dashed #8e7e78;
 `;
 
-const ContentsWrapper = styled.div`
+const _ContentsWrapper = styled.div`
   display: flex;
   flex: none;
   flex-direction: column;
@@ -53,7 +53,7 @@ const ContentsWrapper = styled.div`
   padding: 0;
 `;
 
-const Title = styled.div`
+const _Title = styled.div`
   flex: none;
   flex-grow: 0;
   order: 0;
@@ -66,7 +66,7 @@ const Title = styled.div`
   text-align: center;
 `;
 
-const FormWrapper = styled.div`
+const _FormWrapper = styled.div`
   display: flex;
   flex: none;
   flex-direction: column;
@@ -77,13 +77,13 @@ const FormWrapper = styled.div`
   padding: 0;
 `;
 
-const PreviewImageWrapper = styled.div`
+const _PreviewImageWrapper = styled.div`
   flex: none;
   flex-grow: 0;
   order: 0;
 `;
 
-const PreviewImage = styled.img`
+const _PreviewImage = styled.img`
   @media (max-width: 767px) {
     max-width: 355px;
   }
@@ -94,7 +94,7 @@ const PreviewImage = styled.img`
   height: 270px;
 `;
 
-const ConfirmMessage = styled.div`
+const _ConfirmMessage = styled.div`
   flex: none;
   flex-grow: 0;
   order: 1;
@@ -172,10 +172,10 @@ export const UploadModal: FC<Props> = ({
       style={modalStyle}
       onRequestClose={onClickCancel}
     >
-      <Wrapper>
-        <ContentsWrapper>
-          <Title>{titleText(language)}</Title>
-          <FormWrapper>
+      <_Wrapper>
+        <_ContentsWrapper>
+          <_Title>{titleText(language)}</_Title>
+          <_FormWrapper>
             {uploaded ? (
               <CreatedLgtmImage
                 imagePreviewUrl={imagePreviewUrl}
@@ -184,18 +184,20 @@ export const UploadModal: FC<Props> = ({
                 appUrl={appUrl}
               />
             ) : (
-              <PreviewImageWrapper>
-                <PreviewImage src={imagePreviewUrl} />
-              </PreviewImageWrapper>
+              <_PreviewImageWrapper>
+                <_PreviewImage src={imagePreviewUrl} />
+              </_PreviewImageWrapper>
             )}
             {!isLoading && !uploaded ? (
               <>
-                <ConfirmMessage>{confirmMessageText(language)}</ConfirmMessage>
+                <_ConfirmMessage>
+                  {confirmMessageText(language)}
+                </_ConfirmMessage>
               </>
             ) : (
               ''
             )}
-          </FormWrapper>
+          </_FormWrapper>
           {uploaded && createdLgtmImageUrl && !isLoading ? (
             <SuccessMessageArea
               language={language}
@@ -217,8 +219,8 @@ export const UploadModal: FC<Props> = ({
             ''
           )}
           {isLoading ? <UploadProgressBar language={language} /> : ''}
-        </ContentsWrapper>
-      </Wrapper>
+        </_ContentsWrapper>
+      </_Wrapper>
     </Modal>
   );
 };

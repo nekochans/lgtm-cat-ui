@@ -12,13 +12,13 @@ import slash from '../images/slash.png';
 // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-assignment
 const slashSrc = slash.src;
 
-const StyledButton = styled.button`
+const _Button = styled.button`
   ${mixins.buttonBase};
   width: 227px;
   background: #eb7c06 url(${slashSrc}) repeat 0 0/16px auto;
 `;
 
-const Text = styled.div`
+const _Text = styled.div`
   ${mixins.buttonText};
 `;
 
@@ -54,10 +54,10 @@ export const CatRandomCopyButton: FC<Props> = ({
 
   return (
     <>
-      <StyledButton ref={imageContextRef}>
+      <_Button ref={imageContextRef}>
         <FaRandom style={faRandomStyle} />
-        <Text>Cats Random Copied</Text>
-      </StyledButton>
+        <_Text>Cats Random Copied</_Text>
+      </_Button>
       {copied ? <CopiedGithubMarkdownMessage position="upper" /> : ''}
     </>
   );

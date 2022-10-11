@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { Language } from '../../../types';
 import { assertNever } from '../../../utils';
 
-const StyledUploadTitleArea = styled.div`
+const _Wrapper = styled.div`
   font-family: Roboto, sans-serif;
   font-size: 16px;
   font-style: normal;
@@ -33,5 +33,5 @@ const text = (language: Language): Text => {
 };
 
 export const UploadTitleArea: FC<Props> = ({ language }) => (
-  <StyledUploadTitleArea>{text(language)}</StyledUploadTitleArea>
+  <_Wrapper>{text(language)}</_Wrapper>
 );

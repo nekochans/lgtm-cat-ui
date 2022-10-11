@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import type { Language } from '../../../types';
 import { assertNever } from '../../../utils';
 
-const Wrapper = styled.div`
+const _Wrapper = styled.div`
   flex: none;
   flex-grow: 0;
   order: 1;
@@ -12,18 +12,18 @@ const Wrapper = styled.div`
   height: 54px;
 `;
 
-const BarWrapper = styled.div`
+const _BarWrapper = styled.div`
   width: 280px;
   height: 20px;
 `;
 
-const MainColorBar = styled.div`
+const _MainColorBar = styled.div`
   width: 92px;
   height: 18px;
   background: #f0a14e;
 `;
 
-const DefaultColorBar = styled.div`
+const _DefaultColorBar = styled.div`
   box-sizing: border-box;
   width: 280px;
   height: 20px;
@@ -31,7 +31,7 @@ const DefaultColorBar = styled.div`
   border: 1px solid #8e7e78;
 `;
 
-const Message = styled.p`
+const _Message = styled.p`
   width: 56px;
   height: 28px;
   font-family: Roboto, sans-serif;
@@ -80,13 +80,13 @@ export const UploadProgressBar: FC<Props> = ({ language }) => {
   }, [progressLength]);
 
   return (
-    <Wrapper>
-      <BarWrapper>
-        <DefaultColorBar>
-          <MainColorBar style={{ width: `${progressLength}px` }} />
-        </DefaultColorBar>
-      </BarWrapper>
-      <Message>{messageText(language)}</Message>
-    </Wrapper>
+    <_Wrapper>
+      <_BarWrapper>
+        <_DefaultColorBar>
+          <_MainColorBar style={{ width: `${progressLength}px` }} />
+        </_DefaultColorBar>
+      </_BarWrapper>
+      <_Message>{messageText(language)}</_Message>
+    </_Wrapper>
   );
 };

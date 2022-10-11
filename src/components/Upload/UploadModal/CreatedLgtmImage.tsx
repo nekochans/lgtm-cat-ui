@@ -6,13 +6,13 @@ import { useClipboardMarkdown, useCopySuccess } from '../../../hooks';
 import { LgtmImageUrl } from '../../../types';
 import { CopiedGithubMarkdownMessage } from '../../LgtmImages/CopiedGithubMarkdownMessage';
 
-const Wrapper = styled.div`
+const _Wrapper = styled.div`
   flex: none;
   flex-grow: 0;
   order: 0;
 `;
 
-const StyledImage = styled.img`
+const _Image = styled.img`
   @media (max-width: 767px) {
     max-width: 355px;
   }
@@ -46,9 +46,9 @@ export const CreatedLgtmImage: FC<Props> = ({
 
   return (
     <>
-      <Wrapper ref={imageContextRef}>
-        <StyledImage src={imagePreviewUrl} />
-      </Wrapper>
+      <_Wrapper ref={imageContextRef}>
+        <_Image src={imagePreviewUrl} />
+      </_Wrapper>
       {copied ? <CopiedGithubMarkdownMessage /> : ''}
     </>
   );

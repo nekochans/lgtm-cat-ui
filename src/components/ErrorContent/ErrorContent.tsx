@@ -7,7 +7,7 @@ import { assertNever } from '../../utils';
 
 import { BackToTopButton } from './BackToTopButton';
 
-const Wrapper = styled.div`
+const _Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 64px;
@@ -15,7 +15,7 @@ const Wrapper = styled.div`
   justify-content: center;
 `;
 
-const Title = styled.div`
+const _Title = styled.div`
   font-family: Roboto, sans-serif;
   font-size: 70px;
   font-style: normal;
@@ -25,13 +25,13 @@ const Title = styled.div`
   text-align: center;
 `;
 
-const ImageWrapper = styled.div`
+const _ImageWrapper = styled.div`
   position: relative;
   width: 240px;
   height: 240px;
 `;
 
-const Message = styled.div`
+const _Message = styled.div`
   font-family: Roboto, sans-serif;
   font-size: 16px;
   font-style: normal;
@@ -138,14 +138,14 @@ export const ErrorContent: FC<Props> = ({
   language,
   shouldDisplayBackToTopButton,
 }) => (
-  <Wrapper>
-    <Title>{createErrorTitleText(type)}</Title>
-    <ImageWrapper>{catImage}</ImageWrapper>
-    <Message>{createErrorMessageText(type, language)}</Message>
+  <_Wrapper>
+    <_Title>{createErrorTitleText(type)}</_Title>
+    <_ImageWrapper>{catImage}</_ImageWrapper>
+    <_Message>{createErrorMessageText(type, language)}</_Message>
     {shouldDisplayBackToTopButton ? (
       <BackToTopButton language={language} />
     ) : (
       ''
     )}
-  </Wrapper>
+  </_Wrapper>
 );

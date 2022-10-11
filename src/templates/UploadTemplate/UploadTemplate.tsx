@@ -7,7 +7,7 @@ import { useSwitchLanguage } from '../../hooks';
 import { ResponsiveLayout } from '../../layouts';
 import type { Language, ImageUploader, ImageValidator } from '../../types';
 
-const ImageWrapper = styled.div`
+const _ImageWrapper = styled.div`
   display: grid;
   grid-template-columns: 302px 302px 302px;
   @media (max-width: 767px) {
@@ -57,7 +57,7 @@ export const UploadTemplate: FC<Props> = ({
           onClickMarkdownSourceCopyButton={onClickMarkdownSourceCopyButton}
           appUrl={appUrl}
         />
-        <ImageWrapper>{catImage}</ImageWrapper>
+        <_ImageWrapper>{catImage}</_ImageWrapper>
       </ResponsiveLayout>
     </div>
   );

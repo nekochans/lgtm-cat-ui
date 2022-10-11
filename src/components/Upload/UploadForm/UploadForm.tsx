@@ -24,20 +24,20 @@ import { UploadModal } from '../UploadModal';
 import { UploadTitleArea } from '../UploadTitleArea';
 
 import {
-  CautionTextArea,
-  DescriptionAreaWrapper,
-  Form,
-  InputFile,
-  InputFileArea,
-  InputFileLabel,
-  InputFileLabelText,
-  MaxUploadSizeText,
-  Notes,
-  PrivacyLinkText,
-  PrivacyPolicyArea,
-  Text,
-  UploadButtonWrapper,
-  Wrapper,
+  _CautionTextArea,
+  _DescriptionAreaWrapper,
+  _Form,
+  _InputFile,
+  _InputFileArea,
+  _InputFileLabel,
+  _InputFileLabelText,
+  _MaxUploadSizeText,
+  _Notes,
+  _PrivacyLinkText,
+  _PrivacyPolicyArea,
+  _Text,
+  _UploadButtonWrapper,
+  _Wrapper,
 } from './StyledComponents';
 import {
   cautionText,
@@ -67,23 +67,23 @@ export const createPrivacyPolicyArea = (language: Language): JSX.Element => {
   switch (language) {
     case 'ja':
       return (
-        <PrivacyPolicyArea>
+        <_PrivacyPolicyArea>
           アップロードするボタンを押下することで{' '}
           <Link href={privacyLinkAttribute.link} prefetch={false}>
-            <PrivacyLinkText>{privacyLinkAttribute.text}</PrivacyLinkText>
+            <_PrivacyLinkText>{privacyLinkAttribute.text}</_PrivacyLinkText>
           </Link>{' '}
           に同意したと見なします
-        </PrivacyPolicyArea>
+        </_PrivacyPolicyArea>
       );
     case 'en':
       return (
-        <PrivacyPolicyArea>
+        <_PrivacyPolicyArea>
           By pressing the upload button, you agree to the{' '}
           <Link href={privacyLinkAttribute.link} prefetch={false}>
-            <PrivacyLinkText>{privacyLinkAttribute.text}</PrivacyLinkText>
+            <_PrivacyLinkText>{privacyLinkAttribute.text}</_PrivacyLinkText>
           </Link>{' '}
           .
-        </PrivacyPolicyArea>
+        </_PrivacyPolicyArea>
       );
     default:
       return assertNever(language);
@@ -283,7 +283,7 @@ export const UploadForm: FC<Props> = ({
   const { getRootProps } = useDropzone({ onDrop });
 
   return (
-    <Wrapper>
+    <_Wrapper>
       {/* eslint-disable no-magic-numbers */}
       {displayErrorMessages.length === 0 ? (
         ''
@@ -291,38 +291,38 @@ export const UploadForm: FC<Props> = ({
         <UploadErrorMessageArea messages={displayErrorMessages} />
       )}
       <UploadTitleArea language={language} />
-      <Form>
+      <_Form>
         {/* eslint-disable-next-line react/jsx-props-no-spreading */}
         <div {...getRootProps()}>
-          <InputFileArea>
+          <_InputFileArea>
             <FaCloudUploadAlt style={faCloudUploadAltStyle} />
-            <Text>{imageDropAreaText(language)}</Text>
-            <InputFileLabel>
-              <InputFileLabelText>
+            <_Text>{imageDropAreaText(language)}</_Text>
+            <_InputFileLabel>
+              <_InputFileLabelText>
                 {uploadInputButtonText(language)}
-              </InputFileLabelText>
-              <InputFile type="file" onChange={handleFileUpload} />
-            </InputFileLabel>
-          </InputFileArea>
+              </_InputFileLabelText>
+              <_InputFile type="file" onChange={handleFileUpload} />
+            </_InputFileLabel>
+          </_InputFileArea>
         </div>
-        <MaxUploadSizeText>Maximum upload size is 4MB</MaxUploadSizeText>
-        <DescriptionAreaWrapper>
-          <CautionTextArea>{cautionText(language)}</CautionTextArea>
-          <Notes>
+        <_MaxUploadSizeText>Maximum upload size is 4MB</_MaxUploadSizeText>
+        <_DescriptionAreaWrapper>
+          <_CautionTextArea>{cautionText(language)}</_CautionTextArea>
+          <_Notes>
             {noteList(language).map((note, index) => (
               <p key={index}>{note}</p>
             ))}
-          </Notes>
+          </_Notes>
           {createPrivacyPolicyArea(language)}
-        </DescriptionAreaWrapper>
-        <UploadButtonWrapper>
+        </_DescriptionAreaWrapper>
+        <_UploadButtonWrapper>
           <UploadButton
             language={language}
             disabled={shouldDisableButton()}
             onClick={onClickUploadButton}
           />
-        </UploadButtonWrapper>
-      </Form>
+        </_UploadButtonWrapper>
+      </_Form>
       {imagePreviewUrl || createdLgtmImageUrl ? (
         <UploadModal
           isOpen={modalIsOpen}
@@ -341,6 +341,6 @@ export const UploadForm: FC<Props> = ({
       ) : (
         ''
       )}
-    </Wrapper>
+    </_Wrapper>
   );
 };
