@@ -1,33 +1,14 @@
 import type { FC, ReactNode } from 'react';
-import styled from 'styled-components';
-import { useSnapshot } from 'valtio';
-
-import { ErrorContent, LgtmImages } from '../../components';
-import { CatButtonGroup } from '../../components/Button';
 import { AppUrl } from '../../constants';
 import {
-  errorType,
   NewArrivalCatImagesFetcherError,
   RandomCatImagesFetcherError,
 } from '../../features';
 import { useSwitchLanguage } from '../../hooks';
 import { ResponsiveLayout } from '../../layouts';
-import {
-  lgtmImageStateSelector,
-  updateIsFailedFetchLgtmImages,
-  updateLgtmImages,
-} from '../../stores';
-
+import { updateIsFailedFetchLgtmImages, updateLgtmImages } from '../../stores';
 import type { Language, CatImagesFetcher, LgtmImage } from '../../types';
-import { AppDescriptionArea } from './AppDescriptionArea';
-import { CatRandomCopyButtonWrapper } from './CatRandomCopyButtonWrapper';
-
-const _Wrapper = styled.div`
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  grid-template-columns: 100%;
-  gap: 32px;
-`;
+import { LgtmImagesContents } from './LgtmImagesContents';
 
 type Props = {
   language: Language;
@@ -57,8 +38,6 @@ export const TopTemplate: FC<Props> = ({
 }) => {
   const { isLanguageMenuDisplayed, onClickLanguageButton, onClickOutSideMenu } =
     useSwitchLanguage();
-
-  const snap = useSnapshot(lgtmImageStateSelector());
 
   const onClickFetchRandomCatButton = async () => {
     try {
@@ -102,15 +81,6 @@ export const TopTemplate: FC<Props> = ({
     }
   };
 
-  const fetchedLgtmImagesList = snap.lgtmImages ? snap.lgtmImages : lgtmImages;
-
-  const { isFailedFetchLgtmImages } = snap;
-
-  const { imageUrl } =
-    fetchedLgtmImagesList[
-      Math.floor(Math.random() * fetchedLgtmImagesList.length)
-    ];
-
   return (
     <div onClick={onClickOutSideMenu} aria-hidden="true">
       <ResponsiveLayout
@@ -119,32 +89,16 @@ export const TopTemplate: FC<Props> = ({
         onClickLanguageButton={onClickLanguageButton}
         currentUrlPath="/"
       >
-        <_Wrapper>
-          <AppDescriptionArea language={language} />
-          <CatRandomCopyButtonWrapper
-            appUrl={appUrl}
-            imageUrl={imageUrl}
-            callback={catRandomCopyCallback}
-          />
-          <CatButtonGroup
-            onClickFetchRandomCatButton={onClickFetchRandomCatButton}
-            onClickFetchNewArrivalCatButton={onClickFetchNewArrivalCatButton}
-          />
-          {isFailedFetchLgtmImages === true ? (
-            <ErrorContent
-              type={errorType.internalServerError}
-              language={language}
-              catImage={errorCatImage}
-              shouldDisplayBackToTopButton={false}
-            />
-          ) : (
-            <LgtmImages
-              images={fetchedLgtmImagesList as LgtmImage[]}
-              appUrl={appUrl}
-              callback={clipboardMarkdownCallback}
-            />
-          )}
-        </_Wrapper>
+        <LgtmImagesContents
+          language={language}
+          lgtmImages={lgtmImages}
+          errorCatImage={errorCatImage}
+          onClickFetchRandomCatButton={onClickFetchRandomCatButton}
+          onClickFetchNewArrivalCatButton={onClickFetchNewArrivalCatButton}
+          appUrl={appUrl}
+          catRandomCopyCallback={catRandomCopyCallback}
+          clipboardMarkdownCallback={clipboardMarkdownCallback}
+        />
       </ResponsiveLayout>
     </div>
   );
