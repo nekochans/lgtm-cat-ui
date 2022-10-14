@@ -126,9 +126,6 @@ src/
 .github
 .git
 
-# Rollup setting files
-rollup.config.js
-
 # TypeScript setting files
 tsconfig.json
 
