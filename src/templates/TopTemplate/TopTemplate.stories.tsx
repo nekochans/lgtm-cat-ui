@@ -1,5 +1,5 @@
 import type { ComponentStoryObj } from '@storybook/react';
-import Image from 'next/image';
+import Image from 'next/future/image';
 
 import internalServerError from '../../images/internal_server_error.webp';
 
@@ -199,8 +199,9 @@ const InternalServerErrorImage = () => (
   <Image
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-assignment
     src={internalServerError.src}
-    layout="fill"
-    objectFit="contain"
+    style={{ objectFit: 'contain' }}
+    sizes="100vw"
+    fill
     alt="500 Internal Server Error"
     priority={true}
   />
