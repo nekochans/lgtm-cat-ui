@@ -1,5 +1,5 @@
 import type { FC } from 'react';
-import Image from 'next/image';
+import Image from 'next/future/image';
 import styled from 'styled-components';
 
 import { AppUrl, defaultAppUrl } from '../../constants';
@@ -40,8 +40,9 @@ export const LgtmImageContent: FC<Props> = ({
     <_Wrapper key={id} ref={imageContextRef}>
       <Image
         src={imageUrl}
-        layout="fill"
-        objectFit="contain"
+        style={{ objectFit: 'contain' }}
+        sizes="100vw"
+        fill
         alt="lgtm-cat-image"
         priority={true}
       />

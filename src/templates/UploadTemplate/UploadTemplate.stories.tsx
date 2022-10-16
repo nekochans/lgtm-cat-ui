@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import type { ComponentStoryObj } from '@storybook/react';
-import Image from 'next/image';
+import Image from 'next/future/image';
 
 import { createSuccessResult } from '../../features';
 import type {
@@ -16,7 +16,7 @@ import { UploadTemplate } from '.';
 
 const CatImage = () => (
   // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-assignment
-  <Image src={cat.src} width="302px" height="302px" alt="Cat" priority={true} />
+  <Image src={cat.src} alt="Cat" width={302} height={302} priority={true} />
 );
 
 const imageValidator: ImageValidator = async (

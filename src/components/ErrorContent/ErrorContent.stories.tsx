@@ -1,5 +1,5 @@
 import type { ComponentStoryObj } from '@storybook/react';
-import Image from 'next/image';
+import Image from 'next/future/image';
 
 import internalServerError from '../../images/internal_server_error.webp';
 import notFound from '../../images/not_found.webp';
@@ -20,8 +20,9 @@ const NotFoundImage = () => (
   <Image
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     src={notFoundSrc}
-    layout="fill"
-    objectFit="contain"
+    style={{ objectFit: 'contain' }}
+    sizes="100vw"
+    fill
     alt="404 Not Found"
     priority={true}
   />
@@ -34,8 +35,9 @@ const InternalServerErrorImage = () => (
   <Image
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     src={internalServerErrorSrc}
-    layout="fill"
-    objectFit="contain"
+    style={{ objectFit: 'contain' }}
+    sizes="100vw"
+    fill
     alt="500 Internal Server Error"
     priority={true}
   />
@@ -48,8 +50,9 @@ const ServiceUnavailableImage = () => (
   <Image
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     src={serviceUnavailableSrc}
-    layout="fill"
-    objectFit="contain"
+    style={{ objectFit: 'contain' }}
+    sizes="100vw"
+    fill
     alt="503 Service Unavailable"
     priority={true}
   />
