@@ -33,7 +33,21 @@ const buttonText = css`
   }
 `;
 
+const colors = {
+  primary: '#EB7C06',
+  primaryVariant: '#F0A14E',
+  variant: '#FFD184',
+  sub: '#F2EBDF',
+  subVariant: '#FFFCF6',
+  text: '#362E2B',
+  subText: '#8E7E78',
+  white: '#FFFFFF',
+  background: '#FAF9F7',
+  subBackground: '#F2EBDF',
+};
+
 export const mixins = {
   buttonBase,
   buttonText,
+  colors,
 };
