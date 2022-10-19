@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { mixins } from '../../../styles';
 
 const _Button = styled.button`
-  background: #eb7c06;
+  background: ${mixins.colors.primary};
   ${mixins.buttonBase};
 `;
 

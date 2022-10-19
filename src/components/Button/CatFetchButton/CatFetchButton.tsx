@@ -6,7 +6,7 @@ import { mixins } from '../../../styles';
 import { assertNever } from '../../../utils';
 
 const _Button = styled.button`
-  background: #eb7c06;
+  background: ${mixins.colors.primary};
   ${mixins.buttonBase};
 `;
 

@@ -11,7 +11,7 @@ import slash from '../images/slash.png';
 const slashSrc = slash.src;
 
 const _Span = styled.span`
-  background: #eb7c06 url(${slashSrc}) repeat 0 0/16px auto;
+  background: ${mixins.colors.primary} url(${slashSrc}) repeat 0 0/16px auto;
   ${mixins.buttonBase};
 `;
 

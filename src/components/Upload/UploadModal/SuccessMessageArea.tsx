@@ -1,8 +1,8 @@
 import type { FC } from 'react';
 import styled from 'styled-components';
-
 import { defaultAppUrl, type AppUrl } from '../../../constants';
 import { useClipboardMarkdown, useCopySuccess } from '../../../hooks';
+import { mixins } from '../../../styles';
 import type { Language, LgtmImageUrl } from '../../../types';
 import { assertNever } from '../../../utils';
 import { CopiedGithubMarkdownMessage } from '../../LgtmImages/CopiedGithubMarkdownMessage';
@@ -31,7 +31,7 @@ const _Title = styled.div`
   font-style: normal;
   font-weight: 700;
   line-height: 28px;
-  color: #eb7c06;
+  color: ${mixins.colors.primary};
 `;
 
 const _ContentsWrapper = styled.div`
@@ -156,7 +156,7 @@ const _MarkdownSourceCopyButton = styled.button`
   justify-content: center;
   order: 1;
   padding: 7px 20px;
-  background: #eb7c06;
+  background: ${mixins.colors.primary};
   border-radius: 4px;
 `;
 

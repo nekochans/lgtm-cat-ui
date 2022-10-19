@@ -1,6 +1,6 @@
 import type { FC } from 'react';
 import styled from 'styled-components';
-
+import { mixins } from '../../../styles';
 import type { Language } from '../../../types';
 import { assertNever } from '../../../utils';
 
@@ -60,7 +60,7 @@ const _UploadButton = styled.button`
   justify-content: center;
   order: 1;
   padding: 7px 20px;
-  background: #eb7c06;
+  background: ${mixins.colors.primary};
   border-radius: 4px;
   &:hover {
     opacity: 0.8;

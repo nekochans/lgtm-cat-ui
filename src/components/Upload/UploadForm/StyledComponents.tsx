@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { mixins } from '../../../styles';
 
 export const _Wrapper = styled.div`
   display: flex;
@@ -133,7 +134,7 @@ export const _PrivacyLinkText = styled.a`
   font-style: normal;
   font-weight: 400;
   line-height: 21px;
-  color: #eb7c06;
+  color: ${mixins.colors.primary};
   text-align: center;
   text-decoration-line: underline;
   cursor: pointer;

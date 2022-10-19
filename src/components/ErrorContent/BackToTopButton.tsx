@@ -1,7 +1,7 @@
 import type { FC } from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
-
+import { mixins } from '../../styles';
 import type { Language } from '../../types';
 import { assertNever } from '../../utils';
 
@@ -13,7 +13,7 @@ const _Span = styled.span`
   justify-content: center;
   padding: 8px 20px;
   cursor: pointer;
-  background: #eb7c06;
+  background: ${mixins.colors.primary};
   border-radius: 4px;
   &:hover {
     opacity: 0.8;
