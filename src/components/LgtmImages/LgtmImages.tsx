@@ -1,12 +1,12 @@
 import type { FC } from 'react';
 import styled from 'styled-components';
-
 import type { AppUrl } from '../../constants';
+import { mixins } from '../../styles';
 import type { LgtmImage } from '../../types';
 import { LgtmImageContent } from './LgtmImageContent';
 
 const _Wrapper = styled.div`
-  @media (max-width: 767px) {
+  @media (max-width: ${mixins.mediaQuerySize.default}) {
     grid-template-columns: 1fr;
     gap: 10px;
   }

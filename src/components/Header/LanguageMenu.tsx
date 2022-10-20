@@ -19,7 +19,7 @@ const textWrapperStyle = css`
 `;
 
 const _Wrapper = styled.nav`
-  @media (max-width: 767px) {
+  @media (max-width: ${mixins.mediaQuerySize.default}) {
     right: 0;
   }
   position: absolute;

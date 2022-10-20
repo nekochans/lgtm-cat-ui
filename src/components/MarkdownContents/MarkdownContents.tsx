@@ -1,6 +1,7 @@
 import type { FC } from 'react';
 import ReactMarkdown from 'react-markdown';
 import styled from 'styled-components';
+import { mixins } from '../../styles';
 
 const _Wrapper = styled.div`
   display: flex;
@@ -14,7 +15,7 @@ const _Wrapper = styled.div`
   text-align: left;
   overflow-wrap: normal;
   list-style-position: inside;
-  @media (max-width: 767px) {
+  @media (max-width: ${mixins.mediaQuerySize.default}) {
     max-width: 380px;
   }
 `;

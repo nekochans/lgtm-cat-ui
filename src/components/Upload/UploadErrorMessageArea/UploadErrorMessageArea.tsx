@@ -8,7 +8,7 @@ type Props = {
 };
 
 const _Wrapper = styled.div`
-  @media (max-width: 767px) {
+  @media (max-width: ${mixins.mediaQuerySize.default}) {
     width: 380px;
   }
   box-sizing: border-box;
@@ -40,7 +40,7 @@ const faExclamationTriangleStyle = {
 };
 
 const _MessageText = styled.span`
-  @media (max-width: 767px) {
+  @media (max-width: ${mixins.mediaQuerySize.default}) {
     width: 380px;
   }
   flex: none;

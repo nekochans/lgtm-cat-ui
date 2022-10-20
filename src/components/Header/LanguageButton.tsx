@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { mixins } from '../../styles';
 
 const _Wrapper = styled.div`
-  @media (max-width: 767px) {
+  @media (max-width: ${mixins.mediaQuerySize.default}) {
     padding: 12px 0;
   }
   box-sizing: border-box;

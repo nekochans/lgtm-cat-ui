@@ -13,7 +13,7 @@ export const _Wrapper = styled.div`
 `;
 
 export const _Form = styled.form`
-  @media (max-width: 767px) {
+  @media (max-width: ${mixins.mediaQuerySize.default}) {
     width: 380px;
   }
   flex: none;

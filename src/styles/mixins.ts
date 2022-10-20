@@ -45,8 +45,13 @@ const buttonText = css`
   }
 `;
 
+const mediaQuerySize = {
+  default: '767px',
+};
+
 export const mixins = {
   buttonBase,
   buttonText,
   colors,
+  mediaQuerySize,
 };

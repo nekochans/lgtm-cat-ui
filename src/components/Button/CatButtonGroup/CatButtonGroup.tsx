@@ -6,7 +6,7 @@ import { CatFetchButton } from '../CatFetchButton';
 import { UploadCatButton } from '../UploadCatButton';
 
 const _Wrapper = styled.div`
-  @media (max-width: 767px) {
+  @media (max-width: ${mixins.mediaQuerySize.default}) {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -17,7 +17,7 @@ const _Wrapper = styled.div`
 `;
 
 const _ButtonGroup = styled.div`
-  @media (max-width: 767px) {
+  @media (max-width: ${mixins.mediaQuerySize.default}) {
     flex: none;
     flex-direction: column;
     flex-grow: 0;

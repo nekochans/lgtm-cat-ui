@@ -27,7 +27,7 @@ export type Props = {
 };
 
 const _Wrapper = styled.div`
-  @media (max-width: 767px) {
+  @media (max-width: ${mixins.mediaQuerySize.default}) {
     width: 360px;
   }
   position: absolute;
@@ -84,7 +84,7 @@ const _PreviewImageWrapper = styled.div`
 `;
 
 const _PreviewImage = styled.img`
-  @media (max-width: 767px) {
+  @media (max-width: ${mixins.mediaQuerySize.default}) {
     max-width: 355px;
   }
   flex: none;
@@ -128,13 +128,16 @@ const confirmMessageText = (language: Language): string => {
   }
 };
 
+const mediaQuery = `@media (maxWidth: ${mixins.mediaQuerySize.default})`;
+
 const modalStyle = {
   // stylelint-disable-next-line
   overlay: {
     background: 'rgba(54, 46, 43, 0.7)',
   },
   content: {
-    '@media (maxWidth: 767px)': {
+    // stylelint-disable-next-line selector-type-case, selector-type-no-unknown
+    [mediaQuery]: {
       width: '370px',
     },
     inset: '0',

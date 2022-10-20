@@ -1,8 +1,8 @@
 import type { FC } from 'react';
 import styled from 'styled-components';
-
 import { defaultAppUrl, type AppUrl } from '../../../constants';
 import { useClipboardMarkdown, useCopySuccess } from '../../../hooks';
+import { mixins } from '../../../styles';
 import { LgtmImageUrl } from '../../../types';
 import { CopiedGithubMarkdownMessage } from '../../LgtmImages/CopiedGithubMarkdownMessage';
 
@@ -13,7 +13,7 @@ const _Wrapper = styled.div`
 `;
 
 const _Image = styled.img`
-  @media (max-width: 767px) {
+  @media (max-width: ${mixins.mediaQuerySize.default}) {
     max-width: 355px;
   }
   flex: none;

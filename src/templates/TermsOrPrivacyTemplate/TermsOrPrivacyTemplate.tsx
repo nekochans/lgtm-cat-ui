@@ -1,6 +1,5 @@
 import type { FC, MouseEventHandler, ReactNode } from 'react';
 import styled from 'styled-components';
-
 import { LibraryBooks } from '../../components';
 import { MarkdownPageTitle } from '../../components/MarkdownPageTitle';
 import {
@@ -8,6 +7,7 @@ import {
   createTermsOfUseLinksFromLanguages,
 } from '../../features';
 import { ResponsiveLayout } from '../../layouts';
+import { mixins } from '../../styles';
 import type { Language } from '../../types';
 import { assertNever } from '../../utils';
 
@@ -44,7 +44,7 @@ const _ChildrenWrapper = styled.div`
   text-align: left;
   overflow-wrap: normal;
   list-style-position: inside;
-  @media (max-width: 767px) {
+  @media (max-width: ${mixins.mediaQuerySize.default}) {
     max-width: 380px;
   }
 `;
