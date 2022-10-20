@@ -9,7 +9,7 @@ import {
   extractImageExtFromValidFileType,
   createPrivacyPolicyLinksFromLanguages,
 } from '../../../features';
-import { mixins } from '../../../styles/mixins';
+import { mixins } from '../../../styles';
 import type {
   AcceptedTypesImageExtension,
   ImageUploader,
