@@ -44,7 +44,7 @@ const _CancelButtonText = styled.div`
   font-style: normal;
   font-weight: 700;
   line-height: 19px;
-  color: #f0a14e;
+  color: ${mixins.colors.primaryVariant};
   &:hover {
     opacity: 0.8;
   }

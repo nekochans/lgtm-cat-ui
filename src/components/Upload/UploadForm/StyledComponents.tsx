@@ -75,7 +75,7 @@ export const _InputFileLabelText = styled.div`
   font-style: normal;
   font-weight: 700;
   line-height: 19px;
-  color: #f0a14e;
+  color: ${mixins.colors.primaryVariant};
 `;
 
 export const _MaxUploadSizeText = styled.div`

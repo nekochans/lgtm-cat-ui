@@ -1,6 +1,6 @@
 import { useState, useEffect, type FC } from 'react';
 import styled from 'styled-components';
-
+import { mixins } from '../../../styles/mixins';
 import type { Language } from '../../../types';
 import { assertNever } from '../../../utils';
 
@@ -20,7 +20,7 @@ const _BarWrapper = styled.div`
 const _MainColorBar = styled.div`
   width: 92px;
   height: 18px;
-  background: #f0a14e;
+  background: ${mixins.colors.primaryVariant};
 `;
 
 const _DefaultColorBar = styled.div`
