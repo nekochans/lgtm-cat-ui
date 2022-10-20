@@ -1,6 +1,6 @@
 import type { FC } from 'react';
 import styled from 'styled-components';
-
+import { mixins } from '../../../styles';
 import { Language } from '../../../types';
 import { assertNever } from '../../../utils';
 
@@ -10,7 +10,7 @@ const _Wrapper = styled.div`
   font-style: normal;
   font-weight: 700;
   line-height: 28px;
-  color: #362e2b;
+  color: ${mixins.colors.text};
 `;
 
 type Props = {

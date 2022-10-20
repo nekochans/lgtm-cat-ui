@@ -2,6 +2,7 @@ import type { FC, ReactNode } from 'react';
 import styled from 'styled-components';
 
 import { errorType, type ErrorType } from '../../features';
+import { mixins } from '../../styles';
 import type { Language } from '../../types';
 import { assertNever } from '../../utils';
 
@@ -21,7 +22,7 @@ const _Title = styled.div`
   font-style: normal;
   font-weight: 700;
   line-height: 70px;
-  color: #362e2b;
+  color: ${mixins.colors.text};
   text-align: center;
 `;
 
@@ -37,7 +38,7 @@ const _Message = styled.div`
   font-style: normal;
   font-weight: 700;
   line-height: 26px;
-  color: #362e2b;
+  color: ${mixins.colors.text};
   text-align: center;
 `;
 

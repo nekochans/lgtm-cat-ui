@@ -1,5 +1,6 @@
 import type { FC } from 'react';
 import styled from 'styled-components';
+import { mixins } from '../../styles';
 
 const _Title = styled.h1`
   font-family: Roboto, sans-serif;
@@ -7,7 +8,7 @@ const _Title = styled.h1`
   font-style: normal;
   font-weight: 700;
   line-height: 28px;
-  color: #362e2b;
+  color: ${mixins.colors.text};
 `;
 
 export type Props = {

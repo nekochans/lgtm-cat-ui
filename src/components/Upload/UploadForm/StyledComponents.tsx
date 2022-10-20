@@ -27,7 +27,7 @@ export const _InputFileArea = styled.div`
   display: grid;
   height: 220px;
   background: #fff;
-  border: 1px dashed #362e2b;
+  border: 1px dashed ${mixins.colors.text};
 `;
 
 export const _Text = styled.div`
@@ -96,7 +96,7 @@ export const _CautionTextArea = styled.div`
   font-style: normal;
   font-weight: 400;
   line-height: 28px;
-  color: #362e2b;
+  color: ${mixins.colors.text};
   text-align: center;
 `;
 
@@ -108,7 +108,7 @@ export const _Notes = styled.div`
   font-style: normal;
   font-weight: 400;
   line-height: 24px;
-  color: #362e2b;
+  color: ${mixins.colors.text};
 `;
 
 export const _DescriptionAreaWrapper = styled.div`
@@ -123,7 +123,7 @@ export const _PrivacyPolicyArea = styled.div`
   font-style: normal;
   font-weight: 400;
   line-height: 21px;
-  color: #362e2b;
+  color: ${mixins.colors.text};
   text-align: center;
 `;
 
