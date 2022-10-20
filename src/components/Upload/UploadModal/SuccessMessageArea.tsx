@@ -169,7 +169,7 @@ const _MarkdownSourceCopyButtonText = styled.div`
   font-style: normal;
   font-weight: 700;
   line-height: 18px;
-  color: #fff;
+  color: ${mixins.colors.white};
 `;
 
 const titleText = (language: Language): string => {

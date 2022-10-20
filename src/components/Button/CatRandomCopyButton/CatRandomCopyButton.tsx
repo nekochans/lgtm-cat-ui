@@ -27,7 +27,7 @@ const faRandomStyle = {
   fontWeight: 900,
   fontSize: '26px',
   lineHeight: '26px',
-  color: '#fff',
+  color: `${mixins.colors.white}`,
   flex: 'none',
   order: 0,
   flexGrow: 0,

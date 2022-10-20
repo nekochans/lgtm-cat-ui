@@ -1,11 +1,12 @@
 import type { FC } from 'react';
 import styled, { css } from 'styled-components';
+import { mixins } from '../../styles';
 
 const baseCss = css`
   position: absolute;
   left: 50%;
   padding: 3%;
-  color: #fff;
+  color: ${mixins.colors.white};
   text-align: center;
   background: rgba(0, 0, 0, 0.8);
   border-radius: 30px;

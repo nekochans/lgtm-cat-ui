@@ -37,7 +37,7 @@ const buttonTextCss = css`
   font-style: normal;
   font-weight: 700;
   line-height: 18px;
-  color: #fff;
+  color: ${mixins.colors.white};
 `;
 
 const _Text = styled.div`

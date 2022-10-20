@@ -26,7 +26,7 @@ export const _InputFileArea = styled.div`
   box-sizing: border-box;
   display: grid;
   height: 220px;
-  background: #fff;
+  background: ${mixins.colors.white};
   border: 1px dashed ${mixins.colors.text};
 `;
 

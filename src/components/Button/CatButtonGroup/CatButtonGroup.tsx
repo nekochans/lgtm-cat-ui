@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import { CatFetchButton } from '../CatFetchButton';
 import { UploadCatButton } from '../UploadCatButton';
+import {mixins} from "../../../styles";
 
 const _Wrapper = styled.div`
   @media (max-width: 767px) {
@@ -12,7 +13,7 @@ const _Wrapper = styled.div`
   }
   gap: 10px;
   padding: 16px 75px;
-  background: #fff;
+  background: ${mixins.colors.white};
 `;
 
 const _ButtonGroup = styled.div`

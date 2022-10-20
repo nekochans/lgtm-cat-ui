@@ -31,7 +31,7 @@ const _Text = styled.div`
   font-style: normal;
   font-weight: 700;
   line-height: 18px;
-  color: #fff;
+  color: ${mixins.colors.white};
   &:hover {
     opacity: 0.8;
   }
