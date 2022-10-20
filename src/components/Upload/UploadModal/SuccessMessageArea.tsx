@@ -58,7 +58,7 @@ const _MainMessage = styled.div`
   font-style: normal;
   font-weight: 400;
   line-height: 25px;
-  color: #8e7e78;
+  color: ${mixins.colors.subText};
   text-align: center;
 `;
 
@@ -103,7 +103,7 @@ const _DescriptionText = styled.div`
   font-style: normal;
   font-weight: 400;
   line-height: 20px;
-  color: #8e7e78;
+  color: ${mixins.colors.subText};
 `;
 
 const _ButtonGroup = styled.div`
@@ -130,7 +130,7 @@ const _CloseButton = styled.button`
   order: 0;
   padding: 12px 20px;
   background: #faf9f7;
-  border: 1px solid #8e7e78;
+  border: 1px solid ${mixins.colors.subText};
   border-radius: 4px;
 `;
 

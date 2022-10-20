@@ -28,7 +28,7 @@ const _DefaultColorBar = styled.div`
   width: 280px;
   height: 20px;
   background: ${mixins.colors.sub};
-  border: 1px solid #8e7e78;
+  border: 1px solid ${mixins.colors.subText};
 `;
 
 const _Message = styled.p`
@@ -39,7 +39,7 @@ const _Message = styled.p`
   font-style: normal;
   font-weight: 400;
   line-height: 28px;
-  color: #8e7e78;
+  color: ${mixins.colors.subText};
 `;
 
 const messageText = (language: Language): string => {

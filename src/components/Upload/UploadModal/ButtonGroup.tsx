@@ -28,7 +28,7 @@ const _CancelButton = styled.button`
   order: 0;
   padding: 12px 20px;
   background: #faf9f7;
-  border: 1px solid #8e7e78;
+  border: 1px solid ${mixins.colors.subText};
   border-radius: 4px;
   &:hover {
     opacity: 0.8;

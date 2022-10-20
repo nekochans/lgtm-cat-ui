@@ -36,7 +36,7 @@ export const _Text = styled.div`
   font-style: normal;
   font-weight: 700;
   line-height: 28px;
-  color: #8e7e78;
+  color: ${mixins.colors.subText};
   text-align: center;
 `;
 
@@ -60,7 +60,7 @@ export const _InputFileLabel = styled.label`
   margin: auto;
   cursor: pointer;
   background: #faf9f7;
-  border: 1px solid #8e7e78;
+  border: 1px solid ${mixins.colors.subText};
   border-radius: 4px;
 `;
 
@@ -85,7 +85,7 @@ export const _MaxUploadSizeText = styled.div`
   font-style: normal;
   font-weight: 400;
   line-height: 28px;
-  color: #8e7e78;
+  color: ${mixins.colors.subText};
   text-align: right;
 `;
 

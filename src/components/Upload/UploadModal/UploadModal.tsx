@@ -3,10 +3,10 @@ import Modal from 'react-modal';
 import styled from 'styled-components';
 
 import type { AppUrl } from '../../../constants';
+import { mixins } from '../../../styles';
 import type { Language, LgtmImageUrl } from '../../../types';
 import { assertNever } from '../../../utils';
 import { UploadProgressBar } from '../UploadProgressBar';
-
 import { ButtonGroup } from './ButtonGroup';
 import { CreatedLgtmImage } from './CreatedLgtmImage';
 import { SuccessMessageArea } from './SuccessMessageArea';
@@ -39,7 +39,7 @@ const _Wrapper = styled.div`
   width: 500px;
   padding: 27px 30px 45px;
   background: #faf9f7;
-  border: 1px dashed #8e7e78;
+  border: 1px dashed ${mixins.colors.subText};
 `;
 
 const _ContentsWrapper = styled.div`
@@ -62,7 +62,7 @@ const _Title = styled.div`
   font-style: normal;
   font-weight: 700;
   line-height: 28px;
-  color: #8e7e78;
+  color: ${mixins.colors.subText};
   text-align: center;
 `;
 
@@ -103,7 +103,7 @@ const _ConfirmMessage = styled.div`
   font-style: normal;
   font-weight: 400;
   line-height: 22px;
-  color: #8e7e78;
+  color: ${mixins.colors.subText};
 `;
 
 const titleText = (language: Language): string => {
