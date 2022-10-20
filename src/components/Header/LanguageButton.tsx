@@ -1,9 +1,10 @@
 import type { FC, MouseEvent } from 'react';
 import { FaCaretDown } from 'react-icons/fa';
 import styled from 'styled-components';
+import { mixins } from '../../styles';
 
 const _Wrapper = styled.div`
-  @media (max-width: 767px) {
+  @media (max-width: ${mixins.mediaQuerySize.default}) {
     padding: 12px 0;
   }
   box-sizing: border-box;
@@ -28,12 +29,12 @@ const _Text = styled.p`
   font-style: normal;
   font-weight: 700;
   line-height: 19px;
-  color: #eb7c06;
+  color: ${mixins.colors.primary};
   cursor: pointer;
 `;
 
 const faCaretDownStyle = {
-  color: '#eb7c06',
+  color: `${mixins.colors.primary}`,
   cursor: 'pointer',
 };
 

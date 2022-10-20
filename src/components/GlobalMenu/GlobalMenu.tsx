@@ -2,11 +2,11 @@ import type { FC } from 'react';
 import Link from 'next/link';
 import { FaTimes, FaCloudUploadAlt } from 'react-icons/fa';
 import styled from 'styled-components';
-
 import {
   createPrivacyPolicyLinksFromLanguages,
   createTermsOfUseLinksFromLanguages,
 } from '../../features';
+import { mixins } from '../../styles';
 
 import type { Language } from '../../types';
 
@@ -44,7 +44,7 @@ const faTimesStyle = {
   fontWeight: 900,
   fontSize: '30px',
   lineHeight: '30px',
-  color: '#eb7c06',
+  color: `${mixins.colors.primary}`,
   cursor: 'pointer',
 };
 
@@ -76,15 +76,15 @@ const _LinkText = styled.a`
   font-style: normal;
   font-weight: 400;
   line-height: 30px;
-  color: #eb7c06;
+  color: ${mixins.colors.primary};
   text-decoration-line: underline;
   cursor: pointer;
 `;
 
 const _UnderLine = styled.div`
   box-sizing: border-box;
-  background: #faf9f7;
-  border-bottom: 1px solid #f2ebdf;
+  background: ${mixins.colors.background};
+  border-bottom: 1px solid ${mixins.colors.sub};
 `;
 
 const faCloudUploadAltStyle = {
@@ -92,7 +92,7 @@ const faCloudUploadAltStyle = {
   fontWeight: 900,
   fontSize: '16px',
   lineHeight: '30px',
-  color: '#eb7c06',
+  color: `${mixins.colors.primary}`,
   marginRight: '10px',
 };
 

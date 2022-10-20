@@ -3,10 +3,10 @@ import Modal from 'react-modal';
 import styled from 'styled-components';
 
 import type { AppUrl } from '../../../constants';
+import { mixins } from '../../../styles';
 import type { Language, LgtmImageUrl } from '../../../types';
 import { assertNever } from '../../../utils';
 import { UploadProgressBar } from '../UploadProgressBar';
-
 import { ButtonGroup } from './ButtonGroup';
 import { CreatedLgtmImage } from './CreatedLgtmImage';
 import { SuccessMessageArea } from './SuccessMessageArea';
@@ -27,7 +27,7 @@ export type Props = {
 };
 
 const _Wrapper = styled.div`
-  @media (max-width: 767px) {
+  @media (max-width: ${mixins.mediaQuerySize.default}) {
     width: 360px;
   }
   position: absolute;
@@ -38,8 +38,8 @@ const _Wrapper = styled.div`
   align-items: center;
   width: 500px;
   padding: 27px 30px 45px;
-  background: #faf9f7;
-  border: 1px dashed #8e7e78;
+  background: ${mixins.colors.background};
+  border: 1px dashed ${mixins.colors.subText};
 `;
 
 const _ContentsWrapper = styled.div`
@@ -62,7 +62,7 @@ const _Title = styled.div`
   font-style: normal;
   font-weight: 700;
   line-height: 28px;
-  color: #8e7e78;
+  color: ${mixins.colors.subText};
   text-align: center;
 `;
 
@@ -84,7 +84,7 @@ const _PreviewImageWrapper = styled.div`
 `;
 
 const _PreviewImage = styled.img`
-  @media (max-width: 767px) {
+  @media (max-width: ${mixins.mediaQuerySize.default}) {
     max-width: 355px;
   }
   flex: none;
@@ -103,7 +103,7 @@ const _ConfirmMessage = styled.div`
   font-style: normal;
   font-weight: 400;
   line-height: 22px;
-  color: #8e7e78;
+  color: ${mixins.colors.subText};
 `;
 
 const titleText = (language: Language): string => {
@@ -128,13 +128,16 @@ const confirmMessageText = (language: Language): string => {
   }
 };
 
+const mediaQuery = `@media (maxWidth: ${mixins.mediaQuerySize.default})`;
+
 const modalStyle = {
   // stylelint-disable-next-line
   overlay: {
     background: 'rgba(54, 46, 43, 0.7)',
   },
   content: {
-    '@media (maxWidth: 767px)': {
+    // stylelint-disable-next-line selector-type-case, selector-type-no-unknown
+    [mediaQuery]: {
       width: '370px',
     },
     inset: '0',

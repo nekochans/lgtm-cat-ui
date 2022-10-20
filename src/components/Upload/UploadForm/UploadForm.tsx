@@ -3,13 +3,13 @@ import { useState, useCallback, type FC, FormEvent, ChangeEvent } from 'react';
 import Link from 'next/link';
 import { useDropzone } from 'react-dropzone';
 import { FaCloudUploadAlt } from 'react-icons/fa';
-
 import type { AppUrl } from '../../../constants';
 import {
   isValidFileType,
   extractImageExtFromValidFileType,
   createPrivacyPolicyLinksFromLanguages,
 } from '../../../features';
+import { mixins } from '../../../styles';
 import type {
   AcceptedTypesImageExtension,
   ImageUploader,
@@ -53,7 +53,7 @@ const faCloudUploadAltStyle = {
   fontWeight: 900,
   fontSize: '42px',
   lineHeight: '39px',
-  color: '#f0a14e',
+  color: `${mixins.colors.primaryVariant}`,
   top: 0,
   bottom: 0,
   left: 0,

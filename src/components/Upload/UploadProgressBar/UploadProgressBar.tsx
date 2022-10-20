@@ -1,6 +1,6 @@
 import { useState, useEffect, type FC } from 'react';
 import styled from 'styled-components';
-
+import { mixins } from '../../../styles/mixins';
 import type { Language } from '../../../types';
 import { assertNever } from '../../../utils';
 
@@ -20,15 +20,15 @@ const _BarWrapper = styled.div`
 const _MainColorBar = styled.div`
   width: 92px;
   height: 18px;
-  background: #f0a14e;
+  background: ${mixins.colors.primaryVariant};
 `;
 
 const _DefaultColorBar = styled.div`
   box-sizing: border-box;
   width: 280px;
   height: 20px;
-  background: #f2ebdf;
-  border: 1px solid #8e7e78;
+  background: ${mixins.colors.sub};
+  border: 1px solid ${mixins.colors.subText};
 `;
 
 const _Message = styled.p`
@@ -39,7 +39,7 @@ const _Message = styled.p`
   font-style: normal;
   font-weight: 400;
   line-height: 28px;
-  color: #8e7e78;
+  color: ${mixins.colors.subText};
 `;
 
 const messageText = (language: Language): string => {

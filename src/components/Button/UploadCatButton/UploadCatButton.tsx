@@ -11,7 +11,7 @@ import slash from '../images/slash.png';
 const slashSrc = slash.src;
 
 const _Span = styled.span`
-  background: #eb7c06 url(${slashSrc}) repeat 0 0/16px auto;
+  background: ${mixins.colors.primary} url(${slashSrc}) repeat 0 0/16px auto;
   ${mixins.buttonBase};
 `;
 
@@ -24,7 +24,7 @@ const faCloudUploadAltStyle = {
   fontWeight: 900,
   fontSize: '26px',
   lineHeight: '26px',
-  color: '#f2ebdf',
+  color: `${mixins.colors.sub}`,
   flex: 'none',
   order: 0,
   flexGrow: 0,

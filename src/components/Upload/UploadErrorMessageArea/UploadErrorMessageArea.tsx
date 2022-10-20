@@ -1,13 +1,14 @@
 import type { FC } from 'react';
 import { FaExclamationTriangle } from 'react-icons/fa';
 import styled from 'styled-components';
+import { mixins } from '../../../styles';
 
 type Props = {
   messages: string[];
 };
 
 const _Wrapper = styled.div`
-  @media (max-width: 767px) {
+  @media (max-width: ${mixins.mediaQuerySize.default}) {
     width: 380px;
   }
   box-sizing: border-box;
@@ -22,7 +23,7 @@ const _Wrapper = styled.div`
   height: 154px;
   padding: 30px 0;
   background: #f7ede2;
-  border: 1px solid #eb7c06;
+  border: 1px solid ${mixins.colors.primary};
 `;
 
 const faExclamationTriangleStyle = {
@@ -32,14 +33,14 @@ const faExclamationTriangleStyle = {
   fontWeight: 900,
   fontSize: '31px',
   lineHeight: '28px',
-  color: '#eb7c06',
+  color: `${mixins.colors.primary}`,
   flex: 'none',
   order: 0,
   flexGrow: 0,
 };
 
 const _MessageText = styled.span`
-  @media (max-width: 767px) {
+  @media (max-width: ${mixins.mediaQuerySize.default}) {
     width: 380px;
   }
   flex: none;
@@ -52,7 +53,7 @@ const _MessageText = styled.span`
   font-style: normal;
   font-weight: 700;
   line-height: 28px;
-  color: #eb7c06;
+  color: ${mixins.colors.primary};
   text-align: center;
 `;
 

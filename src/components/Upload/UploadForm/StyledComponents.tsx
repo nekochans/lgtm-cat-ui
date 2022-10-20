@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { mixins } from '../../../styles';
 
 export const _Wrapper = styled.div`
   display: flex;
@@ -12,7 +13,7 @@ export const _Wrapper = styled.div`
 `;
 
 export const _Form = styled.form`
-  @media (max-width: 767px) {
+  @media (max-width: ${mixins.mediaQuerySize.default}) {
     width: 380px;
   }
   flex: none;
@@ -25,8 +26,8 @@ export const _InputFileArea = styled.div`
   box-sizing: border-box;
   display: grid;
   height: 220px;
-  background: #fff;
-  border: 1px dashed #362e2b;
+  background: ${mixins.colors.white};
+  border: 1px dashed ${mixins.colors.text};
 `;
 
 export const _Text = styled.div`
@@ -35,7 +36,7 @@ export const _Text = styled.div`
   font-style: normal;
   font-weight: 700;
   line-height: 28px;
-  color: #8e7e78;
+  color: ${mixins.colors.subText};
   text-align: center;
 `;
 
@@ -58,8 +59,8 @@ export const _InputFileLabel = styled.label`
   padding: 12px 20px;
   margin: auto;
   cursor: pointer;
-  background: #faf9f7;
-  border: 1px solid #8e7e78;
+  background: ${mixins.colors.background};
+  border: 1px solid ${mixins.colors.subText};
   border-radius: 4px;
 `;
 
@@ -74,7 +75,7 @@ export const _InputFileLabelText = styled.div`
   font-style: normal;
   font-weight: 700;
   line-height: 19px;
-  color: #f0a14e;
+  color: ${mixins.colors.primaryVariant};
 `;
 
 export const _MaxUploadSizeText = styled.div`
@@ -84,7 +85,7 @@ export const _MaxUploadSizeText = styled.div`
   font-style: normal;
   font-weight: 400;
   line-height: 28px;
-  color: #8e7e78;
+  color: ${mixins.colors.subText};
   text-align: right;
 `;
 
@@ -95,7 +96,7 @@ export const _CautionTextArea = styled.div`
   font-style: normal;
   font-weight: 400;
   line-height: 28px;
-  color: #362e2b;
+  color: ${mixins.colors.text};
   text-align: center;
 `;
 
@@ -107,7 +108,7 @@ export const _Notes = styled.div`
   font-style: normal;
   font-weight: 400;
   line-height: 24px;
-  color: #362e2b;
+  color: ${mixins.colors.text};
 `;
 
 export const _DescriptionAreaWrapper = styled.div`
@@ -122,7 +123,7 @@ export const _PrivacyPolicyArea = styled.div`
   font-style: normal;
   font-weight: 400;
   line-height: 21px;
-  color: #362e2b;
+  color: ${mixins.colors.text};
   text-align: center;
 `;
 
@@ -133,7 +134,7 @@ export const _PrivacyLinkText = styled.a`
   font-style: normal;
   font-weight: 400;
   line-height: 21px;
-  color: #eb7c06;
+  color: ${mixins.colors.primary};
   text-align: center;
   text-decoration-line: underline;
   cursor: pointer;

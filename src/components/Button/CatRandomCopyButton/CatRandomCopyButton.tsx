@@ -15,7 +15,7 @@ const slashSrc = slash.src;
 const _Button = styled.button`
   ${mixins.buttonBase};
   width: 227px;
-  background: #eb7c06 url(${slashSrc}) repeat 0 0/16px auto;
+  background: ${mixins.colors.primary} url(${slashSrc}) repeat 0 0/16px auto;
 `;
 
 const _Text = styled.div`
@@ -27,7 +27,7 @@ const faRandomStyle = {
   fontWeight: 900,
   fontSize: '26px',
   lineHeight: '26px',
-  color: '#fff',
+  color: `${mixins.colors.white}`,
   flex: 'none',
   order: 0,
   flexGrow: 0,

@@ -1,6 +1,6 @@
 import type { FC } from 'react';
 import styled from 'styled-components';
-
+import { mixins } from '../../../styles';
 import type { Language } from '../../../types';
 import { assertNever } from '../../../utils';
 
@@ -27,8 +27,8 @@ const _CancelButton = styled.button`
   justify-content: center;
   order: 0;
   padding: 12px 20px;
-  background: #faf9f7;
-  border: 1px solid #8e7e78;
+  background: ${mixins.colors.background};
+  border: 1px solid ${mixins.colors.subText};
   border-radius: 4px;
   &:hover {
     opacity: 0.8;
@@ -44,7 +44,7 @@ const _CancelButtonText = styled.div`
   font-style: normal;
   font-weight: 700;
   line-height: 19px;
-  color: #f0a14e;
+  color: ${mixins.colors.primaryVariant};
   &:hover {
     opacity: 0.8;
   }
@@ -60,7 +60,7 @@ const _UploadButton = styled.button`
   justify-content: center;
   order: 1;
   padding: 7px 20px;
-  background: #eb7c06;
+  background: ${mixins.colors.primary};
   border-radius: 4px;
   &:hover {
     opacity: 0.8;
@@ -76,7 +76,7 @@ const _UploadButtonText = styled.div`
   font-style: normal;
   font-weight: 700;
   line-height: 18px;
-  color: #fff;
+  color: ${mixins.colors.white};
   &:hover {
     opacity: 0.8;
   }

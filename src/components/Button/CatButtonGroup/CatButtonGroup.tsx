@@ -1,22 +1,23 @@
 import type { FC } from 'react';
 import styled from 'styled-components';
 
+import { mixins } from '../../../styles';
 import { CatFetchButton } from '../CatFetchButton';
 import { UploadCatButton } from '../UploadCatButton';
 
 const _Wrapper = styled.div`
-  @media (max-width: 767px) {
+  @media (max-width: ${mixins.mediaQuerySize.default}) {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
   }
   gap: 10px;
   padding: 16px 75px;
-  background: #fff;
+  background: ${mixins.colors.white};
 `;
 
 const _ButtonGroup = styled.div`
-  @media (max-width: 767px) {
+  @media (max-width: ${mixins.mediaQuerySize.default}) {
     flex: none;
     flex-direction: column;
     flex-grow: 0;

@@ -1,6 +1,6 @@
 import type { FC, FormEventHandler } from 'react';
 import styled, { css } from 'styled-components';
-
+import { mixins } from '../../../styles';
 import type { Language } from '../../../types';
 import { assertNever } from '../../../utils';
 
@@ -11,7 +11,7 @@ const buttonCss = css`
   align-items: center;
   justify-content: center;
   padding: 8px 20px;
-  background: #eb7c06;
+  background: ${mixins.colors.primary};
   border-radius: 4px;
 `;
 
@@ -37,7 +37,7 @@ const buttonTextCss = css`
   font-style: normal;
   font-weight: 700;
   line-height: 18px;
-  color: #fff;
+  color: ${mixins.colors.white};
 `;
 
 const _Text = styled.div`

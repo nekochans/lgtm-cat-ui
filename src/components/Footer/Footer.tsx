@@ -1,11 +1,11 @@
 import type { FC } from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
-
 import {
   createPrivacyPolicyLinksFromLanguages,
   createTermsOfUseLinksFromLanguages,
 } from '../../features';
+import { mixins } from '../../styles';
 
 import type { Language } from '../../types';
 
@@ -27,7 +27,7 @@ const _UpperSection = styled.div`
   order: 0;
   width: 100%;
   padding: 10px 0 20px;
-  background: #fffcf6;
+  background: ${mixins.colors.subVariant};
 `;
 
 const _TermsLinkText = styled.a`
@@ -88,7 +88,7 @@ const _LowerSection = styled.div`
   order: 1;
   width: 100%;
   padding: 20px 0;
-  background: #f2ebdf;
+  background: ${mixins.colors.sub};
 `;
 
 const _LowerSectionText = styled.div`

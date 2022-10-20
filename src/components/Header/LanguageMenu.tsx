@@ -2,6 +2,7 @@ import type { FC } from 'react';
 import Link from 'next/link';
 import { FaAngleRight } from 'react-icons/fa';
 import styled, { css } from 'styled-components';
+import { mixins } from '../../styles';
 import type { Language } from '../../types';
 
 const textWrapperStyle = css`
@@ -18,7 +19,7 @@ const textWrapperStyle = css`
 `;
 
 const _Wrapper = styled.nav`
-  @media (max-width: 767px) {
+  @media (max-width: ${mixins.mediaQuerySize.default}) {
     right: 0;
   }
   position: absolute;
@@ -46,7 +47,7 @@ const _EnText = styled.a`
   font-style: normal;
   font-weight: 400;
   line-height: 19px;
-  color: #faf9f7;
+  color: ${mixins.colors.background};
   text-align: center;
   cursor: pointer;
 `;
@@ -76,7 +77,7 @@ const _JaText = styled.a`
   font-style: normal;
   font-weight: 400;
   line-height: 19px;
-  color: #faf9f7;
+  color: ${mixins.colors.background};
   text-align: center;
   cursor: pointer;
 `;

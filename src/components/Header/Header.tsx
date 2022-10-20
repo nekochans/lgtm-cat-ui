@@ -3,9 +3,8 @@ import Link from 'next/link';
 import { FaBars } from 'react-icons/fa';
 import Modal from 'react-modal';
 import styled from 'styled-components';
-
+import { mixins } from '../../styles';
 import { GlobalMenu } from '../GlobalMenu';
-
 import { LanguageButton } from './LanguageButton';
 import { LanguageMenu, Props as LanguageMenuProps } from './LanguageMenu';
 
@@ -47,7 +46,7 @@ const faBarsStyle = {
   fontWeight: 900,
   fontSize: '30px',
   lineHeight: '28px',
-  color: '#eb7c06',
+  color: `${mixins.colors.primary}`,
   flex: 'none',
   order: 0,
   flexGrow: 0,

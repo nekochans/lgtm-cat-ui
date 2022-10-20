@@ -1,8 +1,8 @@
 import type { FC } from 'react';
 import styled from 'styled-components';
-
 import { defaultAppUrl, type AppUrl } from '../../../constants';
 import { useClipboardMarkdown, useCopySuccess } from '../../../hooks';
+import { mixins } from '../../../styles';
 import type { Language, LgtmImageUrl } from '../../../types';
 import { assertNever } from '../../../utils';
 import { CopiedGithubMarkdownMessage } from '../../LgtmImages/CopiedGithubMarkdownMessage';
@@ -31,7 +31,7 @@ const _Title = styled.div`
   font-style: normal;
   font-weight: 700;
   line-height: 28px;
-  color: #eb7c06;
+  color: ${mixins.colors.primary};
 `;
 
 const _ContentsWrapper = styled.div`
@@ -58,7 +58,7 @@ const _MainMessage = styled.div`
   font-style: normal;
   font-weight: 400;
   line-height: 25px;
-  color: #8e7e78;
+  color: ${mixins.colors.subText};
   text-align: center;
 `;
 
@@ -88,7 +88,7 @@ const _DescriptionWrapper = styled.div`
   width: 399px;
   height: 57px;
   padding: 9px 20px 8px;
-  border: 1px solid #f2ebdf;
+  border: 1px solid ${mixins.colors.sub};
   border-radius: 3px;
 `;
 
@@ -103,7 +103,7 @@ const _DescriptionText = styled.div`
   font-style: normal;
   font-weight: 400;
   line-height: 20px;
-  color: #8e7e78;
+  color: ${mixins.colors.subText};
 `;
 
 const _ButtonGroup = styled.div`
@@ -129,8 +129,8 @@ const _CloseButton = styled.button`
   justify-content: center;
   order: 0;
   padding: 12px 20px;
-  background: #faf9f7;
-  border: 1px solid #8e7e78;
+  background: ${mixins.colors.background};
+  border: 1px solid ${mixins.colors.subText};
   border-radius: 4px;
 `;
 
@@ -143,7 +143,7 @@ const _CloseButtonText = styled.div`
   font-style: normal;
   font-weight: 700;
   line-height: 19px;
-  color: #f0a14e;
+  color: ${mixins.colors.primaryVariant};
 `;
 
 const _MarkdownSourceCopyButton = styled.button`
@@ -156,7 +156,7 @@ const _MarkdownSourceCopyButton = styled.button`
   justify-content: center;
   order: 1;
   padding: 7px 20px;
-  background: #eb7c06;
+  background: ${mixins.colors.primary};
   border-radius: 4px;
 `;
 
@@ -169,7 +169,7 @@ const _MarkdownSourceCopyButtonText = styled.div`
   font-style: normal;
   font-weight: 700;
   line-height: 18px;
-  color: #fff;
+  color: ${mixins.colors.white};
 `;
 
 const titleText = (language: Language): string => {
