@@ -59,7 +59,7 @@ export const _InputFileLabel = styled.label`
   padding: 12px 20px;
   margin: auto;
   cursor: pointer;
-  background: #faf9f7;
+  background: ${mixins.colors.background};
   border: 1px solid ${mixins.colors.subText};
   border-radius: 4px;
 `;

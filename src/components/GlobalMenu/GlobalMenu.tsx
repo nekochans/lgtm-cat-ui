@@ -83,7 +83,7 @@ const _LinkText = styled.a`
 
 const _UnderLine = styled.div`
   box-sizing: border-box;
-  background: #faf9f7;
+  background: ${mixins.colors.background};
   border-bottom: 1px solid ${mixins.colors.sub};
 `;
 

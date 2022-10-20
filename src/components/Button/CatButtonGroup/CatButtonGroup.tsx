@@ -1,9 +1,9 @@
 import type { FC } from 'react';
 import styled from 'styled-components';
 
+import { mixins } from '../../../styles';
 import { CatFetchButton } from '../CatFetchButton';
 import { UploadCatButton } from '../UploadCatButton';
-import {mixins} from "../../../styles";
 
 const _Wrapper = styled.div`
   @media (max-width: 767px) {

@@ -38,7 +38,7 @@ const _Wrapper = styled.div`
   align-items: center;
   width: 500px;
   padding: 27px 30px 45px;
-  background: #faf9f7;
+  background: ${mixins.colors.background};
   border: 1px dashed ${mixins.colors.subText};
 `;
 

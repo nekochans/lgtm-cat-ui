@@ -129,7 +129,7 @@ const _CloseButton = styled.button`
   justify-content: center;
   order: 0;
   padding: 12px 20px;
-  background: #faf9f7;
+  background: ${mixins.colors.background};
   border: 1px solid ${mixins.colors.subText};
   border-radius: 4px;
 `;
