@@ -1,5 +1,17 @@
 import { css } from 'styled-components';
 
+const colors = {
+  primary: '#EB7C06',
+  primaryVariant: '#F0A14E',
+  variant: '#FFD184',
+  sub: '#F2EBDF',
+  subVariant: '#FFFCF6',
+  text: '#362E2B',
+  subText: '#8E7E78',
+  white: '#FFFFFF',
+  background: '#FAF9F7',
+};
+
 const buttonBase = css`
   display: flex;
   flex: none;
@@ -27,24 +39,11 @@ const buttonText = css`
   font-style: normal;
   font-weight: 400;
   line-height: 16px;
-  color: #f2ebdf;
+  color: ${colors.sub};
   &:hover {
     opacity: 0.8;
   }
 `;
-
-const colors = {
-  primary: '#EB7C06',
-  primaryVariant: '#F0A14E',
-  variant: '#FFD184',
-  sub: '#F2EBDF',
-  subVariant: '#FFFCF6',
-  text: '#362E2B',
-  subText: '#8E7E78',
-  white: '#FFFFFF',
-  background: '#FAF9F7',
-  subBackground: '#F2EBDF',
-};
 
 export const mixins = {
   buttonBase,

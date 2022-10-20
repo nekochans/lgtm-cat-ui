@@ -84,7 +84,7 @@ const _LinkText = styled.a`
 const _UnderLine = styled.div`
   box-sizing: border-box;
   background: #faf9f7;
-  border-bottom: 1px solid #f2ebdf;
+  border-bottom: 1px solid ${mixins.colors.sub};
 `;
 
 const faCloudUploadAltStyle = {

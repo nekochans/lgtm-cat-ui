@@ -88,7 +88,7 @@ const _DescriptionWrapper = styled.div`
   width: 399px;
   height: 57px;
   padding: 9px 20px 8px;
-  border: 1px solid #f2ebdf;
+  border: 1px solid ${mixins.colors.sub};
   border-radius: 3px;
 `;
 

@@ -27,7 +27,7 @@ const _DefaultColorBar = styled.div`
   box-sizing: border-box;
   width: 280px;
   height: 20px;
-  background: #f2ebdf;
+  background: ${mixins.colors.sub};
   border: 1px solid #8e7e78;
 `;
 

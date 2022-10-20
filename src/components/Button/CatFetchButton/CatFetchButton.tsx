@@ -19,7 +19,7 @@ const faSyncAltStyle = {
   fontWeight: 900,
   fontSize: '26px',
   lineHeight: '26px',
-  color: '#f2ebdf',
+  color: `${mixins.colors.sub}`,
   flex: 'none',
   order: 0,
   flexGrow: 0,

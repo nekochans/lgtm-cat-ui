@@ -18,7 +18,7 @@ const faGithubStyle = {
   fontWeight: 400,
   width: '26px',
   height: '26px',
-  color: '#f2ebdf',
+  color: `${mixins.colors.sub}`,
   flex: 'none',
   order: 1,
   flexGrow: 0,
