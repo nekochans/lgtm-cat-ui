@@ -27,7 +27,7 @@ const _UpperSection = styled.div`
   order: 0;
   width: 100%;
   padding: 10px 0 20px;
-  background: #fffcf6;
+  background: ${mixins.colors.subVariant};
 `;
 
 const _TermsLinkText = styled.a`
