@@ -10,7 +10,7 @@ import { CopiedGithubMarkdownMessage } from '../../LgtmImages/CopiedGithubMarkdo
 import slash from '../images/slash.png';
 
 // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-assignment
-const slashSrc = slash.src;
+const slashSrc = slash;
 
 const _Button = styled.button`
   ${mixins.buttonBase};

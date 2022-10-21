@@ -8,7 +8,7 @@ import type { CustomDataAttrGtmClick } from '../../../types';
 import slash from '../images/slash.png';
 
 // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-assignment
-const slashSrc = slash.src;
+const slashSrc = slash;
 
 const _Span = styled.span`
   background: ${mixins.colors.primary} url(${slashSrc}) repeat 0 0/16px auto;
