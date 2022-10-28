@@ -19,7 +19,7 @@ export default defineConfig({
         'react-dom',
         'styled-components',
         'next/link',
-        'next/future/image',
+        'next/image',
       ],
       output: {
         globals: {
@@ -27,7 +27,7 @@ export default defineConfig({
           'react-dom': 'ReactDOM',
           'styled-components': 'styled',
           'next/link': 'Link',
-          'next/future/image': 'Image',
+          'next/image': 'Image',
         },
       },
     },

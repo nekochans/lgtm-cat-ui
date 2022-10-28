@@ -1,5 +1,5 @@
 import type { FC } from 'react';
-import Image from 'next/future/image';
+import Image from 'next/image';
 import styled from 'styled-components';
 
 import { AppUrl, defaultAppUrl } from '../../constants';
