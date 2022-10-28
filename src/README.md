@@ -43,7 +43,7 @@ Component の内部で React hooks を利用する事は問題ありません。
 
 また Component は `styled-components` で作成しているので、`styled-components` にも依存しています。
 
-一部 `next/future/image` に依存しているものも存在します。
+一部 `next/image` に依存しているものも存在します。
 
 Component 名と同様のディレクトリ名を作成して `index.ts` を使って外部公開が必要な Component だけを export するようにします。
 
