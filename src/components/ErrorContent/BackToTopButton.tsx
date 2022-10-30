@@ -61,7 +61,7 @@ type Props = {
 };
 
 export const BackToTopButton: FC<Props> = ({ language }) => (
-  <Link href="/" prefetch={false} passHref={true}>
+  <Link href="/" prefetch={false} passHref={true} legacyBehavior={true}>
     <_Span>
       <_Text>{createBackToTopPageText(language)}</_Text>
     </_Span>
