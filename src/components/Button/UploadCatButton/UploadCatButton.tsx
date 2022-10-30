@@ -39,7 +39,7 @@ export const UploadCatButton: FC<Props> = ({
   link,
   customDataAttrGtmClick,
 }) => (
-  <Link href={link} prefetch={false} passHref={true}>
+  <Link href={link} prefetch={false} passHref={true} legacyBehavior={true}>
     <_Span data-gtm-click={customDataAttrGtmClick}>
       <FaCloudUploadAlt
         style={faCloudUploadAltStyle}

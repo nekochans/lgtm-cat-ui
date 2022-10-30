@@ -91,7 +91,12 @@ export type Props = {
 export const LanguageMenu: FC<Props> = ({ language, currentUrlPath }) => (
   <_Wrapper>
     <_EnTextWrapper>
-      <Link href={currentUrlPath} locale="en" prefetch={false}>
+      <Link
+        href={currentUrlPath}
+        locale="en"
+        prefetch={false}
+        legacyBehavior={true}
+      >
         <_EnText data-gtm-click="language-menu-en-link">
           {language === 'en' ? <FaAngleRight /> : ''}
           English
@@ -104,7 +109,13 @@ export const LanguageMenu: FC<Props> = ({ language, currentUrlPath }) => (
     </_EnTextWrapper>
     <_Separator />
     <_JaTextWrapper>
-      <Link href={currentUrlPath} locale="ja" prefetch={false} passHref={true}>
+      <Link
+        href={currentUrlPath}
+        locale="ja"
+        prefetch={false}
+        passHref={true}
+        legacyBehavior={true}
+      >
         <_JaText data-gtm-click="language-menu-ja-link">
           {language === 'ja' ? <FaAngleRight /> : ''}
           日本語
