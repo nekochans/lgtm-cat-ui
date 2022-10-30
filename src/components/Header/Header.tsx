@@ -35,6 +35,7 @@ const _Title = styled.a`
   line-height: 28px;
   color: #000;
   text-align: center;
+  text-decoration: none;
   cursor: pointer;
   transform: translateX(-50%);
 `;
@@ -100,7 +101,7 @@ export const Header: FC<Props> = ({
       <_Wrapper>
         <_Header>
           <FaBars style={faBarsStyle} onClick={openMenu} />
-          <Link href="/" prefetch={false}>
+          <Link href="/" prefetch={false} passHref={true}>
             <_Title data-gtm-click="header-app-title">LGTMeow</_Title>
           </Link>
           <LanguageButton onClick={onClickLanguageButton} />

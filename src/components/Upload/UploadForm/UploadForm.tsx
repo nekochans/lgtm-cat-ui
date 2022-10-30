@@ -69,7 +69,11 @@ export const createPrivacyPolicyArea = (language: Language): JSX.Element => {
       return (
         <_PrivacyPolicyArea>
           アップロードするボタンを押下することで{' '}
-          <Link href={privacyLinkAttribute.link} prefetch={false}>
+          <Link
+            href={privacyLinkAttribute.link}
+            prefetch={false}
+            passHref={true}
+          >
             <_PrivacyLinkText>{privacyLinkAttribute.text}</_PrivacyLinkText>
           </Link>{' '}
           に同意したと見なします
@@ -79,7 +83,11 @@ export const createPrivacyPolicyArea = (language: Language): JSX.Element => {
       return (
         <_PrivacyPolicyArea>
           By pressing the upload button, you agree to the{' '}
-          <Link href={privacyLinkAttribute.link} prefetch={false}>
+          <Link
+            href={privacyLinkAttribute.link}
+            prefetch={false}
+            passHref={true}
+          >
             <_PrivacyLinkText>{privacyLinkAttribute.text}</_PrivacyLinkText>
           </Link>{' '}
           .
