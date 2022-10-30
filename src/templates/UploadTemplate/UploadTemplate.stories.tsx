@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import type { ComponentStoryObj } from '@storybook/react';
-import Image from 'next/image';
+import Image from 'next/future/image';
 
 import { createSuccessResult } from '../../features';
 import type {
