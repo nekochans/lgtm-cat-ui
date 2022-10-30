@@ -79,6 +79,7 @@ const _JaText = styled.a`
   line-height: 19px;
   color: ${mixins.colors.background};
   text-align: center;
+  text-decoration: none;
   cursor: pointer;
 `;
 

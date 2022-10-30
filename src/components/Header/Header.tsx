@@ -35,6 +35,7 @@ const _Title = styled.a`
   line-height: 28px;
   color: #000;
   text-align: center;
+  text-decoration: none;
   cursor: pointer;
   transform: translateX(-50%);
 `;
