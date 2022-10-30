@@ -100,7 +100,7 @@ export const Header: FC<Props> = ({
       <_Wrapper>
         <_Header>
           <FaBars style={faBarsStyle} onClick={openMenu} />
-          <Link href="/" prefetch={false}>
+          <Link href="/" prefetch={false} passHref={true}>
             <_Title data-gtm-click="header-app-title">LGTMeow</_Title>
           </Link>
           <LanguageButton onClick={onClickLanguageButton} />

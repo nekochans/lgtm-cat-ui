@@ -103,7 +103,7 @@ export const LanguageMenu: FC<Props> = ({ language, currentUrlPath }) => (
     </_EnTextWrapper>
     <_Separator />
     <_JaTextWrapper>
-      <Link href={currentUrlPath} locale="ja" prefetch={false}>
+      <Link href={currentUrlPath} locale="ja" prefetch={false} passHref={true}>
         <_JaText data-gtm-click="language-menu-ja-link">
           {language === 'ja' ? <FaAngleRight /> : ''}
           日本語

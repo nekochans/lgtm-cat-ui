@@ -117,14 +117,14 @@ export const Footer: FC<Props> = ({ language }) => {
   return (
     <_Wrapper>
       <_UpperSection>
-        <Link href={terms.link} prefetch={false}>
+        <Link href={terms.link} prefetch={false} passHref={true}>
           <_TermsLinkText data-gtm-click="footer-terms-link">
             {terms.text}
           </_TermsLinkText>
         </Link>
         {/* eslint-disable no-irregular-whitespace */}
         <_SeparatorText> / </_SeparatorText>
-        <Link href={privacy.link} prefetch={false}>
+        <Link href={privacy.link} prefetch={false} passHref={true}>
           <_PrivacyLinkText data-gtm-click="footer-privacy-link">
             {privacy.text}
           </_PrivacyLinkText>
