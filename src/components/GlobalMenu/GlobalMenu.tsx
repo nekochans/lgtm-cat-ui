@@ -116,13 +116,18 @@ export const GlobalMenu: FC<Props> = ({ language, onClickCloseButton }) => {
       </_HeaderWrapper>
       <_LinkGroupWrapper>
         <_LinkWrapper>
-          <Link href="/" prefetch={false} passHref={true}>
+          <Link href="/" prefetch={false} passHref={true} legacyBehavior={true}>
             <_LinkText data-gtm-click="global-menu-top-link">TOP</_LinkText>
           </Link>
           <_UnderLine />
         </_LinkWrapper>
         <_LinkWrapper>
-          <Link href="/upload" prefetch={false} passHref={true}>
+          <Link
+            href="/upload"
+            prefetch={false}
+            passHref={true}
+            legacyBehavior={true}
+          >
             <_LinkText data-gtm-click="global-menu-upload-cat-link">
               <FaCloudUploadAlt style={faCloudUploadAltStyle} />
               Upload new Cats
@@ -131,7 +136,12 @@ export const GlobalMenu: FC<Props> = ({ language, onClickCloseButton }) => {
           <_UnderLine />
         </_LinkWrapper>
         <_LinkWrapper>
-          <Link href={termsOfUseLinks.link} prefetch={false} passHref={true}>
+          <Link
+            href={termsOfUseLinks.link}
+            prefetch={false}
+            passHref={true}
+            legacyBehavior={true}
+          >
             <_LinkText data-gtm-click="global-menu-terms-link">
               {termsOfUseLinks.text}
             </_LinkText>
@@ -139,7 +149,12 @@ export const GlobalMenu: FC<Props> = ({ language, onClickCloseButton }) => {
           <_UnderLine />
         </_LinkWrapper>
         <_LinkWrapper>
-          <Link href={privacyPolicyLinks.link} prefetch={false} passHref={true}>
+          <Link
+            href={privacyPolicyLinks.link}
+            prefetch={false}
+            passHref={true}
+            legacyBehavior={true}
+          >
             <_LinkText data-gtm-click="global-menu-terms-link">
               {privacyPolicyLinks.text}
             </_LinkText>
