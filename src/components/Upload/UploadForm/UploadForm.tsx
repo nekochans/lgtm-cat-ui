@@ -73,6 +73,7 @@ export const createPrivacyPolicyArea = (language: Language): JSX.Element => {
             href={privacyLinkAttribute.link}
             prefetch={false}
             passHref={true}
+            legacyBehavior={true}
           >
             <_PrivacyLinkText>{privacyLinkAttribute.text}</_PrivacyLinkText>
           </Link>{' '}
@@ -87,6 +88,7 @@ export const createPrivacyPolicyArea = (language: Language): JSX.Element => {
             href={privacyLinkAttribute.link}
             prefetch={false}
             passHref={true}
+            legacyBehavior={true}
           >
             <_PrivacyLinkText>{privacyLinkAttribute.text}</_PrivacyLinkText>
           </Link>{' '}
