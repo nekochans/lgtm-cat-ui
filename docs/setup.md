@@ -6,16 +6,16 @@ Windows でも環境構築は可能ですが、このドキュメントは Mac O
 
 ## Node.js のインストール
 
-16 系の最新を利用して下さい。
+18 系の最新を利用して下さい。
 
 複数プロジェクトで異なる Node.js のバージョンを利用する可能性があるので、Node.js 自体をバージョン管理出来るようにしておくのが無難です。
 
-以下は [nodenv](https://github.com/nodenv/nodenv) を使った設定例です。
+以下は [asdf](https://asdf-vm.com/) を使った設定例です。
 
 ```bash
-nodenv install 16.13.0
+asdf install nodejs 18.12.1
 
-nodenv local 16.13.0
+asdf local nodejs 18.12.1
 ```
 
 ## 依存 package のインストール
