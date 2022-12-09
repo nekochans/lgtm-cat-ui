@@ -68,7 +68,7 @@ const _LinkWrapper = styled.div`
   height: 45px;
 `;
 
-const _LinkText = styled.div`
+const _LinkText = styled.span`
   display: flex;
   align-items: center;
   font-family: Roboto, sans-serif;

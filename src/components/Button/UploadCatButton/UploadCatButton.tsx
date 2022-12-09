@@ -15,7 +15,7 @@ const _Span = styled.span`
   ${mixins.buttonBase};
 `;
 
-const _Text = styled.div`
+const _Text = styled.span`
   ${mixins.buttonText};
 `;
 

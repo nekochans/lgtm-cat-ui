@@ -20,7 +20,7 @@ const _Span = styled.span`
   }
 `;
 
-const _Text = styled.div`
+const _Text = styled.span`
   flex: none;
   flex-grow: 0;
   order: 0;

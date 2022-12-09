@@ -23,7 +23,7 @@ const _Header = styled.div`
   margin: 0 auto;
 `;
 
-const _Title = styled.div`
+const _Title = styled.span`
   position: absolute;
   top: 26.67%;
   bottom: 26.67%;
