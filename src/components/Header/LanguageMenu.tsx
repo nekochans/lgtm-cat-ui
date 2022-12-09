@@ -36,7 +36,8 @@ const _EnTextWrapper = styled.span`
   order: 0;
 `;
 
-const _EnText = styled.div`
+const _EnText = styled.span`
+  display: block;
   flex: none;
   flex-grow: 0;
   order: 0;
@@ -66,7 +67,8 @@ const _JaTextWrapper = styled.span`
   order: 2;
 `;
 
-const _JaText = styled.div`
+const _JaText = styled.span`
+  display: block;
   flex: none;
   flex-grow: 0;
   order: 0;
