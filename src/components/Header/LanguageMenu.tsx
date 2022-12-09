@@ -36,7 +36,8 @@ const _EnTextWrapper = styled.span`
   order: 0;
 `;
 
-const _EnText = styled.a`
+const _EnText = styled.span`
+  display: block;
   flex: none;
   flex-grow: 0;
   order: 0;
@@ -66,7 +67,8 @@ const _JaTextWrapper = styled.span`
   order: 2;
 `;
 
-const _JaText = styled.a`
+const _JaText = styled.span`
+  display: block;
   flex: none;
   flex-grow: 0;
   order: 0;
@@ -94,8 +96,7 @@ export const LanguageMenu: FC<Props> = ({ language, currentUrlPath }) => (
       <Link
         href={currentUrlPath}
         locale="en"
-        prefetch={false}
-        legacyBehavior={true}
+        style={{ textDecoration: 'none' }}
       >
         <_EnText data-gtm-click="language-menu-en-link">
           {language === 'en' ? <FaAngleRight /> : ''}
@@ -113,8 +114,7 @@ export const LanguageMenu: FC<Props> = ({ language, currentUrlPath }) => (
         href={currentUrlPath}
         locale="ja"
         prefetch={false}
-        passHref={true}
-        legacyBehavior={true}
+        style={{ textDecoration: 'none' }}
       >
         <_JaText data-gtm-click="language-menu-ja-link">
           {language === 'ja' ? <FaAngleRight /> : ''}

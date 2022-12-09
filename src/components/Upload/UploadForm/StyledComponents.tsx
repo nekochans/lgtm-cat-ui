@@ -127,7 +127,7 @@ export const _PrivacyPolicyArea = styled.div`
   text-align: center;
 `;
 
-export const _PrivacyLinkText = styled.a`
+export const _PrivacyLinkText = styled.span`
   height: 42px;
   font-family: Roboto, sans-serif;
   font-size: 12px;

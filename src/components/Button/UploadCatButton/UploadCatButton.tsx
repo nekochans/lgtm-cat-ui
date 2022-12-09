@@ -15,7 +15,7 @@ const _Span = styled.span`
   ${mixins.buttonBase};
 `;
 
-const _Text = styled.a`
+const _Text = styled.span`
   ${mixins.buttonText};
 `;
 
@@ -39,7 +39,7 @@ export const UploadCatButton: FC<Props> = ({
   link,
   customDataAttrGtmClick,
 }) => (
-  <Link href={link} prefetch={false} passHref={true} legacyBehavior={true}>
+  <Link href={link} prefetch={false} style={{ textDecoration: 'none' }}>
     <_Span data-gtm-click={customDataAttrGtmClick}>
       <FaCloudUploadAlt
         style={faCloudUploadAltStyle}
