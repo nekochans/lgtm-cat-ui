@@ -116,7 +116,7 @@ export const GlobalMenu: FC<Props> = ({ language, onClickCloseButton }) => {
       </_HeaderWrapper>
       <_LinkGroupWrapper>
         <_LinkWrapper>
-          <Link href="/" prefetch={false} passHref={true} legacyBehavior={true}>
+          <Link href="/" prefetch={false}>
             <_LinkText data-gtm-click="global-menu-top-link">TOP</_LinkText>
           </Link>
           <_UnderLine />
