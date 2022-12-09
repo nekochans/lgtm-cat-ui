@@ -68,7 +68,7 @@ const _LinkWrapper = styled.div`
   height: 45px;
 `;
 
-const _LinkText = styled.a`
+const _LinkText = styled.div`
   display: flex;
   align-items: center;
   font-family: Roboto, sans-serif;
@@ -122,12 +122,7 @@ export const GlobalMenu: FC<Props> = ({ language, onClickCloseButton }) => {
           <_UnderLine />
         </_LinkWrapper>
         <_LinkWrapper>
-          <Link
-            href="/upload"
-            prefetch={false}
-            passHref={true}
-            legacyBehavior={true}
-          >
+          <Link href="/upload" prefetch={false}>
             <_LinkText data-gtm-click="global-menu-upload-cat-link">
               <FaCloudUploadAlt style={faCloudUploadAltStyle} />
               Upload new Cats
@@ -136,12 +131,7 @@ export const GlobalMenu: FC<Props> = ({ language, onClickCloseButton }) => {
           <_UnderLine />
         </_LinkWrapper>
         <_LinkWrapper>
-          <Link
-            href={termsOfUseLinks.link}
-            prefetch={false}
-            passHref={true}
-            legacyBehavior={true}
-          >
+          <Link href={termsOfUseLinks.link} prefetch={false}>
             <_LinkText data-gtm-click="global-menu-terms-link">
               {termsOfUseLinks.text}
             </_LinkText>
@@ -149,12 +139,7 @@ export const GlobalMenu: FC<Props> = ({ language, onClickCloseButton }) => {
           <_UnderLine />
         </_LinkWrapper>
         <_LinkWrapper>
-          <Link
-            href={privacyPolicyLinks.link}
-            prefetch={false}
-            passHref={true}
-            legacyBehavior={true}
-          >
+          <Link href={privacyPolicyLinks.link} prefetch={false}>
             <_LinkText data-gtm-click="global-menu-terms-link">
               {privacyPolicyLinks.text}
             </_LinkText>
