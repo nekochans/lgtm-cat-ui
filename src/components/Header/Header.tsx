@@ -23,7 +23,7 @@ const _Header = styled.div`
   margin: 0 auto;
 `;
 
-const _Title = styled.a`
+const _Title = styled.div`
   position: absolute;
   top: 26.67%;
   bottom: 26.67%;
@@ -101,7 +101,7 @@ export const Header: FC<Props> = ({
       <_Wrapper>
         <_Header>
           <FaBars style={faBarsStyle} onClick={openMenu} />
-          <Link href="/" prefetch={false} passHref={true} legacyBehavior={true}>
+          <Link href="/" prefetch={false}>
             <_Title data-gtm-click="header-app-title">LGTMeow</_Title>
           </Link>
           <LanguageButton onClick={onClickLanguageButton} />
