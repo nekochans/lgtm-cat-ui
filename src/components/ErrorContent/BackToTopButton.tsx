@@ -20,7 +20,7 @@ const _Span = styled.span`
   }
 `;
 
-const _Text = styled.a`
+const _Text = styled.div`
   flex: none;
   flex-grow: 0;
   order: 0;
@@ -61,7 +61,7 @@ type Props = {
 };
 
 export const BackToTopButton: FC<Props> = ({ language }) => (
-  <Link href="/" prefetch={false} passHref={true} legacyBehavior={true}>
+  <Link href="/" prefetch={false} style={{ textDecoration: 'none' }}>
     <_Span>
       <_Text>{createBackToTopPageText(language)}</_Text>
     </_Span>
