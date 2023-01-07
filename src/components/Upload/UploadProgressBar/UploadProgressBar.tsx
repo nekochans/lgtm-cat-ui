@@ -76,7 +76,9 @@ export const UploadProgressBar: FC<Props> = ({ language }) => {
       setProgressLength(updatedWidth);
     }, interval);
 
-    return () => clearInterval(id);
+    return () => {
+      clearInterval(id);
+    };
   }, [progressLength]);
 
   return (

@@ -9,7 +9,9 @@ type Story = ComponentStoryObj<typeof CatRandomCopyButton>;
 
 const callback: () => void = () =>
   // eslint-disable-next-line no-console
-  console.log('CatRandomCopyButton Clicked!');
+  {
+    console.log('CatRandomCopyButton Clicked!');
+  };
 
 export const Default: Story = {
   args: {

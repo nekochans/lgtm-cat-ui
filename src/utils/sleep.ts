@@ -4,9 +4,10 @@ const defaultWaitSeconds = 1;
 
 export const sleep = async (
   waitSeconds: number = defaultWaitSeconds
-): Promise<void> =>
+): Promise<void> => {
   await new Promise((resolve) => {
     setTimeout(() => {
       resolve();
     }, waitSeconds * millisecond);
   });
+};

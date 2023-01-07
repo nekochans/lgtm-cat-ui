@@ -171,19 +171,27 @@ const appUrl = 'http://localhost:2222';
 
 const clipboardMarkdownCallback: () => void = () =>
   // eslint-disable-next-line no-console
-  console.log('clipboardMarkdownCallback executed!');
+  {
+    console.log('clipboardMarkdownCallback executed!');
+  };
 
 const fetchRandomCatImagesCallback: () => void = () =>
   // eslint-disable-next-line no-console
-  console.log('fetchRandomCatImagesCallback executed!');
+  {
+    console.log('fetchRandomCatImagesCallback executed!');
+  };
 
 const fetchNewArrivalCatImagesCallback: () => void = () =>
   // eslint-disable-next-line no-console
-  console.log('fetchNewArrivalCatImagesCallback executed!');
+  {
+    console.log('fetchNewArrivalCatImagesCallback executed!');
+  };
 
 const catRandomCopyCallback: () => void = () =>
   // eslint-disable-next-line no-console
-  console.log('catRandomCopyCallback executed!');
+  {
+    console.log('catRandomCopyCallback executed!');
+  };
 
 // eslint-disable-next-line @typescript-eslint/require-await
 const failureRandomCatImagesFetcher: CatImagesFetcher = async () => {

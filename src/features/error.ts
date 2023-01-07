@@ -4,4 +4,4 @@ export const errorType = {
   serviceUnavailable: 503,
 } as const;
 
-export type ErrorType = typeof errorType[keyof typeof errorType];
+export type ErrorType = (typeof errorType)[keyof typeof errorType];
