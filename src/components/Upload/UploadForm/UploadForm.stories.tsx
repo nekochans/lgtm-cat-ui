@@ -87,16 +87,21 @@ const throwErrorImageUploader: ImageUploader = async (
 };
 
 // eslint-disable-next-line no-console
-const uploadCallback: () => void = () =>
+const uploadCallback: () => void = () => {
   console.log('uploadCallback executed!');
+};
 
 const onClickCreatedLgtmImage: () => void = () =>
   // eslint-disable-next-line no-console
-  console.log('onClickCreatedLgtmImage executed!');
+  {
+    console.log('onClickCreatedLgtmImage executed!');
+  };
 
 const onClickMarkdownSourceCopyButton: () => void = () =>
   // eslint-disable-next-line no-console
-  console.log('onClickMarkdownSourceCopyButton executed!');
+  {
+    console.log('onClickMarkdownSourceCopyButton executed!');
+  };
 
 export const ViewInJapanese: Story = {
   args: {

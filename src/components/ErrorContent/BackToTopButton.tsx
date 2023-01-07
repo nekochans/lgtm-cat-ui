@@ -43,7 +43,7 @@ const backToTopPageText = {
 } as const;
 
 type BackToTopPageText =
-  typeof backToTopPageText[keyof typeof backToTopPageText];
+  (typeof backToTopPageText)[keyof typeof backToTopPageText];
 
 const createBackToTopPageText = (language: Language): BackToTopPageText => {
   switch (language) {

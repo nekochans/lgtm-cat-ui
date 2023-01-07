@@ -48,7 +48,7 @@ const errorTitleText = {
   serviceUnavailable: '503 Service Unavailable',
 } as const;
 
-type ErrorTitleText = typeof errorTitleText[keyof typeof errorTitleText];
+type ErrorTitleText = (typeof errorTitleText)[keyof typeof errorTitleText];
 
 const createErrorTitleText = (type: ErrorType): ErrorTitleText => {
   switch (type) {
@@ -73,7 +73,7 @@ const jaErrorMessageText = {
 } as const;
 
 type JaErrorMessageText =
-  typeof jaErrorMessageText[keyof typeof jaErrorMessageText];
+  (typeof jaErrorMessageText)[keyof typeof jaErrorMessageText];
 
 const enErrorMessageText = {
   notFound:
@@ -85,7 +85,7 @@ const enErrorMessageText = {
 } as const;
 
 type EnErrorMessageText =
-  typeof enErrorMessageText[keyof typeof enErrorMessageText];
+  (typeof enErrorMessageText)[keyof typeof enErrorMessageText];
 
 type ErrorMessageText = JaErrorMessageText | EnErrorMessageText;
 
