@@ -1,5 +1,11 @@
 /* eslint-disable max-lines */
-import { useState, useCallback, type FC, FormEvent, ChangeEvent } from 'react';
+import {
+  useState,
+  useCallback,
+  type FC,
+  type FormEvent,
+  type ChangeEvent,
+} from 'react';
 import Link from 'next/link';
 import { useDropzone } from 'react-dropzone';
 import { FaCloudUploadAlt } from 'react-icons/fa';

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { defaultAppUrl, type AppUrl } from '../../../constants';
 import { useClipboardMarkdown, useCopySuccess } from '../../../hooks';
 import { mixins } from '../../../styles';
-import { LgtmImageUrl } from '../../../types';
+import { type LgtmImageUrl } from '../../../types';
 import { CopiedGithubMarkdownMessage } from '../../LgtmImages/CopiedGithubMarkdownMessage';
 
 const _Wrapper = styled.div`

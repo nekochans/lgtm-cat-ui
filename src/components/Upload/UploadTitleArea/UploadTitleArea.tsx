@@ -1,7 +1,7 @@
 import type { FC } from 'react';
 import styled from 'styled-components';
 import { mixins } from '../../../styles';
-import { Language } from '../../../types';
+import { type Language } from '../../../types';
 import { assertNever } from '../../../utils';
 
 const _Wrapper = styled.div`

@@ -1,5 +1,5 @@
 import type { ComponentStoryObj } from '@storybook/react';
-import { LgtmImage } from '../../types';
+import { type LgtmImage } from '../../types';
 
 import { LgtmImages } from './';
 
