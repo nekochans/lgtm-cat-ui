@@ -1,4 +1,4 @@
-import { useState, type FC, MouseEvent } from 'react';
+import { useState, type FC, type MouseEvent } from 'react';
 import Link from 'next/link';
 import { FaBars } from 'react-icons/fa';
 import Modal from 'react-modal';
@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import { mixins } from '../../styles';
 import { GlobalMenu } from '../GlobalMenu';
 import { LanguageButton } from './LanguageButton';
-import { LanguageMenu, Props as LanguageMenuProps } from './LanguageMenu';
+import { LanguageMenu, type Props as LanguageMenuProps } from './LanguageMenu';
 
 const _Wrapper = styled.div`
   background: #e9e2d7;

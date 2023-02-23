@@ -2,7 +2,7 @@ import type { FC } from 'react';
 import Image from 'next/image';
 import styled from 'styled-components';
 
-import { AppUrl, defaultAppUrl } from '../../constants';
+import { type AppUrl, defaultAppUrl } from '../../constants';
 import { useClipboardMarkdown, useCopySuccess } from '../../hooks';
 
 import type { LgtmImage } from '../../types';

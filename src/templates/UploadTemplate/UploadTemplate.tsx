@@ -1,7 +1,7 @@
 import type { FC, ReactNode } from 'react';
 import styled from 'styled-components';
 import { UploadForm } from '../../components';
-import { AppUrl } from '../../constants';
+import { type AppUrl } from '../../constants';
 import { useSwitchLanguage } from '../../hooks';
 import { ResponsiveLayout } from '../../layouts';
 import { mixins } from '../../styles';

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { useSnapshot } from 'valtio';
 import { ErrorContent, LgtmImages } from '../../components';
 import { CatButtonGroup } from '../../components/Button';
-import { AppUrl } from '../../constants';
+import { type AppUrl } from '../../constants';
 import { errorType } from '../../features';
 import { lgtmImageStateSelector } from '../../stores';
 import type { Language, LgtmImage } from '../../types';

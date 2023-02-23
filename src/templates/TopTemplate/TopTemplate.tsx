@@ -1,5 +1,5 @@
 import type { FC, ReactNode } from 'react';
-import { AppUrl } from '../../constants';
+import { type AppUrl } from '../../constants';
 import {
   NewArrivalCatImagesFetcherError,
   RandomCatImagesFetcherError,

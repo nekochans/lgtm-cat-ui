@@ -3,8 +3,7 @@ import Image from 'next/image';
 
 import internalServerError from '../../images/internal_server_error.webp';
 
-import type { LgtmImage } from '../../types';
-import { CatImagesFetcher } from '../../types';
+import { type LgtmImage, type CatImagesFetcher } from '../../types';
 import { TopTemplate } from './.';
 
 export default {
