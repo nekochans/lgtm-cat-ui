@@ -45,10 +45,7 @@ export const _InputFile = styled.input`
 `;
 
 export const _InputFileLabel = styled.label`
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  inset: 0;
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
