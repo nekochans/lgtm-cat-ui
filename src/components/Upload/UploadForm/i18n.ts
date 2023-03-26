@@ -1,3 +1,4 @@
+import { acceptableImageSizeThresholdText } from '../../../features/lgtmImage';
 import type { Language } from '../../../types';
 import { assertNever } from '../../../utils';
 
@@ -69,6 +70,25 @@ export const createNotAllowedImageExtensionErrorMessage = (
       return [
         `${fileType} is not allowed.`,
         'Only png, jpg, jpeg images can be uploaded.',
+      ];
+    default:
+      return assertNever(language);
+  }
+};
+
+export const createImageSizeTooLargeErrorMessage = (
+  language: Language
+): string[] => {
+  switch (language) {
+    case 'ja':
+      return [
+        '画像サイズが大きすぎます。',
+        `お手数ですが${acceptableImageSizeThresholdText}以下の画像を利用して下さい。`,
+      ];
+    case 'en':
+      return [
+        `Image size is too large.`,
+        `Please use images under ${acceptableImageSizeThresholdText}.`,
       ];
     default:
       return assertNever(language);

@@ -17,3 +17,22 @@ export const extractImageExtFromValidFileType = (
 
   return `.${fileType.replace('image/', '')}` as AcceptedTypesImageExtension;
 };
+
+const calculateFileSize = (file: File): number => {
+  const kb = 1024;
+  // eslint-disable-next-line no-magic-numbers
+  const mb = kb ** 2;
+
+  // eslint-disable-next-line no-magic-numbers
+  return Math.round((file.size / mb) * 100.0) / 100.0;
+};
+
+const acceptableSizeThreshold = 4;
+
+export const acceptableImageSizeThresholdText = `${acceptableSizeThreshold}MB`;
+
+export const isAcceptableFileSize = (file: File): boolean => {
+  const size = calculateFileSize(file);
+
+  return size <= acceptableSizeThreshold;
+};

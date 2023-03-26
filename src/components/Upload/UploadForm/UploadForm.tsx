@@ -15,6 +15,7 @@ import {
   extractImageExtFromValidFileType,
   createPrivacyPolicyLinksFromLanguages,
 } from '../../../features';
+import { isAcceptableFileSize } from '../../../features/lgtmImage';
 import { mixins } from '../../../styles';
 import type {
   AcceptedTypesImageExtension,
@@ -47,6 +48,7 @@ import {
 } from './StyledComponents';
 import {
   cautionText,
+  createImageSizeTooLargeErrorMessage,
   createNotAllowedImageExtensionErrorMessage,
   imageDropAreaText,
   noteList,
@@ -170,6 +172,13 @@ export const UploadForm: FC<Props> = ({
       setDisplayErrorMessages(
         createNotAllowedImageExtensionErrorMessage(fileType, language)
       );
+      stateInitAtError();
+
+      return;
+    }
+
+    if (!isAcceptableFileSize(file)) {
+      setDisplayErrorMessages(createImageSizeTooLargeErrorMessage(language));
       stateInitAtError();
 
       return;
