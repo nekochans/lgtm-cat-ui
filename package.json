@@ -41,7 +41,6 @@
   },
   "homepage": "https://github.com/nekochans/lgtm-cat-ui#readme",
   "devDependencies": {
-    "@babel/core": "7.21.3",
     "@storybook/addon-a11y": "^7.0.2",
     "@storybook/addon-essentials": "^7.0.2",
     "@storybook/addon-interactions": "^7.0.2",
@@ -60,7 +59,6 @@
     "@types/styled-components": "^5.1.26",
     "@typescript-eslint/eslint-plugin": "^5.56.0",
     "@vitejs/plugin-react-swc": "^3.2.0",
-    "babel-loader": "^9.1.2",
     "chromatic": "^6.17.2",
     "clipboard": "^2.0.11",
     "eslint": "^8.36.0",
