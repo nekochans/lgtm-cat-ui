@@ -1,5 +1,6 @@
 import 'ress/ress.css';
 import './markdown.css';
+import type { Preview } from '@storybook/react';
 
 const customViewports = {
   iPhone11ProMax: {
@@ -60,23 +61,17 @@ const customViewports = {
   },
 };
 
-// https://github.com/RyanClementsHax/storybook-addon-next/issues/99#issuecomment-1247073410 に記載してある暫定対応を実施
-// https://github.com/RyanClementsHax/storybook-addon-next/pull/121 がマージされたら不要になるハズ
-import Image from 'next/image';
-
-const OriginalImage = Image.default;
-Object.defineProperty(Image, 'default', {
-  configurable: true,
-  value: (props) => <OriginalImage {...props} unoptimized />,
-});
-
-export const parameters = {
-  actions: { argTypesRegex: '^on[A-Z].*' },
-  controls: {
-    matchers: {
-      color: /(background|color)$/i,
-      date: /Date$/,
+const preview: Preview = {
+  parameters: {
+    actions: { argTypesRegex: '^on[A-Z].*' },
+    controls: {
+      matchers: {
+        color: /(background|color)$/i,
+        date: /Date$/,
+      },
     },
+    viewport: { viewports: customViewports },
   },
-  viewport: { viewports: customViewports },
 };
+
+export default preview;
