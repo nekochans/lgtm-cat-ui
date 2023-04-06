@@ -1,11 +1,11 @@
-import type { ComponentStoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react';
 import { CatRandomCopyButton } from '.';
 
 export default {
   component: CatRandomCopyButton,
 };
 
-type Story = ComponentStoryObj<typeof CatRandomCopyButton>;
+type Story = StoryObj<typeof CatRandomCopyButton>;
 
 const callback: () => void = () =>
   // eslint-disable-next-line no-console

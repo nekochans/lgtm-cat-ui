@@ -1,11 +1,11 @@
-import type { ComponentStoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react';
 import { MarkdownPageTitle } from './';
 
 export default {
   component: MarkdownPageTitle,
 };
 
-type Story = ComponentStoryObj<typeof MarkdownPageTitle>;
+type Story = StoryObj<typeof MarkdownPageTitle>;
 
 export const Default: Story = {
   args: { text: '利用規約' },

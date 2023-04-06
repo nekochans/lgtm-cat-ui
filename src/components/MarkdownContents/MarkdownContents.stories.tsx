@@ -1,11 +1,11 @@
-import type { ComponentStoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react';
 import { MarkdownContents } from './';
 
 export default {
   component: MarkdownContents,
 };
 
-type Story = ComponentStoryObj<typeof MarkdownContents>;
+type Story = StoryObj<typeof MarkdownContents>;
 
 const markdown = `
   # 🐱ねこの種類🐱

@@ -1,11 +1,11 @@
-import type { ComponentStoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react';
 import { GlobalMenu } from './';
 
 export default {
   component: GlobalMenu,
 };
 
-type Story = ComponentStoryObj<typeof GlobalMenu>;
+type Story = StoryObj<typeof GlobalMenu>;
 
 export const ViewInJapanese: Story = {
   args: { language: 'ja' },

@@ -1,5 +1,5 @@
 import type { FC } from 'react';
-import type { ComponentStoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react';
 import { MarkdownContents } from '../../components/MarkdownContents';
 import { useSwitchLanguage } from '../../hooks';
 import type { Language } from '../../types';
@@ -248,7 +248,7 @@ export default {
   component: EnhanceTermsOrPrivacyTemplate,
 };
 
-type Story = ComponentStoryObj<typeof EnhanceTermsOrPrivacyTemplate>;
+type Story = StoryObj<typeof EnhanceTermsOrPrivacyTemplate>;
 
 export const ViewPrivacyPolicyInJapanese: Story = {
   args: { type: 'privacy', language: 'ja' },

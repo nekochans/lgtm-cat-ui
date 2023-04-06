@@ -1,12 +1,12 @@
 import type { FC } from 'react';
-import type { ComponentStoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react';
 import { ResponsiveLayout } from './';
 
 export default {
   component: ResponsiveLayout,
 };
 
-type Story = ComponentStoryObj<typeof ResponsiveLayout>;
+type Story = StoryObj<typeof ResponsiveLayout>;
 
 const JpContents: FC = () => (
   <>

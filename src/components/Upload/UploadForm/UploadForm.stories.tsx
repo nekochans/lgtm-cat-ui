@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import type { ComponentStoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react';
 import { createSuccessResult } from '../../../features';
 import type {
   AcceptedTypesImageExtension,
@@ -14,7 +14,7 @@ export default {
   component: UploadForm,
 };
 
-type Story = ComponentStoryObj<typeof UploadForm>;
+type Story = StoryObj<typeof UploadForm>;
 
 const imageValidator: ImageValidator = async (
   image: string,

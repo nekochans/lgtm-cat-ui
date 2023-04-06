@@ -1,11 +1,11 @@
-import type { ComponentStoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react';
 import { UploadTitleArea } from './index';
 
 export default {
   component: UploadTitleArea,
 };
 
-type Story = ComponentStoryObj<typeof UploadTitleArea>;
+type Story = StoryObj<typeof UploadTitleArea>;
 
 export const ViewInJapanese: Story = {
   args: { language: 'ja' },

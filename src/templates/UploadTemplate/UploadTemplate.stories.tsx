@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import type { ComponentStoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react';
 import Image from 'next/image';
 
 import { createSuccessResult } from '../../features';
@@ -67,7 +67,7 @@ export default {
   component: UploadTemplate,
 };
 
-type Story = ComponentStoryObj<typeof UploadTemplate>;
+type Story = StoryObj<typeof UploadTemplate>;
 
 export const ViewInJapanese: Story = {
   args: {

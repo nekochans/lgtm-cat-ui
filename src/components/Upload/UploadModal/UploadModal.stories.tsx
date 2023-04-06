@@ -1,11 +1,11 @@
-import type { ComponentStoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react';
 import { UploadModal } from './';
 
 export default {
   component: UploadModal,
 };
 
-type Story = ComponentStoryObj<typeof UploadModal>;
+type Story = StoryObj<typeof UploadModal>;
 
 export const ViewInJapanese: Story = {
   args: {

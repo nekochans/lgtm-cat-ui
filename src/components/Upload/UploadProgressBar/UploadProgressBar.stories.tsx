@@ -1,11 +1,11 @@
-import type { ComponentStoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react';
 import { UploadProgressBar } from '.';
 
 export default {
   component: UploadProgressBar,
 };
 
-type Story = ComponentStoryObj<typeof UploadProgressBar>;
+type Story = StoryObj<typeof UploadProgressBar>;
 
 export const ViewInJapanese: Story = {
   args: { language: 'ja' },

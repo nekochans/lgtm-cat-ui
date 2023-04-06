@@ -1,4 +1,4 @@
-import type { ComponentStoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react';
 import Image from 'next/image';
 
 import internalServerError from '../../images/internal_server_error.webp';
@@ -11,7 +11,7 @@ export default {
   component: ErrorTemplate,
 };
 
-type Story = ComponentStoryObj<typeof ErrorTemplate>;
+type Story = StoryObj<typeof ErrorTemplate>;
 
 // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-assignment
 const notFoundSrc = notFound.src;
