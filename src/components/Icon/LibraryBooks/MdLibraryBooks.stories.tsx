@@ -1,11 +1,13 @@
-import type { ComponentStoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { LibraryBooks } from './';
 
-export default {
+const meta: Meta<typeof LibraryBooks> = {
   component: LibraryBooks,
 };
 
-type Story = ComponentStoryObj<typeof LibraryBooks>;
+export default meta;
+
+type Story = StoryObj<typeof LibraryBooks>;
 
 export const Default: Story = {
   args: { text: '利用規約' },

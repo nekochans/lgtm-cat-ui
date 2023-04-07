@@ -1,11 +1,13 @@
-import type { ComponentStoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { GlobalMenu } from './';
 
-export default {
+const meta: Meta<typeof GlobalMenu> = {
   component: GlobalMenu,
 };
 
-type Story = ComponentStoryObj<typeof GlobalMenu>;
+export default meta;
+
+type Story = StoryObj<typeof GlobalMenu>;
 
 export const ViewInJapanese: Story = {
   args: { language: 'ja' },

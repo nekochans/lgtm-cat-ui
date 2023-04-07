@@ -1,5 +1,5 @@
 import type { FC } from 'react';
-import type { ComponentStoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { MarkdownContents } from '../../components/MarkdownContents';
 import { useSwitchLanguage } from '../../hooks';
 import type { Language } from '../../types';
@@ -244,11 +244,13 @@ const EnhanceTermsOrPrivacyTemplate: FC<Props> = ({ type, language }) => {
   );
 };
 
-export default {
+const meta: Meta<typeof EnhanceTermsOrPrivacyTemplate> = {
   component: EnhanceTermsOrPrivacyTemplate,
 };
 
-type Story = ComponentStoryObj<typeof EnhanceTermsOrPrivacyTemplate>;
+export default meta;
+
+type Story = StoryObj<typeof EnhanceTermsOrPrivacyTemplate>;
 
 export const ViewPrivacyPolicyInJapanese: Story = {
   args: { type: 'privacy', language: 'ja' },
