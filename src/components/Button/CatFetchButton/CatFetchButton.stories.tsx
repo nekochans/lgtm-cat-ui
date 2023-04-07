@@ -1,9 +1,11 @@
-import type { StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { CatFetchButton } from '.';
 
-export default {
+const meta: Meta<typeof CatFetchButton> = {
   component: CatFetchButton,
 };
+
+export default meta;
 
 type Story = StoryObj<typeof CatFetchButton>;
 

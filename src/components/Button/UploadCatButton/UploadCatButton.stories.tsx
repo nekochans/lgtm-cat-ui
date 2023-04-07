@@ -1,9 +1,11 @@
-import type { StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { UploadCatButton } from './index';
 
-export default {
+const meta: Meta<typeof UploadCatButton> = {
   component: UploadCatButton,
 };
+
+export default meta;
 
 type Story = StoryObj<typeof UploadCatButton>;
 

@@ -1,9 +1,11 @@
-import type { StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { GlobalMenu } from './';
 
-export default {
+const meta: Meta<typeof GlobalMenu> = {
   component: GlobalMenu,
 };
+
+export default meta;
 
 type Story = StoryObj<typeof GlobalMenu>;
 

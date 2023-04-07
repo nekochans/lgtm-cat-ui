@@ -1,9 +1,11 @@
-import type { StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { MarkdownPageTitle } from './';
 
-export default {
+const meta: Meta<typeof MarkdownPageTitle> = {
   component: MarkdownPageTitle,
 };
+
+export default meta;
 
 type Story = StoryObj<typeof MarkdownPageTitle>;
 

@@ -1,4 +1,4 @@
-import type { StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import Image from 'next/image';
 
 import internalServerError from '../../images/internal_server_error.webp';
@@ -6,9 +6,11 @@ import internalServerError from '../../images/internal_server_error.webp';
 import { type LgtmImage, type CatImagesFetcher } from '../../types';
 import { TopTemplate } from './.';
 
-export default {
+const meta: Meta<typeof TopTemplate> = {
   component: TopTemplate,
 };
+
+export default meta;
 
 type Story = StoryObj<typeof TopTemplate>;
 

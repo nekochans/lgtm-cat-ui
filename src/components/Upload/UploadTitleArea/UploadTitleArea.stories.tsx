@@ -1,9 +1,11 @@
-import type { StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { UploadTitleArea } from './index';
 
-export default {
+const meta: Meta<typeof UploadTitleArea> = {
   component: UploadTitleArea,
 };
+
+export default meta;
 
 type Story = StoryObj<typeof UploadTitleArea>;
 

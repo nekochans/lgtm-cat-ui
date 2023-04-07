@@ -1,10 +1,12 @@
 import type { FC } from 'react';
-import type { StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { ResponsiveLayout } from './';
 
-export default {
+const meta: Meta<typeof ResponsiveLayout> = {
   component: ResponsiveLayout,
 };
+
+export default meta;
 
 type Story = StoryObj<typeof ResponsiveLayout>;
 
