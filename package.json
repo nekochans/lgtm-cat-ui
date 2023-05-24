@@ -23,6 +23,7 @@
     "fix:stylelint": "npm run lint:stylelint -- --fix",
     "lint": "run-s lint:*",
     "format": "run-s fix:*",
+    "generate:css-types": "tcm src",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "chromatic": "chromatic --project-token=$CHROMATIC_PROJECT_TOKEN"
@@ -96,6 +97,7 @@
     "stylelint-config-standard": "^31.0.0",
     "stylelint-config-styled-components": "^0.1.1",
     "ts-jest": "^29.0.5",
+    "typed-css-modules": "^0.7.2",
     "typescript": "^5.0.3",
     "valtio": "^1.10.3",
     "vite": "^4.2.1",
