@@ -1,5 +1,6 @@
 import 'ress/ress.css';
 import './markdown.css';
+import '../src/styles/globals.css';
 import type { Preview } from '@storybook/react';
 
 const customViewports = {
