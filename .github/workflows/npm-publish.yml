@@ -34,6 +34,7 @@ jobs:
           scope: '@nekochans'
       - run: |
           npm ci --legacy-peer-deps
+          npm run generate:css-types
           npm run build
           npm publish
         env:
