@@ -14,7 +14,7 @@
   ],
   "scripts": {
     "test": "jest",
-    "build": "rm -rf dist && vite build",
+    "build": "rm -rf dist && vite build && cp src/styles/globals.css dist/globals.css",
     "lint:prettier": "prettier --cache --check .",
     "fix:prettier": "npm run lint:prettier -- --write",
     "lint:eslint": "eslint --cache .",
