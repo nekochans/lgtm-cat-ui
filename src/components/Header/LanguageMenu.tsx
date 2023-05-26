@@ -11,7 +11,7 @@ export type Props = {
 
 export const LanguageMenu: FC<Props> = ({ language, currentUrlPath }) => (
   <nav className={styles.wrapper}>
-    <span className={styles['en-text-wrapper']}>
+    <span className={`${styles['text-wrapper']} ${styles['en-text-wrapper']}`}>
       <Link href={currentUrlPath} locale="en" className={styles.link}>
         <span
           className={styles['link-text']}
@@ -23,7 +23,7 @@ export const LanguageMenu: FC<Props> = ({ language, currentUrlPath }) => (
       </Link>
     </span>
     <span className={styles.separator} />
-    <span className={styles['ja-text-wrapper']}>
+    <span className={`${styles['text-wrapper']} ${styles['ja-text-wrapper']}`}>
       <Link
         href={currentUrlPath}
         locale="ja"

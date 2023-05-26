@@ -19,7 +19,7 @@
   }
 }
 
-.en-text-wrapper {
+.text-wrapper {
   display: flex;
   flex: none;
   flex-direction: row;
@@ -30,20 +30,13 @@
   height: 39px;
   padding: 10px 0;
   background: var(--text-wrapper-background);
+}
+
+.en-text-wrapper {
   order: 0;
 }
 
 .ja-text-wrapper {
-  display: flex;
-  flex: none;
-  flex-direction: row;
-  flex-grow: 0;
-  gap: 10px;
-  align-items: flex-start;
-  width: 125px;
-  height: 39px;
-  padding: 10px 0;
-  background: var(--text-wrapper-background);
   order: 2;
 }
 
