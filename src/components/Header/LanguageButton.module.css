@@ -12,7 +12,7 @@
   border-radius: 4px;
 }
 
-@media (max-width: var(--media-query-default-size)) {
+@media (max-width: 767px) {
   .wrapper {
     padding: 12px 0;
   }
