@@ -1,0 +1,16 @@
+.button {
+  width: 227px;
+  background: var(--primary-color) url(/src/components/Button/images/slash.png)
+    repeat 0 0/16px auto;
+}
+
+.fa-random {
+  font-style: normal;
+  font-weight: 900;
+  font-size: 26px;
+  line-height: 26px;
+  color: var(--white-color);
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
