@@ -2,57 +2,10 @@ import { useState, type FC, type MouseEvent } from 'react';
 import Link from 'next/link';
 import { FaBars } from 'react-icons/fa';
 import Modal from 'react-modal';
-import styled from 'styled-components';
-import { mixins } from '../../styles';
 import { GlobalMenu } from '../GlobalMenu';
 import { LanguageButton } from './LanguageButton';
 import { LanguageMenu, type Props as LanguageMenuProps } from './LanguageMenu';
-
-const _Wrapper = styled.div`
-  background: #e9e2d7;
-`;
-
-const _Header = styled.div`
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  max-width: 900px;
-  padding: 12px 20px;
-  margin: 0 auto;
-`;
-
-const _Title = styled.span`
-  position: absolute;
-  top: 26.67%;
-  bottom: 26.67%;
-  left: 50%;
-  font-family: Roboto, sans-serif;
-  font-size: 21px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 28px;
-  color: #000;
-  text-align: center;
-  text-decoration: none;
-  cursor: pointer;
-  transform: translateX(-50%);
-`;
-
-const faBarsStyle = {
-  width: '27px',
-  height: '28px',
-  fontStyle: 'normal',
-  fontWeight: 900,
-  fontSize: '30px',
-  lineHeight: '28px',
-  color: `${mixins.colors.primary}`,
-  flex: 'none',
-  order: 0,
-  flexGrow: 0,
-  cursor: 'pointer',
-};
+import styles from './Header.module.css';
 
 export type Props = LanguageMenuProps & {
   isLanguageMenuDisplayed: boolean;
@@ -98,11 +51,13 @@ export const Header: FC<Props> = ({
       >
         <GlobalMenu language={language} onClickCloseButton={closeMenu} />
       </Modal>
-      <_Wrapper>
-        <_Header>
-          <FaBars style={faBarsStyle} onClick={openMenu} />
+      <div className={styles.wrapper}>
+        <div className={styles.header}>
+          <FaBars className={styles['fa-bars']} onClick={openMenu} />
           <Link href="/" prefetch={false}>
-            <_Title data-gtm-click="header-app-title">LGTMeow</_Title>
+            <span className={styles.title} data-gtm-click="header-app-title">
+              LGTMeow
+            </span>
           </Link>
           <LanguageButton onClick={onClickLanguageButton} />
           {isLanguageMenuDisplayed ? (
@@ -110,8 +65,8 @@ export const Header: FC<Props> = ({
           ) : (
             ''
           )}
-        </_Header>
-      </_Wrapper>
+        </div>
+      </div>
     </>
   );
 };
