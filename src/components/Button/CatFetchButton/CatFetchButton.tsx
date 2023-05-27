@@ -1,29 +1,7 @@
 import type { FC } from 'react';
 import { FaSyncAlt } from 'react-icons/fa';
-import styled from 'styled-components';
-
-import { mixins } from '../../../styles';
 import { assertNever } from '../../../utils';
-
-const _Button = styled.button`
-  background: ${mixins.colors.primary};
-  ${mixins.buttonBase};
-`;
-
-const _Text = styled.div`
-  ${mixins.buttonText};
-`;
-
-const faSyncAltStyle = {
-  fontStyle: 'normal',
-  fontWeight: 900,
-  fontSize: '26px',
-  lineHeight: '26px',
-  color: `${mixins.colors.sub}`,
-  flex: 'none',
-  order: 0,
-  flexGrow: 0,
-};
+import styles from './CatFetchButton.module.css';
 
 const buttonText = (type: ButtonType) => {
   switch (type) {
@@ -44,8 +22,8 @@ type Props = {
 };
 
 export const CatFetchButton: FC<Props> = ({ type, onClick }) => (
-  <_Button onClick={onClick}>
-    <FaSyncAlt style={faSyncAltStyle} />
-    <_Text>{buttonText(type)}</_Text>
-  </_Button>
+  <button className={`button-base ${styles.button}`} onClick={onClick}>
+    <FaSyncAlt className={styles['fa-sync-alt']} />
+    <div className="button-text">{buttonText(type)}</div>
+  </button>
 );

@@ -1,0 +1,14 @@
+.button {
+  background: var(--primary-color);
+}
+
+.fa-sync-alt {
+  font-style: normal;
+  font-weight: 900;
+  font-size: 26px;
+  line-height: 26px;
+  color: var(--sub-color);
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
