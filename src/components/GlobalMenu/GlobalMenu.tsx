@@ -21,12 +21,12 @@ export const GlobalMenu: FC<Props> = ({ language, onClickCloseButton }) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles['header-wrapper']}>
-        <div
+        <button
           className={styles['fa-times-wrapper']}
           onClick={onClickCloseButton}
         >
           <FaTimes className={styles['fa-times']} />
-        </div>
+        </button>
       </div>
       <div className={styles['link-group-wrapper']}>
         <div className={styles['link-wrapper']}>
