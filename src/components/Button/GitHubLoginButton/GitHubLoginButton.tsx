@@ -1,32 +1,10 @@
 import type { FC } from 'react';
 import { FaGithub } from 'react-icons/fa';
-import styled from 'styled-components';
-
-import { mixins } from '../../../styles';
-
-const _Button = styled.button`
-  background: ${mixins.colors.primary};
-  ${mixins.buttonBase};
-`;
-
-const _Text = styled.div`
-  ${mixins.buttonText};
-`;
-
-const faGithubStyle = {
-  fontStyle: 'normal',
-  fontWeight: 400,
-  width: '26px',
-  height: '26px',
-  color: `${mixins.colors.sub}`,
-  flex: 'none',
-  order: 1,
-  flexGrow: 0,
-};
+import styles from './GitHubLoginButton.module.css';
 
 export const GitHubLoginButton: FC = () => (
-  <_Button>
-    <FaGithub style={faGithubStyle} />
-    <_Text>Login</_Text>
-  </_Button>
+  <button className={`button-base ${styles.button}`}>
+    <FaGithub className={styles['fa-github']} />
+    <div className="button-text">Login</div>
+  </button>
 );
