@@ -1,37 +1,10 @@
 import type { FC, ComponentProps } from 'react';
 import { FaRandom } from 'react-icons/fa';
-import styled from 'styled-components';
-
 import { defaultAppUrl, type AppUrl } from '../../../constants';
 import { useClipboardMarkdown, useCopySuccess } from '../../../hooks';
-import { mixins } from '../../../styles';
-import type { LgtmImageUrl } from '../../../types';
+import { type LgtmImageUrl } from '../../../types';
 import { CopiedGithubMarkdownMessage } from '../../LgtmImages/CopiedGithubMarkdownMessage';
-import slash from '../images/slash.png';
-
-// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-assignment
-const slashSrc = slash;
-
-const _Button = styled.button`
-  ${mixins.buttonBase};
-  width: 227px;
-  background: ${mixins.colors.primary} url(${slashSrc}) repeat 0 0/16px auto;
-`;
-
-const _Text = styled.div`
-  ${mixins.buttonText};
-`;
-
-const faRandomStyle = {
-  fontStyle: 'normal',
-  fontWeight: 900,
-  fontSize: '26px',
-  lineHeight: '26px',
-  color: `${mixins.colors.white}`,
-  flex: 'none',
-  order: 0,
-  flexGrow: 0,
-};
+import styles from './CatRandomCopyButton.module.css';
 
 export type Props = ComponentProps<'button'> & {
   imageUrl: LgtmImageUrl;
@@ -45,7 +18,6 @@ export const CatRandomCopyButton: FC<Props> = ({
   appUrl,
 }) => {
   const { copied, onCopySuccess } = useCopySuccess(callback);
-
   const { imageContextRef } = useClipboardMarkdown({
     onCopySuccess,
     imageUrl,
@@ -54,10 +26,10 @@ export const CatRandomCopyButton: FC<Props> = ({
 
   return (
     <>
-      <_Button ref={imageContextRef}>
-        <FaRandom style={faRandomStyle} />
-        <_Text>Cats Random Copied</_Text>
-      </_Button>
+      <button ref={imageContextRef} className={`button-base ${styles.button}`}>
+        <FaRandom className={styles['fa-random']} />
+        <div className="button-text">Cats Random Copied</div>
+      </button>
       {copied ? <CopiedGithubMarkdownMessage position="upper" /> : ''}
     </>
   );

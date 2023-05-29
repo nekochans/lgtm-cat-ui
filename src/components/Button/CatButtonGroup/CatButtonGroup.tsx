@@ -1,35 +1,7 @@
 import type { FC } from 'react';
-import styled from 'styled-components';
-
-import { mixins } from '../../../styles';
 import { CatFetchButton } from '../CatFetchButton';
 import { UploadCatButton } from '../UploadCatButton';
-
-const _Wrapper = styled.div`
-  @media (max-width: ${mixins.mediaQuerySize.default}) {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  gap: 10px;
-  padding: 16px 75px;
-  background: ${mixins.colors.white};
-`;
-
-const _ButtonGroup = styled.div`
-  @media (max-width: ${mixins.mediaQuerySize.default}) {
-    flex: none;
-    flex-direction: column;
-    flex-grow: 0;
-    order: 0;
-  }
-  display: flex;
-  flex-direction: row;
-  gap: 20px;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-`;
+import styles from './CatButtonGroup.module.css';
 
 type Props = {
   onClickFetchRandomCatButton: () => Promise<void>;
@@ -40,14 +12,14 @@ export const CatButtonGroup: FC<Props> = ({
   onClickFetchRandomCatButton,
   onClickFetchNewArrivalCatButton,
 }) => (
-  <_Wrapper>
-    <_ButtonGroup>
+  <div className={styles.wrapper}>
+    <div className={styles['button-group']}>
       <UploadCatButton
         link="/upload"
         customDataAttrGtmClick="top-upload-cat-button"
       />
       <CatFetchButton type="refresh" onClick={onClickFetchRandomCatButton} />
       <CatFetchButton type="new" onClick={onClickFetchNewArrivalCatButton} />
-    </_ButtonGroup>
-  </_Wrapper>
+    </div>
+  </div>
 );

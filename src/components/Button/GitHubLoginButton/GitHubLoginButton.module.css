@@ -1,0 +1,14 @@
+.button {
+  background: var(--primary-color);
+}
+
+.fa-github {
+  font-style: normal;
+  font-weight: 400;
+  width: 26px;
+  height: 26px;
+  color: var(--sub-color);
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
