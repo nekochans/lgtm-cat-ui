@@ -1,27 +1,9 @@
 import type { FC } from 'react';
-import styled from 'styled-components';
 import { defaultAppUrl, type AppUrl } from '../../../constants';
 import { useClipboardMarkdown, useCopySuccess } from '../../../hooks';
-import { mixins } from '../../../styles';
 import { type LgtmImageUrl } from '../../../types';
 import { CopiedGithubMarkdownMessage } from '../../LgtmImages/CopiedGithubMarkdownMessage';
-
-const _Wrapper = styled.div`
-  flex: none;
-  flex-grow: 0;
-  order: 0;
-`;
-
-const _Image = styled.img`
-  @media (max-width: ${mixins.mediaQuerySize.default}) {
-    max-width: 355px;
-  }
-  flex: none;
-  flex-grow: 0;
-  order: 0;
-  width: auto;
-  height: 270px;
-`;
+import styles from './CreatedLgtmImage.module.css';
 
 type Props = {
   imagePreviewUrl: string;
@@ -46,9 +28,13 @@ export const CreatedLgtmImage: FC<Props> = ({
 
   return (
     <>
-      <_Wrapper ref={imageContextRef}>
-        <_Image src={imagePreviewUrl} />
-      </_Wrapper>
+      <div ref={imageContextRef} className={styles.wrapper}>
+        <img
+          src={imagePreviewUrl}
+          className={styles.image}
+          alt="Uploaded cat"
+        />
+      </div>
       {copied ? <CopiedGithubMarkdownMessage /> : ''}
     </>
   );
