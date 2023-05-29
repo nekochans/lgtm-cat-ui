@@ -1,15 +1,13 @@
 import type { FC } from 'react';
 import Modal from 'react-modal';
-import styled from 'styled-components';
-
 import type { AppUrl } from '../../../constants';
-import { mixins } from '../../../styles';
 import type { Language, LgtmImageUrl } from '../../../types';
 import { assertNever } from '../../../utils';
 import { UploadProgressBar } from '../UploadProgressBar';
 import { ButtonGroup } from './ButtonGroup';
 import { CreatedLgtmImage } from './CreatedLgtmImage';
 import { SuccessMessageArea } from './SuccessMessageArea';
+import styles from './UploadModal.module.css';
 
 export type Props = {
   isOpen: boolean;
@@ -25,86 +23,6 @@ export type Props = {
   onClickMarkdownSourceCopyButton?: () => void;
   appUrl?: AppUrl;
 };
-
-const _Wrapper = styled.div`
-  @media (max-width: ${mixins.mediaQuerySize.default}) {
-    width: 360px;
-  }
-  position: absolute;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  align-items: center;
-  width: 500px;
-  padding: 27px 30px 45px;
-  background: ${mixins.colors.background};
-  border: 1px dashed ${mixins.colors.subText};
-`;
-
-const _ContentsWrapper = styled.div`
-  display: flex;
-  flex: none;
-  flex-direction: column;
-  flex-grow: 0;
-  gap: 14px;
-  align-items: center;
-  order: 0;
-  padding: 0;
-`;
-
-const _Title = styled.div`
-  flex: none;
-  flex-grow: 0;
-  order: 0;
-  font-family: Roboto, sans-serif;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 28px;
-  color: ${mixins.colors.subText};
-  text-align: center;
-`;
-
-const _FormWrapper = styled.div`
-  display: flex;
-  flex: none;
-  flex-direction: column;
-  flex-grow: 0;
-  gap: 16px;
-  align-items: center;
-  order: 1;
-  padding: 0;
-`;
-
-const _PreviewImageWrapper = styled.div`
-  flex: none;
-  flex-grow: 0;
-  order: 0;
-`;
-
-const _PreviewImage = styled.img`
-  @media (max-width: ${mixins.mediaQuerySize.default}) {
-    max-width: 355px;
-  }
-  flex: none;
-  flex-grow: 0;
-  order: 0;
-  width: auto;
-  height: 270px;
-`;
-
-const _ConfirmMessage = styled.div`
-  flex: none;
-  flex-grow: 0;
-  order: 1;
-  font-family: Roboto, sans-serif;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 22px;
-  color: ${mixins.colors.subText};
-`;
 
 const titleText = (language: Language): string => {
   switch (language) {
@@ -128,7 +46,7 @@ const confirmMessageText = (language: Language): string => {
   }
 };
 
-const mediaQuery = `@media (maxWidth: ${mixins.mediaQuerySize.default})`;
+const mediaQuery = '@media (maxWidth: 767px)';
 
 const modalStyle = {
   // stylelint-disable-next-line
@@ -175,10 +93,10 @@ export const UploadModal: FC<Props> = ({
       style={modalStyle}
       onRequestClose={onClickCancel}
     >
-      <_Wrapper>
-        <_ContentsWrapper>
-          <_Title>{titleText(language)}</_Title>
-          <_FormWrapper>
+      <div className={styles.wrapper}>
+        <div className={styles['contents-wrapper']}>
+          <div className={styles.title}>{titleText(language)}</div>
+          <div className={styles['form-wrapper']}>
             {uploaded ? (
               <CreatedLgtmImage
                 imagePreviewUrl={imagePreviewUrl}
@@ -187,20 +105,24 @@ export const UploadModal: FC<Props> = ({
                 appUrl={appUrl}
               />
             ) : (
-              <_PreviewImageWrapper>
-                <_PreviewImage src={imagePreviewUrl} />
-              </_PreviewImageWrapper>
+              <div className={styles['preview-image-wrapper']}>
+                <img
+                  className={styles['preview-image']}
+                  src={imagePreviewUrl}
+                  alt="cat preview"
+                />
+              </div>
             )}
             {!isLoading && !uploaded ? (
               <>
-                <_ConfirmMessage>
+                <div className={styles['confirm-message']}>
                   {confirmMessageText(language)}
-                </_ConfirmMessage>
+                </div>
               </>
             ) : (
               ''
             )}
-          </_FormWrapper>
+          </div>
           {uploaded && createdLgtmImageUrl && !isLoading ? (
             <SuccessMessageArea
               language={language}
@@ -222,8 +144,8 @@ export const UploadModal: FC<Props> = ({
             ''
           )}
           {isLoading ? <UploadProgressBar language={language} /> : ''}
-        </_ContentsWrapper>
-      </_Wrapper>
+        </div>
+      </div>
     </Modal>
   );
 };
