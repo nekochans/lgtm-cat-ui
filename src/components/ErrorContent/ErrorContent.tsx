@@ -1,46 +1,9 @@
 import type { FC, ReactNode } from 'react';
-import styled from 'styled-components';
-
 import { errorType, type ErrorType } from '../../features';
-import { mixins } from '../../styles';
 import type { Language } from '../../types';
 import { assertNever } from '../../utils';
-
 import { BackToTopButton } from './BackToTopButton';
-
-const _Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 64px;
-  align-items: center;
-  justify-content: center;
-`;
-
-const _Title = styled.div`
-  font-family: Roboto, sans-serif;
-  font-size: 70px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 70px;
-  color: ${mixins.colors.text};
-  text-align: center;
-`;
-
-const _ImageWrapper = styled.div`
-  position: relative;
-  width: 240px;
-  height: 240px;
-`;
-
-const _Message = styled.div`
-  font-family: Roboto, sans-serif;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 26px;
-  color: ${mixins.colors.text};
-  text-align: center;
-`;
+import styles from './ErrorContent.module.css';
 
 const errorTitleText = {
   notFound: '404 Not Found',
@@ -139,14 +102,16 @@ export const ErrorContent: FC<Props> = ({
   language,
   shouldDisplayBackToTopButton,
 }) => (
-  <_Wrapper>
-    <_Title>{createErrorTitleText(type)}</_Title>
-    <_ImageWrapper>{catImage}</_ImageWrapper>
-    <_Message>{createErrorMessageText(type, language)}</_Message>
+  <div className={styles.wrapper}>
+    <div className={styles.title}>{createErrorTitleText(type)}</div>
+    <div className={styles.imageWrapper}>{catImage}</div>
+    <div className={styles.message}>
+      {createErrorMessageText(type, language)}
+    </div>
     {shouldDisplayBackToTopButton ? (
       <BackToTopButton language={language} />
     ) : (
       ''
     )}
-  </_Wrapper>
+  </div>
 );
