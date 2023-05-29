@@ -1,41 +1,8 @@
 import type { FC } from 'react';
 import Link from 'next/link';
-import styled from 'styled-components';
-import { mixins } from '../../styles';
 import type { Language } from '../../types';
 import { assertNever } from '../../utils';
-
-const _Span = styled.span`
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-  align-items: center;
-  justify-content: center;
-  padding: 8px 20px;
-  cursor: pointer;
-  background: ${mixins.colors.primary};
-  border-radius: 4px;
-  &:hover {
-    opacity: 0.8;
-  }
-`;
-
-const _Text = styled.span`
-  flex: none;
-  flex-grow: 0;
-  order: 0;
-  width: 144px;
-  height: 18px;
-  font-family: Roboto, sans-serif;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 18px;
-  color: ${mixins.colors.white};
-  &:hover {
-    opacity: 0.8;
-  }
-`;
+import styles from './BackToTopButton.module.css';
 
 const backToTopPageText = {
   ja: 'トップページに戻る',
@@ -61,9 +28,9 @@ type Props = {
 };
 
 export const BackToTopButton: FC<Props> = ({ language }) => (
-  <Link href="/" prefetch={false} style={{ textDecoration: 'none' }}>
-    <_Span>
-      <_Text>{createBackToTopPageText(language)}</_Text>
-    </_Span>
+  <Link href="/" prefetch={false} className={styles.link}>
+    <span className={styles.span}>
+      <span className={styles.text}>{createBackToTopPageText(language)}</span>
+    </span>
   </Link>
 );
