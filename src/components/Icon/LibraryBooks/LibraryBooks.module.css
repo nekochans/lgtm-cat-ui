@@ -1,0 +1,6 @@
+.library-books {
+  width: 69px;
+  height: 69px;
+  color: var(--variant-color);
+  background: var(--white-color);
+}

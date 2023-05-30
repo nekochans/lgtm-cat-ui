@@ -1,12 +1,7 @@
 import type { FC } from 'react';
 import { MdLibraryBooks } from 'react-icons/md';
-import { mixins } from '../../../styles';
+import styles from './LibraryBooks.module.css';
 
-const style = {
-  width: '69.31px',
-  height: '69.31px',
-  color: `${mixins.colors.variant}`,
-  background: `${mixins.colors.white}`,
-};
-
-export const LibraryBooks: FC = () => <MdLibraryBooks style={style} />;
+export const LibraryBooks: FC = () => (
+  <MdLibraryBooks className={styles['library-books']} />
+);
