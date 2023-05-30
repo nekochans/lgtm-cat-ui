@@ -1,21 +1,10 @@
 import type { FC } from 'react';
 import Image from 'next/image';
-import styled from 'styled-components';
-
 import { type AppUrl, defaultAppUrl } from '../../constants';
 import { useClipboardMarkdown, useCopySuccess } from '../../hooks';
-
 import type { LgtmImage } from '../../types';
 import { CopiedGithubMarkdownMessage } from './CopiedGithubMarkdownMessage';
-
-const _Wrapper = styled.div`
-  position: relative;
-  height: 300px;
-  cursor: pointer;
-  &:hover {
-    opacity: 0.7;
-  }
-`;
+import styles from './LgtmImageContent.module.css';
 
 type Props = LgtmImage & {
   appUrl?: AppUrl;
@@ -37,7 +26,7 @@ export const LgtmImageContent: FC<Props> = ({
   });
 
   return (
-    <_Wrapper key={id} ref={imageContextRef}>
+    <div key={id} ref={imageContextRef} className={styles.wrapper}>
       <Image
         src={imageUrl}
         style={{ objectFit: 'contain' }}
@@ -47,6 +36,6 @@ export const LgtmImageContent: FC<Props> = ({
         priority={true}
       />
       {copied ? <CopiedGithubMarkdownMessage /> : ''}
-    </_Wrapper>
+    </div>
   );
 };
