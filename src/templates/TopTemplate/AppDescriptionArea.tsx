@@ -17,25 +17,25 @@ export type Props = {
 };
 
 const JaAppDescriptionArea: FC = () => (
-  <>
+  <div>
     <div className={`${styles.text} ${styles['ja-text']}`}>
       {jaUpperSectionText}
     </div>
     <div className={`${styles.text} ${styles['ja-text']}`}>
       {jaLowerSectionText}
     </div>
-  </>
+  </div>
 );
 
 const EnAppDescriptionArea: FC = () => (
-  <>
+  <div>
     <div className={`${styles.text} ${styles['en-text']}`}>
       {enUpperSectionText}
     </div>
     <div className={`${styles.text} ${styles['en-text']}`}>
       {enLowerSectionText}
     </div>
-  </>
+  </div>
 );
 
 export const AppDescriptionArea: FC<Props> = ({ language }) => {
