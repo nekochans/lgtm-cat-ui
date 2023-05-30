@@ -1,7 +1,4 @@
-import styled from 'styled-components';
-import { mixins } from '../../../styles';
-
-export const _Wrapper = styled.div`
+.wrapper {
   display: flex;
   flex: none;
   flex-direction: column;
@@ -10,41 +7,44 @@ export const _Wrapper = styled.div`
   align-items: center;
   order: 0;
   padding: 0;
-`;
+}
 
-export const _Form = styled.form`
-  @media (max-width: ${mixins.mediaQuerySize.default}) {
-    width: 380px;
-  }
+.form {
   flex: none;
   flex-grow: 0;
   order: 1;
   width: 500px;
-`;
+}
 
-export const _InputFileArea = styled.div`
+@media (max-width: 767px) {
+  .form {
+    width: 380px;
+  }
+}
+
+.input-file-area {
   box-sizing: border-box;
   display: grid;
   height: 220px;
-  background: ${mixins.colors.white};
-  border: 1px dashed ${mixins.colors.text};
-`;
+  background: var(--white-color);
+  border: 1px dashed var(--text-color);
+}
 
-export const _Text = styled.div`
+.text {
   font-family: Roboto, sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
   line-height: 28px;
-  color: ${mixins.colors.subText};
+  color: var(--sub-text-color);
   text-align: center;
-`;
+}
 
-export const _InputFile = styled.input`
+.input-file {
   display: none;
-`;
+}
 
-export const _InputFileLabel = styled.label`
+.input-file-label {
   inset: 0;
   box-sizing: border-box;
   display: flex;
@@ -56,12 +56,12 @@ export const _InputFileLabel = styled.label`
   padding: 12px 20px;
   margin: auto;
   cursor: pointer;
-  background: ${mixins.colors.background};
-  border: 1px solid ${mixins.colors.subText};
+  background: var(--background-color);
+  border: 1px solid var(--sub-text-color);
   border-radius: 4px;
-`;
+}
 
-export const _InputFileLabelText = styled.div`
+.input-file-label-text {
   flex: none;
   flex-grow: 0;
   order: 0;
@@ -72,32 +72,32 @@ export const _InputFileLabelText = styled.div`
   font-style: normal;
   font-weight: 700;
   line-height: 19px;
-  color: ${mixins.colors.primaryVariant};
-`;
+  color: var(--primary-variant-color);
+}
 
-export const _MaxUploadSizeText = styled.div`
+.max-upload-size-text {
   height: 28px;
   font-family: Roboto, sans-serif;
   font-size: 13px;
   font-style: normal;
   font-weight: 400;
   line-height: 28px;
-  color: ${mixins.colors.subText};
+  color: var(--sub-text-color);
   text-align: right;
-`;
+}
 
-export const _CautionTextArea = styled.div`
+.caution-text-area {
   height: 28px;
   font-family: Roboto, sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 28px;
-  color: ${mixins.colors.text};
+  color: var(--text-color);
   text-align: center;
-`;
+}
 
-export const _Notes = styled.div`
+.notes {
   top: 609px;
   height: 96px;
   font-family: Roboto, sans-serif;
@@ -105,40 +105,53 @@ export const _Notes = styled.div`
   font-style: normal;
   font-weight: 400;
   line-height: 24px;
-  color: ${mixins.colors.text};
-`;
+  color: var(--text-color);
+}
 
-export const _DescriptionAreaWrapper = styled.div`
+.description-area-wrapper {
   display: grid;
   gap: 24px;
-`;
+}
 
-export const _PrivacyPolicyArea = styled.div`
+.privacy-policy-area {
   height: 42px;
   font-family: Roboto, sans-serif;
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
   line-height: 21px;
-  color: ${mixins.colors.text};
+  color: var(--text-color);
   text-align: center;
-`;
+}
 
-export const _PrivacyLinkText = styled.span`
+.privacy-link-text {
   height: 42px;
   font-family: Roboto, sans-serif;
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
   line-height: 21px;
-  color: ${mixins.colors.primary};
+  color: var(--primary-color);
   text-align: center;
   text-decoration-line: underline;
   cursor: pointer;
-`;
+}
 
-export const _UploadButtonWrapper = styled.div`
+.upload-button-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
-`;
+}
+
+.fa-cloud-upload-alt {
+  font-style: normal;
+  font-weight: 900;
+  font-size: 42px;
+  line-height: 39px;
+  color: var(--primary-variant-color);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}

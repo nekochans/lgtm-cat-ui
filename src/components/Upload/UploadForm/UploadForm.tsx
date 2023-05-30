@@ -16,7 +16,6 @@ import {
   createPrivacyPolicyLinksFromLanguages,
 } from '../../../features';
 import { isAcceptableFileSize } from '../../../features/lgtmImage';
-import { mixins } from '../../../styles';
 import type {
   AcceptedTypesImageExtension,
   ImageUploader,
@@ -31,22 +30,6 @@ import { UploadModal } from '../UploadModal';
 import { UploadTitleArea } from '../UploadTitleArea';
 
 import {
-  _CautionTextArea,
-  _DescriptionAreaWrapper,
-  _Form,
-  _InputFile,
-  _InputFileArea,
-  _InputFileLabel,
-  _InputFileLabelText,
-  _MaxUploadSizeText,
-  _Notes,
-  _PrivacyLinkText,
-  _PrivacyPolicyArea,
-  _Text,
-  _UploadButtonWrapper,
-  _Wrapper,
-} from './StyledComponents';
-import {
   cautionText,
   createImageSizeTooLargeErrorMessage,
   createNotAllowedImageExtensionErrorMessage,
@@ -55,19 +38,7 @@ import {
   unexpectedErrorMessage,
   uploadInputButtonText,
 } from './i18n';
-
-const faCloudUploadAltStyle = {
-  fontStyle: 'normal',
-  fontWeight: 900,
-  fontSize: '42px',
-  lineHeight: '39px',
-  color: `${mixins.colors.primaryVariant}`,
-  top: 0,
-  bottom: 0,
-  left: 0,
-  right: 0,
-  margin: 'auto',
-};
+import styles from './UploadForm.module.css';
 
 export const createPrivacyPolicyArea = (language: Language): JSX.Element => {
   const privacyLinkAttribute = createPrivacyPolicyLinksFromLanguages(language);
@@ -75,23 +46,27 @@ export const createPrivacyPolicyArea = (language: Language): JSX.Element => {
   switch (language) {
     case 'ja':
       return (
-        <_PrivacyPolicyArea>
+        <div className={styles['privacy-policy-area']}>
           アップロードするボタンを押下することで{' '}
           <Link href={privacyLinkAttribute.link} prefetch={false}>
-            <_PrivacyLinkText>{privacyLinkAttribute.text}</_PrivacyLinkText>
+            <span className={styles['privacy-link-text']}>
+              {privacyLinkAttribute.text}
+            </span>
           </Link>{' '}
           に同意したと見なします
-        </_PrivacyPolicyArea>
+        </div>
       );
     case 'en':
       return (
-        <_PrivacyPolicyArea>
+        <div className={styles['privacy-policy-area']}>
           By pressing the upload button, you agree to the{' '}
           <Link href={privacyLinkAttribute.link} prefetch={false}>
-            <_PrivacyLinkText>{privacyLinkAttribute.text}</_PrivacyLinkText>
+            <span className={styles['privacy-link-text']}>
+              {privacyLinkAttribute.text}
+            </span>
           </Link>{' '}
           .
-        </_PrivacyPolicyArea>
+        </div>
       );
     default:
       return assertNever(language);
@@ -298,7 +273,7 @@ export const UploadForm: FC<Props> = ({
   const { getRootProps } = useDropzone({ onDrop });
 
   return (
-    <_Wrapper>
+    <div className={styles.wrapper}>
       {/* eslint-disable no-magic-numbers */}
       {displayErrorMessages.length === 0 ? (
         ''
@@ -306,38 +281,44 @@ export const UploadForm: FC<Props> = ({
         <UploadErrorMessageArea messages={displayErrorMessages} />
       )}
       <UploadTitleArea language={language} />
-      <_Form>
+      <form className={styles.form}>
         {/* eslint-disable-next-line react/jsx-props-no-spreading */}
-        <div {...getRootProps()}>
-          <_InputFileArea>
-            <FaCloudUploadAlt style={faCloudUploadAltStyle} />
-            <_Text>{imageDropAreaText(language)}</_Text>
-            <_InputFileLabel>
-              <_InputFileLabelText>
-                {uploadInputButtonText(language)}
-              </_InputFileLabelText>
-              <_InputFile type="file" onChange={handleFileUpload} />
-            </_InputFileLabel>
-          </_InputFileArea>
+        <div {...getRootProps()} className={styles['input-file-area']}>
+          <FaCloudUploadAlt className={styles['fa-cloud-upload-alt']} />
+          <div className={styles.text}>{imageDropAreaText(language)}</div>
+          <label className={styles['input-file-label']}>
+            <div className={styles['input-file-label-text']}>
+              {uploadInputButtonText(language)}
+            </div>
+            <input
+              type="file"
+              className={styles['input-file']}
+              onChange={handleFileUpload}
+            />
+          </label>
         </div>
-        <_MaxUploadSizeText>Maximum upload size is 4MB</_MaxUploadSizeText>
-        <_DescriptionAreaWrapper>
-          <_CautionTextArea>{cautionText(language)}</_CautionTextArea>
-          <_Notes>
+        <div className={styles['max-upload-size-text']}>
+          Maximum upload size is 4MB
+        </div>
+        <div className={styles['description-area-wrapper']}>
+          <div className={styles['caution-text-area']}>
+            {cautionText(language)}
+          </div>
+          <div className={styles.notes}>
             {noteList(language).map((note, index) => (
               <p key={index}>{note}</p>
             ))}
-          </_Notes>
+          </div>
           {createPrivacyPolicyArea(language)}
-        </_DescriptionAreaWrapper>
-        <_UploadButtonWrapper>
+        </div>
+        <div className={styles['upload-button-wrapper']}>
           <UploadButton
             language={language}
             disabled={shouldDisableButton()}
             onClick={onClickUploadButton}
           />
-        </_UploadButtonWrapper>
-      </_Form>
+        </div>
+      </form>
       {imagePreviewUrl || createdLgtmImageUrl ? (
         <UploadModal
           isOpen={modalIsOpen}
@@ -356,6 +337,6 @@ export const UploadForm: FC<Props> = ({
       ) : (
         ''
       )}
-    </_Wrapper>
+    </div>
   );
 };
