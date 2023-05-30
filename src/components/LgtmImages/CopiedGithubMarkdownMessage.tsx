@@ -1,28 +1,5 @@
 import type { FC } from 'react';
-import styled, { css } from 'styled-components';
-import { mixins } from '../../styles';
-
-const baseCss = css`
-  position: absolute;
-  left: 50%;
-  padding: 3%;
-  color: ${mixins.colors.white};
-  text-align: center;
-  background: rgba(0, 0, 0, 0.8);
-  border-radius: 30px;
-  transform: translate(-50%, 0);
-`;
-
-const _DefaultWrapper = styled.div`
-  ${baseCss};
-  bottom: 30%;
-`;
-
-const _UpperWrapper = styled.div`
-  ${baseCss};
-  top: 15%;
-  opacity: 0.5;
-`;
+import styles from './CopiedGithubMarkdownMessage.module.css';
 
 type Props = {
   position?: 'default' | 'upper';
@@ -36,9 +13,9 @@ export const CopiedGithubMarkdownMessage: FC<Props> = ({
   return (
     <>
       {position === 'default' ? (
-        <_DefaultWrapper>{text}</_DefaultWrapper>
+        <div className={`${styles.base} ${styles.default}`}>{text}</div>
       ) : (
-        <_UpperWrapper>{text}</_UpperWrapper>
+        <div className={`${styles.base} ${styles.upper}`}>{text}</div>
       )}
     </>
   );
