@@ -1,5 +1,4 @@
 import type { FC, MouseEventHandler, ReactNode } from 'react';
-import styled from 'styled-components';
 import { LibraryBooks } from '../../components';
 import { MarkdownPageTitle } from '../../components/MarkdownPageTitle';
 import {
@@ -7,9 +6,9 @@ import {
   createTermsOfUseLinksFromLanguages,
 } from '../../features';
 import { ResponsiveLayout } from '../../layouts';
-import { mixins } from '../../styles';
 import type { Language } from '../../types';
 import { assertNever } from '../../utils';
+import styles from './TermsOrPrivacyTemplate.module.css';
 
 export type TemplateType = 'terms' | 'privacy';
 
@@ -23,31 +22,6 @@ const createTitle = (type: TemplateType, language: Language): string => {
       return assertNever(type);
   }
 };
-
-const _Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  align-items: center;
-  justify-content: center;
-`;
-
-const _ChildrenWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  max-width: 750px;
-  font-family: Roboto, sans-serif;
-  font-size: 20px;
-  font-style: normal;
-  line-height: 25px;
-  text-align: left;
-  overflow-wrap: normal;
-  list-style-position: inside;
-  @media (max-width: ${mixins.mediaQuerySize.default}) {
-    max-width: 380px;
-  }
-`;
 
 type Props = {
   type: TemplateType;
@@ -79,11 +53,11 @@ export const TermsOrPrivacyTemplate: FC<Props> = ({
         onClickLanguageButton={onClickLanguageButton}
         currentUrlPath={currentUrlPath}
       >
-        <_Wrapper>
+        <div className={styles.wrapper}>
           <MarkdownPageTitle text={createTitle(type, language)} />
           <LibraryBooks />
-          <_ChildrenWrapper>{children}</_ChildrenWrapper>
-        </_Wrapper>
+          <div className={styles['children-wrapper']}>{children}</div>
+        </div>
       </ResponsiveLayout>
     </div>
   );
