@@ -1,86 +1,7 @@
 import type { FC } from 'react';
-import styled from 'styled-components';
-import { mixins } from '../../../styles';
 import type { Language } from '../../../types';
 import { assertNever } from '../../../utils';
-
-const _Wrapper = styled.div`
-  display: flex;
-  flex: none;
-  flex-direction: row;
-  flex-grow: 0;
-  gap: 20px;
-  align-items: center;
-  justify-content: center;
-  order: 1;
-  padding: 0;
-`;
-
-const _CancelButton = styled.button`
-  box-sizing: border-box;
-  display: flex;
-  flex: none;
-  flex-direction: row;
-  flex-grow: 0;
-  gap: 10px;
-  align-items: center;
-  justify-content: center;
-  order: 0;
-  padding: 12px 20px;
-  background: ${mixins.colors.background};
-  border: 1px solid ${mixins.colors.subText};
-  border-radius: 4px;
-  &:hover {
-    opacity: 0.8;
-  }
-`;
-
-const _CancelButtonText = styled.div`
-  flex: none;
-  flex-grow: 0;
-  order: 0;
-  font-family: Roboto, sans-serif;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 19px;
-  color: ${mixins.colors.primaryVariant};
-  &:hover {
-    opacity: 0.8;
-  }
-`;
-
-const _UploadButton = styled.button`
-  display: flex;
-  flex: none;
-  flex-direction: row;
-  flex-grow: 0;
-  gap: 10px;
-  align-items: center;
-  justify-content: center;
-  order: 1;
-  padding: 7px 20px;
-  background: ${mixins.colors.primary};
-  border-radius: 4px;
-  &:hover {
-    opacity: 0.8;
-  }
-`;
-
-const _UploadButtonText = styled.div`
-  flex: none;
-  flex-grow: 0;
-  order: 0;
-  font-family: Roboto, sans-serif;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 18px;
-  color: ${mixins.colors.white};
-  &:hover {
-    opacity: 0.8;
-  }
-`;
+import styles from './ButtonGroup.module.css';
 
 const cancelButtonText = (language: Language): string => {
   switch (language) {
@@ -115,12 +36,16 @@ export const ButtonGroup: FC<Props> = ({
   onClickUpload,
   onClickCancel,
 }) => (
-  <_Wrapper>
-    <_CancelButton onClick={onClickCancel}>
-      <_CancelButtonText>{cancelButtonText(language)}</_CancelButtonText>
-    </_CancelButton>
-    <_UploadButton onClick={onClickUpload}>
-      <_UploadButtonText>{uploadButtonText(language)}</_UploadButtonText>
-    </_UploadButton>
-  </_Wrapper>
+  <div className={styles.wrapper}>
+    <button onClick={onClickCancel} className={styles['cancel-button']}>
+      <div className={styles['cancel-button-text']}>
+        {cancelButtonText(language)}
+      </div>
+    </button>
+    <button onClick={onClickUpload} className={styles['upload-button']}>
+      <div className={styles['upload-button-text']}>
+        {uploadButtonText(language)}
+      </div>
+    </button>
+  </div>
 );
