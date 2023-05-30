@@ -1,17 +1,7 @@
 import type { FC } from 'react';
-import styled from 'styled-components';
-import { mixins } from '../../../styles';
 import { type Language } from '../../../types';
 import { assertNever } from '../../../utils';
-
-const _Wrapper = styled.div`
-  font-family: Roboto, sans-serif;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 28px;
-  color: ${mixins.colors.text};
-`;
+import styles from './UploadTitleArea.module.css';
 
 type Props = {
   language: Language;
@@ -33,5 +23,5 @@ const text = (language: Language): Text => {
 };
 
 export const UploadTitleArea: FC<Props> = ({ language }) => (
-  <_Wrapper>{text(language)}</_Wrapper>
+  <div className={styles.wrapper}>{text(language)}</div>
 );
