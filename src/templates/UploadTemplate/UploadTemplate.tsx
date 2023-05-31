@@ -1,20 +1,10 @@
 import type { FC, ReactNode } from 'react';
-import styled from 'styled-components';
 import { UploadForm } from '../../components';
 import { type AppUrl } from '../../constants';
 import { useSwitchLanguage } from '../../hooks';
 import { ResponsiveLayout } from '../../layouts';
-import { mixins } from '../../styles';
 import type { Language, ImageUploader, ImageValidator } from '../../types';
-
-const _ImageWrapper = styled.div`
-  display: grid;
-  grid-template-columns: 302px 302px 302px;
-  @media (max-width: ${mixins.mediaQuerySize.default}) {
-    grid-template-columns: 302px;
-    justify-content: center;
-  }
-`;
+import styles from './UploadTemplate.module.css';
 
 type Props = {
   language: Language;
@@ -57,7 +47,7 @@ export const UploadTemplate: FC<Props> = ({
           onClickMarkdownSourceCopyButton={onClickMarkdownSourceCopyButton}
           appUrl={appUrl}
         />
-        <_ImageWrapper>{catImage}</_ImageWrapper>
+        <div className={styles['image-wrapper']}>{catImage}</div>
       </ResponsiveLayout>
     </div>
   );
