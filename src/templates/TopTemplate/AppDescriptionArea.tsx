@@ -1,29 +1,7 @@
 import type { FC } from 'react';
-import styled, { css } from 'styled-components';
-
 import type { Language } from '../../types';
 import { assertNever } from '../../utils';
-
-const _Wrapper = styled.div``;
-
-const textStyle = css`
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 28px;
-  color: #43281e;
-  text-align: center;
-`;
-
-const _JaText = styled.div`
-  font-family: Zen Kaku Gothic New, sans-serif;
-  ${textStyle};
-`;
-
-const _EnText = styled.div`
-  font-family: Roboto, sans-serif;
-  ${textStyle};
-`;
+import styles from './AppDescriptionArea.module.css';
 
 const jaUpperSectionText = '猫のLGTM画像を共有出来るサービスです。';
 
@@ -39,17 +17,25 @@ export type Props = {
 };
 
 const JaAppDescriptionArea: FC = () => (
-  <_Wrapper>
-    <_JaText>{jaUpperSectionText}</_JaText>
-    <_JaText>{jaLowerSectionText}</_JaText>
-  </_Wrapper>
+  <div>
+    <div className={`${styles.text} ${styles['ja-text']}`}>
+      {jaUpperSectionText}
+    </div>
+    <div className={`${styles.text} ${styles['ja-text']}`}>
+      {jaLowerSectionText}
+    </div>
+  </div>
 );
 
 const EnAppDescriptionArea: FC = () => (
-  <_Wrapper>
-    <_EnText>{enUpperSectionText}</_EnText>
-    <_EnText>{enLowerSectionText}</_EnText>
-  </_Wrapper>
+  <div>
+    <div className={`${styles.text} ${styles['en-text']}`}>
+      {enUpperSectionText}
+    </div>
+    <div className={`${styles.text} ${styles['en-text']}`}>
+      {enLowerSectionText}
+    </div>
+  </div>
 );
 
 export const AppDescriptionArea: FC<Props> = ({ language }) => {

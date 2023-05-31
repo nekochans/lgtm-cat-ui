@@ -1,5 +1,4 @@
 import type { FC, ReactNode } from 'react';
-import styled from 'styled-components';
 import { useSnapshot } from 'valtio';
 import { ErrorContent, LgtmImages } from '../../components';
 import { CatButtonGroup } from '../../components/Button';
@@ -9,13 +8,7 @@ import { lgtmImageStateSelector } from '../../stores';
 import type { Language, LgtmImage } from '../../types';
 import { AppDescriptionArea } from './AppDescriptionArea';
 import { CatRandomCopyButtonWrapper } from './CatRandomCopyButtonWrapper';
-
-const _Wrapper = styled.div`
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  grid-template-columns: 100%;
-  gap: 32px;
-`;
+import styles from './LgtmImagesContents.module.css';
 
 type Props = {
   language: Language;
@@ -52,7 +45,7 @@ export const LgtmImagesContents: FC<Props> = ({
     ];
 
   return (
-    <_Wrapper>
+    <div className={styles.wrapper}>
       <AppDescriptionArea language={language} />
       <CatRandomCopyButtonWrapper
         appUrl={appUrl}
@@ -77,6 +70,6 @@ export const LgtmImagesContents: FC<Props> = ({
           callback={clipboardMarkdownCallback}
         />
       )}
-    </_Wrapper>
+    </div>
   );
 };
