@@ -1,6 +1,6 @@
 :root {
-  --text-wrapper-background: rgba(54, 46, 43, 0.4);
-  --separator-border: rgba(54, 46, 43, 0.5);
+  --text-wrapper-background: rgb(54 46 43 / 40%);
+  --separator-border: rgb(54 46 43 / 50%);
 }
 
 .wrapper {

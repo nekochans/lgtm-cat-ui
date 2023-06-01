@@ -4,7 +4,7 @@
   padding: 3%;
   color: var(--white-color);
   text-align: center;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgb(0 0 0 / 80%);
   border-radius: 30px;
   transform: translate(-50%, 0);
 }

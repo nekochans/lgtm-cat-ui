@@ -3,12 +3,12 @@
 }
 
 .fa-sync-alt {
+  flex: none;
+  flex-grow: 0;
+  order: 0;
+  font-size: 26px;
   font-style: normal;
   font-weight: 900;
-  font-size: 26px;
   line-height: 26px;
   color: var(--sub-color);
-  flex: none;
-  order: 0;
-  flex-grow: 0;
 }

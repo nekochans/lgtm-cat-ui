@@ -6,7 +6,7 @@
   --sub-variant-color: #fffcf6;
   --text-color: #362e2b;
   --sub-text-color: #8e7e78;
-  --white-color: #ffffff;
+  --white-color: #fff;
   --background-color: #faf9f7;
 }
 
@@ -22,7 +22,7 @@
   padding: 7px 20px;
   cursor: pointer;
   border-radius: 4px;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 4px rgb(0 0 0 / 25%);
 }
 
 .button-base:hover {

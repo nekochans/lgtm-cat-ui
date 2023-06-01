@@ -21,16 +21,16 @@
 }
 
 .icon {
+  flex: none;
+  flex-grow: 0;
+  order: 0;
   width: 498px;
   height: 28px;
+  font-size: 31px;
   font-style: normal;
   font-weight: 900;
-  font-size: 31px;
   line-height: 28px;
   color: var(--primary-color);
-  flex: none;
-  order: 0;
-  flex-grow: 0;
 }
 
 .message-text {
@@ -39,7 +39,7 @@
   order: 1;
   width: 498px;
   height: 56px;
-  font-family: Noto Sans JP, sans-serif;
+  font-family: 'Noto Sans JP', sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 700;

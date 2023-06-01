@@ -3,12 +3,12 @@
 }
 
 .fa-github {
-  font-style: normal;
-  font-weight: 400;
+  flex: none;
+  flex-grow: 0;
+  order: 1;
   width: 26px;
   height: 26px;
+  font-style: normal;
+  font-weight: 400;
   color: var(--sub-color);
-  flex: none;
-  order: 1;
-  flex-grow: 0;
 }
