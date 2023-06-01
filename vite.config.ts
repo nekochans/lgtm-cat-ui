@@ -14,18 +14,11 @@ export default defineConfig({
       fileName: (format) => `index.${format}.js`,
     },
     rollupOptions: {
-      external: [
-        'react',
-        'react-dom',
-        'styled-components',
-        'next/link',
-        'next/image',
-      ],
+      external: ['react', 'react-dom', 'next/link', 'next/image'],
       output: {
         globals: {
           react: 'React',
           'react-dom': 'ReactDOM',
-          'styled-components': 'styled',
           'next/link': 'Link',
           'next/image': 'Image',
         },

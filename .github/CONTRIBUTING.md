@@ -112,7 +112,7 @@ npm version --no-git-tag-version major
 - メジャーバージョンアップ
   - 後方互換性がない破壊的な変更が行われた場合はメジャーバージョンアップを実施する
     - .e.g. 既存の Component 名を変更した
-    - .e.g. `react` や `styled-components` などの `peerDependencies` に含まれる package をメジャーバージョンアップした場合
+    - .e.g. `react` などの `peerDependencies` に含まれる package をメジャーバージョンアップした場合
 
 リリースには複数の PR を含んでも問題はありませんが、ある程度機能が使えるようになったら細かい単位でのリリースを推奨しております。
 

@@ -41,8 +41,6 @@ Component に関しては基本的にはアトミックデザインでいうと�
 
 Component の内部で React hooks を利用する事は問題ありません。
 
-また Component は `styled-components` で作成しているので、`styled-components` にも依存しています。
-
 一部 `next/image` に依存しているものも存在します。
 
 Component 名と同様のディレクトリ名を作成して `index.ts` を使って外部公開が必要な Component だけを export するようにします。
@@ -92,8 +90,6 @@ Component で利用する画像ファイルを格納します。
 ## styles
 
 共通利用する CSS を格納します。
-
-本プロジェクトでは `styled-components` を利用しているので `import { css } from 'styled-components';` を利用した共通 CSS を格納しています。
 
 ## templates
 
