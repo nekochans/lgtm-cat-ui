@@ -48,16 +48,18 @@ https://vercel.com/docs/runtimes#advanced-usage/advanced-node-js-usage/private-n
 本リポジトリは以下のパッケージに依存しています。
 
 ```bash
-npm install next react react-dom styled-components
+npm install next react react-dom
 ```
 
 利用するバージョンは `package.json` の `peerDependencies` を参照してください。
 
-#### Next.js 側のアプリケーションに styledComponents の設定
+#### Next.js 側のアプリケーションで共通の CSS を読み込む
 
-公式ドキュメントに従い `next.config.js` に styledComponents を利用する為の設定を行います。
+Pages Router を利用している場合は `_app.tsx` に App Router を利用している場合は `RootLayout` が定義してある `src/app/layout.tsx` に以下の `import` を追加します。
 
-https://nextjs.org/docs/advanced-features/compiler#styled-components
+```typescript
+import '@nekochans/lgtm-cat-ui/style.css';
+```
 
 #### 本パッケージのインストール
 
