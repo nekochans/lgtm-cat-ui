@@ -1,17 +1,17 @@
 .button {
-  background: var(--primary-color) url(/src/components/Button/images/slash.png)
-    repeat 0 0/16px auto;
+  background: var(--primary-color)
+    url('/src/components/Button/images/slash.png') repeat 0 0/16px auto;
 }
 
 .fa-cloud-upload-alt {
+  flex: none;
+  flex-grow: 0;
+  order: 0;
+  font-size: 26px;
   font-style: normal;
   font-weight: 900;
-  font-size: 26px;
   line-height: 26px;
   color: var(--sub-color);
-  flex: none;
-  order: 0;
-  flex-grow: 0;
 }
 
 .link {

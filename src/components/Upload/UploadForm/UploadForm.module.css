@@ -144,14 +144,11 @@
 }
 
 .fa-cloud-upload-alt {
+  inset: 0;
+  margin: auto;
+  font-size: 42px;
   font-style: normal;
   font-weight: 900;
-  font-size: 42px;
   line-height: 39px;
   color: var(--primary-variant-color);
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
 }
