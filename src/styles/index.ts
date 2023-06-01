@@ -1,1 +1,0 @@
-export { mixins } from './mixins';

@@ -1,19 +1,8 @@
 import type { FC } from 'react';
-import styled from 'styled-components';
 import type { AppUrl } from '../../constants';
-import { mixins } from '../../styles';
 import type { LgtmImage } from '../../types';
 import { LgtmImageContent } from './LgtmImageContent';
-
-const _Wrapper = styled.div`
-  @media (max-width: ${mixins.mediaQuerySize.default}) {
-    grid-template-columns: 1fr;
-    gap: 10px;
-  }
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 20px;
-`;
+import styles from './LgtmImages.module.css';
 
 type Props = {
   images: LgtmImage[];
@@ -22,7 +11,7 @@ type Props = {
 };
 
 export const LgtmImages: FC<Props> = ({ images, appUrl, callback }) => (
-  <_Wrapper>
+  <div className={styles.wrapper}>
     {images.map((image) => (
       <LgtmImageContent
         id={image.id}
@@ -32,5 +21,5 @@ export const LgtmImages: FC<Props> = ({ images, appUrl, callback }) => (
         callback={callback}
       />
     ))}
-  </_Wrapper>
+  </div>
 );
