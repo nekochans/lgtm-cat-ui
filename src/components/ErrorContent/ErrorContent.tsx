@@ -104,7 +104,7 @@ export const ErrorContent: FC<Props> = ({
 }) => (
   <div className={styles.wrapper}>
     <div className={styles.title}>{createErrorTitleText(type)}</div>
-    <div className={styles.imageWrapper}>{catImage}</div>
+    <div className={styles['image-wrapper']}>{catImage}</div>
     <div className={styles.message}>
       {createErrorMessageText(type, language)}
     </div>
