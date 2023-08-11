@@ -44,23 +44,6 @@ const imageUploader: ImageUploader = async (
   });
 };
 
-// eslint-disable-next-line no-console
-const uploadCallback: () => void = () => {
-  console.log('uploadCallback executed!');
-};
-
-const onClickCreatedLgtmImage: () => void = () =>
-  // eslint-disable-next-line no-console
-  {
-    console.log('onClickCreatedLgtmImage executed!');
-  };
-
-const onClickMarkdownSourceCopyButton: () => void = () =>
-  // eslint-disable-next-line no-console
-  {
-    console.log('onClickMarkdownSourceCopyButton executed!');
-  };
-
 const appUrl = 'http://localhost:2222';
 
 const meta: Meta<typeof UploadTemplate> = {
