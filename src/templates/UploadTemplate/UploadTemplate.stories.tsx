@@ -44,27 +44,17 @@ const imageUploader: ImageUploader = async (
   });
 };
 
-// eslint-disable-next-line no-console
-const uploadCallback: () => void = () => {
-  console.log('uploadCallback executed!');
-};
-
-const onClickCreatedLgtmImage: () => void = () =>
-  // eslint-disable-next-line no-console
-  {
-    console.log('onClickCreatedLgtmImage executed!');
-  };
-
-const onClickMarkdownSourceCopyButton: () => void = () =>
-  // eslint-disable-next-line no-console
-  {
-    console.log('onClickMarkdownSourceCopyButton executed!');
-  };
-
 const appUrl = 'http://localhost:2222';
 
 const meta: Meta<typeof UploadTemplate> = {
   component: UploadTemplate,
+  argTypes: {
+    uploadCallback: { action: 'uploadCallback executed' },
+    onClickCreatedLgtmImage: { action: 'CreatedLgtmImage Clicked' },
+    onClickMarkdownSourceCopyButton: {
+      action: 'MarkdownSourceCopyButton Clicked',
+    },
+  },
 };
 
 export default meta;
@@ -77,9 +67,6 @@ export const ViewInJapanese: Story = {
     imageValidator,
     imageUploader,
     catImage: <CatImage />,
-    uploadCallback,
-    onClickCreatedLgtmImage,
-    onClickMarkdownSourceCopyButton,
     appUrl,
   },
 };
@@ -90,9 +77,6 @@ export const ViewInEnglish: Story = {
     imageValidator,
     imageUploader,
     catImage: <CatImage />,
-    uploadCallback,
-    onClickCreatedLgtmImage,
-    onClickMarkdownSourceCopyButton,
     appUrl,
   },
 };
