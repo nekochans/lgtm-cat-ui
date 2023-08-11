@@ -12,6 +12,13 @@ import { UploadForm } from '.';
 
 const meta: Meta<typeof UploadForm> = {
   component: UploadForm,
+  argTypes: {
+    uploadCallback: { action: 'uploadCallback executed' },
+    onClickCreatedLgtmImage: { action: 'CreatedLgtmImage Clicked' },
+    onClickMarkdownSourceCopyButton: {
+      action: 'MarkdownSourceCopyButton Clicked',
+    },
+  },
 };
 
 export default meta;
@@ -88,31 +95,11 @@ const throwErrorImageUploader: ImageUploader = async (
   throw new Error('throwErrorImageUploader');
 };
 
-// eslint-disable-next-line no-console
-const uploadCallback: () => void = () => {
-  console.log('uploadCallback executed!');
-};
-
-const onClickCreatedLgtmImage: () => void = () =>
-  // eslint-disable-next-line no-console
-  {
-    console.log('onClickCreatedLgtmImage executed!');
-  };
-
-const onClickMarkdownSourceCopyButton: () => void = () =>
-  // eslint-disable-next-line no-console
-  {
-    console.log('onClickMarkdownSourceCopyButton executed!');
-  };
-
 export const ViewInJapanese: Story = {
   args: {
     language: 'ja',
     imageValidator,
     imageUploader,
-    uploadCallback,
-    onClickCreatedLgtmImage,
-    onClickMarkdownSourceCopyButton,
   },
 };
 
@@ -121,9 +108,6 @@ export const ViewInJapaneseWithReturnFalseImageValidator: Story = {
     language: 'ja',
     imageValidator: returnFalseImageValidator,
     imageUploader,
-    uploadCallback,
-    onClickCreatedLgtmImage,
-    onClickMarkdownSourceCopyButton,
   },
 };
 
@@ -132,9 +116,6 @@ export const ViewInJapaneseWithImageUploaderWithErrors: Story = {
     language: 'ja',
     imageValidator,
     imageUploader: imageUploaderWithErrors,
-    uploadCallback,
-    onClickCreatedLgtmImage,
-    onClickMarkdownSourceCopyButton,
   },
 };
 
@@ -143,9 +124,6 @@ export const ViewInJapaneseWithThrowErrorImageValidator: Story = {
     language: 'ja',
     imageValidator: throwErrorImageValidator,
     imageUploader,
-    uploadCallback,
-    onClickCreatedLgtmImage,
-    onClickMarkdownSourceCopyButton,
   },
 };
 
@@ -154,9 +132,6 @@ export const ViewInJapaneseWithThrowErrorImageUploader: Story = {
     language: 'ja',
     imageValidator,
     imageUploader: throwErrorImageUploader,
-    uploadCallback,
-    onClickCreatedLgtmImage,
-    onClickMarkdownSourceCopyButton,
   },
 };
 
@@ -165,9 +140,6 @@ export const ViewInEnglish: Story = {
     language: 'en',
     imageValidator,
     imageUploader,
-    uploadCallback,
-    onClickCreatedLgtmImage,
-    onClickMarkdownSourceCopyButton,
   },
 };
 
@@ -176,9 +148,6 @@ export const ViewInEnglishWithReturnFalseImageValidator: Story = {
     language: 'en',
     imageValidator: returnFalseImageValidator,
     imageUploader,
-    uploadCallback,
-    onClickCreatedLgtmImage,
-    onClickMarkdownSourceCopyButton,
   },
 };
 
@@ -187,9 +156,6 @@ export const ViewInEnglishWithImageUploaderWithErrors: Story = {
     language: 'en',
     imageValidator,
     imageUploader: imageUploaderWithErrors,
-    uploadCallback,
-    onClickCreatedLgtmImage,
-    onClickMarkdownSourceCopyButton,
   },
 };
 
@@ -198,9 +164,6 @@ export const ViewInEnglishWithThrowErrorImageValidator: Story = {
     language: 'en',
     imageValidator: throwErrorImageValidator,
     imageUploader,
-    uploadCallback,
-    onClickCreatedLgtmImage,
-    onClickMarkdownSourceCopyButton,
   },
 };
 
@@ -209,8 +172,5 @@ export const ViewInEnglishWithThrowErrorImageUploader: Story = {
     language: 'en',
     imageValidator,
     imageUploader: throwErrorImageUploader,
-    uploadCallback,
-    onClickCreatedLgtmImage,
-    onClickMarkdownSourceCopyButton,
   },
 };

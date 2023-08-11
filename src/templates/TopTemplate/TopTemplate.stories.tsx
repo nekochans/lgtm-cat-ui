@@ -8,6 +8,16 @@ import { TopTemplate } from './.';
 
 const meta: Meta<typeof TopTemplate> = {
   component: TopTemplate,
+  argTypes: {
+    clipboardMarkdownCallback: { action: 'clipboardMarkdownCallback executed' },
+    fetchRandomCatImagesCallback: {
+      action: 'fetchRandomCatImagesCallback executed',
+    },
+    fetchNewArrivalCatImagesCallback: {
+      action: 'fetchNewArrivalCatImagesCallback executed',
+    },
+    catRandomCopyCallback: { action: 'catRandomCopyCallback executed' },
+  },
 };
 
 export default meta;
@@ -170,30 +180,6 @@ const newArrivalCatImagesFetcher: CatImagesFetcher = async () => {
 
 const appUrl = 'http://localhost:2222';
 
-const clipboardMarkdownCallback: () => void = () =>
-  // eslint-disable-next-line no-console
-  {
-    console.log('clipboardMarkdownCallback executed!');
-  };
-
-const fetchRandomCatImagesCallback: () => void = () =>
-  // eslint-disable-next-line no-console
-  {
-    console.log('fetchRandomCatImagesCallback executed!');
-  };
-
-const fetchNewArrivalCatImagesCallback: () => void = () =>
-  // eslint-disable-next-line no-console
-  {
-    console.log('fetchNewArrivalCatImagesCallback executed!');
-  };
-
-const catRandomCopyCallback: () => void = () =>
-  // eslint-disable-next-line no-console
-  {
-    console.log('catRandomCopyCallback executed!');
-  };
-
 // eslint-disable-next-line @typescript-eslint/require-await
 const failureRandomCatImagesFetcher: CatImagesFetcher = async () => {
   throw new Error('failureRandomCatImagesFetcher');
@@ -224,10 +210,6 @@ export const ViewInJapanese: Story = {
     newArrivalCatImagesFetcher,
     errorCatImage: <InternalServerErrorImage />,
     appUrl,
-    clipboardMarkdownCallback,
-    fetchRandomCatImagesCallback,
-    fetchNewArrivalCatImagesCallback,
-    catRandomCopyCallback,
   },
 };
 
@@ -239,10 +221,6 @@ export const ViewInEnglish: Story = {
     newArrivalCatImagesFetcher,
     errorCatImage: <InternalServerErrorImage />,
     appUrl,
-    clipboardMarkdownCallback,
-    fetchRandomCatImagesCallback,
-    fetchNewArrivalCatImagesCallback,
-    catRandomCopyCallback,
   },
 };
 
@@ -254,10 +232,6 @@ export const ViewInJapaneseError: Story = {
     newArrivalCatImagesFetcher: failureNewArrivalCatImagesFetcher,
     errorCatImage: <InternalServerErrorImage />,
     appUrl,
-    clipboardMarkdownCallback,
-    fetchRandomCatImagesCallback,
-    fetchNewArrivalCatImagesCallback,
-    catRandomCopyCallback,
   },
 };
 
@@ -269,9 +243,5 @@ export const ViewInEnglishError: Story = {
     newArrivalCatImagesFetcher: failureNewArrivalCatImagesFetcher,
     errorCatImage: <InternalServerErrorImage />,
     appUrl,
-    clipboardMarkdownCallback,
-    fetchRandomCatImagesCallback,
-    fetchNewArrivalCatImagesCallback,
-    catRandomCopyCallback,
   },
 };

@@ -65,6 +65,13 @@ const appUrl = 'http://localhost:2222';
 
 const meta: Meta<typeof UploadTemplate> = {
   component: UploadTemplate,
+  argTypes: {
+    uploadCallback: { action: 'uploadCallback executed' },
+    onClickCreatedLgtmImage: { action: 'CreatedLgtmImage Clicked' },
+    onClickMarkdownSourceCopyButton: {
+      action: 'MarkdownSourceCopyButton Clicked',
+    },
+  },
 };
 
 export default meta;
@@ -77,9 +84,6 @@ export const ViewInJapanese: Story = {
     imageValidator,
     imageUploader,
     catImage: <CatImage />,
-    uploadCallback,
-    onClickCreatedLgtmImage,
-    onClickMarkdownSourceCopyButton,
     appUrl,
   },
 };
@@ -90,9 +94,6 @@ export const ViewInEnglish: Story = {
     imageValidator,
     imageUploader,
     catImage: <CatImage />,
-    uploadCallback,
-    onClickCreatedLgtmImage,
-    onClickMarkdownSourceCopyButton,
     appUrl,
   },
 };

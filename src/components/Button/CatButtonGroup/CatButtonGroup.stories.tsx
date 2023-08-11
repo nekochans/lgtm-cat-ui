@@ -3,25 +3,16 @@ import { CatButtonGroup } from './';
 
 const meta: Meta<typeof CatButtonGroup> = {
   component: CatButtonGroup,
+  argTypes: {
+    onClickFetchRandomCatButton: { action: 'FetchRandomCatButton Clicked' },
+    onClickFetchNewArrivalCatButton: {
+      action: 'FetchNewArrivalCatButton Clicked',
+    },
+  },
 };
 
 export default meta;
 
 type Story = StoryObj<typeof CatButtonGroup>;
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types,@typescript-eslint/require-await
-const onClickFetchRandomCatButton = async () => {
-  console.log('call onClickFetchRandomCatButton');
-};
-
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types,@typescript-eslint/require-await
-const onClickFetchNewArrivalCatButton = async () => {
-  console.log('call onClickFetchNewArrivalCatButton');
-};
-
-export const Default: Story = {
-  args: {
-    onClickFetchRandomCatButton,
-    onClickFetchNewArrivalCatButton,
-  },
-};
+export const Default: Story = {};
