@@ -16,14 +16,14 @@ export const useSwitchLanguage = (): UseSwitchLanguageResponse => {
 
   const onClickLanguageButton: MouseEventHandler<HTMLDivElement> = (
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    event: MouseEvent<HTMLDivElement>
+    event: MouseEvent<HTMLDivElement>,
   ) => {
     updateIsLanguageMenuDisplayed(!isLanguageMenuDisplayed);
   };
 
   const onClickOutSideMenu: MouseEventHandler<HTMLDivElement> = (
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    event: MouseEvent<HTMLDivElement>
+    event: MouseEvent<HTMLDivElement>,
   ) => {
     // メニューの外側をクリックしたときだけメニューを閉じる
     if (isLanguageMenuDisplayed) {

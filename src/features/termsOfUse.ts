@@ -2,7 +2,7 @@ import type { Language, LinkAttribute } from '../types';
 import { assertNever } from '../utils';
 
 export const createTermsOfUseLinksFromLanguages = (
-  language: Language
+  language: Language,
 ): LinkAttribute => {
   const link = '/terms';
 

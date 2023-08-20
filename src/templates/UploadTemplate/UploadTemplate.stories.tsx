@@ -21,7 +21,7 @@ const CatImage = () => (
 
 const imageValidator: ImageValidator = async (
   image: string,
-  imageExtension: AcceptedTypesImageExtension
+  imageExtension: AcceptedTypesImageExtension,
 ) => {
   await sleep();
 
@@ -33,7 +33,7 @@ const imageValidator: ImageValidator = async (
 
 const imageUploader: ImageUploader = async (
   image: string,
-  imageExtension: AcceptedTypesImageExtension
+  imageExtension: AcceptedTypesImageExtension,
 ) => {
   await sleep();
 

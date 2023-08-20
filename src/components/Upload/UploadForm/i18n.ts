@@ -58,7 +58,7 @@ export const noteList = (language: Language): string[] => {
 
 export const createNotAllowedImageExtensionErrorMessage = (
   fileType: string,
-  language: Language
+  language: Language,
 ): string[] => {
   switch (language) {
     case 'ja':
@@ -77,7 +77,7 @@ export const createNotAllowedImageExtensionErrorMessage = (
 };
 
 export const createImageSizeTooLargeErrorMessage = (
-  language: Language
+  language: Language,
 ): string[] => {
   switch (language) {
     case 'ja':

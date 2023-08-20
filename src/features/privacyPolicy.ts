@@ -2,7 +2,7 @@ import type { Language, LinkAttribute } from '../types';
 import { assertNever } from '../utils';
 
 export const createPrivacyPolicyLinksFromLanguages = (
-  language: Language
+  language: Language,
 ): LinkAttribute => {
   const link = '/privacy';
 

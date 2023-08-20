@@ -43,11 +43,11 @@ const mainMessageText = (language: Language): string => {
   switch (language) {
     case 'ja':
       return `LGTM画像を作成しているので少々お待ち下さい。「${markdownSourceCopyButtonText(
-        language
+        language,
       )}」ボタンか上の画像をクリックするとMarkdownソースがコピーされます。`;
     case 'en':
       return `Please wait a moment while we create the LGTM image. Click on the "${markdownSourceCopyButtonText(
-        language
+        language,
       )}" button or the image above to copy the Markdown source.`;
     default:
       return assertNever(language);
