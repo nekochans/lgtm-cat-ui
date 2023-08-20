@@ -14,7 +14,7 @@
   border: 1px solid var(--primary-color);
 }
 
-@media (max-width: 767px) {
+@media (width <= 767px) {
   .wrapper {
     width: 380px;
   }
@@ -48,7 +48,7 @@
   text-align: center;
 }
 
-@media (max-width: 767px) {
+@media (width <= 767px) {
   .message-text {
     width: 380px;
   }

@@ -4,7 +4,7 @@
   background: var(--white-color);
 }
 
-@media (max-width: 767px) {
+@media (width <= 767px) {
   .wrapper {
     display: flex;
     flex-direction: column;
@@ -21,7 +21,7 @@
   padding: 0;
 }
 
-@media (max-width: 767px) {
+@media (width <= 767px) {
   .button-group {
     flex: none;
     flex-direction: column;

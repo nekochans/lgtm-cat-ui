@@ -16,7 +16,7 @@
   width: 500px;
 }
 
-@media (max-width: 767px) {
+@media (width <= 767px) {
   .form {
     width: 380px;
   }
