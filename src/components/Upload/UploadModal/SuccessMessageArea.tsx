@@ -67,7 +67,7 @@ const descriptionText = (language: Language): string => {
 
 type Props = {
   language: Language;
-  createdLgtmImageUrl: LgtmImageUrl | string;
+  createdLgtmImageUrl: LgtmImageUrl;
   onClickClose?: () => void;
   appUrl?: AppUrl;
   callback?: () => void;

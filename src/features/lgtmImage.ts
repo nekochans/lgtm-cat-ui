@@ -1,4 +1,4 @@
-import type { AcceptedTypesImageExtension } from '../types';
+import type { AcceptedTypesImageExtension, LgtmImageUrl } from '../types';
 import { NotAllowedImageExtensionError } from './errors';
 
 const acceptedTypes: string[] = ['image/png', 'image/jpg', 'image/jpeg'];
@@ -35,4 +35,12 @@ export const isAcceptableFileSize = (file: File): boolean => {
   const size = calculateFileSize(file);
 
   return size <= acceptableSizeThreshold;
+};
+
+export const isLgtmImageUrl = (value: unknown): value is LgtmImageUrl => {
+  if (typeof value !== 'string') {
+    return false;
+  }
+
+  return value.startsWith('https://');
 };
