@@ -7,7 +7,7 @@ import styles from './CreatedLgtmImage.module.css';
 
 type Props = {
   imagePreviewUrl: string;
-  createdLgtmImageUrl: LgtmImageUrl | string;
+  createdLgtmImageUrl: LgtmImageUrl;
   appUrl?: AppUrl;
   callback?: () => void;
 };

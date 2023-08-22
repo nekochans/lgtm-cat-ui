@@ -20,7 +20,7 @@
   list-style-position: inside;
 }
 
-@media (max-width: 767px) {
+@media (width <= 767px) {
   .children-wrapper {
     max-width: 380px;
   }

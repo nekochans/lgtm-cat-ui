@@ -76,7 +76,7 @@ export const TopTemplate: FC<Props> = ({
       }
 
       throw new RandomCatImagesFetcherError(
-        'failed to newArrivalCatImagesFetcher'
+        'failed to newArrivalCatImagesFetcher',
       );
     }
   };

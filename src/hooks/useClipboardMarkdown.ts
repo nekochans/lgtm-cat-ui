@@ -5,7 +5,7 @@ import type { LgtmImageUrl } from '../types';
 
 type Request = {
   onCopySuccess: () => void;
-  imageUrl: LgtmImageUrl | string;
+  imageUrl: LgtmImageUrl;
   appUrl: `http://${string}` | `https://${string}`;
 };
 

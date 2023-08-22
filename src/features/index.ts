@@ -9,7 +9,11 @@ export type { Result, SuccessResult, FailureResult } from './result';
 
 export { errorType, type ErrorType } from './error';
 
-export { isValidFileType, extractImageExtFromValidFileType } from './lgtmImage';
+export {
+  isValidFileType,
+  extractImageExtFromValidFileType,
+  isLgtmImageUrl,
+} from './lgtmImage';
 
 export { createPrivacyPolicyLinksFromLanguages } from './privacyPolicy';
 

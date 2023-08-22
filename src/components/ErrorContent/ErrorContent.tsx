@@ -54,7 +54,7 @@ type ErrorMessageText = JaErrorMessageText | EnErrorMessageText;
 
 const createErrorMessageText = (
   type: ErrorType,
-  language: Language
+  language: Language,
 ): ErrorMessageText => {
   switch (type) {
     case errorType.notFound:

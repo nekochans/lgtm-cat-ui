@@ -12,7 +12,7 @@ const commonState = proxy<CommonState>({
 });
 
 export const updateIsLanguageMenuDisplayed = (
-  isLanguageMenuDisplayed: boolean
+  isLanguageMenuDisplayed: boolean,
 ): void => {
   commonState.isLanguageMenuDisplayed = isLanguageMenuDisplayed;
 };

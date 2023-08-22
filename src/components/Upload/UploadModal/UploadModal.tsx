@@ -17,7 +17,7 @@ export type Props = {
   onClickCancel: () => void;
   onClickClose: () => void;
   isLoading: boolean;
-  createdLgtmImageUrl: LgtmImageUrl | string;
+  createdLgtmImageUrl: LgtmImageUrl;
   uploaded?: boolean;
   onClickCreatedLgtmImage?: () => void;
   onClickMarkdownSourceCopyButton?: () => void;

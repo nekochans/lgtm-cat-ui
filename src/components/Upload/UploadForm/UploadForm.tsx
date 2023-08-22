@@ -14,6 +14,7 @@ import {
   isValidFileType,
   extractImageExtFromValidFileType,
   createPrivacyPolicyLinksFromLanguages,
+  isLgtmImageUrl,
 } from '../../../features';
 import { isAcceptableFileSize } from '../../../features/lgtmImage';
 import type {
@@ -96,15 +97,19 @@ export const UploadForm: FC<Props> = ({
   const [base64Image, setBase64Image] = useState<string>('');
   const [imagePreviewUrl, setImagePreviewUrl] = useState<string>('');
   const [uploadImageExtension, setUploadImageExtension] = useState<
+    // FormをResetする際に空文字を受け付ける必要があるので @typescript-eslint/no-redundant-type-constituents を無効化
+    // eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
     AcceptedTypesImageExtension | string
   >('');
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [uploaded, setUploaded] = useState<boolean>();
   const [createdLgtmImageUrl, setCreatedLgtmImageUrl] = useState<
+    // FormをResetする際に空文字を受け付ける必要があるので @typescript-eslint/no-redundant-type-constituents を無効化
+    // eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
     LgtmImageUrl | string
   >('');
   const [displayErrorMessages, setDisplayErrorMessages] = useState<string[]>(
-    []
+    [],
   );
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -145,7 +150,7 @@ export const UploadForm: FC<Props> = ({
     const fileType = file.type;
     if (!isValidFileType(fileType)) {
       setDisplayErrorMessages(
-        createNotAllowedImageExtensionErrorMessage(fileType, language)
+        createNotAllowedImageExtensionErrorMessage(fileType, language),
       );
       stateInitAtError();
 
@@ -204,7 +209,7 @@ export const UploadForm: FC<Props> = ({
     try {
       const imageValidationResult = await imageValidator(
         base64Image,
-        uploadImageExtension as AcceptedTypesImageExtension
+        uploadImageExtension as AcceptedTypesImageExtension,
       );
 
       if (
@@ -213,7 +218,7 @@ export const UploadForm: FC<Props> = ({
         imageValidationResult.value.notAcceptableReason.length !== 0
       ) {
         setDisplayErrorMessages(
-          imageValidationResult.value.notAcceptableReason
+          imageValidationResult.value.notAcceptableReason,
         );
         stateInitAtError();
 
@@ -222,7 +227,7 @@ export const UploadForm: FC<Props> = ({
 
       const imageUploadResult = await imageUploader(
         base64Image,
-        uploadImageExtension as AcceptedTypesImageExtension
+        uploadImageExtension as AcceptedTypesImageExtension,
       );
 
       setIsLoading(false);
@@ -319,7 +324,7 @@ export const UploadForm: FC<Props> = ({
           />
         </div>
       </form>
-      {imagePreviewUrl || createdLgtmImageUrl ? (
+      {imagePreviewUrl || isLgtmImageUrl(createdLgtmImageUrl) ? (
         <UploadModal
           isOpen={modalIsOpen}
           language={language}
@@ -329,7 +334,7 @@ export const UploadForm: FC<Props> = ({
           onClickClose={onClickClose}
           isLoading={isLoading}
           uploaded={uploaded}
-          createdLgtmImageUrl={createdLgtmImageUrl}
+          createdLgtmImageUrl={createdLgtmImageUrl as LgtmImageUrl}
           onClickCreatedLgtmImage={onClickCreatedLgtmImage}
           onClickMarkdownSourceCopyButton={onClickMarkdownSourceCopyButton}
           appUrl={appUrl}

@@ -12,7 +12,7 @@
   height: 270px;
 }
 
-@media (max-width: 767px) {
+@media (width <= 767px) {
   .image {
     max-width: 355px;
   }

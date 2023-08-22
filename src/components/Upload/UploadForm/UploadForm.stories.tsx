@@ -27,7 +27,7 @@ type Story = StoryObj<typeof UploadForm>;
 
 const imageValidator: ImageValidator = async (
   image: string,
-  imageExtension: AcceptedTypesImageExtension
+  imageExtension: AcceptedTypesImageExtension,
 ) => {
   await sleep();
 
@@ -39,7 +39,7 @@ const imageValidator: ImageValidator = async (
 
 const returnFalseImageValidator: ImageValidator = async (
   image: string,
-  imageExtension: AcceptedTypesImageExtension
+  imageExtension: AcceptedTypesImageExtension,
 ) => {
   await sleep();
 
@@ -53,7 +53,7 @@ const returnFalseImageValidator: ImageValidator = async (
 
 const throwErrorImageValidator: ImageValidator = async (
   image: string,
-  imageExtension: AcceptedTypesImageExtension
+  imageExtension: AcceptedTypesImageExtension,
 ) => {
   await sleep();
 
@@ -62,7 +62,7 @@ const throwErrorImageValidator: ImageValidator = async (
 
 const imageUploader: ImageUploader = async (
   image: string,
-  imageExtension: AcceptedTypesImageExtension
+  imageExtension: AcceptedTypesImageExtension,
 ) => {
   await sleep();
 
@@ -75,7 +75,7 @@ const imageUploader: ImageUploader = async (
 
 const imageUploaderWithErrors: ImageUploader = async (
   image: string,
-  imageExtension: AcceptedTypesImageExtension
+  imageExtension: AcceptedTypesImageExtension,
 ) => {
   await sleep();
 
@@ -88,7 +88,7 @@ const imageUploaderWithErrors: ImageUploader = async (
 
 const throwErrorImageUploader: ImageUploader = async (
   image: string,
-  imageExtension: AcceptedTypesImageExtension
+  imageExtension: AcceptedTypesImageExtension,
 ) => {
   await sleep();
 

@@ -13,7 +13,7 @@
   padding: 0;
 }
 
-@media (max-width: 767px) {
+@media (width <= 767px) {
   .wrapper {
     right: 0;
   }
