@@ -87,7 +87,6 @@
     "react-modal": "^3.16.1",
     "ress": "^5.0.2",
     "storybook": "^7.3.2",
-    "storybook-css-modules": "^1.0.8",
     "stylelint": "^15.10.3",
     "stylelint-config-prettier": "^9.0.5",
     "stylelint-config-recess-order": "^4.3.0",
