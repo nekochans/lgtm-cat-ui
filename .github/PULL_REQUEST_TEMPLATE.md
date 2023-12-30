@@ -2,7 +2,7 @@
 
 [required]
 
-# Done の定義
+# このPRで対応すること / このPRで対応しないこと
 
 [required]
 
