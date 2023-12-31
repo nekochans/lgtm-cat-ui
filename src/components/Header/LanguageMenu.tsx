@@ -1,5 +1,5 @@
-import type { FC } from 'react';
 import Link from 'next/link';
+import type { FC } from 'react';
 import { FaAngleRight } from 'react-icons/fa';
 import type { Language } from '../../types';
 import styles from './LanguageMenu.module.css';

@@ -1,4 +1,5 @@
 import './styles/globals.css';
+
 export { useSwitchLanguage } from './hooks';
 
 export * from './templates';

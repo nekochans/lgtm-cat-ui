@@ -1,5 +1,4 @@
 import { proxy } from 'valtio';
-
 import type { LgtmImage } from '../../types';
 
 export type LgtmImageState = {

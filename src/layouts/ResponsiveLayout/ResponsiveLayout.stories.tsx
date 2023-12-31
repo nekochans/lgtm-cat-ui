@@ -1,5 +1,5 @@
-import type { FC } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
+import type { FC } from 'react';
 import { ResponsiveLayout } from './';
 
 const meta: Meta<typeof ResponsiveLayout> = {

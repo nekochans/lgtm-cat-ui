@@ -3,7 +3,7 @@ import { UploadForm } from '../../components';
 import { type AppUrl } from '../../constants';
 import { useSwitchLanguage } from '../../hooks';
 import { ResponsiveLayout } from '../../layouts';
-import type { Language, ImageUploader, ImageValidator } from '../../types';
+import type { ImageUploader, ImageValidator, Language } from '../../types';
 import styles from './UploadTemplate.module.css';
 
 type Props = {

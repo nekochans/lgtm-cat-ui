@@ -1,6 +1,5 @@
-import { type MutableRefObject, useEffect, useRef } from 'react';
 import Clipboard from 'clipboard';
-
+import { useEffect, useRef, type MutableRefObject } from 'react';
 import type { LgtmImageUrl } from '../types';
 
 type Request = {

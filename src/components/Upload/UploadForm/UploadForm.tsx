@@ -1,35 +1,34 @@
 /* eslint-disable max-lines */
+import Link from 'next/link';
 import {
-  useState,
   useCallback,
+  useState,
+  type ChangeEvent,
   type FC,
   type FormEvent,
-  type ChangeEvent,
 } from 'react';
-import Link from 'next/link';
 import { useDropzone } from 'react-dropzone';
 import { FaCloudUploadAlt } from 'react-icons/fa';
 import type { AppUrl } from '../../../constants';
 import {
-  isValidFileType,
-  extractImageExtFromValidFileType,
   createPrivacyPolicyLinksFromLanguages,
+  extractImageExtFromValidFileType,
   isLgtmImageUrl,
+  isValidFileType,
 } from '../../../features';
 import { isAcceptableFileSize } from '../../../features/lgtmImage';
 import type {
   AcceptedTypesImageExtension,
   ImageUploader,
   ImageValidator,
-  LgtmImageUrl,
   Language,
+  LgtmImageUrl,
 } from '../../../types';
 import { assertNever } from '../../../utils';
 import { UploadButton } from '../UploadButton';
 import { UploadErrorMessageArea } from '../UploadErrorMessageArea';
 import { UploadModal } from '../UploadModal';
 import { UploadTitleArea } from '../UploadTitleArea';
-
 import {
   cautionText,
   createImageSizeTooLargeErrorMessage,

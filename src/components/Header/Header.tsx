@@ -1,11 +1,11 @@
-import { useState, type FC, type MouseEvent } from 'react';
 import Link from 'next/link';
+import { useState, type FC, type MouseEvent } from 'react';
 import { FaBars } from 'react-icons/fa';
 import Modal from 'react-modal';
 import { GlobalMenu } from '../GlobalMenu';
+import styles from './Header.module.css';
 import { LanguageButton } from './LanguageButton';
 import { LanguageMenu, type Props as LanguageMenuProps } from './LanguageMenu';
-import styles from './Header.module.css';
 
 export type Props = LanguageMenuProps & {
   isLanguageMenuDisplayed: boolean;

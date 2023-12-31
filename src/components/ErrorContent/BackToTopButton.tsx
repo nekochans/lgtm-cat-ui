@@ -1,5 +1,5 @@
-import type { FC } from 'react';
 import Link from 'next/link';
+import type { FC } from 'react';
 import type { Language } from '../../types';
 import { assertNever } from '../../utils';
 import styles from './BackToTopButton.module.css';

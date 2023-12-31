@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import type { Meta, StoryObj } from '@storybook/react';
 import Image from 'next/image';
-
+import { UploadTemplate } from '.';
 import { createSuccessResult } from '../../features';
 import type {
   AcceptedTypesImageExtension,
@@ -9,10 +9,7 @@ import type {
   ImageValidator,
 } from '../../types';
 import { sleep } from '../../utils';
-
 import cat from './images/cat.webp';
-
-import { UploadTemplate } from '.';
 
 const CatImage = () => (
   // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-assignment

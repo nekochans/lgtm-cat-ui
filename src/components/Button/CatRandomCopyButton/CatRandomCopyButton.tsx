@@ -1,4 +1,4 @@
-import type { FC, ComponentProps } from 'react';
+import type { ComponentProps, FC } from 'react';
 import { FaRandom } from 'react-icons/fa';
 import { defaultAppUrl, type AppUrl } from '../../../constants';
 import { useClipboardMarkdown, useCopySuccess } from '../../../hooks';

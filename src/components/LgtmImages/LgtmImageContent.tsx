@@ -1,6 +1,6 @@
-import type { FC } from 'react';
 import Image from 'next/image';
-import { type AppUrl, defaultAppUrl } from '../../constants';
+import type { FC } from 'react';
+import { defaultAppUrl, type AppUrl } from '../../constants';
 import { useClipboardMarkdown, useCopySuccess } from '../../hooks';
 import type { LgtmImage } from '../../types';
 import { CopiedGithubMarkdownMessage } from './CopiedGithubMarkdownMessage';

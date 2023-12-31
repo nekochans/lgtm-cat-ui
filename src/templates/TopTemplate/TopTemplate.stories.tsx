@@ -1,9 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Image from 'next/image';
-
 import internalServerError from '../../images/internal_server_error.webp';
-
-import { type LgtmImage, type CatImagesFetcher } from '../../types';
+import { type CatImagesFetcher, type LgtmImage } from '../../types';
 import { TopTemplate } from './.';
 
 const meta: Meta<typeof TopTemplate> = {

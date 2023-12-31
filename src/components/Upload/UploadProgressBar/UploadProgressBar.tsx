@@ -1,4 +1,4 @@
-import { useState, useEffect, type FC } from 'react';
+import { useEffect, useState, type FC } from 'react';
 import type { Language } from '../../../types';
 import { assertNever } from '../../../utils';
 import styles from './UploadProgressBar.module.css';

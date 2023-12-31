@@ -7,7 +7,7 @@ import {
 import { useSwitchLanguage } from '../../hooks';
 import { ResponsiveLayout } from '../../layouts';
 import { updateIsFailedFetchLgtmImages, updateLgtmImages } from '../../stores';
-import type { Language, CatImagesFetcher, LgtmImage } from '../../types';
+import type { CatImagesFetcher, Language, LgtmImage } from '../../types';
 import { LgtmImagesContents } from './LgtmImagesContents';
 
 type Props = {
