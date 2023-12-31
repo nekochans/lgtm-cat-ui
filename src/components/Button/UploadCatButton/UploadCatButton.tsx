@@ -1,5 +1,5 @@
-import type { FC } from 'react';
 import Link from 'next/link';
+import type { FC } from 'react';
 import { FaCloudUploadAlt } from 'react-icons/fa';
 import type { CustomDataAttrGtmClick } from '../../../types';
 import styles from './UploadCatButton.module.css';

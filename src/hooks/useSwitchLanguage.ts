@@ -1,6 +1,5 @@
 import type { MouseEvent, MouseEventHandler } from 'react';
 import { useSnapshot } from 'valtio';
-
 import { commonStateSelector, updateIsLanguageMenuDisplayed } from '../stores';
 
 type UseSwitchLanguageResponse = {

@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { type LgtmImage } from '../../types';
-
 import { LgtmImages } from './';
 
 const meta: Meta<typeof LgtmImages> = {

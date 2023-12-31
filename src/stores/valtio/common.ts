@@ -1,5 +1,4 @@
 import { proxy } from 'valtio';
-
 import type { Language } from '../../types';
 
 export type CommonState = {

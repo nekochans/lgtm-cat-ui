@@ -1,10 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Image from 'next/image';
-
 import internalServerError from '../../images/internal_server_error.webp';
 import notFound from '../../images/not_found.webp';
 import serviceUnavailable from '../../images/service_unavailable.webp';
-
 import { ErrorTemplate } from './';
 
 const meta: Meta<typeof ErrorTemplate> = {

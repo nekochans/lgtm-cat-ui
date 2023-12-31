@@ -1,11 +1,10 @@
-import type { FC } from 'react';
 import Link from 'next/link';
-import { FaTimes, FaCloudUploadAlt } from 'react-icons/fa';
+import type { FC } from 'react';
+import { FaCloudUploadAlt, FaTimes } from 'react-icons/fa';
 import {
   createPrivacyPolicyLinksFromLanguages,
   createTermsOfUseLinksFromLanguages,
 } from '../../features';
-
 import type { Language } from '../../types';
 import styles from './GlobalMenu.module.css';
 
